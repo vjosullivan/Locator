@@ -63,7 +63,7 @@ class ViewController: UIViewController {
 //let placesClient = GMSPlacesClient()
 //placesClient.lookUpPlaceID(<#T##placeID: String##String#>, callback: <#T##GMSPlaceResultCallback##GMSPlaceResultCallback##(GMSPlace?, Error?) -> Void#>)
 
-extension ViewController: GMSAutocompleteFetcherDelegate {
+extension ViewController: GMSAutocompleteFetcherDelegate, UITableViewDataSource {
     
     func didAutocomplete(with predictions: [GMSAutocompletePrediction]) {
         var results = ""
@@ -89,7 +89,7 @@ extension ViewController: GMSAutocompleteFetcherDelegate {
     }
 }
 
-extension ViewController: UITableViewDataSource {
+extension ViewController /* UITableViewDataSource extension */ {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return places.count
@@ -100,6 +100,31 @@ extension ViewController: UITableViewDataSource {
         cell.textLabel?.text = places[indexPath.row].name
         cell.detailTextLabel?.text = places[indexPath.row].region
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let placesClient = GMSPlacesClient()
+        placesClient.lookUpPlaceID(places[indexPath.row].placeID!) { (place: GMSPlace?, error: Error?) -> Void in
+            if let error = error {
+                print("lookup place id query error: \(error.localizedDescription)")
+                return
+            }
+            
+            let message: String
+            if let place = place {
+                message = "\(place.formattedAddress ?? self.places[indexPath.row].region)\n(\((10 * place.coordinate.latitude).rounded() / 10.0)°N, \((10 * place.coordinate.longitude).rounded() / 10.0)°E)"
+                print("Place name \(place.name)")
+                print("Place address \(place.formattedAddress)")
+                print("Place placeID \(place.placeID)")
+                print("Place attributions \(place.attributions)")
+                print("Coordinates: \(place.coordinate)")
+            } else {
+                message = "\(self.places[indexPath.row].region)\nNo place details found."
+            }
+            let alert = UIAlertController(title: self.places[indexPath.row].name, message: message, preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }
 
