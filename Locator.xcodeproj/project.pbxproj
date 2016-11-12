@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		348BC3411DD1AF3900638D66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348BC3401DD1AF3900638D66 /* AppDelegate.swift */; };
-		348BC3431DD1AF3900638D66 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348BC3421DD1AF3900638D66 /* ViewController.swift */; };
+		348BC3431DD1AF3900638D66 /* LocationFinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348BC3421DD1AF3900638D66 /* LocationFinderViewController.swift */; };
 		348BC3461DD1AF3900638D66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 348BC3441DD1AF3900638D66 /* Main.storyboard */; };
 		348BC3491DD1AF3A00638D66 /* Locator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 348BC3471DD1AF3900638D66 /* Locator.xcdatamodeld */; };
 		348BC34B1DD1AF3A00638D66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 348BC34A1DD1AF3A00638D66 /* Assets.xcassets */; };
@@ -16,6 +16,9 @@
 		348BC3591DD1AF3A00638D66 /* LocatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348BC3581DD1AF3A00638D66 /* LocatorTests.swift */; };
 		348BC3641DD1AF6B00638D66 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 348BC3631DD1AF6B00638D66 /* Podfile */; };
 		B52CD6FBFF14B2F32A23359C /* libPods-Locator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C356B11EB1AD34A8EE3D80C /* libPods-Locator.a */; };
+		F172E53F1DD705A100DDFB8E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E53E1DD705A100DDFB8E /* MainViewController.swift */; };
+		F1D5D2951DD70DED00D9DC1F /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5D2941DD70DED00D9DC1F /* LocationListViewController.swift */; };
+		F1D5D2971DD7304000D9DC1F /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5D2961DD7304000D9DC1F /* Place.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +35,7 @@
 		1CA6C082A0A8C47587CC8ADF /* Pods-Locator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Locator.release.xcconfig"; path = "Pods/Target Support Files/Pods-Locator/Pods-Locator.release.xcconfig"; sourceTree = "<group>"; };
 		348BC33D1DD1AF3900638D66 /* Locator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Locator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		348BC3401DD1AF3900638D66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		348BC3421DD1AF3900638D66 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		348BC3421DD1AF3900638D66 /* LocationFinderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinderViewController.swift; sourceTree = "<group>"; };
 		348BC3451DD1AF3900638D66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		348BC3481DD1AF3A00638D66 /* Locator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Locator.xcdatamodel; sourceTree = "<group>"; };
 		348BC34A1DD1AF3A00638D66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -41,9 +44,12 @@
 		348BC3541DD1AF3A00638D66 /* LocatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		348BC3581DD1AF3A00638D66 /* LocatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocatorTests.swift; sourceTree = "<group>"; };
 		348BC35A1DD1AF3A00638D66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		348BC3631DD1AF6B00638D66 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		348BC3631DD1AF6B00638D66 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4C356B11EB1AD34A8EE3D80C /* libPods-Locator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Locator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		513678032403BEE30CBB3F1F /* Pods-Locator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Locator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Locator/Pods-Locator.debug.xcconfig"; sourceTree = "<group>"; };
+		F172E53E1DD705A100DDFB8E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F1D5D2941DD70DED00D9DC1F /* LocationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
+		F1D5D2961DD7304000D9DC1F /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,12 +96,15 @@
 			isa = PBXGroup;
 			children = (
 				348BC3401DD1AF3900638D66 /* AppDelegate.swift */,
-				348BC3421DD1AF3900638D66 /* ViewController.swift */,
 				348BC3441DD1AF3900638D66 /* Main.storyboard */,
 				348BC34A1DD1AF3A00638D66 /* Assets.xcassets */,
 				348BC34C1DD1AF3A00638D66 /* LaunchScreen.storyboard */,
 				348BC34F1DD1AF3A00638D66 /* Info.plist */,
 				348BC3471DD1AF3900638D66 /* Locator.xcdatamodeld */,
+				F172E53E1DD705A100DDFB8E /* MainViewController.swift */,
+				348BC3421DD1AF3900638D66 /* LocationFinderViewController.swift */,
+				F1D5D2941DD70DED00D9DC1F /* LocationListViewController.swift */,
+				F1D5D2961DD7304000D9DC1F /* Place.swift */,
 			);
 			path = Locator;
 			sourceTree = "<group>";
@@ -174,7 +183,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Vincent O'Sullivan";
 				TargetAttributes = {
 					348BC33C1DD1AF3900638D66 = {
@@ -284,8 +293,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				348BC3491DD1AF3A00638D66 /* Locator.xcdatamodeld in Sources */,
-				348BC3431DD1AF3900638D66 /* ViewController.swift in Sources */,
+				348BC3431DD1AF3900638D66 /* LocationFinderViewController.swift in Sources */,
+				F1D5D2951DD70DED00D9DC1F /* LocationListViewController.swift in Sources */,
+				F1D5D2971DD7304000D9DC1F /* Place.swift in Sources */,
 				348BC3411DD1AF3900638D66 /* AppDelegate.swift in Sources */,
+				F172E53F1DD705A100DDFB8E /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +357,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -395,6 +408,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -497,6 +511,7 @@
 				348BC35F1DD1AF3A00638D66 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		348BC3601DD1AF3A00638D66 /* Build configuration list for PBXNativeTarget "LocatorTests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +520,7 @@
 				348BC3621DD1AF3A00638D66 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
