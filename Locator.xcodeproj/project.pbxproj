@@ -13,12 +13,12 @@
 		348BC3491DD1AF3A00638D66 /* Locator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 348BC3471DD1AF3900638D66 /* Locator.xcdatamodeld */; };
 		348BC34B1DD1AF3A00638D66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 348BC34A1DD1AF3A00638D66 /* Assets.xcassets */; };
 		348BC34E1DD1AF3A00638D66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 348BC34C1DD1AF3A00638D66 /* LaunchScreen.storyboard */; };
-		348BC3591DD1AF3A00638D66 /* LocatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348BC3581DD1AF3A00638D66 /* LocatorTests.swift */; };
 		348BC3641DD1AF6B00638D66 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 348BC3631DD1AF6B00638D66 /* Podfile */; };
 		B52CD6FBFF14B2F32A23359C /* libPods-Locator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C356B11EB1AD34A8EE3D80C /* libPods-Locator.a */; };
 		F172E53F1DD705A100DDFB8E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E53E1DD705A100DDFB8E /* MainViewController.swift */; };
 		F1D5D2951DD70DED00D9DC1F /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5D2941DD70DED00D9DC1F /* LocationListViewController.swift */; };
-		F1D5D2971DD7304000D9DC1F /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5D2961DD7304000D9DC1F /* Place.swift */; };
+		F1D5D29A1DD85B3700D9DC1F /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5D2991DD85B3700D9DC1F /* Place.swift */; };
+		F1D5D29F1DD85DA100D9DC1F /* PlaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5D29E1DD85DA100D9DC1F /* PlaceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,14 +42,14 @@
 		348BC34D1DD1AF3A00638D66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		348BC34F1DD1AF3A00638D66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		348BC3541DD1AF3A00638D66 /* LocatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		348BC3581DD1AF3A00638D66 /* LocatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocatorTests.swift; sourceTree = "<group>"; };
 		348BC35A1DD1AF3A00638D66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		348BC3631DD1AF6B00638D66 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4C356B11EB1AD34A8EE3D80C /* libPods-Locator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Locator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		513678032403BEE30CBB3F1F /* Pods-Locator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Locator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Locator/Pods-Locator.debug.xcconfig"; sourceTree = "<group>"; };
 		F172E53E1DD705A100DDFB8E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F1D5D2941DD70DED00D9DC1F /* LocationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
-		F1D5D2961DD7304000D9DC1F /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		F1D5D2991DD85B3700D9DC1F /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		F1D5D29E1DD85DA100D9DC1F /* PlaceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +95,7 @@
 		348BC33F1DD1AF3900638D66 /* Locator */ = {
 			isa = PBXGroup;
 			children = (
+				F1D5D2981DD85B0000D9DC1F /* model */,
 				348BC3401DD1AF3900638D66 /* AppDelegate.swift */,
 				348BC3441DD1AF3900638D66 /* Main.storyboard */,
 				348BC34A1DD1AF3A00638D66 /* Assets.xcassets */,
@@ -104,7 +105,6 @@
 				F172E53E1DD705A100DDFB8E /* MainViewController.swift */,
 				348BC3421DD1AF3900638D66 /* LocationFinderViewController.swift */,
 				F1D5D2941DD70DED00D9DC1F /* LocationListViewController.swift */,
-				F1D5D2961DD7304000D9DC1F /* Place.swift */,
 			);
 			path = Locator;
 			sourceTree = "<group>";
@@ -112,7 +112,7 @@
 		348BC3571DD1AF3A00638D66 /* LocatorTests */ = {
 			isa = PBXGroup;
 			children = (
-				348BC3581DD1AF3A00638D66 /* LocatorTests.swift */,
+				F1D5D29D1DD85D6B00D9DC1F /* model */,
 				348BC35A1DD1AF3A00638D66 /* Info.plist */,
 			);
 			path = LocatorTests;
@@ -133,6 +133,22 @@
 				1CA6C082A0A8C47587CC8ADF /* Pods-Locator.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		F1D5D2981DD85B0000D9DC1F /* model */ = {
+			isa = PBXGroup;
+			children = (
+				F1D5D2991DD85B3700D9DC1F /* Place.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		F1D5D29D1DD85D6B00D9DC1F /* model */ = {
+			isa = PBXGroup;
+			children = (
+				F1D5D29E1DD85DA100D9DC1F /* PlaceTests.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,8 +311,8 @@
 				348BC3491DD1AF3A00638D66 /* Locator.xcdatamodeld in Sources */,
 				348BC3431DD1AF3900638D66 /* LocationFinderViewController.swift in Sources */,
 				F1D5D2951DD70DED00D9DC1F /* LocationListViewController.swift in Sources */,
-				F1D5D2971DD7304000D9DC1F /* Place.swift in Sources */,
 				348BC3411DD1AF3900638D66 /* AppDelegate.swift in Sources */,
+				F1D5D29A1DD85B3700D9DC1F /* Place.swift in Sources */,
 				F172E53F1DD705A100DDFB8E /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,7 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				348BC3591DD1AF3A00638D66 /* LocatorTests.swift in Sources */,
+				F1D5D29F1DD85DA100D9DC1F /* PlaceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
