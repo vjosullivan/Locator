@@ -18,7 +18,6 @@ class LocationFinderViewController: UIViewController {
     
     var fetcher: GMSAutocompleteFetcher?
     var places = [Place]()
-    let defaults = UserDefaults.standard
 
     let regularFont = UIFont.systemFont(ofSize: UIFont.labelFontSize)
     let boldFont    = UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)
@@ -61,37 +60,14 @@ class LocationFinderViewController: UIViewController {
     }
 
     func found(_ place: GMSPlace) {
-        let placesDataOld = defaults.data(forKey: "places")
-        var places: [Place]
-        if let data = placesDataOld {
-            places = NSKeyedUnarchiver.unarchiveObject(with: data) as! [Place]
-        } else {
-            places = [Place]()
-        }
-        let place = Place(
+        Place.storeAdditionalPlace(Place(
             name: place.name,
             region: place.formattedAddress ?? "",
             placeID: place.placeID,
             latitude: place.coordinate.latitude,
-            longitude: place.coordinate.longitude)
-        places.insert(place, at: 0)
-        let placesDataNew = NSKeyedArchiver.archivedData(withRootObject: places)
-        defaults.set(placesDataNew, forKey: "places")
-        //storePlace(p: place)
+            longitude: place.coordinate.longitude))
 
         performSegue(withIdentifier: "unwindToLocationListVC", sender: nil)
-    }
-
-    fileprivate func retrievePlace() -> Place? {
-        guard let data = UserDefaults.standard.data(forKey: "place") else {
-            return nil
-        }
-        return NSKeyedUnarchiver.unarchiveObject(with: data) as? Place
-    }
-
-    fileprivate func storePlace(p: Place) {
-        let data = NSKeyedArchiver.archivedData(withRootObject: p)
-        UserDefaults.standard.set(data, forKey: "place")
     }
 }
 

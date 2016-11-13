@@ -24,13 +24,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOo-5c-0Np">
-                                <rect key="frame" x="207" y="20" width="160" height="48"/>
+                                <rect key="frame" x="223" y="20" width="144" height="48"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="atV-4P-KZU"/>
+                                    <constraint firstAttribute="width" constant="144" id="atV-4P-KZU"/>
                                     <constraint firstAttribute="height" constant="48" id="fSM-uj-EYn"/>
                                 </constraints>
-                                <state key="normal" title="Add location to list"/>
+                                <state key="normal" title="Add"/>
                                 <connections>
                                     <action selector="addLocation" destination="oWF-zq-eB6" eventType="touchUpInside" id="TdU-vs-nHS"/>
                                 </connections>
@@ -65,6 +65,18 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcS-Ax-RdT">
+                                <rect key="frame" x="8" y="20" width="144" height="48"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="144" id="1Jf-gs-6QG"/>
+                                    <constraint firstAttribute="height" constant="48" id="ec2-Nr-CTg"/>
+                                </constraints>
+                                <state key="normal" title="Clear"/>
+                                <connections>
+                                    <action selector="clearLocations" destination="oWF-zq-eB6" eventType="touchUpInside" id="tIZ-S5-Teq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -74,10 +86,12 @@
                             <constraint firstItem="MOo-5c-0Np" firstAttribute="top" secondItem="81R-ps-Akc" secondAttribute="bottom" id="Nsf-FX-XiM"/>
                             <constraint firstItem="faC-m6-wmc" firstAttribute="top" secondItem="MOo-5c-0Np" secondAttribute="bottom" constant="8" id="c1P-ZB-2Y0"/>
                             <constraint firstItem="5Ng-xv-0qU" firstAttribute="top" secondItem="faC-m6-wmc" secondAttribute="bottom" constant="8" id="r34-o3-vWV"/>
+                            <constraint firstItem="zcS-Ax-RdT" firstAttribute="leading" secondItem="tot-Ad-Vff" secondAttribute="leading" constant="8" id="t6W-Ss-xxD"/>
+                            <constraint firstItem="zcS-Ax-RdT" firstAttribute="top" secondItem="81R-ps-Akc" secondAttribute="bottom" id="vgc-Hw-YUA"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="locations" destination="faC-m6-wmc" id="dAS-iP-3z7"/>
+                        <outlet property="uiPlaces" destination="faC-m6-wmc" id="jFM-HT-iCV"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="segueToLocationFinder" id="JQG-Us-PLe"/>
                         <segue destination="HbS-at-Wbl" kind="unwind" identifier="unwindToMainVC" unwindAction="unwindToMainVCWithSegue:" id="TeC-pJ-MQB"/>
                     </connections>

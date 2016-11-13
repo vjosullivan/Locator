@@ -17,7 +17,7 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let place = retrievePlace() {
+        if let place = Place.retrieveDefaultPlace() {
             uiPlace.text = "\(place.name)"
             uiWeather.text = "Weather\nfor\n\(place.name)"
         } else {
@@ -35,10 +35,14 @@ class MainViewController: UIViewController {
         performSegue(withIdentifier: "segueToLocationList", sender: nil)
     }
 
+
+    /// Called when unwinding a segue back to this view.
+    ///
+    /// - Parameter segue: The segue being unwound.
+    ///
     @IBAction func unwindToMainVC(segue: UIStoryboardSegue) {
-        print("XX")
         if segue.source is LocationListViewController {
-            if let place = retrievePlace() {
+            if let place = Place.retrieveDefaultPlace() {
                 uiPlace.text = "\(place.name)"
                 uiWeather.text = "Weather\nfor\n\(place.name)"
             } else {
@@ -46,17 +50,5 @@ class MainViewController: UIViewController {
                 uiWeather.text = "Current weather"
             }
         }
-    }
-
-    fileprivate func retrievePlace() -> Place? {
-        guard let data = UserDefaults.standard.data(forKey: "place") else {
-            return nil
-        }
-        return NSKeyedUnarchiver.unarchiveObject(with: data) as? Place
-    }
-
-    fileprivate func storePlace(p: Place) {
-        let data = NSKeyedArchiver.archivedData(withRootObject: p)
-        UserDefaults.standard.set(data, forKey: "place")
     }
 }

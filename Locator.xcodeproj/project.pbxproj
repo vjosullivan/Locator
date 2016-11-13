@@ -95,7 +95,6 @@
 		348BC33F1DD1AF3900638D66 /* Locator */ = {
 			isa = PBXGroup;
 			children = (
-				F1D5D2981DD85B0000D9DC1F /* model */,
 				348BC3401DD1AF3900638D66 /* AppDelegate.swift */,
 				348BC3441DD1AF3900638D66 /* Main.storyboard */,
 				348BC34A1DD1AF3A00638D66 /* Assets.xcassets */,
@@ -105,6 +104,7 @@
 				F172E53E1DD705A100DDFB8E /* MainViewController.swift */,
 				348BC3421DD1AF3900638D66 /* LocationFinderViewController.swift */,
 				F1D5D2941DD70DED00D9DC1F /* LocationListViewController.swift */,
+				F1D5D2981DD85B0000D9DC1F /* model */,
 			);
 			path = Locator;
 			sourceTree = "<group>";

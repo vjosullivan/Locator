@@ -10,17 +10,17 @@ import UIKit
 
 class LocationListViewController: UIViewController, UITableViewDataSource {
 
-    @IBOutlet weak var locations: UITableView!
+    @IBOutlet weak var uiPlaces: UITableView!
     var places = [Place]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        locations.delegate   = self
-        locations.dataSource = self
+        uiPlaces.delegate   = self
+        uiPlaces.dataSource = self
         //locations.setEditing(true, animated: true)
 
-        places = retrievePlaces()
+        places = Place.retrieveAllPlaces()
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,35 +32,18 @@ class LocationListViewController: UIViewController, UITableViewDataSource {
         performSegue(withIdentifier: "segueToLocationFinder", sender: nil)
     }
 
+    @IBAction func clearLocations() {
+        Place.clearAllPlaces()
+        places = [Place]()
+        uiPlaces.reloadData()
+    }
+
     @IBAction func unwindToLocationListVC(segue: UIStoryboardSegue) {
         // Here you can receive the parameter(s) from secondVC
         if segue.source is LocationFinderViewController {
-            places = retrievePlaces()
-            locations.reloadData()
+            places = Place.retrieveAllPlaces()
+            uiPlaces.reloadData()
         }
-    }
-
-    fileprivate func retrievePlace() -> Place? {
-        guard let data = UserDefaults.standard.data(forKey: "place") else {
-            return nil
-        }
-        return NSKeyedUnarchiver.unarchiveObject(with: data) as? Place
-    }
-
-    fileprivate func storePlace(p: Place) {
-        let data = NSKeyedArchiver.archivedData(withRootObject: p)
-        UserDefaults.standard.set(data, forKey: "place")
-    }
-
-    fileprivate func retrievePlaces() -> [Place] {
-        guard let data = UserDefaults.standard.data(forKey: "places") else {
-            return [Place]()
-        }
-        return NSKeyedUnarchiver.unarchiveObject(with: data) as! [Place]
-    }
-
-    fileprivate func storePlaces() {
-        UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: places), forKey: "places")
     }
 }
 
@@ -68,13 +51,13 @@ extension LocationListViewController /*: UITableViewDataSource */ {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard indexPath.row > 0 else {
-            UserDefaults.standard.set(nil, forKey: "place")
+            Place.clearDefaultPlace()
             self.performSegue(withIdentifier: "unwindToMainVC", sender: self)
             return
         }
         let place = places[indexPath.row - 1]
         print(place.name)
-        storePlace(p: place)
+        Place.storeDefaultPlace(place)
         self.performSegue(withIdentifier: "unwindToMainVC", sender: self)
     }
     
@@ -98,8 +81,8 @@ extension LocationListViewController /*: UITableViewDataSource */ {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             places.remove(at: indexPath.row - 1)
-            storePlaces()
-            locations.reloadData()
+            Place.storeAllPlaces(places)
+            uiPlaces.reloadData()
         }
     }
 
@@ -125,8 +108,8 @@ extension LocationListViewController /*: UITableViewDataSource */ {
         let place = places[sourceIndexPath.row - 1]
         places.remove(at: sourceIndexPath.row - 1)
         places.insert(place, at: destinationIndexPath.row - 1)
-        storePlaces()
-        locations.reloadData()
+        Place.storeAllPlaces(places)
+        uiPlaces.reloadData()
     }
 }
 
