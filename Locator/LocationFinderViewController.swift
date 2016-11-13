@@ -112,24 +112,18 @@ extension LocationFinderViewController /* UITableViewDataSource extension */ {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let placesClient = GMSPlacesClient()
-        placesClient.lookUpPlaceID(places[indexPath.row].placeID) { (place: GMSPlace?, error: Error?) -> Void in
+        let placeID = places[indexPath.row].placeID
+        placesClient.lookUpPlaceID(placeID) { (place: GMSPlace?, error: Error?) -> Void in
             if let error = error {
                 print("lookup place id query error: \(error.localizedDescription)")
                 return
             }
-            
-            let message: String
-            let handler: ((UIAlertAction) -> Void)?
             if let place = place {
-                message = "\(place.formattedAddress ?? self.places[indexPath.row].region)\n(\((10 * place.coordinate.latitude).rounded() / 10.0)°N, \((10 * place.coordinate.longitude).rounded() / 10.0)°E)"
-                handler = { UIAlertAction in self.found(place) }
+                self.found(place)
             } else {
-                message = "\(self.places[indexPath.row].region)\nNo place details found."
-                handler = nil
+                print("Place with ID \(placeID) not found.")
+                return
             }
-            let alert = UIAlertController(title: self.places[indexPath.row].name, message: message, preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: handler))
-            self.present(alert, animated: true, completion: nil)
         }
     }
 }
