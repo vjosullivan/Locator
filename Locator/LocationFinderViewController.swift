@@ -30,24 +30,29 @@ class LocationFinderViewController: UIViewController {
         
         self.view.backgroundColor = UIColor.white
         self.edgesForExtendedLayout = []
-        
-        let neBoundsCorner = CLLocationCoordinate2D(latitude: 51.4, longitude: -1.1)
-        let swBoundsCorner = CLLocationCoordinate2D(latitude: 51.2, longitude: -0.9)
-        let bounds = GMSCoordinateBounds(coordinate: neBoundsCorner, coordinate: swBoundsCorner)
-        
-        // Set up the autocomplete filter.
-        let filter = GMSAutocompleteFilter()
-        filter.type = GMSPlacesAutocompleteTypeFilter.region
-        
+
         // Create the fetcher.
-        fetcher = GMSAutocompleteFetcher(bounds: bounds, filter: filter)
-        fetcher?.delegate = self
+        fetcher = configureFetcher()
 
         textField.becomeFirstResponder()
         textField?.addTarget(self, action: #selector(LocationFinderViewController.textFieldDidChange(textField:)), for: .editingChanged)
         
         resultText?.text = "No Results"
         resultText?.isEditable = false
+    }
+
+    func configureFetcher() -> GMSAutocompleteFetcher {
+        // Set up the autocomplete filter.
+        let filter = GMSAutocompleteFilter()
+        filter.type = GMSPlacesAutocompleteTypeFilter.region
+
+        let neBoundsCorner = CLLocationCoordinate2D(latitude: 51.4, longitude: -1.1)
+        let swBoundsCorner = CLLocationCoordinate2D(latitude: 51.2, longitude: -0.9)
+        let bounds = GMSCoordinateBounds(coordinate: neBoundsCorner, coordinate: swBoundsCorner)
+
+        let fetcher = GMSAutocompleteFetcher(bounds: bounds, filter: filter)
+        fetcher.delegate = self
+        return fetcher
     }
 
     func textFieldDidChange(textField: UITextField) {
@@ -60,7 +65,7 @@ class LocationFinderViewController: UIViewController {
     }
 
     func found(_ place: GMSPlace) {
-        Place.storeAdditionalPlace(Place(
+        PlaceManager().add(Place(
             name: place.name,
             region: place.formattedAddress ?? "",
             placeID: place.placeID,

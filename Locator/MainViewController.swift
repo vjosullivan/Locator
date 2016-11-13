@@ -13,17 +13,10 @@ class MainViewController: UIViewController {
     @IBOutlet weak var uiPlace: UILabel!
     @IBOutlet weak var uiWeather: UILabel!
 
-    var place: Place? = nil
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let place = Place.retrieveDefaultPlace() {
-            uiPlace.text = "\(place.name)"
-            uiWeather.text = "Weather\nfor\n\(place.name)"
-        } else {
-            uiPlace.text = "Current location"
-            uiWeather.text = "Current weather"
-        }
+
+        updateWeather()
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,20 +28,23 @@ class MainViewController: UIViewController {
         performSegue(withIdentifier: "segueToLocationList", sender: nil)
     }
 
-
     /// Called when unwinding a segue back to this view.
     ///
     /// - Parameter segue: The segue being unwound.
     ///
     @IBAction func unwindToMainVC(segue: UIStoryboardSegue) {
         if segue.source is LocationListViewController {
-            if let place = Place.retrieveDefaultPlace() {
-                uiPlace.text = "\(place.name)"
-                uiWeather.text = "Weather\nfor\n\(place.name)"
-            } else {
-                uiPlace.text = "Current location"
-                uiWeather.text = "Current weather"
-            }
+            updateWeather()
+        }
+    }
+
+    fileprivate func updateWeather() {
+        if let place = PlaceManager.retrieveDefaultPlace() {
+            uiPlace.text = "\(place.name)"
+            uiWeather.text = "Weather\nfor\n\(place.name)"
+        } else {
+            uiPlace.text = "Current location"
+            uiWeather.text = "Current weather"
         }
     }
 }

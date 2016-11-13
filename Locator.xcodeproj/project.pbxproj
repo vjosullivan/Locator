@@ -19,6 +19,7 @@
 		F1D5D2951DD70DED00D9DC1F /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5D2941DD70DED00D9DC1F /* LocationListViewController.swift */; };
 		F1D5D29A1DD85B3700D9DC1F /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5D2991DD85B3700D9DC1F /* Place.swift */; };
 		F1D5D29F1DD85DA100D9DC1F /* PlaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5D29E1DD85DA100D9DC1F /* PlaceTests.swift */; };
+		F1D5D2A31DD8982400D9DC1F /* PlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5D2A21DD8982400D9DC1F /* PlaceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		F1D5D2941DD70DED00D9DC1F /* LocationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
 		F1D5D2991DD85B3700D9DC1F /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		F1D5D29E1DD85DA100D9DC1F /* PlaceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTests.swift; sourceTree = "<group>"; };
+		F1D5D2A21DD8982400D9DC1F /* PlaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				F1D5D2991DD85B3700D9DC1F /* Place.swift */,
+				F1D5D2A21DD8982400D9DC1F /* PlaceManager.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				348BC3431DD1AF3900638D66 /* LocationFinderViewController.swift in Sources */,
 				F1D5D2951DD70DED00D9DC1F /* LocationListViewController.swift in Sources */,
 				348BC3411DD1AF3900638D66 /* AppDelegate.swift in Sources */,
+				F1D5D2A31DD8982400D9DC1F /* PlaceManager.swift in Sources */,
 				F1D5D29A1DD85B3700D9DC1F /* Place.swift in Sources */,
 				F172E53F1DD705A100DDFB8E /* MainViewController.swift in Sources */,
 			);
