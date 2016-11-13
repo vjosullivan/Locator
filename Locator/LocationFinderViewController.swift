@@ -32,7 +32,6 @@ class LocationFinderViewController: UIViewController {
         self.view.backgroundColor = UIColor.white
         self.edgesForExtendedLayout = []
         
-        // Set bounds to inner-west Sydney Australia.
         let neBoundsCorner = CLLocationCoordinate2D(latitude: 51.4, longitude: -1.1)
         let swBoundsCorner = CLLocationCoordinate2D(latitude: 51.2, longitude: -0.9)
         let bounds = GMSCoordinateBounds(coordinate: neBoundsCorner, coordinate: swBoundsCorner)

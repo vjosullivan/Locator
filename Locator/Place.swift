@@ -44,12 +44,4 @@ class Place: NSCoder {
         _aCoder.encode(latitude, forKey: "latitude")
         _aCoder.encode(longitude, forKey: "longitude")
     }
-
-    func encode(_aCoder: NSCoder) {
-        _aCoder.encode(name, forKey: "name")
-        _aCoder.encode(region, forKey: "region")
-        _aCoder.encode(placeID, forKey: "placeID")
-        _aCoder.encode(latitude, forKey: "latitude")
-        _aCoder.encode(longitude, forKey: "longitude")
-    }
 }
