@@ -67,6 +67,7 @@ class PlaceManager {
     }
 
     func add(_ place: Place) {
+        places = places.filter{ $0 != place }
         places.insert(place, at: 0)
         PlaceManager.storeAllPlaces(places)
     }

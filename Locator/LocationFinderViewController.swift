@@ -12,7 +12,6 @@ import GooglePlaces
 class LocationFinderViewController: UIViewController {
 
     @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var resultText: UITextView!
     
     @IBOutlet weak var placeTable: UITableView!
     
@@ -36,9 +35,6 @@ class LocationFinderViewController: UIViewController {
 
         textField.becomeFirstResponder()
         textField?.addTarget(self, action: #selector(LocationFinderViewController.textFieldDidChange(textField:)), for: .editingChanged)
-        
-        resultText?.text = "No Results"
-        resultText?.isEditable = false
     }
 
     func configureFetcher() -> GMSAutocompleteFetcher {
@@ -90,7 +86,6 @@ extension LocationFinderViewController: GMSAutocompleteFetcherDelegate, UITableV
                 latitude: 0.0,
                 longitude: 0.0))
         }
-        resultText?.text = results
         DispatchQueue.main.async{
             self.placeTable.reloadData()
         }
@@ -98,7 +93,6 @@ extension LocationFinderViewController: GMSAutocompleteFetcherDelegate, UITableV
     
     func didFailAutocompleteWithError(_ error: Error) {
         print("F")
-        resultText?.text = error.localizedDescription
     }
 }
 
