@@ -13,6 +13,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var uiPlace: UILabel!
     @IBOutlet weak var uiWeather: UILabel!
 
+    // MARK: - UIViewController functions.
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +25,8 @@ class MainViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    // MARK: - IBActions.
 
     @IBAction func selectLocation() {
         performSegue(withIdentifier: "segueToLocationList", sender: nil)
@@ -38,7 +42,9 @@ class MainViewController: UIViewController {
         }
     }
 
-    fileprivate func updateWeather() {
+    // MARK: - Local functions.
+
+    private func updateWeather() {
         if let place = PlaceManager.retrieveDefaultPlace() {
             uiPlace.text = "\(place.name)"
             uiWeather.text = "Weather\nfor\n\(place.name)"

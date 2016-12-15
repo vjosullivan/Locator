@@ -30,6 +30,7 @@ class Place: NSCoder {
 
     // MARK: - NSCODER related methods.
 
+    /// Required by `NSCoder`.
     required init(coder aDecoder: NSCoder) {
         self.name = aDecoder.decodeObject(forKey: "name") as! String
         self.region = aDecoder.decodeObject(forKey: "region") as! String
@@ -38,6 +39,7 @@ class Place: NSCoder {
         self.longitude = aDecoder.decodeDouble(forKey: "longitude")
     }
 
+    /// Required by `NSCoder`.
     func encodeWithCoder(_ _aCoder: NSCoder) {
         _aCoder.encode(name, forKey: "name")
         _aCoder.encode(region, forKey: "region")
