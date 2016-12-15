@@ -20,6 +20,14 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Your current location is used to provide you with a local weather forecast.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Your current location is used to provide you with a local weather forecast.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Your current location is used to provide you with a local weather forecast.</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

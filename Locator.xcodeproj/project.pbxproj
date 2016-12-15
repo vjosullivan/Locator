@@ -15,6 +15,15 @@
 		348BC34E1DD1AF3A00638D66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 348BC34C1DD1AF3A00638D66 /* LaunchScreen.storyboard */; };
 		348BC3641DD1AF6B00638D66 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 348BC3631DD1AF6B00638D66 /* Podfile */; };
 		B52CD6FBFF14B2F32A23359C /* libPods-Locator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C356B11EB1AD34A8EE3D80C /* libPods-Locator.a */; };
+		F166733F1E0295ED0087C5D7 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166733C1E0295ED0087C5D7 /* LocationController.swift */; };
+		F16673401E0295ED0087C5D7 /* LocationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166733D1E0295ED0087C5D7 /* LocationControllerDelegate.swift */; };
+		F16673411E0295ED0087C5D7 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166733E1E0295ED0087C5D7 /* Location.swift */; };
+		F16673441E0296AB0087C5D7 /* DarkSkyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16673431E0296AB0087C5D7 /* DarkSkyClient.swift */; };
+		F16673471E0297E20087C5D7 /* DarkSkyForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16673451E0297E20087C5D7 /* DarkSkyForecast.swift */; };
+		F166734A1E0297F80087C5D7 /* DarkSkyUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = F16673491E0297F80087C5D7 /* DarkSkyUnits.swift */; };
+		F166734C1E02980C0087C5D7 /* DetailedForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166734B1E02980C0087C5D7 /* DetailedForecast.swift */; };
+		F166734F1E0298150087C5D7 /* DataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166734D1E0298150087C5D7 /* DataPoint.swift */; };
+		F16673501E0298150087C5D7 /* DataPointInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166734E1E0298150087C5D7 /* DataPointInit.swift */; };
 		F172E53F1DD705A100DDFB8E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E53E1DD705A100DDFB8E /* MainViewController.swift */; };
 		F1D5D2951DD70DED00D9DC1F /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5D2941DD70DED00D9DC1F /* LocationListViewController.swift */; };
 		F1D5D29A1DD85B3700D9DC1F /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5D2991DD85B3700D9DC1F /* Place.swift */; };
@@ -47,6 +56,15 @@
 		348BC3631DD1AF6B00638D66 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4C356B11EB1AD34A8EE3D80C /* libPods-Locator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Locator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		513678032403BEE30CBB3F1F /* Pods-Locator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Locator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Locator/Pods-Locator.debug.xcconfig"; sourceTree = "<group>"; };
+		F166733C1E0295ED0087C5D7 /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
+		F166733D1E0295ED0087C5D7 /* LocationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationControllerDelegate.swift; sourceTree = "<group>"; };
+		F166733E1E0295ED0087C5D7 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		F16673431E0296AB0087C5D7 /* DarkSkyClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkSkyClient.swift; sourceTree = "<group>"; };
+		F16673451E0297E20087C5D7 /* DarkSkyForecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkSkyForecast.swift; sourceTree = "<group>"; };
+		F16673491E0297F80087C5D7 /* DarkSkyUnits.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkSkyUnits.swift; sourceTree = "<group>"; };
+		F166734B1E02980C0087C5D7 /* DetailedForecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedForecast.swift; sourceTree = "<group>"; };
+		F166734D1E0298150087C5D7 /* DataPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPoint.swift; sourceTree = "<group>"; };
+		F166734E1E0298150087C5D7 /* DataPointInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPointInit.swift; sourceTree = "<group>"; };
 		F172E53E1DD705A100DDFB8E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F1D5D2941DD70DED00D9DC1F /* LocationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
 		F1D5D2991DD85B3700D9DC1F /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
@@ -98,14 +116,16 @@
 			isa = PBXGroup;
 			children = (
 				348BC3401DD1AF3900638D66 /* AppDelegate.swift */,
-				348BC3441DD1AF3900638D66 /* Main.storyboard */,
-				348BC34A1DD1AF3A00638D66 /* Assets.xcassets */,
 				348BC34C1DD1AF3A00638D66 /* LaunchScreen.storyboard */,
-				348BC34F1DD1AF3A00638D66 /* Info.plist */,
-				348BC3471DD1AF3900638D66 /* Locator.xcdatamodeld */,
+				348BC3441DD1AF3900638D66 /* Main.storyboard */,
 				F172E53E1DD705A100DDFB8E /* MainViewController.swift */,
 				348BC3421DD1AF3900638D66 /* LocationFinderViewController.swift */,
 				F1D5D2941DD70DED00D9DC1F /* LocationListViewController.swift */,
+				348BC34A1DD1AF3A00638D66 /* Assets.xcassets */,
+				348BC3471DD1AF3900638D66 /* Locator.xcdatamodeld */,
+				348BC34F1DD1AF3A00638D66 /* Info.plist */,
+				F16673421E02965D0087C5D7 /* DarkSky */,
+				F166733B1E0295CA0087C5D7 /* Location */,
 				F1D5D2981DD85B0000D9DC1F /* model */,
 			);
 			path = Locator;
@@ -135,6 +155,29 @@
 				1CA6C082A0A8C47587CC8ADF /* Pods-Locator.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		F166733B1E0295CA0087C5D7 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				F166733C1E0295ED0087C5D7 /* LocationController.swift */,
+				F166733D1E0295ED0087C5D7 /* LocationControllerDelegate.swift */,
+				F166733E1E0295ED0087C5D7 /* Location.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		F16673421E02965D0087C5D7 /* DarkSky */ = {
+			isa = PBXGroup;
+			children = (
+				F16673431E0296AB0087C5D7 /* DarkSkyClient.swift */,
+				F16673451E0297E20087C5D7 /* DarkSkyForecast.swift */,
+				F16673491E0297F80087C5D7 /* DarkSkyUnits.swift */,
+				F166734D1E0298150087C5D7 /* DataPoint.swift */,
+				F166734E1E0298150087C5D7 /* DataPointInit.swift */,
+				F166734B1E02980C0087C5D7 /* DetailedForecast.swift */,
+			);
+			path = DarkSky;
 			sourceTree = "<group>";
 		};
 		F1D5D2981DD85B0000D9DC1F /* model */ = {
@@ -311,12 +354,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F16673471E0297E20087C5D7 /* DarkSkyForecast.swift in Sources */,
+				F166734C1E02980C0087C5D7 /* DetailedForecast.swift in Sources */,
+				F166733F1E0295ED0087C5D7 /* LocationController.swift in Sources */,
 				348BC3491DD1AF3A00638D66 /* Locator.xcdatamodeld in Sources */,
+				F16673411E0295ED0087C5D7 /* Location.swift in Sources */,
 				348BC3431DD1AF3900638D66 /* LocationFinderViewController.swift in Sources */,
 				F1D5D2951DD70DED00D9DC1F /* LocationListViewController.swift in Sources */,
+				F166734A1E0297F80087C5D7 /* DarkSkyUnits.swift in Sources */,
+				F16673441E0296AB0087C5D7 /* DarkSkyClient.swift in Sources */,
 				348BC3411DD1AF3900638D66 /* AppDelegate.swift in Sources */,
 				F1D5D2A31DD8982400D9DC1F /* PlaceManager.swift in Sources */,
+				F16673501E0298150087C5D7 /* DataPointInit.swift in Sources */,
+				F16673401E0295ED0087C5D7 /* LocationControllerDelegate.swift in Sources */,
 				F1D5D29A1DD85B3700D9DC1F /* Place.swift in Sources */,
+				F166734F1E0298150087C5D7 /* DataPoint.swift in Sources */,
 				F172E53F1DD705A100DDFB8E /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
