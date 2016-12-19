@@ -60,7 +60,7 @@ class MainViewController: UIViewController {
 
     fileprivate func updateWeather(for place: Place) {
         print("Update weather for \(place.latitude), \(place.longitude).")
-        let darkSky = DarkSkyClient(location: Location(latitude: place.longitude, longitude: place.latitude))
+        let darkSky = DarkSkyClient(location: Location(latitude: place.latitude, longitude: place.longitude))
         darkSky.fetchForecast{ darkSkyForecast in
             print("SSS")
             DispatchQueue.main.async {
@@ -76,6 +76,9 @@ class MainViewController: UIViewController {
         uiPlace.text = place.region != "" ? place.region : place.name
         if let summary = forecast.current?.summary {
             uiWeather.text = "\(summary)."
+            if let temperature = forecast.current?.temperature {
+                uiWeather.text = uiWeather.text! + "\n\(temperature)"
+            }
         } else {
             uiWeather.text = "No idea."
         }

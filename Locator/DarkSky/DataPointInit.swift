@@ -17,7 +17,7 @@ extension DataPoint {
         }
         time = Date(timeIntervalSince1970: timeValue)
 
-        if let t = dictionary["apparentTemperatureMax"] as? Double {
+        if let t = dictionary["apparentTemperature"] as? Double {
             let temp = round(t * 10) / 10
             apparentTemperature = OptionalMeasurement(value: temp as AnyObject?,    unit: forecastUnits.temperature)
         } else {
@@ -63,7 +63,7 @@ extension DataPoint {
         sunriseTime = Date(unixDate: dictionary["sunriseTime"])
         sunsetTime  = Date(unixDate: dictionary["sunsetTime"])
 
-        if let t = dictionary["temperatureMax"] as? Double {
+        if let t = dictionary["temperature"] as? Double {
             let temp = round(t * 10) / 10
             temperature = OptionalMeasurement(value: temp as AnyObject?,    unit: forecastUnits.temperature)
         } else {
