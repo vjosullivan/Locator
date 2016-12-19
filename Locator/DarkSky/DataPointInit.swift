@@ -56,7 +56,11 @@ extension DataPoint {
         precipProbability = dictionary["precipProbability"]?.doubleValue
         precipType = dictionary["precipType"] as? String
 
-        pressure = OptionalMeasurement(value: dictionary["pressure"], unit: forecastUnits.airPressure)
+        if let p = dictionary["pressure"] as? Double {
+            pressure = OptionalMeasurement(value: round(p) as AnyObject?, unit: forecastUnits.airPressure)
+        } else {
+            pressure = nil
+        }
 
         summary = dictionary["summary"] as? String
         
@@ -86,7 +90,11 @@ extension DataPoint {
 
         visibility  = OptionalMeasurement(value: dictionary["visibility"],  unit: forecastUnits.distance)
         windBearing = OptionalMeasurement(value: dictionary["windBearing"], unit: forecastUnits.angle)
-        windSpeed   = OptionalMeasurement(value: dictionary["windSpeed"],   unit: forecastUnits.windSpeed)
+        if let w = dictionary["windSpeed"] as? Double {
+            windSpeed   = OptionalMeasurement(value: round(w) as AnyObject?,   unit: forecastUnits.windSpeed)
+        } else {
+            windSpeed   = nil
+        }
     }
 }
 

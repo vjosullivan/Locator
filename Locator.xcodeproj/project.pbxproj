@@ -15,6 +15,7 @@
 		348BC34E1DD1AF3A00638D66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 348BC34C1DD1AF3A00638D66 /* LaunchScreen.storyboard */; };
 		348BC3641DD1AF6B00638D66 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 348BC3631DD1AF6B00638D66 /* Podfile */; };
 		B52CD6FBFF14B2F32A23359C /* libPods-Locator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C356B11EB1AD34A8EE3D80C /* libPods-Locator.a */; };
+		F11198E11E08658000D969CF /* weathericons-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F11198E01E08658000D969CF /* weathericons-regular-webfont.ttf */; };
 		F166733F1E0295ED0087C5D7 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166733C1E0295ED0087C5D7 /* LocationController.swift */; };
 		F16673401E0295ED0087C5D7 /* LocationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166733D1E0295ED0087C5D7 /* LocationControllerDelegate.swift */; };
 		F16673411E0295ED0087C5D7 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166733E1E0295ED0087C5D7 /* Location.swift */; };
@@ -56,6 +57,7 @@
 		348BC3631DD1AF6B00638D66 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		4C356B11EB1AD34A8EE3D80C /* libPods-Locator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Locator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		513678032403BEE30CBB3F1F /* Pods-Locator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Locator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Locator/Pods-Locator.debug.xcconfig"; sourceTree = "<group>"; };
+		F11198E01E08658000D969CF /* weathericons-regular-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "weathericons-regular-webfont.ttf"; sourceTree = "<group>"; };
 		F166733C1E0295ED0087C5D7 /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		F166733D1E0295ED0087C5D7 /* LocationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationControllerDelegate.swift; sourceTree = "<group>"; };
 		F166733E1E0295ED0087C5D7 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				F16673421E02965D0087C5D7 /* DarkSky */,
 				F166733B1E0295CA0087C5D7 /* Location */,
 				F1D5D2981DD85B0000D9DC1F /* model */,
+				F11198DF1E0864D300D969CF /* Resources */,
 			);
 			path = Locator;
 			sourceTree = "<group>";
@@ -155,6 +158,14 @@
 				1CA6C082A0A8C47587CC8ADF /* Pods-Locator.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		F11198DF1E0864D300D969CF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F11198E01E08658000D969CF /* weathericons-regular-webfont.ttf */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		F166733B1E0295CA0087C5D7 /* Location */ = {
@@ -288,6 +299,7 @@
 				348BC34E1DD1AF3A00638D66 /* LaunchScreen.storyboard in Resources */,
 				348BC34B1DD1AF3A00638D66 /* Assets.xcassets in Resources */,
 				348BC3641DD1AF6B00638D66 /* Podfile in Resources */,
+				F11198E11E08658000D969CF /* weathericons-regular-webfont.ttf in Resources */,
 				348BC3461DD1AF3900638D66 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
