@@ -10,6 +10,9 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    // These views have coloured backgrounds in the storyboard which are cleared when run.
+    @IBOutlet var backgroundColoredViews: [UIView]!
+
     @IBOutlet weak var uiPlace: UILabel!
     @IBOutlet weak var uiWeather: UILabel!
 
@@ -19,6 +22,10 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Clear background colors from labels and buttons
+        _ = backgroundColoredViews.map{ $0.backgroundColor = UIColor.clear }
+
         update()
     }
 

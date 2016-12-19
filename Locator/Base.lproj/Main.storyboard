@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -191,48 +190,100 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="C3f-B7-fQA"/>
+                                    <constraint firstAttribute="height" constant="30" id="MoL-2o-dHv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FHK-OC-V8d">
-                                <rect key="frame" x="327" y="14" width="48" height="48"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aaX-BJ-ixq">
+                                <rect key="frame" x="0.0" y="50" width="375" height="617"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xVY-Cm-QKM" userLabel="Weather stack">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="577.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currently" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9v-1J-Q7d">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="20.5"/>
+                                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blank Weather" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1vC-ja-Ojy" userLabel="Current weather">
+                                                <rect key="frame" x="0.0" y="20.5" width="375" height="172"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.49668609120000001" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="72"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="0.44837026127049179" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sooner" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L9y-PL-50p">
+                                                <rect key="frame" x="0.0" y="192.5" width="375" height="20.5"/>
+                                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Weather" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ADN-vc-qtk" userLabel="Today's weather">
+                                                <rect key="frame" x="0.0" y="213" width="375" height="172"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.49668609120000001" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="72"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="0.44837026130000002" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Later" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0a-T6-3Rs">
+                                                <rect key="frame" x="0.0" y="385" width="375" height="20.5"/>
+                                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Week's Weather" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KYK-FU-hGT" userLabel="Week's weather">
+                                                <rect key="frame" x="0.0" y="405.5" width="375" height="172"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.49668609120000001" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="72"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="0.44837026130000002" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="aOh-kZ-bue"/>
-                                    <constraint firstAttribute="height" constant="48" id="dfU-bY-Ls6"/>
+                                    <constraint firstAttribute="trailing" secondItem="xVY-Cm-QKM" secondAttribute="trailing" id="978-RO-lYF"/>
+                                    <constraint firstAttribute="bottom" secondItem="xVY-Cm-QKM" secondAttribute="bottom" id="Znn-G1-1Pe"/>
+                                    <constraint firstItem="xVY-Cm-QKM" firstAttribute="top" secondItem="aaX-BJ-ixq" secondAttribute="top" id="d9n-uj-hfT"/>
+                                    <constraint firstItem="xVY-Cm-QKM" firstAttribute="leading" secondItem="aaX-BJ-ixq" secondAttribute="leading" id="lV8-fj-aB4"/>
                                 </constraints>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FHK-OC-V8d">
+                                <rect key="frame" x="327" y="14" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Select location" image="White World"/>
                                 <connections>
                                     <action selector="selectLocation" destination="Smw-Ad-c4j" eventType="touchUpInside" id="07G-AX-OqD"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blank Weather" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1vC-ja-Ojy">
-                                <rect key="frame" x="8" y="154" width="359" height="359"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="1vC-ja-Ojy" secondAttribute="height" multiplier="1:1" id="Nhh-Kx-nd5"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="72"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="0.44837026127049179" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="FHK-OC-V8d" firstAttribute="top" secondItem="nTc-4f-mSR" secondAttribute="bottom" constant="-6" id="1iF-xe-aXU"/>
-                            <constraint firstItem="v7o-eT-5Th" firstAttribute="top" secondItem="nTc-4f-mSR" secondAttribute="bottom" id="QRs-Zv-XpO"/>
-                            <constraint firstAttribute="trailing" secondItem="1vC-ja-Ojy" secondAttribute="trailing" constant="8" id="Qf3-mk-Eix"/>
-                            <constraint firstItem="1vC-ja-Ojy" firstAttribute="centerY" secondItem="DGn-o4-IUR" secondAttribute="centerY" id="bSr-u8-osY"/>
-                            <constraint firstItem="v7o-eT-5Th" firstAttribute="leading" secondItem="DGn-o4-IUR" secondAttribute="leading" id="bed-5s-f6C"/>
-                            <constraint firstItem="1vC-ja-Ojy" firstAttribute="leading" secondItem="DGn-o4-IUR" secondAttribute="leading" constant="8" id="eof-qo-XnI"/>
-                            <constraint firstAttribute="trailing" secondItem="v7o-eT-5Th" secondAttribute="trailing" id="glD-D2-Lxg"/>
-                            <constraint firstAttribute="trailing" secondItem="FHK-OC-V8d" secondAttribute="trailing" id="s3D-yW-XVo"/>
+                            <constraint firstAttribute="trailing" secondItem="v7o-eT-5Th" secondAttribute="trailing" id="48X-c4-JTd"/>
+                            <constraint firstItem="v7o-eT-5Th" firstAttribute="leading" secondItem="DGn-o4-IUR" secondAttribute="leading" id="4cv-AM-AfD"/>
+                            <constraint firstAttribute="trailing" secondItem="aaX-BJ-ixq" secondAttribute="trailing" id="6WP-0x-Idf"/>
+                            <constraint firstItem="aaX-BJ-ixq" firstAttribute="leading" secondItem="DGn-o4-IUR" secondAttribute="leading" id="EQ2-Nj-rLW"/>
+                            <constraint firstItem="xVY-Cm-QKM" firstAttribute="width" secondItem="DGn-o4-IUR" secondAttribute="width" id="f4M-x2-1pA"/>
+                            <constraint firstItem="oMu-UA-TUq" firstAttribute="top" secondItem="aaX-BJ-ixq" secondAttribute="bottom" id="ng7-NW-w3D"/>
+                            <constraint firstItem="v7o-eT-5Th" firstAttribute="top" secondItem="nTc-4f-mSR" secondAttribute="bottom" id="rbH-y3-9G1"/>
+                            <constraint firstItem="aaX-BJ-ixq" firstAttribute="top" secondItem="v7o-eT-5Th" secondAttribute="bottom" id="wJZ-bh-6Bb"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="uiPlace" destination="v7o-eT-5Th" id="YlL-dX-jCy"/>
                         <outlet property="uiWeather" destination="1vC-ja-Ojy" id="j47-ag-3pL"/>
+                        <outletCollection property="backgroundColoredViews" destination="1vC-ja-Ojy" collectionClass="NSMutableArray" id="XSz-Hp-VbH"/>
+                        <outletCollection property="backgroundColoredViews" destination="ADN-vc-qtk" collectionClass="NSMutableArray" id="E2T-h4-o7M"/>
+                        <outletCollection property="backgroundColoredViews" destination="KYK-FU-hGT" collectionClass="NSMutableArray" id="wXp-Nt-Aee"/>
+                        <outletCollection property="backgroundColoredViews" destination="g9v-1J-Q7d" collectionClass="NSMutableArray" id="Y0I-R7-eQg"/>
+                        <outletCollection property="backgroundColoredViews" destination="L9y-PL-50p" collectionClass="NSMutableArray" id="6Ss-Mp-NlV"/>
+                        <outletCollection property="backgroundColoredViews" destination="S0a-T6-3Rs" collectionClass="NSMutableArray" id="2Kg-VX-pF0"/>
                         <segue destination="oWF-zq-eB6" kind="show" identifier="segueToLocationList" id="9hW-Ne-twY"/>
                     </connections>
                 </viewController>
