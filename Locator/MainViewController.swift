@@ -53,8 +53,15 @@ class MainViewController: UIViewController {
     @IBOutlet weak var currentBarometerValue: UILabel!
     @IBOutlet weak var currentTemperatureSymbol: UILabel!
     @IBOutlet weak var currentTemperatureValue: UILabel!
-    @IBOutlet weak var daySummary: UILabel!
-    @IBOutlet weak var weekSummary: UILabel!
+
+    @IBOutlet weak var buttonATR: UIButton!
+    @IBOutlet weak var buttonATL: UIButton!
+    @IBOutlet weak var buttonABR: UIButton!
+    @IBOutlet weak var buttonABL: UIButton!
+    @IBOutlet weak var buttonBTR: UIButton!
+    @IBOutlet weak var buttonBTL: UIButton!
+    @IBOutlet weak var buttonBBR: UIButton!
+    @IBOutlet weak var buttonBBL: UIButton!
 
     private var locationController: LocationController?
 
@@ -66,6 +73,14 @@ class MainViewController: UIViewController {
         // Clear background colors from labels and buttons
         _ = backgroundColoredViews.map{ $0.backgroundColor = UIColor.clear }
 
+        buttonATR.layer.borderColor = UIColor.lightGray.cgColor
+        buttonABR.layer.borderColor = UIColor.lightGray.cgColor
+        buttonATL.layer.borderColor = UIColor.lightGray.cgColor
+        buttonABL.layer.borderColor = UIColor.lightGray.cgColor
+        buttonBTR.layer.borderColor = UIColor.lightGray.cgColor
+        buttonBBR.layer.borderColor = UIColor.lightGray.cgColor
+        buttonBTL.layer.borderColor = UIColor.lightGray.cgColor
+        buttonBBL.layer.borderColor = UIColor.lightGray.cgColor
         update()
     }
 
@@ -179,15 +194,11 @@ class MainViewController: UIViewController {
             currentBarometerValue.text  = ""
         }
         if let temperature = forecast.current?.temperature {
-            currentTemperatureSymbol.text = WeatherIcon.thermometer.rawValue
-            currentTemperatureValue.text  = temperature.description
+            currentTemperatureValue.text  = "\(temperature.value)°"
         } else {
-            currentTemperatureSymbol.text = ""
             currentTemperatureValue.text  = ""
         }
         minuteSummary.text = forecast.minutely?.summary ?? ""
-        daySummary.text   = forecast.hourly?.summary ?? ""
-        weekSummary.text = forecast.daily?.summary ?? ""
     }
 }
 
