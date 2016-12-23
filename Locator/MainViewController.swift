@@ -45,6 +45,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var minuteSummary: UILabel!
     @IBOutlet weak var hourSummary: UILabel!
 
+    @IBOutlet weak var viewA: UIView!
     @IBOutlet weak var currentWeatherSymbol: UILabel!
     @IBOutlet weak var currentWeatherValue: UILabel!
     @IBOutlet weak var currentWindDirectionSymbol: UILabel!
@@ -81,6 +82,8 @@ class MainViewController: UIViewController {
         buttonBBR.layer.borderColor = UIColor.lightGray.cgColor
         buttonBTL.layer.borderColor = UIColor.lightGray.cgColor
         buttonBBL.layer.borderColor = UIColor.lightGray.cgColor
+
+        buttonATR.imageView?.contentMode = .scaleAspectFit
         update()
     }
 
@@ -136,37 +139,56 @@ class MainViewController: UIViewController {
         // TODO: Incorporate location info into forecast.
 //        if let place = PlaceManager.retrieveDefaultPlace() {
         uiPlace.text = place.region != "" ? place.region : place.name
+        currentWeatherSymbol.textColor = UIColor.black
         if let weatherIcon = forecast.current?.icon {
             switch weatherIcon {
             case "clear-day":
                 currentWeatherSymbol.text = WeatherIcon.clearDay.rawValue
+                currentWeatherSymbol.backgroundColor = UIColor.yellow
             case "clear-night":
                 currentWeatherSymbol.text = WeatherIcon.clearNight.rawValue
+                currentWeatherSymbol.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 1.0 , alpha: 1.0)
+                currentWeatherSymbol.textColor = UIColor.white
             case "rain":
                 currentWeatherSymbol.text = WeatherIcon.rain.rawValue
+                currentWeatherSymbol.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 1.0  , alpha: 1.0)
             case "snow":
                 currentWeatherSymbol.text = WeatherIcon.snow.rawValue
+                currentWeatherSymbol.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             case "sleet":
                 currentWeatherSymbol.text = WeatherIcon.sleet.rawValue
+                currentWeatherSymbol.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
             case "wind":
                 currentWeatherSymbol.text = WeatherIcon.wind.rawValue
+                currentWeatherSymbol.backgroundColor = UIColor(red: 0.67, green: 0.67, blue: 0.67, alpha: 1.0)
             case "fog":
                 currentWeatherSymbol.text = WeatherIcon.fog.rawValue
+                currentWeatherSymbol.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0)
             case "cloudy":
                 currentWeatherSymbol.text = WeatherIcon.cloudy.rawValue
+                currentWeatherSymbol.backgroundColor = UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 1.0)
             case "partly-cloudy-day":
                 currentWeatherSymbol.text = WeatherIcon.partlyCloudyDay.rawValue
+                currentWeatherSymbol.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0.9, alpha: 1.0)
             case "partly-cloudy-night":
                 currentWeatherSymbol.text = WeatherIcon.partlyCloudyNight.rawValue
+                currentWeatherSymbol.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.8, alpha: 1.0)
             case "hail":
                 currentWeatherSymbol.text = WeatherIcon.hail.rawValue
+                currentWeatherSymbol.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.7, alpha: 1.0)
             case "thunderstorm":
                 currentWeatherSymbol.text = WeatherIcon.thunderstorm.rawValue
+                currentWeatherSymbol.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.6, alpha: 1.0)
             case "tornado":
                 currentWeatherSymbol.text = WeatherIcon.tornado.rawValue
+                currentWeatherSymbol.backgroundColor = UIColor(red: 0.7, green: 0.6, blue: 0.5, alpha: 1.0)
             default:
                 currentWeatherSymbol.text = WeatherIcon.noWeather.rawValue
+                currentWeatherSymbol.backgroundColor = UIColor.darkGray
             }
+            viewA.backgroundColor = currentWeatherSymbol.backgroundColor
+            currentWeatherValue.textColor  = currentWeatherSymbol.textColor
+            currentTemperatureValue.textColor = currentWeatherSymbol.textColor
         } else {
             currentWeatherSymbol.text = WeatherIcon.noWeather.rawValue
         }
