@@ -48,23 +48,37 @@ class MainViewController: UIViewController {
     @IBOutlet weak var viewA: UIView!
     @IBOutlet weak var currentWeatherSymbol: UILabel!
     @IBOutlet weak var currentWeatherValue: UILabel!
-    @IBOutlet weak var currentWindDirectionSymbol: UILabel!
-    @IBOutlet weak var currentWindDirectionValue: UILabel!
-    @IBOutlet weak var currentBarometerSymbol: UILabel!
-    @IBOutlet weak var currentBarometerValue: UILabel!
-    @IBOutlet weak var currentTemperatureSymbol: UILabel!
     @IBOutlet weak var currentTemperatureValue: UILabel!
+    @IBOutlet weak var todaysHighValue: UILabel!
+    @IBOutlet weak var todaysLowValue: UILabel!
 
     @IBOutlet weak var buttonATR: UIButton!
+    @IBOutlet weak var labelATR: UILabel!
     @IBOutlet weak var buttonATL: UIButton!
+    @IBOutlet weak var labelATL: UILabel!
     @IBOutlet weak var buttonABR: UIButton!
+    @IBOutlet weak var labelABR: UILabel!
     @IBOutlet weak var buttonABL: UIButton!
+    @IBOutlet weak var labelABL: UILabel!
     @IBOutlet weak var buttonBTR: UIButton!
     @IBOutlet weak var buttonBTL: UIButton!
     @IBOutlet weak var buttonBBR: UIButton!
     @IBOutlet weak var buttonBBL: UIButton!
 
+    @IBOutlet weak var frontPanel: UIView!
+    
+    @IBOutlet weak var locationButton: UIButton!
+    @IBOutlet weak var settingsPanel: UIView!
+    @IBOutlet weak var solarPanel: UIView!
+    @IBOutlet weak var detailsPanel: UIView!
+
+    private var settingsVC: SettingsViewController?
+    private var solarVC: SolarViewController?
+    private var detailsVC: DetailsViewController?
+    
     private var locationController: LocationController?
+
+    @IBOutlet weak var viewB: UIView!
 
     // MARK: - UIViewController functions.
 
@@ -84,7 +98,29 @@ class MainViewController: UIViewController {
         buttonBBL.layer.borderColor = UIColor.lightGray.cgColor
 
         buttonATR.imageView?.contentMode = .scaleAspectFit
+        
         update()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        placeVertical(text: "Settings",   on: buttonATL, using: labelATL)
+        placeVertical(text: "Location",   on: buttonATR, using: labelATR, rotateClockwise: false)
+        placeVertical(text: "Daylight", on: buttonABL, using: labelABL)
+        placeVertical(text: "Details",    on: buttonABR, using: labelABR, rotateClockwise: false)
+    }
+    
+    private func placeVertical(text: String, on button: UIButton, using label: UILabel, rotateClockwise: Bool = true) {
+        label.frame = CGRect(x: 0.0, y: 0.0, width: button.frame.width, height: button.frame.height)
+        button.addSubview(label)
+        let angle = rotateClockwise ? CGFloat(M_PI_2) : -CGFloat(M_PI_2)  // +/- 90°.
+        label.transform = CGAffineTransform.init(rotationAngle: angle)
+        label.textColor = button.currentTitleColor
+        label.backgroundColor = UIColor.clear
+        label.text = text
+        label.font = button.titleLabel?.font
+        label.textAlignment = .center
     }
 
     override func didReceiveMemoryWarning() {
@@ -92,10 +128,40 @@ class MainViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("A")
+        if segue.identifier == "solarSegue" {
+            print("B")
+            solarVC = segue.destination as? SolarViewController
+        } else if segue.identifier == "detailsSegue" {
+            print("C")
+            detailsVC = segue.destination as? DetailsViewController
+        } else if segue.identifier == "settingsSegue" {
+            print("D")
+            settingsVC = segue.destination as? SettingsViewController
+        }
+    }
     // MARK: - IBActions.
 
-    @IBAction func selectLocation() {
+    @IBAction func selectLocation(_ sender: UIButton) {
         performSegue(withIdentifier: "segueToLocationList", sender: nil)
+        if sender == locationButton {
+            displayScreen(sender)
+        }
+    }
+    
+    @IBAction func displayScreen(_ sender: UIButton) {
+        print("\nButton action!")
+        switch true {
+        case sender == buttonATL || !settingsPanel.isHidden:
+            flip(frontPanel, rearView: settingsPanel)
+        case sender == buttonABL || !solarPanel.isHidden:
+            flip(frontPanel, rearView: solarPanel)
+        case sender == buttonABR || !detailsPanel.isHidden:
+            flip(frontPanel, rearView: detailsPanel)
+        default:
+            break
+        }
     }
 
     /// Called when unwinding a segue back to this view.
@@ -103,9 +169,22 @@ class MainViewController: UIViewController {
     /// - Parameter segue: The segue being unwound.
     ///
     @IBAction func unwindToMainVC(segue: UIStoryboardSegue) {
-        print("Unwinding from location controller")
-        if segue.source is LocationListViewController {
+        print("Unwinding...")
+        switch segue.source {
+        case is LocationListViewController:
+            print("Unwound from location controller")
             update()
+        case is SettingsViewController:
+            print("Unwound from settings controller")
+            flip(frontPanel, rearView: settingsPanel)
+        case is SolarViewController:
+            print("Unwound from solar controller")
+            flip(frontPanel, rearView: solarPanel)
+        case is DetailsViewController:
+            print("Unwound from details controller")
+            flip(frontPanel, rearView: detailsPanel)
+        default:
+            break
         }
     }
 
@@ -130,6 +209,15 @@ class MainViewController: UIViewController {
             print("SSS")
             DispatchQueue.main.async {
                 self.updateDisplay(with: darkSkyForecast, for: place)
+                self.settingsVC?.update(forecast: darkSkyForecast,
+                                        foregroundColor: self.currentWeatherSymbol.textColor!,
+                                        backgroundColor: self.currentWeatherSymbol.backgroundColor!)
+                self.solarVC?.update(forecast: darkSkyForecast,
+                                     foregroundColor: self.currentWeatherSymbol.textColor!,
+                                     backgroundColor: self.currentWeatherSymbol.backgroundColor!)
+                self.detailsVC?.update(forecast: darkSkyForecast,
+                                       foregroundColor: self.currentWeatherSymbol.textColor!,
+                                       backgroundColor: self.currentWeatherSymbol.backgroundColor!)
             }
         }
     }
@@ -144,83 +232,128 @@ class MainViewController: UIViewController {
             switch weatherIcon {
             case "clear-day":
                 currentWeatherSymbol.text = WeatherIcon.clearDay.rawValue
-                currentWeatherSymbol.backgroundColor = UIColor.yellow
+                currentWeatherSymbol.backgroundColor = UIColor.clearDay
+                self.view.backgroundColor = currentWeatherSymbol.backgroundColor?.darker().darker()
             case "clear-night":
                 currentWeatherSymbol.text = WeatherIcon.clearNight.rawValue
-                currentWeatherSymbol.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 1.0 , alpha: 1.0)
+                currentWeatherSymbol.backgroundColor = UIColor.clearNight
                 currentWeatherSymbol.textColor = UIColor.white
+                self.view.backgroundColor = currentWeatherSymbol.backgroundColor?.lighter().lighter()
             case "rain":
                 currentWeatherSymbol.text = WeatherIcon.rain.rawValue
-                currentWeatherSymbol.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 1.0  , alpha: 1.0)
+                currentWeatherSymbol.backgroundColor = UIColor.rainDay
+                currentWeatherSymbol.textColor = UIColor.white
+                self.view.backgroundColor = currentWeatherSymbol.backgroundColor?.darker().darker()
             case "snow":
                 currentWeatherSymbol.text = WeatherIcon.snow.rawValue
-                currentWeatherSymbol.backgroundColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                currentWeatherSymbol.backgroundColor = UIColor.snowDay
+                self.view.backgroundColor = currentWeatherSymbol.backgroundColor?.darker().darker()
             case "sleet":
                 currentWeatherSymbol.text = WeatherIcon.sleet.rawValue
-                currentWeatherSymbol.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
+                currentWeatherSymbol.backgroundColor = UIColor.sleetDay
+                currentWeatherSymbol.textColor = UIColor.white
+                self.view.backgroundColor = currentWeatherSymbol.backgroundColor?.darker().darker()
             case "wind":
                 currentWeatherSymbol.text = WeatherIcon.wind.rawValue
-                currentWeatherSymbol.backgroundColor = UIColor(red: 0.67, green: 0.67, blue: 0.67, alpha: 1.0)
+                currentWeatherSymbol.backgroundColor = UIColor.windDay
+                currentWeatherSymbol.textColor = UIColor.white
+                self.view.backgroundColor = currentWeatherSymbol.backgroundColor?.darker().darker()
             case "fog":
                 currentWeatherSymbol.text = WeatherIcon.fog.rawValue
-                currentWeatherSymbol.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0)
+                currentWeatherSymbol.backgroundColor = UIColor.fogDay
+                currentWeatherSymbol.textColor = UIColor.white
+                self.view.backgroundColor = currentWeatherSymbol.backgroundColor?.darker().darker()
             case "cloudy":
                 currentWeatherSymbol.text = WeatherIcon.cloudy.rawValue
-                currentWeatherSymbol.backgroundColor = UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 1.0)
+                currentWeatherSymbol.backgroundColor = UIColor.cloudyDay
+                currentWeatherSymbol.textColor = UIColor.white
+                self.view.backgroundColor = currentWeatherSymbol.backgroundColor?.darker().darker()
             case "partly-cloudy-day":
                 currentWeatherSymbol.text = WeatherIcon.partlyCloudyDay.rawValue
-                currentWeatherSymbol.backgroundColor = UIColor(red: 0.8, green: 0.8, blue: 0.9, alpha: 1.0)
+                currentWeatherSymbol.backgroundColor = UIColor.partlyCloudyDay
+                currentWeatherSymbol.textColor = UIColor.white
+                self.view.backgroundColor = currentWeatherSymbol.backgroundColor?.darker().darker()
             case "partly-cloudy-night":
                 currentWeatherSymbol.text = WeatherIcon.partlyCloudyNight.rawValue
-                currentWeatherSymbol.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.8, alpha: 1.0)
+                currentWeatherSymbol.backgroundColor = UIColor.partlyCloudyNight
+                currentWeatherSymbol.textColor = UIColor.white
+                self.view.backgroundColor = currentWeatherSymbol.backgroundColor?.lighter().lighter()
             case "hail":
                 currentWeatherSymbol.text = WeatherIcon.hail.rawValue
-                currentWeatherSymbol.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.7, alpha: 1.0)
+                currentWeatherSymbol.backgroundColor = UIColor.hailDay
+                currentWeatherSymbol.textColor = UIColor.white
+                self.view.backgroundColor = currentWeatherSymbol.backgroundColor?.darker().darker()
             case "thunderstorm":
                 currentWeatherSymbol.text = WeatherIcon.thunderstorm.rawValue
-                currentWeatherSymbol.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.6, alpha: 1.0)
+                currentWeatherSymbol.backgroundColor = UIColor.thunderstormDay
+                currentWeatherSymbol.textColor = UIColor.white
+                self.view.backgroundColor = currentWeatherSymbol.backgroundColor?.darker().darker()
             case "tornado":
                 currentWeatherSymbol.text = WeatherIcon.tornado.rawValue
-                currentWeatherSymbol.backgroundColor = UIColor(red: 0.7, green: 0.6, blue: 0.5, alpha: 1.0)
+                currentWeatherSymbol.backgroundColor = UIColor.thunderstormNight
+                currentWeatherSymbol.textColor = UIColor.white
+                self.view.backgroundColor = currentWeatherSymbol.backgroundColor?.darker().darker()
             default:
                 currentWeatherSymbol.text = WeatherIcon.noWeather.rawValue
-                currentWeatherSymbol.backgroundColor = UIColor.darkGray
+                currentWeatherSymbol.backgroundColor = UIColor.noWeatherDay
+                currentWeatherSymbol.textColor = UIColor.white
+                self.view.backgroundColor = currentWeatherSymbol.backgroundColor?.darker().darker()
             }
             viewA.backgroundColor = currentWeatherSymbol.backgroundColor
+            viewB.backgroundColor = currentWeatherSymbol.backgroundColor
             currentWeatherValue.textColor  = currentWeatherSymbol.textColor
             currentTemperatureValue.textColor = currentWeatherSymbol.textColor
+            todaysHighValue.textColor = currentWeatherSymbol.textColor
+            todaysLowValue.textColor = currentWeatherSymbol.textColor
+            print("Wahey!")
+            labelATL.textColor = currentWeatherSymbol.textColor
+            labelATR.textColor = currentWeatherSymbol.textColor
+            labelABL.textColor = currentWeatherSymbol.textColor
+            labelABR.textColor = currentWeatherSymbol.textColor
+            buttonATR.layer.borderColor = currentWeatherSymbol.backgroundColor?.darker().cgColor
+            buttonABR.layer.borderColor = currentWeatherSymbol.backgroundColor?.darker().cgColor
+            buttonATL.layer.borderColor = currentWeatherSymbol.backgroundColor?.darker().cgColor
+            buttonABL.layer.borderColor = currentWeatherSymbol.backgroundColor?.darker().cgColor
         } else {
             currentWeatherSymbol.text = WeatherIcon.noWeather.rawValue
         }
         if let summary = forecast.current?.summary {
-            currentWeatherValue.text = "\(summary)."
+            currentWeatherValue.text = "\(summary)"
         } else {
             currentWeatherValue.text = "Unknown."
         }
-        if let windDirection = forecast.current?.windBearing?.value {
-            currentWindDirectionSymbol.text = WeatherIcon.windDirection.rawValue
-            currentWindDirectionSymbol.transform = CGAffineTransform(rotationAngle: radianConvertion * CGFloat(windDirection))
-        } else {
-            currentWindDirectionSymbol.text = WeatherIcon.windCalm.rawValue
-        }
-        if let windSpeed = forecast.current?.windSpeed {
-            currentWindDirectionValue.text = windSpeed.value > 0 ? windSpeed.description : "Calm"
-        } else {
-            currentWindDirectionValue.text = ""
-        }
-        if let pressure = forecast.current?.pressure {
-            currentBarometerSymbol.text = WeatherIcon.barometer.rawValue
-            currentBarometerValue.text  = pressure.description
-        } else {
-            currentBarometerSymbol.text = ""
-            currentBarometerValue.text  = ""
-        }
         if let temperature = forecast.current?.temperature {
-            currentTemperatureValue.text  = "\(temperature.value)°"
+            currentTemperatureValue.text  = "\(Int(round(temperature.value)))\(temperature.unit.symbol)"
         } else {
             currentTemperatureValue.text  = ""
         }
+        if let hi = forecast.today?.apparentTemperatureMax {
+            todaysHighValue.text = "\(Int(hi.value))\(hi.unit.symbol)"
+        } else {
+            todaysHighValue.text = ""
+        }
+        if let lo = forecast.today?.apparentTemperatureMin {
+            todaysLowValue.text = "\(Int(lo.value))\(lo.unit.symbol)"
+        } else {
+            todaysLowValue.text = ""
+        }
         minuteSummary.text = forecast.minutely?.summary ?? ""
+        hourSummary.text   = forecast.hourly?.summary ?? ""
+    }
+    
+    fileprivate func flip(_ frontView: UIView, rearView: UIView) {
+        print("Flip: Front visible = \(frontView.isHidden), rear visible = \(rearView.isHidden).")
+        if rearView.isHidden {
+            print("Making rear view visible")
+            let transitionOptions: UIViewAnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]
+            UIView.transition(with: frontView, duration: 1.0, options: transitionOptions, animations: { frontView.isHidden = true  }, completion: nil)
+            UIView.transition(with: rearView,  duration: 1.0, options: transitionOptions, animations: { rearView.isHidden  = false }, completion: nil)
+        } else {
+            print("Making front view visible")
+            let transitionOptions: UIViewAnimationOptions = [.transitionFlipFromLeft, .showHideTransitionViews]
+            UIView.transition(with: rearView,  duration: 1.0, options: transitionOptions, animations: { rearView.isHidden  = true  }, completion: nil)
+            UIView.transition(with: frontView, duration: 1.0, options: transitionOptions, animations: { frontView.isHidden = false }, completion: nil)
+        }
     }
 }
 

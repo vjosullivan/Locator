@@ -37,7 +37,7 @@ struct DataPoint {
     let icon: String?
 
     /// The fractional part of the lunation number during the given day.  Only on daily data point.  Optional.
-    /// - 0.0 ⋅ new mooon,
+    /// - 0.0 ⋅ new moon,
     /// - 0.25 ⋅ first quarter moon,
     /// - 0.5 ⋅ full moon,
     /// - 0.75 ⋅ last quarter moon.
