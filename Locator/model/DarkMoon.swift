@@ -11,7 +11,7 @@ import Foundation
 struct DarkMoon {
 
     private static let symbolCount = 28.0
-    
+
     /// <#Description#>
     ///
     /// - Parameter phase: <#phase description#>
@@ -21,8 +21,7 @@ struct DarkMoon {
         let offset = Int((phase + 0.5 / symbolCount) * symbolCount) % Int(symbolCount)
         return "\(UnicodeScalar(base + offset)!)"
     }
-    
-    
+
     /// <#Description#>
     ///
     /// - Parameter phase: <#phase description#>
@@ -33,7 +32,7 @@ struct DarkMoon {
         print(String(base + offset, radix: 16, uppercase: true))
         return (offset == 0) ? "\u{f0eb}" : "\(UnicodeScalar(base + offset)!)"
     }
-    
+
     private static var names = [
         "New\nmoon", "Growing\ncrescent", "First\nquarter", "Approaching\nfull",
         "Full\nmoon", "Past\nfull", "Last\nquarter", "Fading\ncrescent"]
@@ -43,5 +42,4 @@ struct DarkMoon {
         let offset = Int((phase + 0.5 / nameCount) * nameCount) % Int(nameCount)
         return names[base + offset]
     }
-    
 }

@@ -24,7 +24,8 @@ struct DarkSkyClient {
     /// - returns: A `DarkSkyClient` dedicated to the suppled location.
     ///
     init(location: Location) {
-        url = URL(string: DarkSkyClient.darkSkyUrl + DarkSkyClient.darkSkyKey + "/\(location.latitude),\(location.longitude)?\(DarkSkyClient.ukSuffix)")!
+        url = URL(string: DarkSkyClient.darkSkyUrl + DarkSkyClient.darkSkyKey +
+            "/\(location.latitude),\(location.longitude)?\(DarkSkyClient.ukSuffix)")!
     }
 
     /// Initialiser: Utilises "dependency injection" to initialise the client with a predefined URL.
@@ -42,8 +43,9 @@ struct DarkSkyClient {
     }
 
     func fetchForecast(completionHandler: @escaping (DarkSkyForecast) -> Void) {
-        fetchData{(data, response, error) in
-            let json = try! JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String: AnyObject]
+        fetchData {(data, _, _) in
+            let json = try! JSONSerialization.jsonObject(
+                with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String: AnyObject]
             if let forecast = DarkSkyForecast(dictionary: json) {
                 completionHandler(forecast)
             }

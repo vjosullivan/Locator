@@ -9,89 +9,59 @@
 import Foundation
 
 extension DataPoint {
-    
-    init?(dictionary: [String: AnyObject], forecastUnits: DarkSkyUnits) {
-     
+
+    init?(dictionary: [String: AnyObject], units: DarkSkyUnits) {
+
         guard let timeValue = dictionary["time"] as? Double else {
             return nil
         }
         time = Date(timeIntervalSince1970: timeValue)
 
-        if let t = dictionary["apparentTemperature"] as? Double {
-            let temp = round(t * 10) / 10
-            apparentTemperature = OptionalMeasurement(value: temp as AnyObject?,    unit: forecastUnits.temperature)
-        } else {
-            apparentTemperature = nil
-        }
-        if let t = dictionary["apparentTemperatureMax"] as? Double {
-            let temp = round(t * 10) / 10
-            apparentTemperatureMax = OptionalMeasurement(value: temp as AnyObject?, unit: forecastUnits.temperature)
-        } else {
-            apparentTemperatureMax = nil
-        }
-        if let t = dictionary["apparentTemperatureMin"] as? Double {
-            let temp = round(t * 10) / 10
-            apparentTemperatureMin = OptionalMeasurement(value: temp as AnyObject?, unit: forecastUnits.temperature)
-        } else {
-            apparentTemperatureMin = nil
-        }
+        apparentTemperature = getTemperature(from: dictionary["apparentTemperature"], unit: units.temperature)
+        apparentTemperatureMax = getTemperature(from: dictionary["apparentTemperatureMax"], unit: units.temperature)
+        apparentTemperatureMin = getTemperature(from: dictionary["apparentTemperatureMin"], unit: units.temperature)
         apparentTemperatureMaxTime = Date(unixDate: dictionary["apparentTemperatureMaxTime"])
         apparentTemperatureMinTime = Date(unixDate: dictionary["apparentTemperatureMinTime"])
 
         cloudCover = dictionary["cloudCover"]?.doubleValue
-        dewPoint   = OptionalMeasurement(value: dictionary["dewPoint"], unit: forecastUnits.temperature)
+        dewPoint   = OptionalMeasurement(value: dictionary["dewPoint"], unit: units.temperature)
         humidity   = dictionary["humidity"]?.doubleValue
         icon       = dictionary["icon"] as? String
         moonPhase  = dictionary["moonPhase"]?.doubleValue
-        
-        nearestStormBearing  = OptionalMeasurement(value: dictionary["nearestStormBearing"],  unit: forecastUnits.angle)
-        nearestStormDistance = OptionalMeasurement(value: dictionary["nearestStormDistance"], unit: forecastUnits.distance)
 
-        ozone = dictionary["ozone"]?.doubleValue 
-        
-        precipAccumulation = OptionalMeasurement(value: dictionary["precipAccumulation"], unit: forecastUnits.accumulation)
-        precipIntensity    = OptionalMeasurement(value: dictionary["precipIntensity"],    unit: forecastUnits.rainIntensity)
-        precipIntensityMax = OptionalMeasurement(value: dictionary["precipIntensityMax"], unit: forecastUnits.rainIntensity)
+        nearestStormBearing  = OptionalMeasurement(value: dictionary["nearestStormBearing"], unit: units.angle)
+        nearestStormDistance = OptionalMeasurement(value: dictionary["nearestStormDistance"], unit: units.distance)
+
+        ozone = dictionary["ozone"]?.doubleValue
+
+        precipAccumulation = OptionalMeasurement(value: dictionary["precipAccumulation"], unit: units.accumulation)
+        precipIntensity    = OptionalMeasurement(value: dictionary["precipIntensity"], unit: units.rainIntensity)
+        precipIntensityMax = OptionalMeasurement(value: dictionary["precipIntensityMax"], unit: units.rainIntensity)
         precipIntensityMaxTime = Date(unixDate: dictionary["precipIntensityMaxTime"])
         precipProbability = dictionary["precipProbability"]?.doubleValue
         precipType = dictionary["precipType"] as? String
 
         if let p = dictionary["pressure"] as? Double {
-            pressure = OptionalMeasurement(value: round(p) as AnyObject?, unit: forecastUnits.airPressure)
+            pressure = OptionalMeasurement(value: round(p) as AnyObject?, unit: units.airPressure)
         } else {
             pressure = nil
         }
 
         summary = dictionary["summary"] as? String
-        
+
         sunriseTime = Date(unixDate: dictionary["sunriseTime"])
         sunsetTime  = Date(unixDate: dictionary["sunsetTime"])
 
-        if let t = dictionary["temperature"] as? Double {
-            let temp = round(t * 10) / 10
-            temperature = OptionalMeasurement(value: temp as AnyObject?,    unit: forecastUnits.temperature)
-        } else {
-            temperature = nil
-        }
-        if let t = dictionary["temperatureMax"] as? Double {
-            let temp = round(t * 10) / 10
-            temperatureMax = OptionalMeasurement(value: temp as AnyObject?, unit: forecastUnits.temperature)
-        } else {
-            temperatureMax = nil
-        }
-        if let t = dictionary["temperatureMin"] as? Double {
-            let temp = round(t * 10) / 10
-            temperatureMin = OptionalMeasurement(value: temp as AnyObject?, unit: forecastUnits.temperature)
-        } else {
-            temperatureMin = nil
-        }
+        temperature = getTemperature(from: dictionary["temperature"], unit: units.temperature)
+        temperatureMax = getTemperature(from: dictionary["temperatureMax"], unit: units.temperature)
+        temperatureMin = getTemperature(from: dictionary["temperatureMin"], unit: units.temperature)
         temperatureMaxTime = Date(unixDate: dictionary["temperatureMaxTime"])
         temperatureMinTime = Date(unixDate: dictionary["temperatureMinTime"])
 
-        visibility  = OptionalMeasurement(value: dictionary["visibility"],  unit: forecastUnits.distance)
-        windBearing = OptionalMeasurement(value: dictionary["windBearing"], unit: forecastUnits.angle)
+        visibility  = OptionalMeasurement(value: dictionary["visibility"], unit: units.distance)
+        windBearing = OptionalMeasurement(value: dictionary["windBearing"], unit: units.angle)
         if let w = dictionary["windSpeed"] as? Double {
-            windSpeed   = OptionalMeasurement(value: round(w) as AnyObject?,   unit: forecastUnits.windSpeed)
+            windSpeed   = OptionalMeasurement(value: round(w) as AnyObject?, unit: units.windSpeed)
         } else {
             windSpeed   = nil
         }
@@ -99,7 +69,7 @@ extension DataPoint {
 }
 
 fileprivate extension Date {
-    
+
     /// Returns a `Date` provided it can be generated from the supplied data.
     ///
     /// - parameter value: A Unix date value.
@@ -114,6 +84,13 @@ fileprivate extension Date {
     }
 }
 
+fileprivate func getTemperature(from: Any?, unit: UnitTemperature) -> Measurement<UnitTemperature>? {
+    guard let extractedValue = from as? Double else {
+        return nil
+    }
+    let temp = round(extractedValue * 10) / 10
+    return OptionalMeasurement(value: temp as AnyObject?, unit: unit)
+}
 
 /// Returns a `Measurement` provided it can be created using the supplied data, otherwise `nil`.
 ///

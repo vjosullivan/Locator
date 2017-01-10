@@ -60,14 +60,13 @@ class PlaceManager {
         PlaceManager.storeAllPlaces(places)
     }
 
-
     func clear() {
         UserDefaults.standard.removeObject(forKey: "places")
         places = [Place]()
     }
 
     func add(_ place: Place) {
-        places = places.filter{ $0 != place }
+        places = places.filter { $0 != place }
         places.insert(place, at: 0)
         PlaceManager.storeAllPlaces(places)
     }
@@ -87,7 +86,6 @@ class PlaceManager {
     static func clearDefaultPlace() {
         UserDefaults.standard.removeObject(forKey: "place")
     }
-
 
     /// Persistently stores the application's list of known `Place`s
     ///

@@ -10,9 +10,11 @@ import Foundation
 
 extension UnitSpeed {
     /// Custom measurement metric speed for railfall intensity.
-    @nonobjc static let millimetersPerHour = UnitSpeed(symbol: "mm/h", converter: UnitConverterLinear(coefficient: 0.0000002777778))
+    @nonobjc static let millimetersPerHour = UnitSpeed(symbol: "mm/h",
+                                                       converter: UnitConverterLinear(coefficient: 0.0000002777778))
     /// Custom measurement imperial speed for railfall intensity.
-    @nonobjc static let inchesPerHour      = UnitSpeed(symbol: "in/h", converter: UnitConverterLinear(coefficient: 0.000007055552))
+    @nonobjc static let inchesPerHour      = UnitSpeed(symbol: "in/h",
+                                                       converter: UnitConverterLinear(coefficient: 0.000007055552))
 }
 
 enum DarkSkyUnits {
@@ -20,8 +22,7 @@ enum DarkSkyUnits {
     case ca
     case us
     case si
-    
-    
+
     /// Returns a `UnitsFamily` value derived from the supplied `String`.
     ///
     /// - parameter string: A `DarkSkyUnits` identifier.
@@ -40,7 +41,7 @@ enum DarkSkyUnits {
             return .us
         }
     }
-    
+
     var temperature: UnitTemperature {
         switch self {
         case .si, .ca, .uk2:
@@ -49,11 +50,11 @@ enum DarkSkyUnits {
             return .fahrenheit
         }
     }
-    
+
     var angle: UnitAngle {
         return .degrees
     }
-    
+
     var rainIntensity: UnitSpeed {
         switch self {
         case .si, .ca, .uk2:
@@ -62,7 +63,7 @@ enum DarkSkyUnits {
             return .inchesPerHour
         }
     }
-    
+
     var airPressure: UnitPressure {
         switch self {
         case .si, .ca, .uk2:
@@ -71,7 +72,7 @@ enum DarkSkyUnits {
             return .millibars
         }
     }
-    
+
     ///  The units used for measuring wind speed.
     var windSpeed: UnitSpeed {
         switch self {
@@ -85,7 +86,7 @@ enum DarkSkyUnits {
             return .milesPerHour
         }
     }
-    
+
     var distance: UnitLength {
         switch self {
         case .si, .ca:
@@ -94,7 +95,7 @@ enum DarkSkyUnits {
             return .miles
         }
     }
-    
+
     var accumulation: UnitLength {
         switch self {
         case .si, .ca, .uk2:

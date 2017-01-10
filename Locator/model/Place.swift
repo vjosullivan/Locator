@@ -10,8 +10,8 @@ import Foundation
 
 class Place: NSCoder {
 
-    let name:    String
-    let region:  String
+    let name: String
+    let region: String
     let placeID: String
 
     let latitude: Double
@@ -32,21 +32,21 @@ class Place: NSCoder {
 
     /// Required by `NSCoder`.
     required init(coder aDecoder: NSCoder) {
-        self.name = aDecoder.decodeObject(forKey: "name") as! String
-        self.region = aDecoder.decodeObject(forKey: "region") as! String
-        self.placeID = aDecoder.decodeObject(forKey: "placeID") as! String
+        self.name = aDecoder.decodeObject(forKey: "name") as? String ?? ""
+        self.region = aDecoder.decodeObject(forKey: "region") as? String ?? ""
+        self.placeID = aDecoder.decodeObject(forKey: "placeID") as? String ?? ""
         self.latitude = aDecoder.decodeDouble(forKey: "latitude")
         self.longitude = aDecoder.decodeDouble(forKey: "longitude")
     }
 
     /// Required by `NSCoder`.
-    func encodeWithCoder(_ _aCoder: NSCoder) {
-        _aCoder.encode(name, forKey: "name")
-        _aCoder.encode(region, forKey: "region")
-        _aCoder.encode(placeID, forKey: "placeID")
-        _aCoder.encode(latitude, forKey: "latitude")
-        _aCoder.encode(longitude, forKey: "longitude")
+    func encodeWithCoder(_ aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(region, forKey: "region")
+        aCoder.encode(placeID, forKey: "placeID")
+        aCoder.encode(latitude, forKey: "latitude")
+        aCoder.encode(longitude, forKey: "longitude")
 
-        coder = _aCoder
+        coder = aCoder
     }
 }

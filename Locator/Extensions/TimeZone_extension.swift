@@ -9,7 +9,7 @@
 import Foundation
 
 extension TimeZone {
-    
+
     /// Return the timezone name (e.g. Central European Time) as a set of initials (e.g. CET).
     /// If there is a summer/daylight savings form apllying then that is used.  If the summer
     /// form is given as a GMT offset then there is no actual summer time and the standard form is used.
@@ -20,7 +20,9 @@ extension TimeZone {
         let name: String
         if self.isDaylightSavingTime() {
             let summerName = self.localizedName(for: .daylightSaving, locale: Locale.current)!
-            name = (String(summerName.characters.prefix(3)) != "GMT") ? summerName : self.localizedName(for: .standard, locale: Locale.current)!
+            name = (String(summerName.characters.prefix(3)) != "GMT")
+                ? summerName
+                : self.localizedName(for: .standard, locale: Locale.current)!
         } else {
             name = self.localizedName(for: .standard, locale: Locale.current)!
         }

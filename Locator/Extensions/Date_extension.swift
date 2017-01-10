@@ -9,13 +9,13 @@
 import Foundation
 
 extension Date {
-    
+
     func asYYYYMMDD() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter.string(from: self)
     }
-    
+
     func asHHMM(twentyFourHourClock: Bool = true, timezone: String? = nil) -> String {
         print("Timezone: \(timezone)")
         let formatter = DateFormatter()
@@ -28,7 +28,7 @@ extension Date {
         }
         return formatter.string(from: self)
     }
-    
+
     func asHMZ(timeZone: String? = nil) -> String {
         let zone = TimeZone(identifier: timeZone ?? "") ?? TimeZone.current
 
@@ -37,7 +37,7 @@ extension Date {
         f1.timeStyle = .short
         return "\(f1.string(from: self).lowercased()) \(zone.localisedAbbreviation())"
     }
-    
+
     func asHpm(showMidday: Bool = false) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "ha"
@@ -51,18 +51,17 @@ extension Date {
         }
         return time
     }
-    
+
     func isAfter(_ date: Date) -> Bool {
         return self.compare(date) != ComparisonResult.orderedDescending
     }
-    
+
     ///  Returns the exact date for the start of today.
     ///
     static func startOfToday() -> Date {
         var cal = Calendar(identifier: Calendar.Identifier.gregorian)
         cal.timeZone = TimeZone.autoupdatingCurrent
-        let components = (cal as NSCalendar).components([.day , .month, .year ], from: Date())
+        let components = (cal as NSCalendar).components([.day, .month, .year ], from: Date())
         return cal.date(from: components)!
     }
-    
 }

@@ -9,14 +9,13 @@
 import UIKit
 
 extension UIFont {
-    
+
     func withTraits(traits: UIFontDescriptorSymbolicTraits...) -> UIFont {
-        let descriptor = self.fontDescriptor().fontDescriptorWithSymbolicTraits(UIFontDescriptorSymbolicTraits(traits))
-        return UIFont(descriptor: descriptor, size: 0)
+        let descriptor = self.fontDescriptor.withSymbolicTraits(UIFontDescriptorSymbolicTraits(traits))
+        return UIFont(descriptor: descriptor!, size: 0)
     }
-    
+
     func boldItalic() -> UIFont {
-        return withTraits(.TraitBold, .TraitItalic)
+        return withTraits(traits: .traitBold, .traitItalic)
     }
-    
 }

@@ -12,28 +12,28 @@ import Foundation
 struct DetailedForecast {
     let summary: String?
     let icon: String?
-    
+
     let dataPoints: [DataPoint]?
 }
 
 extension DetailedForecast {
-    
-    init?(dictionary: [String: AnyObject]?, forecastUnits: DarkSkyUnits) {
+
+    init?(dictionary: [String: AnyObject]?, units: DarkSkyUnits) {
         guard let dictionary = dictionary else {
             return nil
         }
         summary = dictionary["summary"] as? String
         icon    = dictionary["icon"] as? String
-        
+
         dataPoints = [DataPoint]()
         if let dataList = dictionary["data"] as? [[String: AnyObject]] {
             for dataPoint in dataList {
-                if let detail = DataPoint(dictionary: dataPoint, forecastUnits: forecastUnits) {
+                if let detail = DataPoint(dictionary: dataPoint, units: units) {
                     dataPoints?.append(detail)
                 }
             }
         }
-        if summary == nil && icon == nil && dataPoints?.count == 0 {
+        if summary == nil && icon == nil && (dataPoints?.isEmpty ?? true) {
             return nil
         }
     }

@@ -9,20 +9,20 @@
 import Foundation
 
 struct DarkSkyForecast {
-    
+
     let forecastUnits: DarkSkyUnits
 
     let latitude: Measurement<UnitAngle>
     let longitude: Measurement<UnitAngle>
-    
+
     let timeZone: String
-    
+
     let current: DataPoint?
-    
+
     let minutely: DetailedForecast?
-    let hourly:   DetailedForecast?
-    let daily:    DetailedForecast?
-    
+    let hourly: DetailedForecast?
+    let daily: DetailedForecast?
+
     var today: DataPoint? {
         return daily?.dataPoints?[0]
     }
@@ -42,13 +42,13 @@ struct DarkSkyForecast {
         timeZone = timeZoneValue
 
         if let currentWeather = dictionary["currently"] as? [String: AnyObject] {
-            current = DataPoint(dictionary: currentWeather, forecastUnits: forecastUnits)
+            current = DataPoint(dictionary: currentWeather, units: forecastUnits)
         } else {
             current = nil
         }
 
-        minutely = DetailedForecast(dictionary: dictionary["minutely"] as? [String: AnyObject], forecastUnits: forecastUnits)
-        hourly   = DetailedForecast(dictionary: dictionary["hourly"] as? [String: AnyObject], forecastUnits: forecastUnits)
-        daily    = DetailedForecast(dictionary: dictionary["daily"] as? [String: AnyObject], forecastUnits: forecastUnits)
+        minutely = DetailedForecast(dictionary: dictionary["minutely"] as? [String: AnyObject], units: forecastUnits)
+        hourly   = DetailedForecast(dictionary: dictionary["hourly"] as? [String: AnyObject], units: forecastUnits)
+        daily    = DetailedForecast(dictionary: dictionary["daily"] as? [String: AnyObject], units: forecastUnits)
     }
 }

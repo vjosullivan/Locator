@@ -9,59 +9,78 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
-    
+
     @IBOutlet weak var pressureSymbol: UILabel!
     @IBOutlet weak var pressureLabel: UILabel!
     @IBOutlet weak var pressureText: UILabel!
-    
+
     @IBOutlet weak var windSymbol: UILabel!
     @IBOutlet weak var windLabel: UILabel!
     @IBOutlet weak var windText: UILabel!
     @IBOutlet weak var windSubtext: UILabel!
-    
+
     @IBOutlet weak var humiditySymbol: UILabel!
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var humidityText: UILabel!
-    
+
     @IBOutlet weak var returnButton: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
     func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?) {
-        
+
         let foreColor = foregroundColor ?? UIColor.white
         let backColor = backgroundColor ?? UIColor.darkGray
-        
+
         print("Updating details dispalay")
-        if let pressure = forecast.current?.pressure {
+        updatePressure(from: forecast.current?.pressure)
+        updateHumidity(from: forecast.current?.humidity)
+        updateWindSpeed(from: forecast.current?.windSpeed)
+        updateWindDirection(from: forecast.current?.windBearing)
+
+        pressureSymbol.textColor = foreColor
+        pressureLabel.textColor = foreColor
+        pressureText.textColor = foreColor
+
+        windSymbol.textColor = foreColor
+        windLabel.textColor = foreColor
+        windText.textColor = foreColor
+        windSubtext.textColor = foreColor
+
+        humiditySymbol.textColor = foreColor
+        humidityLabel.textColor = foreColor
+        humidityText.textColor = foreColor
+
+        returnButton.setTitleColor(foreColor, for: .normal)
+        view.backgroundColor = backColor
+    }
+
+    private func updatePressure(from measurement: Measurement<UnitPressure>?) {
+        if let measurement = measurement {
             pressureSymbol.text = "\u{F079}"
             pressureLabel.text = "Pressure"
-            pressureText.text  = pressure.description
+            pressureText.text  = measurement.description
         } else {
             pressureSymbol.text = ""
             pressureLabel.text = "No pressure"
             pressureText.text  = ""
         }
-        if let humidity = forecast.current?.humidity {
-            humiditySymbol.text = "\u{F07A}"
-            humidityLabel.text  = "Humidity"
-            humidityText.text   = "\(Int(humidity * 100))%"
-        } else {
-            humiditySymbol.text = ""
-            humidityLabel.text  = ""
-            humidityText.text   = ""
-        }
-        
-        if let windSpeed = forecast.current?.windSpeed {
+    }
+
+    private func updateWindSpeed(from measurement: Measurement<UnitSpeed>?) {
+        if let windSpeed = measurement {
             windLabel.text = "Wind"
             windText.text  = windSpeed.description
         } else {
             windLabel.text = ""
             windText.text  = ""
         }
-        if let windDirection = forecast.current?.windBearing {
+    }
+
+    private func updateWindDirection(from measurement: Measurement<UnitAngle>?) {
+        if let windDirection = measurement {
             print("Wind direction: \(windDirection)")
             windSymbol.text = "\u{F0B1}"
             let angle = CGFloat((windDirection.value + 180.0) * M_PI / 180.0)
@@ -71,24 +90,20 @@ class DetailsViewController: UIViewController {
             windSymbol.text  = ""
             windSubtext.text = ""
         }
-        
-        pressureSymbol.textColor = foreColor
-        pressureLabel.textColor = foreColor
-        pressureText.textColor = foreColor
-        
-        windSymbol.textColor = foreColor
-        windLabel.textColor = foreColor
-        windText.textColor = foreColor
-        windSubtext.textColor = foreColor
-        
-        humiditySymbol.textColor = foreColor
-        humidityLabel.textColor = foreColor
-        humidityText.textColor = foreColor
-        
-        returnButton.setTitleColor(foreColor, for: .normal)
-        view.backgroundColor = backColor
     }
-    
+
+    private func updateHumidity(from value: Double?) {
+        if let humidity = value {
+            humiditySymbol.text = "\u{F07A}"
+            humidityLabel.text  = "Humidity"
+            humidityText.text   = "\(Int(humidity * 100))%"
+        } else {
+            humiditySymbol.text = ""
+            humidityLabel.text  = ""
+            humidityText.text   = ""
+        }
+    }
+
     private func cardinal(from degrees: Double) -> String {
         switch degrees {
         case 0...22.5:

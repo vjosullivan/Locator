@@ -42,9 +42,10 @@ struct DataPoint {
     /// - 0.5 ⋅ full moon,
     /// - 0.75 ⋅ last quarter moon.
     ///
-    /// (The ranges in between these represent waxing crescent, waxing gibbous, waning gibbous, and waning crescent moons, respectively.)
+    /// (The ranges in between these represent waxing crescent, waxing gibbous, waning gibbous
+    ///  and waning crescent moons, respectively.)
     let moonPhase: Double?
-    
+
     /// The approximate direction of the nearest storm in degrees, with true north at 0° and progressing clockwise.
     /// Only on current data point.  Optional.
     ///
@@ -59,7 +60,7 @@ struct DataPoint {
     /// The columnar density of total atmospheric ozone at the given time in Dobson units.  Optional.
     let ozone: Double?
 
-    /// The amount of snowfall accumulation expected to occur.  Not defined if no snowfall expected.  Hourly and daily only.
+    /// Only if snowfall expected, the amount of snowfall accumulation expected to occur.  Hourly and daily only.
     let precipAccumulation: Measurement<UnitLength>?
     /// The intensity (mm or inches of liquid water per hour) of precipitation occurring at the given time.  Optional.
     ///

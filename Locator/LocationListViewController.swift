@@ -55,7 +55,7 @@ extension LocationListViewController /*: UITableViewDataSource */ {
         placeManager.storeDefaultPlace(indexPath.row - 1)
         self.performSegue(withIdentifier: "unwindToMainVC", sender: self)
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Allow an extra row for the "current location" option.
         return placeManager.placeCount + 1
@@ -74,8 +74,10 @@ extension LocationListViewController /*: UITableViewDataSource */ {
     }
 
     // Override to support editing the table view.
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == UITableViewCellEditingStyle.delete) {
+    func tableView(_ tableView: UITableView,
+                   commit editingStyle: UITableViewCellEditingStyle,
+                   forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
             placeManager.removePlace(at: indexPath.row - 1)
             uiPlaces.reloadData()
         }
@@ -89,7 +91,8 @@ extension LocationListViewController /*: UITableViewDataSource */ {
         return true
     }
 
-    func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+    func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath,
+                   toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
         if proposedDestinationIndexPath.row == 0 {
             return IndexPath.init(row: 1, section: 0)
         }

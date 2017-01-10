@@ -10,14 +10,14 @@ import Foundation
 import CoreLocation
 
 protocol LocationControllerDelegate {
-    
+
     ///  Tells the delegate that new location information is available.
     ///
     ///  - parameter client:  The location API client that updated the location information.
     ///  - parameter location: The new location data.
     ///
     func location(controller: LocationController, didUpdateLocation location: Location)
-    
+
     ///  Tells the delegate that the location manager failed to obtain a location.
     ///
     ///  - parameter client: The location API client that failed.

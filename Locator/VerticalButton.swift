@@ -9,13 +9,13 @@
 import UIKit
 
 class VerticalButton: UIButton {
-    
+
     func titleRectForContentRect(bounds: CGRect) -> CGRect {
         var frame = super.titleRect(forContentRect: bounds)
-        
-        frame.origin.y -= (frame.size.width - frame.size.height) / 2;
-        frame.size.height = frame.size.width;
-    
-        return frame;
+
+        frame.origin.y -= (frame.size.width - frame.size.height) / 2
+        frame.size.height = frame.size.width
+
+        return frame
     }
 }

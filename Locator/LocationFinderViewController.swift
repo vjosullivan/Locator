@@ -12,21 +12,21 @@ import GooglePlaces
 class LocationFinderViewController: UIViewController {
 
     @IBOutlet weak var textField: UITextField!
-    
+
     @IBOutlet weak var placeTable: UITableView!
-    
+
     var fetcher: GMSAutocompleteFetcher?
     var places = [Place]()
 
     let regularFont = UIFont.systemFont(ofSize: UIFont.labelFontSize)
     let boldFont    = UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         placeTable.delegate = self
         placeTable.dataSource = self
-        
+
         self.view.backgroundColor = UIColor.white
         self.edgesForExtendedLayout = []
 
@@ -34,7 +34,8 @@ class LocationFinderViewController: UIViewController {
         fetcher = configureFetcher()
 
         textField.becomeFirstResponder()
-        textField?.addTarget(self, action: #selector(LocationFinderViewController.textFieldDidChange(textField:)), for: .editingChanged)
+        textField?.addTarget(self, action: #selector(LocationFinderViewController.textFieldDidChange(textField:)),
+                             for: .editingChanged)
     }
 
     func configureFetcher() -> GMSAutocompleteFetcher {
@@ -73,12 +74,13 @@ class LocationFinderViewController: UIViewController {
 }
 
 extension LocationFinderViewController: GMSAutocompleteFetcherDelegate, UITableViewDataSource {
-    
+
     func didAutocomplete(with predictions: [GMSAutocompletePrediction]) {
         var results = ""
         places.removeAll()
         for prediction in predictions {
-            results += "\(prediction.attributedPrimaryText.string)  \(prediction.attributedSecondaryText!.string)  \(prediction.placeID)\n"
+            results += "\(prediction.attributedPrimaryText.string)  " +
+                "\(prediction.attributedSecondaryText!.string)  \(prediction.placeID)\n"
             places.append(Place(
                 name: prediction.attributedPrimaryText.string,
                 region: prediction.attributedSecondaryText!.string,
@@ -86,29 +88,29 @@ extension LocationFinderViewController: GMSAutocompleteFetcherDelegate, UITableV
                 latitude: 0.0,
                 longitude: 0.0))
         }
-        DispatchQueue.main.async{
+        DispatchQueue.main.async {
             self.placeTable.reloadData()
         }
     }
-    
+
     func didFailAutocompleteWithError(_ error: Error) {
         print("F")
     }
 }
 
 extension LocationFinderViewController /* UITableViewDataSource extension */ {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return places.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PlaceCell", for: indexPath)
         cell.textLabel?.text = places[indexPath.row].name
         cell.detailTextLabel?.text = places[indexPath.row].region
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let placesClient = GMSPlacesClient()
         let placeID = places[indexPath.row].placeID
