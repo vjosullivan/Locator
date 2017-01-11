@@ -11,7 +11,7 @@ import CoreLocation
 
 class LocationController: CLLocationManager {
 
-    let locationDelegate: LocationControllerDelegate
+    weak var locationDelegate: LocationControllerDelegate?
     var locationStatus: String = ""
 
     init(withDelegate delegate: LocationControllerDelegate) {
@@ -54,11 +54,11 @@ extension LocationController: CLLocationManagerDelegate {
         print("VOS04 - didUpdateLocations - \(NSDate())")
         let coords = locations[0].coordinate
         let location = Location(latitude: coords.latitude, longitude: coords.longitude)
-        locationDelegate.location(controller: self, didUpdateLocation: location)
+        locationDelegate?.location(controller: self, didUpdateLocation: location)
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("VOS05")
-        locationDelegate.location(controller: self, didFailWithError: error)
+        locationDelegate?.location(controller: self, didFailWithError: error)
     }
 }

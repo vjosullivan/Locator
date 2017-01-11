@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-protocol LocationControllerDelegate {
+protocol LocationControllerDelegate: class {
 
     ///  Tells the delegate that new location information is available.
     ///

@@ -80,7 +80,7 @@ class PlaceManager {
             places = [Place]()
             return
         }
-        places = NSKeyedUnarchiver.unarchiveObject(with: placesData) as! [Place]
+        places = NSKeyedUnarchiver.unarchiveObject(with: placesData) as? [Place] ?? [Place]()
     }
 
     static func clearDefaultPlace() {
@@ -104,6 +104,6 @@ class PlaceManager {
         guard let placesData = UserDefaults.standard.data(forKey: "places") else {
             return [Place]()
         }
-        return NSKeyedUnarchiver.unarchiveObject(with: placesData) as! [Place]
+        return NSKeyedUnarchiver.unarchiveObject(with: placesData) as? [Place] ?? [Place]()
     }
 }

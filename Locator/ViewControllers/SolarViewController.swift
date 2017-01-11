@@ -41,7 +41,7 @@ class SolarViewController: UIViewController {
 
         print("Updating solar dispalay")
         updateSunrise(time: forecast.today?.sunriseTime, timeZone: forecast.timeZone, textColor: foreColor)
-        updateSunset(time: forecast.today?.sunriseTime, timeZone: forecast.timeZone, textColor: foreColor)
+        updateSunset(time: forecast.today?.sunsetTime, timeZone: forecast.timeZone, textColor: foreColor)
 
         sunriseLabel.textColor     = foreColor
         sunriseTimeThere.textColor = foreColor

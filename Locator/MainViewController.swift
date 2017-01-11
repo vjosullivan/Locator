@@ -229,8 +229,7 @@ class MainViewController: UIViewController {
 
     private func updateDisplay(with forecast: DarkSkyForecast, for place: Place) {
         print("Update display.")
-        // TODO: Incorporate location info into forecast.
-        //        if let place = PlaceManager.retrieveDefaultPlace() {
+
         uiPlace.text = place.region != "" ? place.region : place.name
         updateWeatherSymbol(using: forecast.current?.icon)
 
