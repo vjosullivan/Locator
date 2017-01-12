@@ -44,10 +44,17 @@ struct DarkSkyClient {
 
     func fetchForecast(completionHandler: @escaping (DarkSkyForecast) -> Void) {
         fetchData {(data, _, _) in
-            let json = try! JSONSerialization.jsonObject(
-                with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String: AnyObject]
-            if let forecast = DarkSkyForecast(dictionary: json) {
-                completionHandler(forecast)
+            do {
+                if let json = try JSONSerialization.jsonObject(
+                    with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String: AnyObject] {
+                    if let forecast = DarkSkyForecast(dictionary: json) {
+                        completionHandler(forecast)
+                    } else {
+                        // Unable to decode data.
+                    }
+                }
+            } catch {
+                // Unable to access data.
             }
         }
     }

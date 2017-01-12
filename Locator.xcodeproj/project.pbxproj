@@ -42,6 +42,7 @@
 		F1D5D29A1DD85B3700D9DC1F /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5D2991DD85B3700D9DC1F /* Place.swift */; };
 		F1D5D29F1DD85DA100D9DC1F /* PlaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5D29E1DD85DA100D9DC1F /* PlaceTests.swift */; };
 		F1D5D2A31DD8982400D9DC1F /* PlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5D2A21DD8982400D9DC1F /* PlaceManager.swift */; };
+		F1D60DD31E27E39000E7059C /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D60DD21E27E39000E7059C /* Weather.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		F1D5D2991DD85B3700D9DC1F /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		F1D5D29E1DD85DA100D9DC1F /* PlaceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTests.swift; sourceTree = "<group>"; };
 		F1D5D2A21DD8982400D9DC1F /* PlaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceManager.swift; sourceTree = "<group>"; };
+		F1D60DD21E27E39000E7059C /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +250,7 @@
 				F1D5D2991DD85B3700D9DC1F /* Place.swift */,
 				F1D5D2A21DD8982400D9DC1F /* PlaceManager.swift */,
 				3422C05C1E1BF79E00006EB3 /* DarkMoon.swift */,
+				F1D60DD21E27E39000E7059C /* Weather.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				F16673501E0298150087C5D7 /* DataPointInit.swift in Sources */,
 				F16673401E0295ED0087C5D7 /* LocationControllerDelegate.swift in Sources */,
 				F1D5D29A1DD85B3700D9DC1F /* Place.swift in Sources */,
+				F1D60DD31E27E39000E7059C /* Weather.swift in Sources */,
 				3498D66F1E13CEB70081ECE3 /* RibbonView.swift in Sources */,
 				34F5A4FE1E239E2000E66AC1 /* TimeZone_extension.swift in Sources */,
 				348148731E15C1AD00079056 /* SolarViewController.swift in Sources */,

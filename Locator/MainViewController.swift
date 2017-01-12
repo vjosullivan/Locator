@@ -8,37 +8,6 @@
 
 import UIKit
 
-struct Weather {
-    let name: String
-    let backgroundColor: UIColor
-}
-
-enum WeatherIcon: String {
-    case rain  = "\u{F019}"
-    case snow  = "\u{F01B}"
-    case sleet = "\u{F0B5}"
-    case wind  = "\u{F050}"
-    case fog   = "\u{F014}"
-    case clearDay   = "\u{F00D}"
-    case clearNight = "\u{F02E}"
-    case cloudy     = "\u{F013}"
-    case partlyCloudyDay   = "\u{F002}"
-    case partlyCloudyNight = "\u{F086}"
-    case hail         = "\u{F015}"
-    case thunderstorm = "\u{F01E}"
-    case tornado      = "\u{F056}"
-    case noWeather =  "\u{F095}"
-
-    case windDirection   = "\u{F0B1}"
-    case barometer       = "\u{F079}"
-
-    case thermometer    = "\u{F055}"
-    case thermometerIn  = "\u{F054}"
-    case thermometerOut = "\u{F053}"
-
-    static let windCalm = WeatherIcon(rawValue: "\u{F095}")!
-}
-
 class MainViewController: UIViewController {
 
     let radianConvertion = CGFloat.pi / 180.0
@@ -231,11 +200,11 @@ class MainViewController: UIViewController {
         print("Update display.")
 
         uiPlace.text = place.region != "" ? place.region : place.name
-        updateWeatherSymbol(using: forecast.current?.icon)
+        updateWeather(using: forecast.current?.icon)
 
         viewA.backgroundColor = currentWeatherSymbol.backgroundColor
         viewB.backgroundColor = currentWeatherSymbol.backgroundColor
-        currentWeatherValue.textColor  = currentWeatherSymbol.textColor
+        currentWeatherSymbol.textColor  = currentWeatherSymbol.textColor
         currentTemperatureValue.textColor = currentWeatherSymbol.textColor
         todaysHighValue.textColor = currentWeatherSymbol.textColor
         todaysLowValue.textColor = currentWeatherSymbol.textColor
@@ -273,59 +242,16 @@ class MainViewController: UIViewController {
         hourSummary.text   = forecast.hourly?.summary ?? ""
     }
 
-    private func updateWeatherSymbol(using icon: String?) {
-        let weatherIcon = icon ?? ""
-        switch weatherIcon {
-        case "clear-day":
-            currentWeatherSymbol.text = WeatherIcon.clearDay.rawValue
-            currentWeatherSymbol.backgroundColor = UIColor.clearDay
-        case "clear-night":
-            currentWeatherSymbol.text = WeatherIcon.clearNight.rawValue
-            currentWeatherSymbol.backgroundColor = UIColor.clearNight
-        case "rain":
-            currentWeatherSymbol.text = WeatherIcon.rain.rawValue
-            currentWeatherSymbol.backgroundColor = UIColor.rainDay
-        case "snow":
-            currentWeatherSymbol.text = WeatherIcon.snow.rawValue
-            currentWeatherSymbol.backgroundColor = UIColor.snowDay
-        case "sleet":
-            currentWeatherSymbol.text = WeatherIcon.sleet.rawValue
-            currentWeatherSymbol.backgroundColor = UIColor.sleetDay
-        case "wind":
-            currentWeatherSymbol.text = WeatherIcon.wind.rawValue
-            currentWeatherSymbol.backgroundColor = UIColor.windDay
-        case "fog":
-            currentWeatherSymbol.text = WeatherIcon.fog.rawValue
-            currentWeatherSymbol.backgroundColor = UIColor.fogDay
-        case "cloudy":
-            currentWeatherSymbol.text = WeatherIcon.cloudy.rawValue
-            currentWeatherSymbol.backgroundColor = UIColor.cloudyDay
-        case "partly-cloudy-day":
-            currentWeatherSymbol.text = WeatherIcon.partlyCloudyDay.rawValue
-            currentWeatherSymbol.backgroundColor = UIColor.partlyCloudyDay
-        case "partly-cloudy-night":
-            currentWeatherSymbol.text = WeatherIcon.partlyCloudyNight.rawValue
-            currentWeatherSymbol.backgroundColor = UIColor.partlyCloudyNight
-        case "hail":
-            currentWeatherSymbol.text = WeatherIcon.hail.rawValue
-            currentWeatherSymbol.backgroundColor = UIColor.hailDay
-        case "thunderstorm":
-            currentWeatherSymbol.text = WeatherIcon.thunderstorm.rawValue
-            currentWeatherSymbol.backgroundColor = UIColor.thunderstormDay
-        case "tornado":
-            currentWeatherSymbol.text = WeatherIcon.tornado.rawValue
-            currentWeatherSymbol.backgroundColor = UIColor.thunderstormNight
-        default:
-            currentWeatherSymbol.text = WeatherIcon.noWeather.rawValue
-            currentWeatherSymbol.backgroundColor = UIColor.noWeatherDay
-        }
-        switch weatherIcon {
-        case "clear-night", "partly-cloudy-night":
+    private func updateWeather(using icon: String?) {
+        let weather = Weather.representedBy(darkSkyIcon: icon ?? "")
+        currentWeatherSymbol.text = weather.symbol
+        currentWeatherSymbol.backgroundColor = weather.color
+        if weather.isDark {
             currentWeatherSymbol.textColor = UIColor.white
-            self.view.backgroundColor = currentWeatherSymbol.backgroundColor?.lighter().lighter()
-        default:
+            self.view.backgroundColor = weather.color.lighter().lighter()
+        } else {
             currentWeatherSymbol.textColor = UIColor.black
-            self.view.backgroundColor = currentWeatherSymbol.backgroundColor?.darker().darker()
+            self.view.backgroundColor = weather.color.darker().darker()
         }
     }
 
