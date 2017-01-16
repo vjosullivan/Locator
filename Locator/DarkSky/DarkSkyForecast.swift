@@ -27,6 +27,8 @@ struct DarkSkyForecast {
         return daily?.dataPoints?[0]
     }
 
+    let unitsCode: String
+
     init?(dictionary: [String: AnyObject]) {
         guard let units = dictionary["flags"]?["units"] as? String,
             let latitudeValue = dictionary["latitude"] as? Double,
@@ -34,6 +36,7 @@ struct DarkSkyForecast {
             let timeZoneValue = dictionary["timezone"] as? String else {
                 return nil
         }
+        unitsCode = units
         forecastUnits = DarkSkyUnits.from(string: units)
 
         latitude  = Measurement(value: latitudeValue, unit: forecastUnits.angle)

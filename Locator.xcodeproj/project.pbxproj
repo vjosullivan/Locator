@@ -23,6 +23,7 @@
 		348BC3641DD1AF6B00638D66 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 348BC3631DD1AF6B00638D66 /* Podfile */; };
 		3498D66F1E13CEB70081ECE3 /* RibbonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3498D66E1E13CEB70081ECE3 /* RibbonView.swift */; };
 		34AC7E1E1E1E8AFB00BF33E0 /* String_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC7E1D1E1E8AFB00BF33E0 /* String_extension.swift */; };
+		34DF48E71E292ADB00AC4E16 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DF48E61E292ADB00AC4E16 /* AppSettings.swift */; };
 		34F5A4FC1E22794700E66AC1 /* Lilly__.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34F5A4FB1E22794700E66AC1 /* Lilly__.ttf */; };
 		34F5A4FE1E239E2000E66AC1 /* TimeZone_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F5A4FD1E239E2000E66AC1 /* TimeZone_extension.swift */; };
 		34F5A5001E23D6A600E66AC1 /* Font_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F5A4FF1E23D6A600E66AC1 /* Font_extension.swift */; };
@@ -77,6 +78,7 @@
 		348BC3631DD1AF6B00638D66 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3498D66E1E13CEB70081ECE3 /* RibbonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RibbonView.swift; sourceTree = "<group>"; };
 		34AC7E1D1E1E8AFB00BF33E0 /* String_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String_extension.swift; sourceTree = "<group>"; };
+		34DF48E61E292ADB00AC4E16 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		34F5A4FB1E22794700E66AC1 /* Lilly__.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lilly__.ttf; sourceTree = "<group>"; };
 		34F5A4FD1E239E2000E66AC1 /* TimeZone_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeZone_extension.swift; sourceTree = "<group>"; };
 		34F5A4FF1E23D6A600E66AC1 /* Font_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font_extension.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				F1D5D2A21DD8982400D9DC1F /* PlaceManager.swift */,
 				3422C05C1E1BF79E00006EB3 /* DarkMoon.swift */,
 				F1D60DD21E27E39000E7059C /* Weather.swift */,
+				34DF48E61E292ADB00AC4E16 /* AppSettings.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34DF48E71E292ADB00AC4E16 /* AppSettings.swift in Sources */,
 				F16673471E0297E20087C5D7 /* DarkSkyForecast.swift in Sources */,
 				F166734C1E02980C0087C5D7 /* DetailedForecast.swift in Sources */,
 				F166733F1E0295ED0087C5D7 /* LocationController.swift in Sources */,

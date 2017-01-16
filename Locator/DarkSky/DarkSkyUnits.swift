@@ -18,10 +18,11 @@ extension UnitSpeed {
 }
 
 enum DarkSkyUnits {
-    case uk2
-    case ca
-    case us
+    case auto
     case si
+    case ca
+    case uk2
+    case us
 
     /// Returns a `UnitsFamily` value derived from the supplied `String`.
     ///
@@ -31,20 +32,22 @@ enum DarkSkyUnits {
     ///
     static func from(string: String) -> DarkSkyUnits {
         switch string {
-        case "ca":
-            return .ca
         case "si":
             return .si
+        case "ca":
+            return .ca
         case "uk2":
             return .uk2
-        default:
+        case "us":
             return .us
+        default:
+            return .auto
         }
     }
 
     var temperature: UnitTemperature {
         switch self {
-        case .si, .ca, .uk2:
+        case .si, .ca, .uk2, .auto:
             return .celsius
         case .us:
             return .fahrenheit
@@ -57,7 +60,7 @@ enum DarkSkyUnits {
 
     var rainIntensity: UnitSpeed {
         switch self {
-        case .si, .ca, .uk2:
+        case .si, .ca, .uk2, .auto:
             return .millimetersPerHour
         case .us:
             return .inchesPerHour
@@ -66,7 +69,7 @@ enum DarkSkyUnits {
 
     var airPressure: UnitPressure {
         switch self {
-        case .si, .ca, .uk2:
+        case .si, .ca, .uk2, .auto:
             return .hectopascals
         case .us:
             return .millibars
@@ -76,7 +79,7 @@ enum DarkSkyUnits {
     ///  The units used for measuring wind speed.
     var windSpeed: UnitSpeed {
         switch self {
-        case .si:
+        case .si, .auto:
             return .metersPerSecond
         case .ca:
             return .kilometersPerHour
@@ -89,7 +92,7 @@ enum DarkSkyUnits {
 
     var distance: UnitLength {
         switch self {
-        case .si, .ca:
+        case .si, .ca, .auto:
             return .kilometers
         case .uk2, .us:
             return .miles
@@ -98,7 +101,7 @@ enum DarkSkyUnits {
 
     var accumulation: UnitLength {
         switch self {
-        case .si, .ca, .uk2:
+        case .si, .ca, .uk2, .auto:
             return .millimeters
         case .us:
             return .inches

@@ -20,14 +20,19 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var caUnits: UILabel!
     @IBOutlet weak var siUnits: UILabel!
 
+    @IBOutlet weak var settingsLabel: UILabel!
+
     @IBOutlet weak var returnButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Settings viewDidLoad")
+        print("Settings: units are \(AppSettings.retrieve(key: "units", defaultValue: "None!"))")
     }
 
     func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?) {
+
+        AppSettings.store(key: "units", value: forecast.unitsCode)
 
         //let foreColor = foregroundColor ?? UIColor.white
         let backColor = backgroundColor ?? UIColor.darkGray
@@ -38,15 +43,24 @@ class SettingsViewController: UIViewController {
     @IBAction func switchUnits(_ sender: UIButton) {
         switch sender {
         case usButton:
-            break
+            print("Use US units.")
+            AppSettings.store(key: "units", value: "us")
+            settingsLabel.text = "US units: ˚F, miles, mph, mbar"
         case ukButton:
-            break
+            print("Use UK units.")
+            AppSettings.store(key: "units", value: "uk2")
+            settingsLabel.text = "UK units: ˚C, miles, mph, hPa"
         case caButton:
-            break
+            print("Use CA units.")
+            AppSettings.store(key: "units", value: "ca")
+            settingsLabel.text = "CA units: ˚C, kilometers, km/h, mmHg"
         case siButton:
-            break
+            print("Use SI units.")
+            AppSettings.store(key: "units", value: "si")
+            settingsLabel.text = "SI units: ˚C, metres, m/s, hPa"
         default:
-            break
+            print("Use default units.")
+            AppSettings.store(key: "units", value: "auto")
         }
     }
 }
