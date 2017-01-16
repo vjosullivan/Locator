@@ -45,6 +45,7 @@ variable_name:
   excluded: # excluded via string array
     - id
     - fog
+    - key
     - to
     - url
     - URL
