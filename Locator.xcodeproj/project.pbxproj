@@ -23,6 +23,7 @@
 		348BC3641DD1AF6B00638D66 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 348BC3631DD1AF6B00638D66 /* Podfile */; };
 		3498D66F1E13CEB70081ECE3 /* RibbonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3498D66E1E13CEB70081ECE3 /* RibbonView.swift */; };
 		34AC7E1E1E1E8AFB00BF33E0 /* String_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC7E1D1E1E8AFB00BF33E0 /* String_extension.swift */; };
+		34BB1CF21E2E6DE400595C91 /* FrontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BB1CF11E2E6DE400595C91 /* FrontViewController.swift */; };
 		34DF48E71E292ADB00AC4E16 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DF48E61E292ADB00AC4E16 /* AppSettings.swift */; };
 		34F5A4FC1E22794700E66AC1 /* Lilly__.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34F5A4FB1E22794700E66AC1 /* Lilly__.ttf */; };
 		34F5A4FE1E239E2000E66AC1 /* TimeZone_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F5A4FD1E239E2000E66AC1 /* TimeZone_extension.swift */; };
@@ -78,6 +79,7 @@
 		348BC3631DD1AF6B00638D66 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3498D66E1E13CEB70081ECE3 /* RibbonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RibbonView.swift; sourceTree = "<group>"; };
 		34AC7E1D1E1E8AFB00BF33E0 /* String_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String_extension.swift; sourceTree = "<group>"; };
+		34BB1CF11E2E6DE400595C91 /* FrontViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontViewController.swift; sourceTree = "<group>"; };
 		34DF48E61E292ADB00AC4E16 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		34F5A4FB1E22794700E66AC1 /* Lilly__.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lilly__.ttf; sourceTree = "<group>"; };
 		34F5A4FD1E239E2000E66AC1 /* TimeZone_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeZone_extension.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				348148721E15C1AD00079056 /* SolarViewController.swift */,
 				348148741E15C1FF00079056 /* DetailsViewController.swift */,
 				340FBA081E1A8B1500E2FAD4 /* SettingsViewController.swift */,
+				34BB1CF11E2E6DE400595C91 /* FrontViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				F1D5D2951DD70DED00D9DC1F /* LocationListViewController.swift in Sources */,
 				F166734A1E0297F80087C5D7 /* DarkSkyUnits.swift in Sources */,
 				F16673441E0296AB0087C5D7 /* DarkSkyClient.swift in Sources */,
+				34BB1CF21E2E6DE400595C91 /* FrontViewController.swift in Sources */,
 				34AC7E1E1E1E8AFB00BF33E0 /* String_extension.swift in Sources */,
 				348BC3411DD1AF3900638D66 /* AppDelegate.swift in Sources */,
 				348148751E15C1FF00079056 /* DetailsViewController.swift in Sources */,
