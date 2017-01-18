@@ -34,7 +34,6 @@ class DetailsViewController: UIViewController {
         let foreColor = foregroundColor ?? UIColor.white
         let backColor = backgroundColor ?? UIColor.darkGray
 
-        print("Updating details dispalay")
         updatePressure(from: forecast.current?.pressure)
         updateHumidity(from: forecast.current?.humidity)
         updateWindSpeed(from: forecast.current?.windSpeed)
@@ -81,7 +80,6 @@ class DetailsViewController: UIViewController {
 
     private func updateWindDirection(from measurement: Measurement<UnitAngle>?) {
         if let windDirection = measurement {
-            print("Wind direction: \(windDirection)")
             windSymbol.text = Weather.windDirection.symbol
             let angle = CGFloat((windDirection.value + 180.0) * M_PI / 180.0)
             windSymbol.transform = CGAffineTransform.init(rotationAngle: angle)

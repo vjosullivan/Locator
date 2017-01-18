@@ -113,7 +113,6 @@ class MainViewController: UIViewController {
         let darkSky = DarkSkyClient(location: Location(latitude: place.latitude, longitude: place.longitude))
         darkSky.fetchForecast { darkSkyForecast in
             DispatchQueue.main.async {
-                print("Updating weather asynchronously.")
                 self.updateDisplay(with: darkSkyForecast, for: place)
                 self.frontVC?.update(forecast: darkSkyForecast,
                                      foregroundColor: self.currentWeatherSymbol.textColor,
@@ -157,16 +156,13 @@ class MainViewController: UIViewController {
     }
 
     func flip(_ frontView: UIView, rearView: UIView) {
-        print("Flip: Front visible = \(frontView.isHidden), rear visible = \(rearView.isHidden).")
         if rearView.isHidden {
-            print("Making rear view visible")
             let transitionOptions: UIViewAnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]
             UIView.transition(with: frontView, duration: 1.0, options: transitionOptions,
                               animations: { frontView.isHidden = true  }, completion: nil)
             UIView.transition(with: rearView, duration: 1.0, options: transitionOptions,
                               animations: { rearView.isHidden  = false }, completion: nil)
         } else {
-            print("Making front view visible")
             let transitionOptions: UIViewAnimationOptions = [.transitionFlipFromLeft, .showHideTransitionViews]
             UIView.transition(with: rearView, duration: 1.0, options: transitionOptions,
                               animations: { rearView.isHidden  = true  }, completion: nil)

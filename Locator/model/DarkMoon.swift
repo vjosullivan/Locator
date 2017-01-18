@@ -29,7 +29,6 @@ struct DarkMoon {
     static func backgroundSymbol(from phase: Double) -> String {
         let base = 0xf0cf
         let offset = Int((phase + 0.5 / symbolCount) * symbolCount) % Int(symbolCount)
-        print(String(base + offset, radix: 16, uppercase: true))
         return (offset == 0) ? "\u{f0eb}" : "\(UnicodeScalar(base + offset)!)"
     }
 

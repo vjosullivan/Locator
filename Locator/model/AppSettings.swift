@@ -27,10 +27,8 @@ struct AppSettings {
     ///
     static func retrieve(key: String, defaultValue: String) -> String {
         guard let data = UserDefaults.standard.object(forKey: key) as? String else {
-            print("Failed key '\(key)' using default '\(defaultValue)'.")
             return defaultValue
         }
-        print("Retrieved key '\(key)' with value'\(data)'.")
         return data
     }
 
@@ -38,9 +36,7 @@ struct AppSettings {
     ///
     /// - Parameter place: The application's (new) default place.
     static func store(key: String, value: String) {
-        print("Setting key '\(key)' to value '\(value)'.")
         UserDefaults.standard.setValue(value, forKey: key)
         let check = UserDefaults.standard.object(forKey: key) as? String ?? "!!"
-        print("Checking key '\(key)'.  Value is '\(check)'.")
     }
 }

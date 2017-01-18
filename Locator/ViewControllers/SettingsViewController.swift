@@ -26,8 +26,6 @@ class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Settings viewDidLoad")
-        print("Settings: units are \(AppSettings.retrieve(key: "units", defaultValue: "None!"))")
     }
 
     func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?) {
@@ -43,23 +41,18 @@ class SettingsViewController: UIViewController {
     @IBAction func switchUnits(_ sender: UIButton) {
         switch sender {
         case usButton:
-            print("Use US units.")
             AppSettings.store(key: "units", value: "us")
             settingsLabel.text = "US units: ˚F, miles, mph, mbar"
         case ukButton:
-            print("Use UK units.")
             AppSettings.store(key: "units", value: "uk2")
             settingsLabel.text = "UK units: ˚C, miles, mph, hPa"
         case caButton:
-            print("Use CA units.")
             AppSettings.store(key: "units", value: "ca")
             settingsLabel.text = "CA units: ˚C, kilometers, km/h, mmHg"
         case siButton:
-            print("Use SI units.")
             AppSettings.store(key: "units", value: "si")
             settingsLabel.text = "SI units: ˚C, metres, m/s, hPa"
         default:
-            print("Use default units.")
             AppSettings.store(key: "units", value: "auto")
         }
     }

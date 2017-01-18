@@ -17,7 +17,6 @@ extension Date {
     }
 
     func asHHMM(twentyFourHourClock: Bool = true, timezone: String? = nil) -> String {
-        print("Timezone: \(timezone)")
         let formatter = DateFormatter()
         if let timezone = timezone {
             let tz      = TimeZone(identifier: timezone)

@@ -27,7 +27,6 @@ struct DarkSkyClient {
         url = URL(string: DarkSkyClient.darkSkyUrl + DarkSkyClient.darkSkyKey +
             "/\(location.latitude),\(location.longitude)" +
             "?units=\(AppSettings.retrieve(key: "units", defaultValue: "auto"))")!
-        print("URL: \(url)")
     }
 
     /// Initialiser: Utilises "dependency injection" to initialise the client with a predefined URL.

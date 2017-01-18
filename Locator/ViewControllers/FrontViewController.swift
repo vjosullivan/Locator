@@ -36,7 +36,6 @@ class FrontViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Front viewDidLoad")
 
         // Clear background colors from labels and buttons
         _ = backgroundColoredViews.map { $0.backgroundColor = UIColor.clear }
@@ -70,7 +69,6 @@ class FrontViewController: UIViewController {
 
     func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?,
                 container: MainViewController) {
-        print("Front updated")
         mainVC = container
 
         viewA.backgroundColor = backgroundColor
@@ -116,7 +114,6 @@ class FrontViewController: UIViewController {
 
     @IBAction func flip(_ sender: UIButton) {
         guard let mainVC = mainVC else {
-            print("clonk!")
             return
         }
         switch true {

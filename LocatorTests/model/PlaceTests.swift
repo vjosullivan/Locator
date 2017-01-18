@@ -19,16 +19,8 @@ class PlaceTests: XCTestCase {
 
     var place: Place = Place(name: "", region: "", placeID: "", latitude: 0.0, longitude: 0.0)
 
-    override static func setUp() {
-        print("\n\nStart tests...")
-    }
-
     override func setUp() {
         place = Place(name: placeName, region: region, placeID: placeID, latitude: latitude, longitude: longitude)
-    }
-
-    override static func tearDown() {
-        print("Tests completed\n\n")
     }
 
     func testCreatable() {

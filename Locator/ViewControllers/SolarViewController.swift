@@ -31,7 +31,6 @@ class SolarViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Solar viewDidLoad")
     }
 
     func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?) {
@@ -39,7 +38,6 @@ class SolarViewController: UIViewController {
         let foreColor = foregroundColor ?? UIColor.white
         let backColor = backgroundColor ?? UIColor.darkGray
 
-        print("Updating solar dispalay")
         updateSunrise(time: forecast.today?.sunriseTime, timeZone: forecast.timeZone, textColor: foreColor)
         updateSunset(time: forecast.today?.sunsetTime, timeZone: forecast.timeZone, textColor: foreColor)
 
