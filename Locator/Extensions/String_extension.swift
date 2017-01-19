@@ -10,7 +10,7 @@ import Foundation
 
 extension String {
 
-    func index(from: Int) -> Index {
+    private func index(from: Int) -> Index {
         return self.index(startIndex, offsetBy: from)
     }
 

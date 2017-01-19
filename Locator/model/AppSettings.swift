@@ -37,6 +37,5 @@ struct AppSettings {
     /// - Parameter place: The application's (new) default place.
     static func store(key: String, value: String) {
         UserDefaults.standard.setValue(value, forKey: key)
-        let check = UserDefaults.standard.object(forKey: key) as? String ?? "!!"
     }
 }

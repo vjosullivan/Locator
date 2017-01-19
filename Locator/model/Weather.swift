@@ -27,13 +27,13 @@ struct Weather {
         return Weather(symbol: "\u{F02E}", color: UIColor.clearNight, isDark: true)
     }
     static var rain: Weather {
-        return Weather(symbol: "\u{F019}", color: UIColor.rainDay, isDark: false)
+        return Weather(symbol: "\u{F019}", color: UIColor.rain, isDark: false)
     }
     static var rainDay: Weather {
-        return Weather(symbol: "\u{F019}", color: UIColor.rainDay, isDark: false)
+        return Weather(symbol: "\u{F008}", color: UIColor.rainDay, isDark: false)
     }
     static var rainNight: Weather {
-        return Weather(symbol: "\u{F019}", color: UIColor.rainDay, isDark: false)
+        return Weather(symbol: "\u{F028}", color: UIColor.rainNight, isDark: true)
     }
     static var snow: Weather {
         return Weather(symbol: "\u{F01B}", color: UIColor.snow, isDark: false)
@@ -69,7 +69,7 @@ struct Weather {
         return Weather(symbol: "\u{F095}", color: UIColor.noWeatherDay, isDark: false)
     }
     static var windCalm: Weather {
-        return Weather(symbol: "\u{F095}", color: UIColor.clear, isDark: false)
+        return Weather(symbol: "\u{F0b7}", color: UIColor.clear, isDark: false)
     }
     static var windDirection: Weather {
         return Weather(symbol: "\u{F0B1}", color: UIColor.clear, isDark: false)
@@ -87,13 +87,18 @@ struct Weather {
         return Weather(symbol: "\u{F053}", color: UIColor.clear, isDark: false)
     }
 
-    // swiftlint:disable:next cyclomatic_complexity
+    // swiftlint:disable cyclomatic_complexity
+    /// Converts a "Dark Sky" icon label into a Weather Awesome character.
+    ///
+    /// - Parameter darkSkyIcon: A Dark Sky icon name (e.g. "clear-day").
+    /// - Returns: A Weather Awesome character corresponding to the name.
+    ///
     static func representedBy(darkSkyIcon: String) -> Weather {
         switch darkSkyIcon {
         case "clear-day": return Weather.clearDay
         case "clear-night": return Weather.clearNight
         case "rain": return Weather.rain
-        case "rain-day": return Weather.rain
+        case "rain-day": return Weather.rainDay
         case "snow": return Weather.snow
         case "sleet": return Weather.sleet
         case "wind": return Weather.wind
@@ -104,4 +109,5 @@ struct Weather {
         default: return Weather.noWeatherDay
         }
     }
+    // swiftlint:enable cyclomatic_complexity
 }
