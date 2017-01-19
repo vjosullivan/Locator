@@ -11,6 +11,7 @@
 		3422C05B1E1BD01000006EB3 /* Date_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422C05A1E1BD01000006EB3 /* Date_extension.swift */; };
 		3422C05D1E1BF79E00006EB3 /* DarkMoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422C05C1E1BF79E00006EB3 /* DarkMoon.swift */; };
 		3453E2CC1E10730A004D5F46 /* UIColor_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3453E2CB1E10730A004D5F46 /* UIColor_extension.swift */; };
+		346EDC8F1E30ADF600BF7AD3 /* JSONFixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346EDC8E1E30ADF600BF7AD3 /* JSONFixture.swift */; };
 		348148701E1519F800079056 /* VerticalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3481486F1E1519F800079056 /* VerticalButton.swift */; };
 		348148731E15C1AD00079056 /* SolarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348148721E15C1AD00079056 /* SolarViewController.swift */; };
 		348148751E15C1FF00079056 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348148741E15C1FF00079056 /* DetailsViewController.swift */; };
@@ -63,6 +64,7 @@
 		3422C05A1E1BD01000006EB3 /* Date_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date_extension.swift; sourceTree = "<group>"; };
 		3422C05C1E1BF79E00006EB3 /* DarkMoon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkMoon.swift; sourceTree = "<group>"; };
 		3453E2CB1E10730A004D5F46 /* UIColor_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor_extension.swift; sourceTree = "<group>"; };
+		346EDC8E1E30ADF600BF7AD3 /* JSONFixture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONFixture.swift; sourceTree = "<group>"; };
 		3481486F1E1519F800079056 /* VerticalButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalButton.swift; sourceTree = "<group>"; };
 		348148721E15C1AD00079056 /* SolarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SolarViewController.swift; sourceTree = "<group>"; };
 		348148741E15C1FF00079056 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 			children = (
 				F1D5D29D1DD85D6B00D9DC1F /* model */,
 				348BC35A1DD1AF3A00638D66 /* Info.plist */,
+				346EDC8E1E30ADF600BF7AD3 /* JSONFixture.swift */,
 			);
 			path = LocatorTests;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1D5D29F1DD85DA100D9DC1F /* PlaceTests.swift in Sources */,
+				346EDC8F1E30ADF600BF7AD3 /* JSONFixture.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
