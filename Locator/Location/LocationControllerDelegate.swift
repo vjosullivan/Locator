@@ -16,13 +16,13 @@ protocol LocationControllerDelegate: class {
     ///  - parameter client:  The location API client that updated the location information.
     ///  - parameter location: The new location data.
     ///
-    func location(controller: LocationController, didUpdateLocation location: Location)
+    func locationController(_ locationController: LocationController, didUpdateLocation location: Location)
 
     ///  Tells the delegate that the location manager failed to obtain a location.
     ///
     ///  - parameter client: The location API client that failed.
     ///  - parameter error:   The nature of the error encountered.
     ///
-    func location(controller: LocationController, didFailWithError error: Error)
+    func locationController(_ locationController: LocationController, didFailWithError error: Error)
 
 }

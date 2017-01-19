@@ -46,10 +46,10 @@ extension LocationController: CLLocationManagerDelegate {
     func locationManager(_ client: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let coords = locations[0].coordinate
         let location = Location(latitude: coords.latitude, longitude: coords.longitude)
-        locationDelegate?.location(controller: self, didUpdateLocation: location)
+        locationDelegate?.locationController(self, didUpdateLocation: location)
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        locationDelegate?.location(controller: self, didFailWithError: error)
+        locationDelegate?.locationController(self, didFailWithError: error)
     }
 }

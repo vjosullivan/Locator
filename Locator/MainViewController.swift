@@ -174,13 +174,13 @@ class MainViewController: UIViewController {
 
 extension MainViewController: LocationControllerDelegate {
 
-    func location(controller: LocationController, didUpdateLocation location: Location) {
+    func locationController(_ locationController: LocationController, didUpdateLocation location: Location) {
         let place = Place(name: "Around here...", region: "", placeID: "",
                           latitude: location.latitude, longitude: location.longitude)
         updateWeather(for: place)
     }
 
-    func location(controller: LocationController, didFailWithError error: Error) {
+    func locationController(_ locationController: LocationController, didFailWithError error: Error) {
         let msg = "No weather forecast available at the moment.\n\n\(error)"
         let alertController = UIAlertController(title: "Current Weather", message: msg, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
