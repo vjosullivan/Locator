@@ -51,18 +51,18 @@
                                         <rect key="frame" x="0.0" y="28" width="359" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GUy-nV-jlW" id="sEw-9u-Bq5">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rOl-Aj-zPc">
-                                                    <rect key="frame" x="15" y="4" width="34" height="21"/>
+                                                    <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="990-Lh-vSU">
-                                                    <rect key="frame" x="15" y="25" width="44" height="15"/>
+                                                    <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -138,18 +138,18 @@
                                         <rect key="frame" x="0.0" y="28" width="359" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6TB-Pe-Gzw" id="Oam-Ef-1OG">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="359" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ErG-pu-TrD">
-                                                    <rect key="frame" x="15" y="4" width="34" height="21"/>
+                                                    <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TiH-bM-UpI">
-                                                    <rect key="frame" x="15" y="25" width="33" height="15"/>
+                                                    <rect key="frame" x="15" y="25.5" width="33" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -965,7 +965,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="02b-rk-2LW" userLabel="Current weather value">
-                                        <rect key="frame" x="43" y="164" width="273" height="63"/>
+                                        <rect key="frame" x="51" y="164" width="257" height="63"/>
                                         <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="63" id="DLV-ix-tSn"/>
@@ -1088,7 +1088,7 @@
                                     <constraint firstItem="qAi-ve-zF9" firstAttribute="top" secondItem="G8u-zV-srD" secondAttribute="top" constant="12" id="7pU-ka-QRP"/>
                                     <constraint firstItem="02b-rk-2LW" firstAttribute="centerX" secondItem="S4x-Xk-HSm" secondAttribute="centerX" id="9Y1-Ay-tPH"/>
                                     <constraint firstItem="Qpv-4K-TDt" firstAttribute="top" secondItem="BzU-Yu-Eyq" secondAttribute="bottom" constant="-1" id="9gZ-GH-NeI"/>
-                                    <constraint firstItem="02b-rk-2LW" firstAttribute="leading" secondItem="Qpv-4K-TDt" secondAttribute="trailing" id="DRr-7M-0CG"/>
+                                    <constraint firstItem="02b-rk-2LW" firstAttribute="leading" secondItem="Qpv-4K-TDt" secondAttribute="trailing" constant="8" id="DRr-7M-0CG"/>
                                     <constraint firstItem="Qxf-NM-ylx" firstAttribute="height" secondItem="iCt-x3-UnQ" secondAttribute="height" id="OEQ-8h-fvE"/>
                                     <constraint firstItem="Gq8-9H-FZl" firstAttribute="bottom" secondItem="G8u-zV-srD" secondAttribute="bottom" constant="-12" id="QAU-MW-BE5"/>
                                     <constraint firstItem="Qxf-NM-ylx" firstAttribute="leading" secondItem="G8u-zV-srD" secondAttribute="trailing" constant="43" id="Rrd-xY-hxw"/>
@@ -1096,7 +1096,7 @@
                                     <constraint firstItem="BzU-Yu-Eyq" firstAttribute="leading" secondItem="S4x-Xk-HSm" secondAttribute="leading" constant="-1" id="WhG-bH-Mbv"/>
                                     <constraint firstAttribute="trailing" secondItem="iCt-x3-UnQ" secondAttribute="trailing" constant="-1" id="XC2-ZI-3a5"/>
                                     <constraint firstItem="iCt-x3-UnQ" firstAttribute="leading" secondItem="Gq8-9H-FZl" secondAttribute="trailing" constant="8" id="cWB-ou-Ddk"/>
-                                    <constraint firstItem="Qxf-NM-ylx" firstAttribute="leading" secondItem="02b-rk-2LW" secondAttribute="trailing" id="igw-Y5-Htg"/>
+                                    <constraint firstItem="Qxf-NM-ylx" firstAttribute="leading" secondItem="02b-rk-2LW" secondAttribute="trailing" constant="8" id="igw-Y5-Htg"/>
                                     <constraint firstItem="G8u-zV-srD" firstAttribute="leading" secondItem="Qpv-4K-TDt" secondAttribute="trailing" constant="43" id="k1V-ka-MEh"/>
                                     <constraint firstItem="02b-rk-2LW" firstAttribute="centerY" secondItem="S4x-Xk-HSm" secondAttribute="centerY" multiplier="1.6" id="kpe-rX-1mX"/>
                                     <constraint firstAttribute="trailing" secondItem="Qxf-NM-ylx" secondAttribute="trailing" constant="-1" id="kqF-yc-Kca"/>
@@ -1120,6 +1120,12 @@
                             <constraint firstItem="S4x-Xk-HSm" firstAttribute="leading" secondItem="wT4-hs-c69" secondAttribute="leading" id="RPQ-Dj-gTk"/>
                             <constraint firstAttribute="trailing" secondItem="S4x-Xk-HSm" secondAttribute="trailing" id="arj-Bj-82g"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="8"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="buttonABL" destination="Qpv-4K-TDt" id="QXR-CS-b9G"/>

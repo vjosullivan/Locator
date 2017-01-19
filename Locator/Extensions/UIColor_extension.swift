@@ -30,8 +30,8 @@ extension UIColor {
     static let fogNight = UIColor(red:  85.0/255.0, green:  94.0/255.0, blue: 102.0/255.0, alpha: 1.0)
 
     static let partlyCloudy      = UIColor.partlyCloudyDay.mixedWith(UIColor.partlyCloudyNight)
-    static let partlyCloudyDay   = UIColor(red:  90.0/255.0, green: 173.0/255.0, blue: 193.0/255.0, alpha: 1.0)
-    static let partlyCloudyNight = UIColor(red: 121.0/255.0, green: 135.0/255.0, blue: 153.0/255.0, alpha: 1.0)
+    static let partlyCloudyDay = UIColor(hexString: "#ADD8E6")
+    static let partlyCloudyNight = UIColor(hexString: "#2F4F4F")
 
     static let cloudy      = UIColor.cloudyDay.mixedWith(UIColor.cloudyNight)
     static let cloudyDay   = UIColor(red:  77.0/255.0, green: 162.0/255.0, blue: 179.0/255.0, alpha: 1.0)
@@ -64,6 +64,32 @@ extension UIColor {
     static let noWeather      = UIColor.noWeatherDay.mixedWith(UIColor.noWeatherNight)
     static let noWeatherDay   = UIColor.red.darker().darker()
     static let noWeatherNight = UIColor.blue.darker().darker()
+
+    // Creates a UIColor from a Hex string.
+    convenience init(hexString: String) {
+        var cString:String = hexString.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines).uppercased()
+
+        if (cString.hasPrefix("#")) {
+            cString = cString.substring(from: 1)
+        }
+
+        if cString.characters.count != 6 {
+            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+            return
+        }
+
+        let rString = cString.substring(to: 2)
+        let gString = cString.substring(from: 2).substring(to: 2)
+        let bString = cString.substring(from: 4).substring(to: 2)
+
+        var r:CUnsignedInt = 0, g:CUnsignedInt = 0, b:CUnsignedInt = 0
+        Scanner(string: rString).scanHexInt32(&r)
+        Scanner(string: gString).scanHexInt32(&g)
+        Scanner(string: bString).scanHexInt32(&b)
+
+        let cgf255: CGFloat = 255.0
+        self.init(red: CGFloat(r) / cgf255, green: CGFloat(g) / cgf255, blue: CGFloat(b) / cgf255, alpha: CGFloat(1))
+    }
 
     private func mixedWith(_ color: UIColor) -> UIColor {
         let selfRGB = self.rgb()

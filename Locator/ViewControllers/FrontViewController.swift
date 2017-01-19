@@ -60,7 +60,7 @@ class FrontViewController: UIViewController {
         button.addSubview(label)
         let angle = rotateClockwise ? CGFloat(M_PI_2) : -CGFloat(M_PI_2)  // +/- 90°.
         label.transform = CGAffineTransform.init(rotationAngle: angle)
-        label.textColor = button.currentTitleColor
+        //label.textColor = button.currentTitleColor
         label.backgroundColor = UIColor.clear
         label.text = text
         label.font = button.titleLabel?.font
@@ -73,6 +73,11 @@ class FrontViewController: UIViewController {
 
         viewA.backgroundColor = backgroundColor
         currentTemperatureValue.textColor = foregroundColor
+        currentWeatherValue.textColor = foregroundColor
+        labelATR.textColor = foregroundColor
+        labelATL.textColor = foregroundColor
+        labelABR.textColor = foregroundColor
+        labelABL.textColor = foregroundColor
         todaysHighValue.textColor = foregroundColor
         todaysLowValue.textColor = foregroundColor
         highIcon.textColor = UIColor.red
