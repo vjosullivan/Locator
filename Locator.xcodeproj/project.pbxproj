@@ -12,6 +12,10 @@
 		3422C05D1E1BF79E00006EB3 /* DarkMoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422C05C1E1BF79E00006EB3 /* DarkMoon.swift */; };
 		3453E2CC1E10730A004D5F46 /* UIColor_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3453E2CB1E10730A004D5F46 /* UIColor_extension.swift */; };
 		346EDC8F1E30ADF600BF7AD3 /* JSONFixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346EDC8E1E30ADF600BF7AD3 /* JSONFixture.swift */; };
+		346EDC921E30B99400BF7AD3 /* LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346EDC911E30B99400BF7AD3 /* LocationTests.swift */; };
+		346EDC941E30B9CF00BF7AD3 /* good_location.json in Resources */ = {isa = PBXBuildFile; fileRef = 346EDC931E30B9CF00BF7AD3 /* good_location.json */; };
+		346EDC961E30C0B700BF7AD3 /* bad_latitude.json in Resources */ = {isa = PBXBuildFile; fileRef = 346EDC951E30C0B700BF7AD3 /* bad_latitude.json */; };
+		346EDC981E30C0D000BF7AD3 /* bad_longitude.json in Resources */ = {isa = PBXBuildFile; fileRef = 346EDC971E30C0D000BF7AD3 /* bad_longitude.json */; };
 		348148701E1519F800079056 /* VerticalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3481486F1E1519F800079056 /* VerticalButton.swift */; };
 		348148731E15C1AD00079056 /* SolarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348148721E15C1AD00079056 /* SolarViewController.swift */; };
 		348148751E15C1FF00079056 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348148741E15C1FF00079056 /* DetailsViewController.swift */; };
@@ -65,6 +69,10 @@
 		3422C05C1E1BF79E00006EB3 /* DarkMoon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkMoon.swift; sourceTree = "<group>"; };
 		3453E2CB1E10730A004D5F46 /* UIColor_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor_extension.swift; sourceTree = "<group>"; };
 		346EDC8E1E30ADF600BF7AD3 /* JSONFixture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONFixture.swift; sourceTree = "<group>"; };
+		346EDC911E30B99400BF7AD3 /* LocationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTests.swift; sourceTree = "<group>"; };
+		346EDC931E30B9CF00BF7AD3 /* good_location.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = good_location.json; sourceTree = "<group>"; };
+		346EDC951E30C0B700BF7AD3 /* bad_latitude.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bad_latitude.json; sourceTree = "<group>"; };
+		346EDC971E30C0D000BF7AD3 /* bad_longitude.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bad_longitude.json; sourceTree = "<group>"; };
 		3481486F1E1519F800079056 /* VerticalButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalButton.swift; sourceTree = "<group>"; };
 		348148721E15C1AD00079056 /* SolarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SolarViewController.swift; sourceTree = "<group>"; };
 		348148741E15C1FF00079056 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +145,17 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		346EDC901E30B96400BF7AD3 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				346EDC911E30B99400BF7AD3 /* LocationTests.swift */,
+				346EDC931E30B9CF00BF7AD3 /* good_location.json */,
+				346EDC951E30C0B700BF7AD3 /* bad_latitude.json */,
+				346EDC971E30C0D000BF7AD3 /* bad_longitude.json */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 		348148711E15C14300079056 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +215,7 @@
 		348BC3571DD1AF3A00638D66 /* LocatorTests */ = {
 			isa = PBXGroup;
 			children = (
+				346EDC901E30B96400BF7AD3 /* Location */,
 				F1D5D29D1DD85D6B00D9DC1F /* model */,
 				348BC35A1DD1AF3A00638D66 /* Info.plist */,
 				346EDC8E1E30ADF600BF7AD3 /* JSONFixture.swift */,
@@ -374,6 +394,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				346EDC941E30B9CF00BF7AD3 /* good_location.json in Resources */,
+				346EDC961E30C0B700BF7AD3 /* bad_latitude.json in Resources */,
+				346EDC981E30C0D000BF7AD3 /* bad_longitude.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +506,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1D5D29F1DD85DA100D9DC1F /* PlaceTests.swift in Sources */,
+				346EDC921E30B99400BF7AD3 /* LocationTests.swift in Sources */,
 				346EDC8F1E30ADF600BF7AD3 /* JSONFixture.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
