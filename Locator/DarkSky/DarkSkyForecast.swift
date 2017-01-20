@@ -37,7 +37,7 @@ struct DarkSkyForecast {
                 return nil
         }
         unitsCode = units
-        forecastUnits = DarkSkyUnits.from(string: units)
+        forecastUnits = DarkSkyUnits.units(from: units)
 
         latitude  = Measurement(value: latitudeValue, unit: forecastUnits.angle)
         longitude = Measurement(value: longitudeValue, unit: forecastUnits.angle)

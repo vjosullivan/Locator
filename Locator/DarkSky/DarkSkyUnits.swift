@@ -28,9 +28,9 @@ enum DarkSkyUnits {
     ///
     /// - parameter string: A `DarkSkyUnits` identifier.
     ///
-    /// - returns: A `DarkSkyUnits` value.
+    /// - returns: A `DarkSkyUnits` 'family'.
     ///
-    static func from(string: String) -> DarkSkyUnits {
+    static func units(from string: String) -> DarkSkyUnits {
         switch string {
         case "si":
             return .si
@@ -72,7 +72,7 @@ enum DarkSkyUnits {
         case .si, .ca, .uk2, .auto:
             return .hectopascals
         case .us:
-            return .millibars
+            return .inchesOfMercury
         }
     }
 
@@ -102,7 +102,7 @@ enum DarkSkyUnits {
     var accumulation: UnitLength {
         switch self {
         case .si, .ca, .uk2, .auto:
-            return .millimeters
+            return .centimeters
         case .us:
             return .inches
         }
