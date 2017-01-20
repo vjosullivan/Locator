@@ -16,6 +16,7 @@
 		345D137A1E32037D00327814 /* DarkSkyUnitsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D13791E32037D00327814 /* DarkSkyUnitsTests.swift */; };
 		345D137C1E3238A400327814 /* RibbonViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D137B1E3238A400327814 /* RibbonViewTests.swift */; };
 		345D137F1E324E0500327814 /* UIColorExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D137E1E324E0500327814 /* UIColorExtensionTests.swift */; };
+		345D13811E32A59A00327814 /* DarkSkyForecastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D13801E32A59A00327814 /* DarkSkyForecastTests.swift */; };
 		346EDC8F1E30ADF600BF7AD3 /* JSONFixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346EDC8E1E30ADF600BF7AD3 /* JSONFixture.swift */; };
 		346EDC921E30B99400BF7AD3 /* LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346EDC911E30B99400BF7AD3 /* LocationTests.swift */; };
 		346EDC941E30B9CF00BF7AD3 /* good_location.json in Resources */ = {isa = PBXBuildFile; fileRef = 346EDC931E30B9CF00BF7AD3 /* good_location.json */; };
@@ -78,6 +79,7 @@
 		345D13791E32037D00327814 /* DarkSkyUnitsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkSkyUnitsTests.swift; sourceTree = "<group>"; };
 		345D137B1E3238A400327814 /* RibbonViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RibbonViewTests.swift; sourceTree = "<group>"; };
 		345D137E1E324E0500327814 /* UIColorExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensionTests.swift; sourceTree = "<group>"; };
+		345D13801E32A59A00327814 /* DarkSkyForecastTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkSkyForecastTests.swift; sourceTree = "<group>"; };
 		346EDC8E1E30ADF600BF7AD3 /* JSONFixture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONFixture.swift; sourceTree = "<group>"; };
 		346EDC911E30B99400BF7AD3 /* LocationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTests.swift; sourceTree = "<group>"; };
 		346EDC931E30B9CF00BF7AD3 /* good_location.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = good_location.json; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				345D13791E32037D00327814 /* DarkSkyUnitsTests.swift */,
+				345D13801E32A59A00327814 /* DarkSkyForecastTests.swift */,
 			);
 			path = DarkSky;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				345D13811E32A59A00327814 /* DarkSkyForecastTests.swift in Sources */,
 				346EDC9A1E30CEC000BF7AD3 /* DarkMoonTests.swift in Sources */,
 				F1D5D29F1DD85DA100D9DC1F /* PlaceTests.swift in Sources */,
 				345D137C1E3238A400327814 /* RibbonViewTests.swift in Sources */,
