@@ -20,7 +20,9 @@ class RibbonView: UILabel {
 
     override func draw(_ rect: CGRect) {
 
-        guard let context = UIGraphicsGetCurrentContext() else { return }
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return
+        }
 
         context.beginPath()
         context.move(to: CGPoint(x: rect.minX, y: rect.minY))
