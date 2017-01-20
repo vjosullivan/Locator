@@ -65,15 +65,20 @@ extension UIColor {
     static let noWeatherDay   = UIColor.red.darker().darker()
     static let noWeatherNight = UIColor.blue.darker().darker()
 
-    // Creates a UIColor from a Hex string.
+    /// Initialises a `UIColor` generated from a six character hex string.
+    /// The hex string may be preceded by an additional symbol `#`.
+    /// If the hex string is invalid then the colour is initialsed to black.
+    ///
+    /// - Parameter hexString: A 6 or 7 character hex string of the form `AC0704` or `#123ABC`.
+    ///
     convenience init(hexString: String) {
-        var cString:String = hexString.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines).uppercased()
+        var cString = hexString.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines).uppercased()
 
         if (cString.hasPrefix("#")) {
             cString = cString.substring(from: 1)
         }
 
-        if cString.characters.count != 6 {
+        if cString.characters.count != 6 || !UIColor.isHexString(cString) {
             self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
             return
         }
@@ -83,12 +88,21 @@ extension UIColor {
         let bString = cString.substring(from: 4).substring(to: 2)
 
         var r:CUnsignedInt = 0, g:CUnsignedInt = 0, b:CUnsignedInt = 0
-        Scanner(string: rString).scanHexInt32(&r)
-        Scanner(string: gString).scanHexInt32(&g)
-        Scanner(string: bString).scanHexInt32(&b)
+        print("\n\nScan R(\(rString)): \(Scanner(string: rString).scanHexInt32(&r))\n\n")
+        print("\n\nScan G(\(gString)): \(Scanner(string: gString).scanHexInt32(&g))\n\n")
+        print("\n\nScan B(\(bString)): \(Scanner(string: bString).scanHexInt32(&b))\n\n")
 
         let cgf255: CGFloat = 255.0
         self.init(red: CGFloat(r) / cgf255, green: CGFloat(g) / cgf255, blue: CGFloat(b) / cgf255, alpha: CGFloat(1))
+    }
+
+    private static func isHexString(_ string: String) -> Bool {
+        let nonHexCharacters = CharacterSet(charactersIn: "0123456789ABCDEF").inverted
+
+        if string.rangeOfCharacter(from: nonHexCharacters) != nil {
+            return false
+        }
+        return true
     }
 
     private func mixedWith(_ color: UIColor) -> UIColor {
@@ -101,17 +115,13 @@ extension UIColor {
             alpha: 1.0)
     }
 
-    private func rgb() -> (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
-        var fRed: CGFloat = 0
-        var fGreen: CGFloat = 0
-        var fBlue: CGFloat = 0
-        var fAlpha: CGFloat = 0
-        if self.getRed(&fRed, green: &fGreen, blue: &fBlue, alpha: &fAlpha) {
-            return (red: fRed, green: fGreen, blue: fBlue, alpha: fAlpha)
-        } else {
-            // Could not extract RGBA components:
-            return (red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
-        }
+    func rgb() -> (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
+        var fRed: CGFloat = 0.0
+        var fGreen: CGFloat = 0.0
+        var fBlue: CGFloat = 0.0
+        var fAlpha: CGFloat = 0.0
+        let _ = self.getRed(&fRed, green: &fGreen, blue: &fBlue, alpha: &fAlpha)
+        return (red: fRed, green: fGreen, blue: fBlue, alpha: fAlpha)
     }
 
     func lighter() -> UIColor {
@@ -119,13 +129,10 @@ extension UIColor {
         var saturation: CGFloat = 0.0
         var brightness: CGFloat = 0.0
         var alpha: CGFloat = 0.0
-        if self.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha) {
-            return UIColor(hue: hue,
-                           saturation: saturation,
-                           brightness: brightness + (1.0 - brightness) * 0.1667, alpha: alpha)
-        } else {
-            return UIColor.white
-        }
+        let _ = self.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
+        return UIColor(hue: hue,
+                       saturation: saturation,
+                       brightness: brightness + (1.0 - brightness) * 0.1, alpha: alpha)
     }
 
     func darker() -> UIColor {
@@ -133,10 +140,7 @@ extension UIColor {
         var saturation: CGFloat = 0.0
         var brightness: CGFloat = 0.0
         var alpha: CGFloat = 0.0
-        if self.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha) {
-            return UIColor(hue: hue, saturation: saturation, brightness: brightness * 0.8333, alpha: alpha)
-        } else {
-            return UIColor.white
-        }
+        let _ = self.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
+        return UIColor(hue: hue, saturation: saturation, brightness: brightness * 0.8333, alpha: alpha)
     }
 }

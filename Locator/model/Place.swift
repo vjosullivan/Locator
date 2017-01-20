@@ -32,11 +32,13 @@ class Place: NSCoder {
 
     /// Required by `NSCoder`.
     required init(coder aDecoder: NSCoder) {
+        // swiftlint:disable force_cast
         self.name = aDecoder.decodeObject(forKey: "name") as! String
         self.region = aDecoder.decodeObject(forKey: "region") as! String
         self.placeID = aDecoder.decodeObject(forKey: "placeID") as! String
         self.latitude = aDecoder.decodeDouble(forKey: "latitude")
         self.longitude = aDecoder.decodeDouble(forKey: "longitude")
+        // swiftlint:enable force_cast
     }
 
     /// Required by `NSCoder`.
