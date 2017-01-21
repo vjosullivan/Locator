@@ -136,7 +136,7 @@ class MainViewController: UIViewController {
         updateWeather(using: forecast.current?.icon)
 
         viewB.backgroundColor = currentWeatherSymbol.backgroundColor
-        currentWeatherSymbol.textColor = currentWeatherSymbol.textColor
+        //viewB.textColor = currentWeatherSymbol.textColor
 
         minuteSummary.text = forecast.minutely?.summary ?? ""
         hourSummary.text   = forecast.hourly?.summary ?? ""
@@ -148,11 +148,62 @@ class MainViewController: UIViewController {
         currentWeatherSymbol.backgroundColor = weather.color
         if weather.isDark {
             currentWeatherSymbol.textColor = UIColor.white
-            self.view.backgroundColor = weather.color.lighter().lighter()
+            drawBackground(foreground: UIColor.init(white: 1.0, alpha: 0.125),
+                           background: weather.color.darker())
         } else {
             currentWeatherSymbol.textColor = UIColor.black
-            self.view.backgroundColor = weather.color.darker().darker()
+            drawBackground(foreground: UIColor.init(white: 1.0, alpha: 0.125),
+                           background: weather.color.darker())
         }
+    }
+
+    private func index() -> Int {
+        struct Layer {
+            static var index = -1
+        }
+        Layer.index += 1
+        return Layer.index
+    }
+
+    private func drawBackground(foreground: UIColor, background: UIColor) {
+        print("Stripes!")
+        let imageSize = CGSize(width: self.view.frame.maxX, height: self.view.frame.maxY)
+        let imageView = UIImageView(frame: CGRect(origin: CGPoint(x: 0.0, y: 0.0), size: imageSize))
+        self.view.insertSubview(imageView, at: index())
+        let image = drawCustomImage(size: imageSize, foreground: foreground, background: background)
+        imageView.image = image
+        self.view.backgroundColor = background
+    }
+
+    func drawCustomImage(size: CGSize, foreground: UIColor, background: UIColor) -> UIImage? {
+        // Setup our context
+        let bounds = CGRect(origin: CGPoint.zero, size: size)
+        let opaque = false
+        let scale: CGFloat = 0
+        UIGraphicsBeginImageContextWithOptions(size, opaque, scale)
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
+
+        // Setup complete, do drawing here
+        context.setStrokeColor(foreground.cgColor)
+        context.setLineWidth(1.0)
+
+        // Would draw a border around the rectangle
+        // context.stroke(bounds)
+
+        context.beginPath()
+        var x = 0.0
+        let xIncrement = Swift.max(20, Double(bounds.maxY) / 40.0)
+        while x < Double(bounds.maxX + bounds.maxY) {
+            x += xIncrement
+            context.move(to: CGPoint(x: x, y: 0.0))
+            context.addLine(to: CGPoint(x: 0.0, y: x))
+        }
+        context.strokePath()
+
+        // Drawing complete, retrieve the finished image and cleanup
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
     }
 
     func flip(_ frontView: UIView, rearView: UIView) {

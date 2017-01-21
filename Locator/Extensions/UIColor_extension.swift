@@ -18,7 +18,7 @@ extension UIColor {
     static let hsbBlue   = UIColor(hue: 195.0/360.0, saturation: 0.9, brightness: 1.0, alpha: 1.0)
 
     static let clearSky   = UIColor.clearDay.mixedWith(UIColor.clearNight)
-    static let clearDay   = UIColor.hsbYellow //(red: 135.0/255.0, green: 206.0/255.0, blue: 235.0/255.0, alpha: 1.0)
+    static let clearDay   = UIColor.init(hexString: "BFFFFF") //  (red: 135.0/255.0, green: 206.0/255.0, blue: 235.0/255.0, alpha: 1.0)
     static let clearNight = UIColor(red:  25.0/255.0, green:  25.0/255.0, blue: 112.0/255.0, alpha: 1.0)
 
     static let wind      = UIColor.windDay.mixedWith(UIColor.windNight)
@@ -132,7 +132,7 @@ extension UIColor {
         let _ = self.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
         return UIColor(hue: hue,
                        saturation: saturation,
-                       brightness: brightness + (1.0 - brightness) * 0.1, alpha: alpha)
+                       brightness: brightness + (1.0 - brightness) * 0.2, alpha: alpha)
     }
 
     func darker() -> UIColor {
