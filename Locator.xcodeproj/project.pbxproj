@@ -10,6 +10,7 @@
 		340FBA091E1A8B1600E2FAD4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340FBA081E1A8B1500E2FAD4 /* SettingsViewController.swift */; };
 		3422C05B1E1BD01000006EB3 /* Date_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422C05A1E1BD01000006EB3 /* Date_extension.swift */; };
 		3422C05D1E1BF79E00006EB3 /* DarkMoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422C05C1E1BF79E00006EB3 /* DarkMoon.swift */; };
+		342A74931E352F01009754AF /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A74921E352F01009754AF /* GraphView.swift */; };
 		3453E2CC1E10730A004D5F46 /* UIColor_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3453E2CB1E10730A004D5F46 /* UIColor_extension.swift */; };
 		345D13741E31239400327814 /* WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D13731E31239400327814 /* WeatherTests.swift */; };
 		345D13771E31433800327814 /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D13761E31433800327814 /* StringExtensionTests.swift */; };
@@ -33,6 +34,10 @@
 		348BC34E1DD1AF3A00638D66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 348BC34C1DD1AF3A00638D66 /* LaunchScreen.storyboard */; };
 		348BC3641DD1AF6B00638D66 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 348BC3631DD1AF6B00638D66 /* Podfile */; };
 		3498D66F1E13CEB70081ECE3 /* RibbonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3498D66E1E13CEB70081ECE3 /* RibbonView.swift */; };
+		34A540AC1E35F69500FD7C6E /* HourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A540AB1E35F69500FD7C6E /* HourViewController.swift */; };
+		34A540AE1E35F70100FD7C6E /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A540AD1E35F70100FD7C6E /* DayViewController.swift */; };
+		34A540B01E35F73000FD7C6E /* WeekViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A540AF1E35F73000FD7C6E /* WeekViewController.swift */; };
+		34A540B21E35F77A00FD7C6E /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A540B11E35F77A00FD7C6E /* CreditsViewController.swift */; };
 		34AC7E1E1E1E8AFB00BF33E0 /* String_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC7E1D1E1E8AFB00BF33E0 /* String_extension.swift */; };
 		34BB1CF21E2E6DE400595C91 /* FrontViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BB1CF11E2E6DE400595C91 /* FrontViewController.swift */; };
 		34DF48E71E292ADB00AC4E16 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DF48E61E292ADB00AC4E16 /* AppSettings.swift */; };
@@ -73,6 +78,7 @@
 		340FBA081E1A8B1500E2FAD4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3422C05A1E1BD01000006EB3 /* Date_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date_extension.swift; sourceTree = "<group>"; };
 		3422C05C1E1BF79E00006EB3 /* DarkMoon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkMoon.swift; sourceTree = "<group>"; };
+		342A74921E352F01009754AF /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		3453E2CB1E10730A004D5F46 /* UIColor_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor_extension.swift; sourceTree = "<group>"; };
 		345D13731E31239400327814 /* WeatherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTests.swift; sourceTree = "<group>"; };
 		345D13761E31433800327814 /* StringExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionTests.swift; sourceTree = "<group>"; };
@@ -100,6 +106,10 @@
 		348BC35A1DD1AF3A00638D66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		348BC3631DD1AF6B00638D66 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		3498D66E1E13CEB70081ECE3 /* RibbonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RibbonView.swift; sourceTree = "<group>"; };
+		34A540AB1E35F69500FD7C6E /* HourViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourViewController.swift; sourceTree = "<group>"; };
+		34A540AD1E35F70100FD7C6E /* DayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
+		34A540AF1E35F73000FD7C6E /* WeekViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekViewController.swift; sourceTree = "<group>"; };
+		34A540B11E35F77A00FD7C6E /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		34AC7E1D1E1E8AFB00BF33E0 /* String_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String_extension.swift; sourceTree = "<group>"; };
 		34BB1CF11E2E6DE400595C91 /* FrontViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontViewController.swift; sourceTree = "<group>"; };
 		34DF48E61E292ADB00AC4E16 /* AppSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
@@ -193,6 +203,10 @@
 				348148741E15C1FF00079056 /* DetailsViewController.swift */,
 				340FBA081E1A8B1500E2FAD4 /* SettingsViewController.swift */,
 				34BB1CF11E2E6DE400595C91 /* FrontViewController.swift */,
+				34A540AB1E35F69500FD7C6E /* HourViewController.swift */,
+				34A540AD1E35F70100FD7C6E /* DayViewController.swift */,
+				34A540AF1E35F73000FD7C6E /* WeekViewController.swift */,
+				34A540B11E35F77A00FD7C6E /* CreditsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -237,6 +251,7 @@
 				F1D5D2981DD85B0000D9DC1F /* model */,
 				F11198DF1E0864D300D969CF /* Resources */,
 				3498D66E1E13CEB70081ECE3 /* RibbonView.swift */,
+				342A74921E352F01009754AF /* GraphView.swift */,
 			);
 			path = Locator;
 			sourceTree = "<group>";
@@ -507,22 +522,27 @@
 				F166734C1E02980C0087C5D7 /* DetailedForecast.swift in Sources */,
 				F166733F1E0295ED0087C5D7 /* LocationController.swift in Sources */,
 				348BC3491DD1AF3A00638D66 /* Locator.xcdatamodeld in Sources */,
+				342A74931E352F01009754AF /* GraphView.swift in Sources */,
 				3422C05D1E1BF79E00006EB3 /* DarkMoon.swift in Sources */,
 				F16673411E0295ED0087C5D7 /* Location.swift in Sources */,
 				348BC3431DD1AF3900638D66 /* LocationFinderViewController.swift in Sources */,
+				34A540B01E35F73000FD7C6E /* WeekViewController.swift in Sources */,
 				F1D5D2951DD70DED00D9DC1F /* LocationListViewController.swift in Sources */,
 				F166734A1E0297F80087C5D7 /* DarkSkyUnits.swift in Sources */,
 				F16673441E0296AB0087C5D7 /* DarkSkyClient.swift in Sources */,
 				34BB1CF21E2E6DE400595C91 /* FrontViewController.swift in Sources */,
 				34AC7E1E1E1E8AFB00BF33E0 /* String_extension.swift in Sources */,
 				348BC3411DD1AF3900638D66 /* AppDelegate.swift in Sources */,
+				34A540AE1E35F70100FD7C6E /* DayViewController.swift in Sources */,
 				348148751E15C1FF00079056 /* DetailsViewController.swift in Sources */,
 				F1D5D2A31DD8982400D9DC1F /* PlaceManager.swift in Sources */,
 				34F5A5001E23D6A600E66AC1 /* Font_extension.swift in Sources */,
 				340FBA091E1A8B1600E2FAD4 /* SettingsViewController.swift in Sources */,
 				F16673501E0298150087C5D7 /* DataPointInit.swift in Sources */,
 				F16673401E0295ED0087C5D7 /* LocationControllerDelegate.swift in Sources */,
+				34A540B21E35F77A00FD7C6E /* CreditsViewController.swift in Sources */,
 				F1D5D29A1DD85B3700D9DC1F /* Place.swift in Sources */,
+				34A540AC1E35F69500FD7C6E /* HourViewController.swift in Sources */,
 				F1D60DD31E27E39000E7059C /* Weather.swift in Sources */,
 				3498D66F1E13CEB70081ECE3 /* RibbonView.swift in Sources */,
 				34F5A4FE1E239E2000E66AC1 /* TimeZone_extension.swift in Sources */,

@@ -12,6 +12,9 @@ class MainViewController: UIViewController {
 
     let radianConvertion = CGFloat.pi / 180.0
 
+    @IBOutlet weak var rainIntensity: GraphView!
+    @IBOutlet weak var rainProbability: GraphView!
+
     // These views have coloured backgrounds in the storyboard which are cleared when run.
     @IBOutlet var backgroundColoredViews: [UIView]!
 
@@ -21,35 +24,33 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var currentWeatherSymbol: UILabel!
 
-    @IBOutlet weak var buttonBTR: UIButton!
-    @IBOutlet weak var buttonBTL: UIButton!
-    @IBOutlet weak var buttonBBR: UIButton!
-    @IBOutlet weak var buttonBBL: UIButton!
-
     @IBOutlet weak var frontPanel: UIView!
     @IBOutlet weak var locationButton: UIButton!
     @IBOutlet weak var settingsPanel: UIView!
     @IBOutlet weak var solarPanel: UIView!
     @IBOutlet weak var detailsPanel: UIView!
 
+    @IBOutlet weak var dayPanel: UIView!
+    @IBOutlet weak var weekPanel: UIView!
+    @IBOutlet weak var creditsPanel: UIView!
+    @IBOutlet weak var hourPanel: UIView!
+
     private var frontVC: FrontViewController?
     private var settingsVC: SettingsViewController?
     private var solarVC: SolarViewController?
     private var detailsVC: DetailsViewController?
 
-    private var locationController: LocationController?
+    private var hourVC: HourViewController?
+    private var dayVC: DayViewController?
+    private var weekVC: WeekViewController?
+    private var creditsVC: CreditsViewController?
 
-    @IBOutlet weak var viewB: UIView!
+    private var locationController: LocationController?
 
     // MARK: - UIViewController functions.
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        buttonBTR.layer.borderColor = UIColor.lightGray.cgColor
-        buttonBBR.layer.borderColor = UIColor.lightGray.cgColor
-        buttonBTL.layer.borderColor = UIColor.lightGray.cgColor
-        buttonBBL.layer.borderColor = UIColor.lightGray.cgColor
 
         frontPanel.isHidden = false
 
@@ -70,6 +71,14 @@ class MainViewController: UIViewController {
             detailsVC = segue.destination as? DetailsViewController
         } else if segue.identifier == "settingsSegue" {
             settingsVC = segue.destination as? SettingsViewController
+        } else if segue.identifier == "hourViewSegue" {
+            hourVC = segue.destination as? HourViewController
+        } else if segue.identifier == "dayViewSegue" {
+            dayVC = segue.destination as? DayViewController
+        } else if segue.identifier == "weekViewSegue" {
+            weekVC = segue.destination as? WeekViewController
+        } else if segue.identifier == "creditsViewSegue" {
+            creditsVC = segue.destination as? CreditsViewController
         }
     }
     // MARK: - IBActions.
@@ -93,6 +102,12 @@ class MainViewController: UIViewController {
             flip(frontPanel, rearView: solarPanel)
         case is DetailsViewController:
             flip(frontPanel, rearView: detailsPanel)
+        case is DayViewController:
+            flip(hourPanel, rearView: dayPanel)
+        case is WeekViewController:
+            flip(hourPanel, rearView: hourPanel)
+        case is CreditsViewController:
+            flip(hourPanel, rearView: creditsPanel)
         default:
             break
         }
@@ -127,6 +142,9 @@ class MainViewController: UIViewController {
                 self.detailsVC?.update(forecast: darkSkyForecast,
                                        foregroundColor: self.currentWeatherSymbol.textColor!,
                                        backgroundColor: self.currentWeatherSymbol.backgroundColor!)
+                self.hourVC?.update(forecast: darkSkyForecast,
+                                       foregroundColor: self.currentWeatherSymbol.textColor!,
+                                       backgroundColor: self.currentWeatherSymbol.backgroundColor!)
             }
         }
     }
@@ -134,12 +152,6 @@ class MainViewController: UIViewController {
     private func updateDisplay(with forecast: DarkSkyForecast, for place: Place) {
         uiPlace.text = place.region != "" ? place.region : place.name
         updateWeather(using: forecast.current?.icon)
-
-        viewB.backgroundColor = currentWeatherSymbol.backgroundColor
-        //viewB.textColor = currentWeatherSymbol.textColor
-
-        minuteSummary.text = forecast.minutely?.summary ?? ""
-        hourSummary.text   = forecast.hourly?.summary ?? ""
     }
 
     private func updateWeather(using icon: String?) {

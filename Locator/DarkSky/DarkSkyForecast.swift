@@ -27,6 +27,26 @@ struct DarkSkyForecast {
         return daily?.dataPoints?[0]
     }
 
+    var minutelyRainIntensity: [Double] {
+        guard let points = minutely?.dataPoints else {
+            return [Double]()
+        }
+        let factor: Double
+        if forecastUnits.rainIntensity == UnitSpeed.millimetersPerHour {
+            factor = 12.7  //(7.6 mm is )
+        } else {
+            factor = 0.5
+        }
+        return points.map { ($0.precipIntensity?.value ?? 0.0) / factor }
+    }
+
+    var minutelyRainProbability: [Double] {
+        guard let points = minutely?.dataPoints else {
+            return [Double]()
+        }
+        return points.map { $0.precipProbability ?? 0.0 }
+    }
+
     let unitsCode: String
 
     init?(dictionary: [String: AnyObject]) {

@@ -18,7 +18,7 @@ extension UIColor {
     static let hsbBlue   = UIColor(hue: 195.0/360.0, saturation: 0.9, brightness: 1.0, alpha: 1.0)
 
     static let clearSky   = UIColor.clearDay.mixedWith(UIColor.clearNight)
-    static let clearDay   = UIColor.init(hexString: "BFFFFF") //  (red: 135.0/255.0, green: 206.0/255.0, blue: 235.0/255.0, alpha: 1.0)
+    static let clearDay   = UIColor.init(hexString: "BFFFFF")
     static let clearNight = UIColor(red:  25.0/255.0, green:  25.0/255.0, blue: 112.0/255.0, alpha: 1.0)
 
     static let wind      = UIColor.windDay.mixedWith(UIColor.windNight)
@@ -88,9 +88,9 @@ extension UIColor {
         let bString = cString.substring(from: 4).substring(to: 2)
 
         var r:CUnsignedInt = 0, g:CUnsignedInt = 0, b:CUnsignedInt = 0
-        print("\n\nScan R(\(rString)): \(Scanner(string: rString).scanHexInt32(&r))\n\n")
-        print("\n\nScan G(\(gString)): \(Scanner(string: gString).scanHexInt32(&g))\n\n")
-        print("\n\nScan B(\(bString)): \(Scanner(string: bString).scanHexInt32(&b))\n\n")
+        debugPrint("\n\nScan R(\(rString)): \(Scanner(string: rString).scanHexInt32(&r))\n\n")
+        debugPrint("\n\nScan G(\(gString)): \(Scanner(string: gString).scanHexInt32(&g))\n\n")
+        debugPrint("\n\nScan B(\(bString)): \(Scanner(string: bString).scanHexInt32(&b))\n\n")
 
         let cgf255: CGFloat = 255.0
         self.init(red: CGFloat(r) / cgf255, green: CGFloat(g) / cgf255, blue: CGFloat(b) / cgf255, alpha: CGFloat(1))
