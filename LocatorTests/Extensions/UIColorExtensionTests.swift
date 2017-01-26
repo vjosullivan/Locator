@@ -47,9 +47,9 @@ class UIColorExtensionTests: XCTestCase {
         let c1 = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0)
         let c2 = c1.lighter()
         let c2Components = c2.rgb()
-        XCTAssertEqual(0.55, c2Components.red)
-        XCTAssertEqual(0.55, c2Components.green)
-        XCTAssertEqual(0.55, c2Components.blue)
+        XCTAssertEqual(0.6, c2Components.red)
+        XCTAssertEqual(0.6, c2Components.green)
+        XCTAssertEqual(0.6, c2Components.blue)
         XCTAssertEqual(1.0, c2Components.alpha)
     }
 }

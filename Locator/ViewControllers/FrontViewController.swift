@@ -29,10 +29,10 @@ class FrontViewController: UIViewController {
     @IBOutlet weak var viewA: UIView!
     @IBOutlet weak var currentWeatherValue: UILabel!
     @IBOutlet weak var currentTemperatureValue: UILabel!
-    @IBOutlet weak var todaysHighValue: UILabel!
-    @IBOutlet weak var todaysLowValue: UILabel!
-    @IBOutlet weak var highIcon: UILabel!
-    @IBOutlet weak var lowIcon: UILabel!
+    @IBOutlet weak var minTempValue: UILabel!
+    @IBOutlet weak var minTempTime: UILabel!
+    @IBOutlet weak var maxTempValue: UILabel!
+    @IBOutlet weak var maxTempTime: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,10 +78,10 @@ class FrontViewController: UIViewController {
         labelATL.textColor = foregroundColor
         labelABR.textColor = foregroundColor
         labelABL.textColor = foregroundColor
-        todaysHighValue.textColor = foregroundColor
-        todaysLowValue.textColor = foregroundColor
-        highIcon.textColor = UIColor.red
-        lowIcon.textColor = UIColor.blue
+        minTempValue.textColor = foregroundColor
+        minTempTime.textColor = foregroundColor
+        maxTempValue.textColor = foregroundColor
+        maxTempTime.textColor = foregroundColor
 
         if let temperature = forecast.current?.temperature {
             currentTemperatureValue.text  = "\(Int(round(temperature.value)))\(temperature.unit.symbol)"
@@ -93,19 +93,31 @@ class FrontViewController: UIViewController {
         } else {
             currentWeatherValue.text = "Unknown."
         }
-        if let hi = forecast.today?.apparentTemperatureMax {
-            todaysHighValue.text = "\(Int(hi.value))\(hi.unit.symbol)"
-            highIcon.text = "\u{F055}"
+        if let hi = forecast.today?.temperatureMax {
+            maxTempValue.text = "High \(Int(hi.value))\(hi.unit.symbol)"
+            if let maxTime = forecast.today?.temperatureMaxTime {
+                maxTempTime.text = maxTime.asHHMM(timezone: forecast.timeZone)
+                maxTempTime.textColor = Date().isAfter(maxTime) ? UIColor.amber : UIColor.gray
+            } else {
+                maxTempTime.textColor = foregroundColor
+            }
+            maxTempValue.textColor = maxTempTime.textColor
         } else {
-            todaysHighValue.text = " "
-            highIcon.text = " "
+            maxTempValue.text = ""
+            maxTempTime.text = ""
         }
-        if let lo = forecast.today?.apparentTemperatureMin {
-            todaysLowValue.text = "\(Int(lo.value))\(lo.unit.symbol)"
-            lowIcon.text = "\u{F053}"
+        if let lo = forecast.today?.temperatureMin {
+            minTempValue.text = "Low \(Int(lo.value))\(lo.unit.symbol)"
+            if let minTime = forecast.today?.temperatureMinTime {
+                minTempTime.text = minTime.asHHMM(timezone: forecast.timeZone)
+                minTempTime.textColor = Date().isAfter(minTime) ? UIColor.amber : UIColor.gray
+            } else {
+                minTempTime.textColor = foregroundColor
+            }
+            minTempValue.textColor = minTempTime.textColor
         } else {
-            todaysLowValue.text = " "
-            lowIcon.text = " "
+            minTempValue.text = ""
+            minTempTime.text = ""
         }
 
         //let foreColor = foregroundColor ?? UIColor.white

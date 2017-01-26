@@ -26,6 +26,8 @@
 		346EDC9A1E30CEC000BF7AD3 /* DarkMoonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346EDC991E30CEC000BF7AD3 /* DarkMoonTests.swift */; };
 		348148731E15C1AD00079056 /* SolarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348148721E15C1AD00079056 /* SolarViewController.swift */; };
 		348148751E15C1FF00079056 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348148741E15C1FF00079056 /* DetailsViewController.swift */; };
+		348914751E39DC3300509CA3 /* RainIntensity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348914741E39DC3300509CA3 /* RainIntensity.swift */; };
+		348914791E39E4AB00509CA3 /* RainIntensityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348914781E39E4AB00509CA3 /* RainIntensityTests.swift */; };
 		348BC3411DD1AF3900638D66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348BC3401DD1AF3900638D66 /* AppDelegate.swift */; };
 		348BC3431DD1AF3900638D66 /* LocationFinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348BC3421DD1AF3900638D66 /* LocationFinderViewController.swift */; };
 		348BC3461DD1AF3900638D66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 348BC3441DD1AF3900638D66 /* Main.storyboard */; };
@@ -94,6 +96,8 @@
 		346EDC991E30CEC000BF7AD3 /* DarkMoonTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkMoonTests.swift; sourceTree = "<group>"; };
 		348148721E15C1AD00079056 /* SolarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SolarViewController.swift; sourceTree = "<group>"; };
 		348148741E15C1FF00079056 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		348914741E39DC3300509CA3 /* RainIntensity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RainIntensity.swift; sourceTree = "<group>"; };
+		348914781E39E4AB00509CA3 /* RainIntensityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RainIntensityTests.swift; sourceTree = "<group>"; };
 		348BC33D1DD1AF3900638D66 /* Locator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Locator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		348BC3401DD1AF3900638D66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		348BC3421DD1AF3900638D66 /* LocationFinderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFinderViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 			children = (
 				345D13791E32037D00327814 /* DarkSkyUnitsTests.swift */,
 				345D13801E32A59A00327814 /* DarkSkyForecastTests.swift */,
+				348914781E39E4AB00509CA3 /* RainIntensityTests.swift */,
 			);
 			path = DarkSky;
 			sourceTree = "<group>";
@@ -315,6 +320,7 @@
 				F166734D1E0298150087C5D7 /* DataPoint.swift */,
 				F166734E1E0298150087C5D7 /* DataPointInit.swift */,
 				F166734B1E02980C0087C5D7 /* DetailedForecast.swift */,
+				348914741E39DC3300509CA3 /* RainIntensity.swift */,
 			);
 			path = DarkSky;
 			sourceTree = "<group>";
@@ -534,6 +540,7 @@
 				34AC7E1E1E1E8AFB00BF33E0 /* String_extension.swift in Sources */,
 				348BC3411DD1AF3900638D66 /* AppDelegate.swift in Sources */,
 				34A540AE1E35F70100FD7C6E /* DayViewController.swift in Sources */,
+				348914751E39DC3300509CA3 /* RainIntensity.swift in Sources */,
 				348148751E15C1FF00079056 /* DetailsViewController.swift in Sources */,
 				F1D5D2A31DD8982400D9DC1F /* PlaceManager.swift in Sources */,
 				34F5A5001E23D6A600E66AC1 /* Font_extension.swift in Sources */,
@@ -561,6 +568,7 @@
 				345D13811E32A59A00327814 /* DarkSkyForecastTests.swift in Sources */,
 				346EDC9A1E30CEC000BF7AD3 /* DarkMoonTests.swift in Sources */,
 				F1D5D29F1DD85DA100D9DC1F /* PlaceTests.swift in Sources */,
+				348914791E39E4AB00509CA3 /* RainIntensityTests.swift in Sources */,
 				345D137C1E3238A400327814 /* RibbonViewTests.swift in Sources */,
 				345D13771E31433800327814 /* StringExtensionTests.swift in Sources */,
 				345D137F1E324E0500327814 /* UIColorExtensionTests.swift in Sources */,

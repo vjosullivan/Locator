@@ -19,7 +19,7 @@ class HourViewController: UIViewController {
     @IBOutlet weak var buttonBottomRight: UIButton!
 
     @IBOutlet weak var rainIntensityGraph: GraphView!
-    @IBOutlet weak var rainProbabilityGraph: GraphView!
+    @IBOutlet weak var tickStack: UIStackView!
 
     @IBOutlet weak var hourSummary: UILabel!
     @IBOutlet weak var minuteSummary: UILabel!
@@ -30,7 +30,7 @@ class HourViewController: UIViewController {
         // Clear background colors from labels and buttons
         _ = backgroundColoredViews.map { $0.backgroundColor = UIColor.clear }
 
-        rainIntensityGraph.backgroundColor = UIColor(white: 0.33, alpha: 0.25)
+        rainIntensityGraph.backgroundColor = UIColor(white: 1.0, alpha: 0.50)
         rainIntensityGraph.layer.cornerRadius = 8
         rainIntensityGraph.layer.masksToBounds = true
         rainIntensityGraph.layer.borderColor = UIColor(white: 0.66, alpha: 0.25).cgColor
@@ -43,21 +43,10 @@ class HourViewController: UIViewController {
     }
 
     func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?) {
-        print("\n\nHOURS\n\n")
         minuteSummary.text = forecast.minutely?.summary ?? ""
         hourSummary.text   = forecast.hourly?.summary ?? ""
 
-        print("Loading graphs...")
-        rainIntensityGraph.invertGraph = true
         rainIntensityGraph.data = forecast.minutelyRainIntensity
-        print("Rain intensity")
-        dump(forecast.minutelyRainIntensity)
-            // [0.1, 0.2, 0.3, 0.4, 0.5, 0.55, 0.56, 0.53, 0.47, 0.35, 0.25, 0.1, 0.05]
-        //rainProbabilityGraph.invertGraph = false
-        //rainProbabilityGraph.data = forecast.minutelyRainProbability
-            // [0.1, 0.2, 0.3, 0.4, 0.5, 0.55, 0.56, 0.53, 0.47, 0.35, 0.25, 0.1, 0.05]
-        print("Rain probability")
-        dump(forecast.minutelyRainProbability)
 
         view.backgroundColor = backgroundColor
     }

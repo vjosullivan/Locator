@@ -27,17 +27,17 @@ struct DarkSkyForecast {
         return daily?.dataPoints?[0]
     }
 
+    /// The rain intensity for the next hour.  The figure is factorised to a range
+    /// of 0.0 to 1.0 where 1.0 represents 10.0 mm/hr or heavy rain.
     var minutelyRainIntensity: [Double] {
-        guard let points = minutely?.dataPoints else {
+        guard let points = minutely?.dataPoints, points.count == 61 else {
             return [Double]()
         }
-        let factor: Double
-        if forecastUnits.rainIntensity == UnitSpeed.millimetersPerHour {
-            factor = 12.7  //(7.6 mm is )
-        } else {
-            factor = 0.5
+        var data = [Double]()
+        for point in points {
+            data.append(point.precipIntensity?.converted(to: UnitSpeed.millimetersPerHour).value ?? 0.0)
         }
-        return points.map { ($0.precipIntensity?.value ?? 0.0) / factor }
+        return RainIntensity(data: data).factorised()
     }
 
     var minutelyRainProbability: [Double] {

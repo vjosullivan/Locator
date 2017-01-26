@@ -18,12 +18,13 @@ extension Date {
 
     func asHHMM(twentyFourHourClock: Bool = true, timezone: String? = nil) -> String {
         let formatter = DateFormatter()
-        if let timezone = timezone {
-            let tz      = TimeZone(identifier: timezone)
+        if let timezone = timezone,
+            let tz      = TimeZone(identifier: timezone) {
             formatter.timeZone = tz
-            formatter.dateFormat = twentyFourHourClock ? "HH:mm zz" : "h:mm a zz"
+            let suffix = (tz.secondsFromGMT() != TimeZone.current.secondsFromGMT()) ? " zz" : ""
+            formatter.dateFormat = twentyFourHourClock ? "HH:mm" + suffix : "h:mm a" + suffix
         } else {
-            formatter.dateFormat = twentyFourHourClock ? "HH:mm zz" : "h:mm a zz"
+            formatter.dateFormat = twentyFourHourClock ? "HH:mm" : "h:mm a"
         }
         return formatter.string(from: self)
     }
