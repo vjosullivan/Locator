@@ -13,57 +13,69 @@ extension UIColor {
     static let amber  = UIColor(red: 1.0, green: 88.0/255, blue: 0.0, alpha: 1.0)
     static let bronze = UIColor(red: 205.0/255.0, green: 127.0/255.0, blue: 50.0/255.0, alpha: 1.0)
     static let naturalYellow = UIColor(red: 255.0/255.0, green: 211.0/255.0, blue: 0.0, alpha: 1.0)
+    static let skyBlue = UIColor(hexString: "87CEEB")
+    static let navy = UIColor(hexString: "000080")
+    static let teal = UIColor(hexString: "008080")
+    static let ocean = UIColor(hexString: "016064")
+    static let slateGray = UIColor(hexString: "59788D")
+    static let lightSlateGray = UIColor(hexString: "7E7D9C")
+    static let agean = UIColor(hexString: "1E456E")
+    static let sapphire = UIColor(hexString: "52B1C2")
+    static let midnightBlue = UIColor(hexString: "24166A")
+    static let silver = UIColor(hexString: "C6C6D0")
+    static let sienna = UIColor(hexString: "9A7B4F")
+    static let darkOliveGreen = UIColor(hexString: "715B3D")
 
     static let hsbYellow = UIColor(hue: 52.5/360.0, saturation: 0.9, brightness: 1.0, alpha: 1.0)
     static let hsbBlue   = UIColor(hue: 195.0/360.0, saturation: 0.9, brightness: 1.0, alpha: 1.0)
 
     static let clearSky   = UIColor.clearDay.mixedWith(UIColor.clearNight)
-    static let clearDay   = UIColor.init(hexString: "BFFFFF")
-    static let clearNight = UIColor(red:  25.0/255.0, green:  25.0/255.0, blue: 112.0/255.0, alpha: 1.0)
+    static let clearDay   = UIColor.skyBlue
+    static let clearNight = UIColor.navy
 
     static let wind      = UIColor.windDay.mixedWith(UIColor.windNight)
-    static let windDay   = UIColor(red: 116.0/255.0, green: 195.0/255.0, blue: 221.0/255.0, alpha: 1.0)
-    static let windNight = UIColor(red: 121.0/255.0, green: 135.0/255.0, blue: 153.0/255.0, alpha: 1.0)
+    static let windDay   = UIColor.teal
+    static let windNight = UIColor.ocean
 
     static let fog      = UIColor.fogDay.mixedWith(UIColor.fogNight)
-    static let fogDay   = UIColor(red: 103.0/255.0, green: 184.0/255.0, blue: 207.0/255.0, alpha: 1.0)
-    static let fogNight = UIColor(red:  85.0/255.0, green:  94.0/255.0, blue: 102.0/255.0, alpha: 1.0)
+    static let fogDay   = UIColor.slateGray
+    static let fogNight = UIColor.agean
 
-    static let partlyCloudy      = UIColor.partlyCloudyDay.mixedWith(UIColor.partlyCloudyNight)
-    static let partlyCloudyDay = UIColor(hexString: "#ADD8E6")
-    static let partlyCloudyNight = UIColor(hexString: "#2F4F4F")
+    static let partlyCloudy = UIColor.partlyCloudyDay.mixedWith(UIColor.partlyCloudyNight)
+    static let partlyCloudyDay = UIColor.sapphire
+    static let partlyCloudyNight = UIColor.ocean
 
     static let cloudy      = UIColor.cloudyDay.mixedWith(UIColor.cloudyNight)
-    static let cloudyDay   = UIColor(red:  77.0/255.0, green: 162.0/255.0, blue: 179.0/255.0, alpha: 1.0)
-    static let cloudyNight = UIColor(red:  85.0/255.0, green:  94.0/255.0, blue: 102.0/255.0, alpha: 1.0)
+    static let cloudyDay   = UIColor.sapphire
+    static let cloudyNight = UIColor.ocean
 
     static let rain      = UIColor.rainDay.mixedWith(UIColor.rainNight)
-    static let rainDay   = UIColor(red:  64.0/255.0, green: 151.0/255.0, blue: 165.0/255.0, alpha: 1.0)
-    static let rainNight = UIColor(red: 121.0/255.0, green: 135.0/255.0, blue: 153.0/255.0, alpha: 1.0)
+    static let rainDay   = UIColor.teal
+    static let rainNight = UIColor.ocean
 
     static let hail      = UIColor.hailDay.mixedWith(UIColor.hailNight)
-    static let hailDay   = UIColor(red: 51.0/255.0, green: 140.0/255.0, blue: 157.0/255.0, alpha: 1.0)
-    static let hailNight = UIColor(red: 20.0/255.0, green: 35.0/255.0, blue: 51.0/255.0, alpha: 1.0)
+    static let hailDay   = UIColor.teal
+    static let hailNight = UIColor.ocean
 
     static let thunderstorm      = UIColor.thunderstormDay.mixedWith(UIColor.thunderstormNight)
-    static let thunderstormDay   = UIColor(red:  38.0/255.0, green: 129.0/255.0, blue: 137.0/255.0, alpha: 1.0)
-    static let thunderstormNight = UIColor(red:  20.0/255.0, green: 35.0/255.0, blue: 51.0/255.0, alpha: 1.0)
+    static let thunderstormDay   = UIColor.agean
+    static let thunderstormNight = UIColor.midnightBlue
 
     static let snow      = UIColor.snowDay.mixedWith(UIColor.snowNight)
-    static let snowDay   = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
-    static let snowNight = UIColor(red:  20.0/255.0, green:  35.0/255.0, blue:  51.0/255.0, alpha: 1.0)
+    static let snowDay   = UIColor.silver
+    static let snowNight = UIColor.lightSlateGray
 
     static let sleet      = UIColor.sleetDay.mixedWith(UIColor.sleetNight)
-    static let sleetDay   = UIColor.rainDay.mixedWith(UIColor.snowDay)
-    static let sleetNight = UIColor.rainNight.mixedWith(UIColor.snowNight)
+    static let sleetDay   = UIColor.silver
+    static let sleetNight = UIColor.lightSlateGray
 
     static let tornado      = UIColor.tornadoDay.mixedWith(UIColor.tornadoNight)
-    static let tornadoDay   = UIColor(red: 253.0/255.0, green: 1.0, blue: 203.0/255.0, alpha: 1.0)
-    static let tornadoNight = UIColor(red: 20.0/255.0, green: 35.0/255.0, blue: 51.0/255.0, alpha: 1.0)
+    static let tornadoDay   = UIColor.teal
+    static let tornadoNight = UIColor.ocean
 
     static let noWeather      = UIColor.noWeatherDay.mixedWith(UIColor.noWeatherNight)
-    static let noWeatherDay   = UIColor.red.darker().darker()
-    static let noWeatherNight = UIColor.blue.darker().darker()
+    static let noWeatherDay   = UIColor.sienna
+    static let noWeatherNight = UIColor.darkOliveGreen
 
     /// Initialises a `UIColor` generated from a six character hex string.
     /// The hex string may be preceded by an additional symbol `#`.

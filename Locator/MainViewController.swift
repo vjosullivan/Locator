@@ -23,6 +23,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var hourSummary: UILabel!
 
     @IBOutlet weak var currentWeatherSymbol: UILabel!
+    @IBOutlet weak var currentWeatherBackground: UILabel!
 
     @IBOutlet weak var frontPanel: UIView!
     @IBOutlet weak var locationButton: UIButton!
@@ -131,20 +132,20 @@ class MainViewController: UIViewController {
                 self.updateDisplay(with: darkSkyForecast, for: place)
                 self.frontVC?.update(forecast: darkSkyForecast,
                                      foregroundColor: self.currentWeatherSymbol.textColor,
-                                     backgroundColor: self.currentWeatherSymbol.backgroundColor,
+                                     backgroundColor: self.currentWeatherBackground.backgroundColor,
                                      container: self)
                 self.settingsVC?.update(forecast: darkSkyForecast,
                                         foregroundColor: self.currentWeatherSymbol.textColor!,
-                                        backgroundColor: self.currentWeatherSymbol.backgroundColor!)
+                                        backgroundColor: self.currentWeatherBackground.backgroundColor!)
                 self.solarVC?.update(forecast: darkSkyForecast,
                                      foregroundColor: self.currentWeatherSymbol.textColor!,
-                                     backgroundColor: self.currentWeatherSymbol.backgroundColor!)
+                                     backgroundColor: self.currentWeatherBackground.backgroundColor!)
                 self.detailsVC?.update(forecast: darkSkyForecast,
                                        foregroundColor: self.currentWeatherSymbol.textColor!,
-                                       backgroundColor: self.currentWeatherSymbol.backgroundColor!)
+                                       backgroundColor: self.currentWeatherBackground.backgroundColor!)
                 self.hourVC?.update(forecast: darkSkyForecast,
                                        foregroundColor: self.currentWeatherSymbol.textColor!,
-                                       backgroundColor: self.currentWeatherSymbol.backgroundColor!)
+                                       backgroundColor: self.currentWeatherBackground.backgroundColor!)
             }
         }
     }
@@ -157,7 +158,7 @@ class MainViewController: UIViewController {
     private func updateWeather(using icon: String?) {
         let weather = Weather.representedBy(darkSkyIcon: icon ?? "")
         currentWeatherSymbol.text = weather.symbol
-        currentWeatherSymbol.backgroundColor = weather.color
+        currentWeatherBackground.backgroundColor = weather.color
         if weather.isDark {
             currentWeatherSymbol.textColor = UIColor.white
             drawBackground(foreground: UIColor.init(white: 1.0, alpha: 0.125),
@@ -204,7 +205,7 @@ class MainViewController: UIViewController {
 
         context.beginPath()
         var x = 0.0
-        let xIncrement = Swift.max(20, Double(bounds.maxY) / 40.0)
+        let xIncrement = 12.0 //Swift.max(8, Double(bounds.maxY) / 16.0)
         while x < Double(bounds.maxX + bounds.maxY) {
             x += xIncrement
             context.move(to: CGPoint(x: x, y: 0.0))

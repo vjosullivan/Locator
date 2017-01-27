@@ -60,7 +60,7 @@ class DetailsViewController: UIViewController {
         if let measurement = measurement {
             pressureSymbol.text = "\u{F079}"
             pressureLabel.text = "Pressure"
-            pressureText.text  = measurement.description
+            pressureText.text  = "\(Int(measurement.value)) \(measurement.unit.symbol)"
         } else {
             pressureSymbol.text = ""
             pressureLabel.text = "No pressure"

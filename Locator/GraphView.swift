@@ -55,7 +55,6 @@ class GraphView: UIView {
             let trimmedValue = Swift.max(minValue, Swift.min(maxValue, value))
             let vHeight = (maxValue - minValue == 0.0) ? 0.0
                 : 2 * minY + (maxY - minY) * CGFloat((trimmedValue - minValue) / (maxValue - minValue))
-            print(value, vHeight)
             let yValue = rect.maxY - vHeight
             context.move(to: CGPoint(x: minX + barWidth * index, y: maxY))
             context.addLine(to: CGPoint(x: minX + barWidth * (index + 1), y: maxY))

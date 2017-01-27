@@ -93,13 +93,23 @@ class FrontViewController: UIViewController {
         } else {
             currentWeatherValue.text = "Unknown."
         }
+
+        setMinMaxTemperatures(forecast: forecast, textColor: foregroundColor!)
+
+        //let foreColor = foregroundColor ?? UIColor.white
+        let backColor = backgroundColor ?? UIColor.darkGray
+
+        view.backgroundColor = backColor
+    }
+
+    private func setMinMaxTemperatures(forecast: DarkSkyForecast, textColor: UIColor) {
         if let hi = forecast.today?.temperatureMax {
             maxTempValue.text = "High \(Int(hi.value))\(hi.unit.symbol)"
             if let maxTime = forecast.today?.temperatureMaxTime {
                 maxTempTime.text = maxTime.asHHMM(timezone: forecast.timeZone)
-                maxTempTime.textColor = Date().isAfter(maxTime) ? UIColor.amber : UIColor.gray
+                maxTempTime.textColor = Date().isAfter(maxTime) ? UIColor.gray : textColor
             } else {
-                maxTempTime.textColor = foregroundColor
+                maxTempTime.textColor = textColor
             }
             maxTempValue.textColor = maxTempTime.textColor
         } else {
@@ -110,21 +120,29 @@ class FrontViewController: UIViewController {
             minTempValue.text = "Low \(Int(lo.value))\(lo.unit.symbol)"
             if let minTime = forecast.today?.temperatureMinTime {
                 minTempTime.text = minTime.asHHMM(timezone: forecast.timeZone)
-                minTempTime.textColor = Date().isAfter(minTime) ? UIColor.amber : UIColor.gray
+                minTempTime.textColor = Date().isAfter(minTime) ? UIColor.gray : textColor
             } else {
-                minTempTime.textColor = foregroundColor
+                minTempTime.textColor = textColor
             }
             minTempValue.textColor = minTempTime.textColor
         } else {
             minTempValue.text = ""
             minTempTime.text = ""
         }
-
-        //let foreColor = foregroundColor ?? UIColor.white
-        let backColor = backgroundColor ?? UIColor.darkGray
-
-        view.backgroundColor = backColor
-
+        if let maxTime = forecast.today?.temperatureMaxTime,
+            let minTime = forecast.today?.temperatureMinTime {
+            if minTime.isAfter(maxTime) {
+            print("Switch temperatures because \(minTime):\(maxTime).")
+            let tempValue = minTempValue.text
+            let tempTime = minTempTime.text
+            minTempValue.text = maxTempValue.text
+            minTempTime.text = maxTempTime.text
+            maxTempValue.text = tempValue
+            maxTempTime.text = tempTime
+            } else {
+                print("No switch temperatures because \(minTime):\(maxTime).")
+            }
+        }
     }
 
     // MARK: - Actions

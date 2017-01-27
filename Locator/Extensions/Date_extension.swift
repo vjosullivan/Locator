@@ -18,15 +18,18 @@ extension Date {
 
     func asHHMM(twentyFourHourClock: Bool = true, timezone: String? = nil) -> String {
         let formatter = DateFormatter()
+        formatter.dateFormat = twentyFourHourClock ? "HH:mm " : "h:mm a "
+        let suffix: String
         if let timezone = timezone,
             let tz      = TimeZone(identifier: timezone) {
             formatter.timeZone = tz
-            let suffix = (tz.secondsFromGMT() != TimeZone.current.secondsFromGMT()) ? " zz" : ""
-            formatter.dateFormat = twentyFourHourClock ? "HH:mm" + suffix : "h:mm a" + suffix
+            suffix = (tz.secondsFromGMT() != TimeZone.current.secondsFromGMT())
+                ? tz.localisedAbbreviation() : ""
+            print("TZ \(tz.description), LA = \(tz.localisedAbbreviation()), SFX = \(suffix)")
         } else {
-            formatter.dateFormat = twentyFourHourClock ? "HH:mm" : "h:mm a"
+            suffix = ""
         }
-        return formatter.string(from: self)
+        return formatter.string(from: self) + suffix
     }
 
     func asHMZ(timeZone: String? = nil) -> String {
@@ -53,7 +56,7 @@ extension Date {
     }
 
     func isAfter(_ date: Date) -> Bool {
-        return self.compare(date) != ComparisonResult.orderedDescending
+        return self.timeIntervalSinceReferenceDate > date.timeIntervalSinceReferenceDate
     }
 
     ///  Returns the exact date for the start of today.
