@@ -45,8 +45,10 @@ struct DarkMoon {
     }
 
     private static var names = [
-        "New\nmoon", "Growing\ncrescent", "First\nquarter", "Approaching\nfull",
-        "Full\nmoon", "Past\nfull", "Last\nquarter", "Fading\ncrescent"]
+        "New\nmoon", "After\nnew moon", "Waxing\ncrescent", "Approaching\nfirst quarter",
+        "First\nquarter", "Past\nfirst quarter", "Waxing\ngibbous", "Approaching\nfull moon",
+        "Full\nmoon", "Past\nfull moon", "Waining\ngibbous", "Approaching\nlast quarter",
+        "Last\nquarter", "Past\nlast quarter", "Waining\ncrescent", "Approaching\nfull moon"]
 
     /// Returns a name for the given moon phase (e.g. "Full moon", "First quarter", etc.).
     ///

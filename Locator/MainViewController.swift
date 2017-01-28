@@ -159,15 +159,9 @@ class MainViewController: UIViewController {
         let weather = Weather.representedBy(darkSkyIcon: icon ?? "")
         currentWeatherSymbol.text = weather.symbol
         currentWeatherBackground.backgroundColor = weather.color
-        if weather.isDark {
-            currentWeatherSymbol.textColor = UIColor.white
-            drawBackground(foreground: UIColor.init(white: 1.0, alpha: 0.125),
-                           background: weather.color.darker())
-        } else {
-            currentWeatherSymbol.textColor = UIColor.black
-            drawBackground(foreground: UIColor.init(white: 1.0, alpha: 0.125),
-                           background: weather.color.darker())
-        }
+        currentWeatherSymbol.textColor = weather.isDark ? UIColor.white : UIColor.black
+        drawBackground(foreground: UIColor(white: 1.0, alpha: 0.125),
+                       background: weather.color.darker())
     }
 
     private func index() -> Int {

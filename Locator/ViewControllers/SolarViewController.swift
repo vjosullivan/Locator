@@ -24,7 +24,6 @@ class SolarViewController: UIViewController {
 
     @IBOutlet weak var moonSymbol: UILabel!
     @IBOutlet weak var moonBackground: UILabel!
-    @IBOutlet weak var moonLabel: UILabel!
     @IBOutlet weak var moonName: UILabel!
 
     var mainVC: MainViewController?
@@ -53,13 +52,10 @@ class SolarViewController: UIViewController {
             moonSymbol.textColor = UIColor(white: 1.0, alpha: 0.9)
             moonBackground.text      = "\u{F0EB}" //DarkMoon.backgroundSymbol(from: moonPhase)
             moonBackground.textColor = UIColor(white: 0.8, alpha: 0.5)
-            moonLabel.text      = "Moon"
-            moonLabel.textColor = foreColor
             moonName.text      = DarkMoon.name(from: moonPhase)
             moonName.textColor = foreColor
         } else {
             moonSymbol.text = ""
-            moonLabel.text  = ""
             moonName.text   = ""
         }
 
