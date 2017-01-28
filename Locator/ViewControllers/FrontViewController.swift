@@ -132,13 +132,18 @@ class FrontViewController: UIViewController {
         if let maxTime = forecast.today?.temperatureMaxTime,
             let minTime = forecast.today?.temperatureMinTime {
             if minTime.isAfter(maxTime) {
-            print("Switch temperatures because \(minTime):\(maxTime).")
-            let tempValue = minTempValue.text
-            let tempTime = minTempTime.text
-            minTempValue.text = maxTempValue.text
-            minTempTime.text = maxTempTime.text
-            maxTempValue.text = tempValue
-            maxTempTime.text = tempTime
+                print("Switch temperatures because min@\(minTime) : max@\(maxTime).")
+                let tempValue = minTempValue.text
+                let tempTime = minTempTime.text
+                let tempColor = minTempValue.textColor
+                minTempValue.text = maxTempValue.text
+                minTempValue.textColor = maxTempValue.textColor
+                minTempTime.text = maxTempTime.text
+                minTempTime.textColor = maxTempTime.textColor
+                maxTempValue.text = tempValue
+                maxTempValue.textColor = tempColor
+                maxTempTime.text = tempTime
+                maxTempTime.textColor = tempColor
             } else {
                 print("No switch temperatures because \(minTime):\(maxTime).")
             }
