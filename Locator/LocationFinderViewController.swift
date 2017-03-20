@@ -80,7 +80,7 @@ extension LocationFinderViewController: GMSAutocompleteFetcherDelegate, UITableV
         places.removeAll()
         for prediction in predictions {
             results += "\(prediction.attributedPrimaryText.string)  " +
-                "\(prediction.attributedSecondaryText!.string)  \(prediction.placeID)\n"
+                "\(prediction.attributedSecondaryText!.string)  \(prediction.placeID ?? "")\n"
             places.append(Place(
                 name: prediction.attributedPrimaryText.string,
                 region: prediction.attributedSecondaryText!.string,

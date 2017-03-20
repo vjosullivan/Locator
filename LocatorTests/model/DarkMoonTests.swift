@@ -9,23 +9,32 @@
 import XCTest
 @testable import Locator
 
+/// Icons are based on the "Awesome Weather" font set.
+/// - see:
 class DarkMoonTests: XCTestCase {
 
+    private let newMoonIcon = "\u{F095}"
+    private let newMoonIconAlt = "\u{F0EB}"
+    private let moonFirstQuarterIcon = "\u{F09C}"
+    private let moonFirstQuarterIconAlt = "\u{F0D6}"
+    private let moonThirdQuarterIcon = "\u{F0AA}"
+    private let moonThirdQuarterIconAlt = "\u{F0E4}"
+
     func testNewMoon() {
-        XCTAssertEqual("\u{f095}", DarkMoon.symbol(from: 0.0))
-        XCTAssertEqual("\u{f0EB}", DarkMoon.backgroundSymbol(from: 0.0))
+        XCTAssertEqual(newMoonIcon, DarkMoon.symbol(from: 0.0))
+        XCTAssertEqual(newMoonIconAlt, DarkMoon.backgroundSymbol(from: 0.0))
         XCTAssertEqual("New\nmoon", DarkMoon.name(from: 0.0))
     }
 
     func testFirstQuarter() {
-        XCTAssertEqual("\u{f09C}", DarkMoon.symbol(from: 0.25))
-        XCTAssertEqual("\u{f0D6}", DarkMoon.backgroundSymbol(from: 0.25))
+        XCTAssertEqual(moonFirstQuarterIcon, DarkMoon.symbol(from: 0.25))
+        XCTAssertEqual(moonFirstQuarterIconAlt, DarkMoon.backgroundSymbol(from: 0.25))
         XCTAssertEqual("First\nquarter", DarkMoon.name(from: 0.25))
     }
 
     func testThirdQuarter() {
-        XCTAssertEqual("\u{f0AA}", DarkMoon.symbol(from: 0.75))
-        XCTAssertEqual("\u{f0E4}", DarkMoon.backgroundSymbol(from: 0.75))
+        XCTAssertEqual(moonThirdQuarterIcon, DarkMoon.symbol(from: 0.75))
+        XCTAssertEqual(moonThirdQuarterIconAlt, DarkMoon.backgroundSymbol(from: 0.75))
         XCTAssertEqual("Last\nquarter", DarkMoon.name(from: 0.75))
     }
 }

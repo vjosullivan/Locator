@@ -86,6 +86,21 @@ struct Weather {
     static var thermometerOutside: Weather {
         return Weather(symbol: "\u{F053}", color: UIColor.clear, isDark: false)
     }
+    static var sunrise: Weather {
+        return Weather(symbol: "\u{F051}", color: UIColor.clear, isDark: false)
+    }
+    static var sunset: Weather {
+        return Weather(symbol: "\u{F052}", color: UIColor.clear, isDark: false)
+    }
+    static var stars: Weather {
+        return Weather(symbol: "\u{F077}", color: UIColor.clear, isDark: false)
+    }
+    static var humidity: Weather {
+        return Weather(symbol: "\u{F07A}", color: UIColor.clear, isDark: false)
+    }
+    static var newMoonAlt: Weather {
+        return Weather(symbol: "\u{F0EB}", color: UIColor.clear, isDark: false)
+    }
 
     // swiftlint:disable cyclomatic_complexity
     /// Converts a "Dark Sky" icon label into a Weather Awesome character.

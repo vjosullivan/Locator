@@ -164,10 +164,11 @@ class MainViewController: UIViewController {
                        background: weather.color.darker())
     }
 
+    private struct Layer {
+        static var index = -1
+    }
+
     private func index() -> Int {
-        struct Layer {
-            static var index = -1
-        }
         Layer.index += 1
         return Layer.index
     }

@@ -58,7 +58,7 @@ class FrontViewController: UIViewController {
     private func placeVertical(text: String, on button: UIButton, using label: UILabel, rotateClockwise: Bool = true) {
         label.frame = CGRect(x: 0.0, y: 0.0, width: button.frame.width, height: button.frame.height)
         button.addSubview(label)
-        let angle = rotateClockwise ? CGFloat(M_PI_2) : -CGFloat(M_PI_2)  // +/- 90°.
+        let angle = rotateClockwise ? CGFloat.pi / 2.0 : -CGFloat.pi / 2.0  // +/- 90°.
         label.transform = CGAffineTransform.init(rotationAngle: angle)
         //label.textColor = button.currentTitleColor
         label.backgroundColor = UIColor.clear

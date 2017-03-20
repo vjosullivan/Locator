@@ -58,7 +58,7 @@ class DetailsViewController: UIViewController {
 
     private func updatePressure(from measurement: Measurement<UnitPressure>?) {
         if let measurement = measurement {
-            pressureSymbol.text = "\u{F079}"
+            pressureSymbol.text = Weather.barometer.symbol
             pressureLabel.text = "Pressure"
             pressureText.text  = "\(Int(measurement.value)) \(measurement.unit.symbol)"
         } else {
@@ -81,7 +81,7 @@ class DetailsViewController: UIViewController {
     private func updateWindDirection(from measurement: Measurement<UnitAngle>?) {
         if let windDirection = measurement {
             windSymbol.text = Weather.windDirection.symbol
-            let angle = CGFloat((windDirection.value + 180.0) * M_PI / 180.0)
+            let angle = CGFloat(windDirection.value + 180.0) * CGFloat.pi / 180.0
             windSymbol.transform = CGAffineTransform.init(rotationAngle: angle)
             windSubtext.text = "from \(cardinal(from: windDirection.value))"
         } else {
@@ -92,7 +92,7 @@ class DetailsViewController: UIViewController {
 
     private func updateHumidity(from value: Double?) {
         if let humidity = value {
-            humiditySymbol.text = "\u{F07A}"
+            humiditySymbol.text = Weather.humidity.symbol
             humidityLabel.text  = "Humidity"
             humidityText.text   = "\(Int(humidity * 100))%"
         } else {

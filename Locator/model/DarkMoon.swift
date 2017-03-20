@@ -12,6 +12,7 @@ import Foundation
 struct DarkMoon {
 
     private static let symbolCount = 28.0
+    private static let newMoon = "\u{F0EB}"
 
     /// Given the phase of the moon, returns the appropriate "Weather Awesome" font's 
     /// representation of that phase.
@@ -41,7 +42,7 @@ struct DarkMoon {
         let base = 0xf0cf
         let offset = Int((phase + 0.5 / symbolCount) * symbolCount) % Int(symbolCount)
         // (The "new moon" symbol is not at offset == 0).
-        return (offset == 0) ? "\u{f0eb}" : "\(UnicodeScalar(base + offset)!)"
+        return (offset == 0) ? newMoon : "\(UnicodeScalar(base + offset)!)"
     }
 
     private static var names = [

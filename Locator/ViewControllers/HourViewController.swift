@@ -24,6 +24,10 @@ class HourViewController: UIViewController {
     @IBOutlet weak var hourSummary: UILabel!
     @IBOutlet weak var minuteSummary: UILabel!
 
+    @IBOutlet weak var rainingLabel: UILabel!
+    @IBOutlet weak var pouringLabel: UILabel!
+    @IBOutlet weak var mizzlingLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
