@@ -63,7 +63,7 @@ class FrontViewController: UIViewController {
         //label.textColor = button.currentTitleColor
         label.backgroundColor = UIColor.clear
         label.text = text
-        label.font = button.titleLabel?.font.withSize(15)
+        label.font = button.titleLabel?.font.withSize(14)
         label.textAlignment = .center
     }
 
@@ -91,7 +91,7 @@ class FrontViewController: UIViewController {
         if let summary = forecast.current?.summary {
             currentWeatherValue.text = "\(summary)"
         } else {
-            currentWeatherValue.text = "Unknown."
+            currentWeatherValue.text = "No weather!"
         }
 
         setMinMaxTemperatures(forecast: forecast, textColor: foregroundColor!)

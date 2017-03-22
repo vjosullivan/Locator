@@ -19,9 +19,7 @@ class MainViewController: UIViewController {
     @IBOutlet var backgroundColoredViews: [UIView]!
 
     @IBOutlet weak var uiPlace: UILabel!
-    @IBOutlet weak var minuteSummary: UILabel!
-    @IBOutlet weak var hourSummary: UILabel!
-
+  
     @IBOutlet weak var currentWeatherSymbol: UILabel!
     @IBOutlet weak var currentWeatherBackground: UILabel!
 

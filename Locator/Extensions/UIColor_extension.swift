@@ -21,7 +21,7 @@ extension UIColor {
     static let lightSlateGray = UIColor(hexString: "7E7D9C")
     static let agean = UIColor(hexString: "1E456E")
     static let sapphire = UIColor(hexString: "52B1C2")
-    static let midnightBlue = UIColor(hexString: "24166A")
+    static let midnightBlue = UIColor(hexString: "455395")
     static let silver = UIColor(hexString: "C6C6D0")
     static let sienna = UIColor(hexString: "9A7B4F")
     static let darkOliveGreen = UIColor(hexString: "715B3D")

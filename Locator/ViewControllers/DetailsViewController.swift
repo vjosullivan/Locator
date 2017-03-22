@@ -53,6 +53,7 @@ class DetailsViewController: UIViewController {
         humiditySymbol.textColor = foreColor
         humidityLabel.textColor = foreColor
         humidityText.textColor = foreColor
+        detailsLabel.textColor = foreColor
 
         detailsLabel.text = forecast.hourly?.summary ?? ""
 

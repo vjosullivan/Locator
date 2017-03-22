@@ -21,7 +21,7 @@ class HourViewController: UIViewController {
     @IBOutlet weak var rainIntensityGraph: GraphView!
     @IBOutlet weak var tickStack: UIStackView!
 
-    @IBOutlet weak var hourSummary: UILabel!
+    @IBOutlet weak var graphTitle: UILabel!
     @IBOutlet weak var minuteSummary: UILabel!
 
     @IBOutlet weak var rainingLabel: UILabel!
@@ -47,12 +47,31 @@ class HourViewController: UIViewController {
     }
 
     func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?) {
-        minuteSummary.text = forecast.minutely?.summary ?? ""
-        hourSummary.text   = forecast.hourly?.summary ?? ""
-
+        graphTitle.text = precipitationType(from: forecast) + " in the next 60 mins."
+        minuteSummary.text = oneHourSummary(from: forecast)
         rainIntensityGraph.data = forecast.minutelyRainIntensity
-
         view.backgroundColor = backgroundColor
     }
 
+    private func oneHourSummary(from forecast: DarkSkyForecast) -> String {
+        let summary: String
+        if let oneHourSummary = forecast.minutely?.summary {
+            summary = oneHourSummary
+        } else if let currentSummary = forecast.current?.summary {
+            summary = "Remaining \(currentSummary.lowercased()) for the next hour."
+        } else {
+            summary = ""
+        }
+        return summary
+    }
+
+    private func precipitationType(from forecast: DarkSkyForecast) -> String {
+        if let type = forecast.current?.precipType {
+            let first = String(type.characters.prefix(1)).capitalized
+            let other = String(type.characters.dropFirst())
+            return first + other
+        } else {
+            return "No precipitation"
+        }
+    }
 }
