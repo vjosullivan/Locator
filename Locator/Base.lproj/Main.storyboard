@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12117" systemVersion="16E191a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Smw-Ad-c4j">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12117" systemVersion="16E192b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Smw-Ad-c4j">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -397,49 +397,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="359" height="243.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="o7O-UE-3JE" userLabel="Details stack">
-                                <rect key="frame" x="8" y="115.5" width="343" height="94"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="o7O-UE-3JE" userLabel="Details stack">
+                                <rect key="frame" x="24" y="53" width="311" height="77"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Pr1-j1-Ats" userLabel="Pressure stack">
-                                        <rect key="frame" x="0.0" y="0.0" width="171.5" height="94"/>
+                                    <stackView opaque="NO" tag="-1" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Pr1-j1-Ats" userLabel="Pressure stack">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="77"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5B-Dl-NgP" userLabel="Pressure symbol">
-                                                <rect key="frame" x="0.0" y="0.0" width="171.5" height="58"/>
-                                                <fontDescription key="fontDescription" name="WeatherIcons-Regular" family="Weather Icons" pointSize="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="41"/>
+                                                <fontDescription key="fontDescription" name="WeatherIcons-Regular" family="Weather Icons" pointSize="28"/>
                                                 <color key="textColor" red="1" green="0.34509803919999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pressure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VnA-F4-b8L" userLabel="Pressure label">
-                                                <rect key="frame" x="0.0" y="58" width="171.5" height="14.5"/>
+                                                <rect key="frame" x="0.0" y="41" width="50" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="1" green="0.34509803919999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="06:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QCl-BJ-a84" userLabel="Pressure text">
-                                                <rect key="frame" x="0.0" y="72.5" width="171.5" height="21.5"/>
+                                                <rect key="frame" x="0.0" y="55.5" width="50" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" red="1" green="0.34509803919999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="C2V-FJ-R7o" userLabel="Humidity stack">
-                                        <rect key="frame" x="171.5" y="0.0" width="171.5" height="94"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-1" translatesAutoresizingMaskIntoConstraints="NO" id="C2V-FJ-R7o" userLabel="Humidity stack">
+                                        <rect key="frame" x="260" y="0.0" width="51" height="77"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HU" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDD-bg-cuL" userLabel="Humidity symbol">
-                                                <rect key="frame" x="0.0" y="0.0" width="171.5" height="58"/>
-                                                <fontDescription key="fontDescription" name="WeatherIcons-Regular" family="Weather Icons" pointSize="40"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="HU" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDD-bg-cuL" userLabel="Humidity symbol">
+                                                <rect key="frame" x="0.0" y="0.0" width="51" height="43"/>
+                                                <fontDescription key="fontDescription" name="WeatherIcons-Regular" family="Weather Icons" pointSize="28"/>
                                                 <color key="textColor" red="1" green="0.34509803919999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PIb-wB-ma3" userLabel="Humidity label">
-                                                <rect key="frame" x="0.0" y="58" width="171.5" height="14.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Humidity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PIb-wB-ma3" userLabel="Humidity label">
+                                                <rect key="frame" x="0.0" y="42" width="51" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="1" green="0.34509803919999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20:35" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="FhN-4q-Vpr" userLabel="Humidity text">
-                                                <rect key="frame" x="0.0" y="72.5" width="171.5" height="21.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="20:35" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="FhN-4q-Vpr" userLabel="Humidity text">
+                                                <rect key="frame" x="0.0" y="55.5" width="51" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" red="1" green="0.34509803919999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -448,29 +448,29 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PA2-Sb-cHG" userLabel="Wind stack">
-                                <rect key="frame" x="138.5" y="42" width="82.5" height="108.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-1" translatesAutoresizingMaskIntoConstraints="NO" id="PA2-Sb-cHG" userLabel="Wind stack">
+                                <rect key="frame" x="138.5" y="92" width="82.5" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6z-Dx-SXL" userLabel="Wind symbol">
-                                        <rect key="frame" x="0.0" y="0.0" width="82.5" height="58"/>
-                                        <fontDescription key="fontDescription" name="WeatherIcons-Regular" family="Weather Icons" pointSize="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="82.5" height="52.5"/>
+                                        <fontDescription key="fontDescription" name="WeatherIcons-Regular" family="Weather Icons" pointSize="36"/>
                                         <color key="textColor" red="1" green="0.34509803919999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wind direction" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tRP-qd-dTU" userLabel="Wind label">
-                                        <rect key="frame" x="0.0" y="58" width="82.5" height="14.5"/>
+                                        <rect key="frame" x="0.0" y="51.5" width="82.5" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="1" green="0.34509803919999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20:35" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fRJ-fR-2kU" userLabel="Wind text">
-                                        <rect key="frame" x="0.0" y="72.5" width="82.5" height="21.5"/>
+                                        <rect key="frame" x="0.0" y="65" width="82.5" height="21.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" red="1" green="0.34509803919999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="06:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sfA-v3-5ks" userLabel="Wind subtext">
-                                        <rect key="frame" x="0.0" y="94" width="82.5" height="14.5"/>
+                                        <rect key="frame" x="0.0" y="85.5" width="82.5" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="1" green="0.34509803919999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -478,24 +478,36 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uh1-6J-OuA">
-                                <rect key="frame" x="0.0" y="8" width="343" height="228"/>
+                                <rect key="frame" x="0.0" y="0.0" width="351" height="243.5"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <segue destination="Rka-xW-f9H" kind="unwind" unwindAction="unwindToMainVCWithSegue:" id="3Zw-Cq-K0k"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a label with a detailed weather forecast.  Perhaps too much detail.  If that's possible" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u3G-Ir-w8e" userLabel="Details label">
+                                <rect key="frame" x="8" y="200" width="343" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="er5-hv-hLv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="o7O-UE-3JE" firstAttribute="leading" secondItem="jxJ-of-aie" secondAttribute="leading" constant="8" id="4LC-Se-icx"/>
-                            <constraint firstItem="o7O-UE-3JE" firstAttribute="centerY" secondItem="jxJ-of-aie" secondAttribute="centerY" multiplier="1.33" id="JRV-WR-iri"/>
-                            <constraint firstItem="PA2-Sb-cHG" firstAttribute="centerX" secondItem="jxJ-of-aie" secondAttribute="centerX" id="Mas-uM-PWl"/>
-                            <constraint firstItem="PA2-Sb-cHG" firstAttribute="top" secondItem="jxJ-of-aie" secondAttribute="topMargin" constant="42" id="Owc-vl-z0X"/>
-                            <constraint firstAttribute="trailing" secondItem="o7O-UE-3JE" secondAttribute="trailing" constant="8" id="PK5-Sw-Sb0"/>
+                            <constraint firstItem="o7O-UE-3JE" firstAttribute="leading" secondItem="jxJ-of-aie" secondAttribute="leading" constant="24" id="4LC-Se-icx"/>
+                            <constraint firstItem="PA2-Sb-cHG" firstAttribute="centerX" secondItem="jxJ-of-aie" secondAttribute="centerX" id="FQX-bB-YM9"/>
+                            <constraint firstItem="o7O-UE-3JE" firstAttribute="centerY" secondItem="jxJ-of-aie" secondAttribute="centerY" multiplier="0.75" id="JRV-WR-iri"/>
+                            <constraint firstAttribute="trailing" secondItem="o7O-UE-3JE" secondAttribute="trailing" constant="24" id="PK5-Sw-Sb0"/>
+                            <constraint firstItem="u3G-Ir-w8e" firstAttribute="top" secondItem="PA2-Sb-cHG" secondAttribute="bottom" constant="8" id="PsG-ed-m9N"/>
+                            <constraint firstItem="GcL-La-cU3" firstAttribute="top" secondItem="u3G-Ir-w8e" secondAttribute="bottom" constant="8" id="TMP-lh-S7R"/>
+                            <constraint firstAttribute="trailing" secondItem="u3G-Ir-w8e" secondAttribute="trailing" constant="8" id="U5G-H4-EdH"/>
                             <constraint firstItem="Uh1-6J-OuA" firstAttribute="leading" secondItem="jxJ-of-aie" secondAttribute="leading" id="dEx-0T-KMw"/>
-                            <constraint firstItem="Uh1-6J-OuA" firstAttribute="top" secondItem="jxJ-of-aie" secondAttribute="top" constant="8" id="iEx-1n-wgi"/>
-                            <constraint firstAttribute="trailing" secondItem="Uh1-6J-OuA" secondAttribute="trailing" constant="16" id="uk0-Ok-ZUo"/>
-                            <constraint firstItem="GcL-La-cU3" firstAttribute="top" secondItem="Uh1-6J-OuA" secondAttribute="bottom" constant="8" id="xgb-hS-VbJ"/>
+                            <constraint firstItem="Uh1-6J-OuA" firstAttribute="top" secondItem="jxJ-of-aie" secondAttribute="top" id="iEx-1n-wgi"/>
+                            <constraint firstItem="u3G-Ir-w8e" firstAttribute="leading" secondItem="jxJ-of-aie" secondAttribute="leading" constant="8" id="l9E-HF-EBh"/>
+                            <constraint firstAttribute="trailing" secondItem="Uh1-6J-OuA" secondAttribute="trailing" constant="8" id="uk0-Ok-ZUo"/>
+                            <constraint firstItem="GcL-La-cU3" firstAttribute="top" secondItem="Uh1-6J-OuA" secondAttribute="bottom" id="xgb-hS-VbJ"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -505,6 +517,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
+                        <outlet property="detailsLabel" destination="u3G-Ir-w8e" id="mYi-32-RzN"/>
                         <outlet property="humidityLabel" destination="PIb-wB-ma3" id="a43-m0-3JX"/>
                         <outlet property="humiditySymbol" destination="QDD-bg-cuL" id="fft-4Y-mpd"/>
                         <outlet property="humidityText" destination="FhN-4q-Vpr" id="Go8-5x-Rd2"/>
@@ -521,7 +534,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wre-VC-UDG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Rka-xW-f9H" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="302" y="-128"/>
+            <point key="canvasLocation" x="301.60000000000002" y="-128.63568215892056"/>
         </scene>
         <!--Solar View Controller-->
         <scene sceneID="GEy-8e-iWo">

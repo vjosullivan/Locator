@@ -25,6 +25,8 @@ class DetailsViewController: UIViewController {
 
     @IBOutlet weak var returnButton: UIButton!
 
+    @IBOutlet weak var detailsLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -51,6 +53,8 @@ class DetailsViewController: UIViewController {
         humiditySymbol.textColor = foreColor
         humidityLabel.textColor = foreColor
         humidityText.textColor = foreColor
+
+        detailsLabel.text = forecast.hourly?.summary ?? ""
 
         returnButton.setTitleColor(foreColor, for: .normal)
         view.backgroundColor = backColor

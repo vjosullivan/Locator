@@ -63,7 +63,7 @@ class FrontViewController: UIViewController {
         //label.textColor = button.currentTitleColor
         label.backgroundColor = UIColor.clear
         label.text = text
-        label.font = button.titleLabel?.font
+        label.font = button.titleLabel?.font.withSize(15)
         label.textAlignment = .center
     }
 
