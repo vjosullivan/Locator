@@ -10,13 +10,19 @@ import UIKit
 
 class HourViewController: UIViewController {
 
+    var mainVC: MainViewController?
+
     // These views have coloured backgrounds in the storyboard which are cleared when run.
     @IBOutlet var backgroundColoredViews: [UIView]!
 
     @IBOutlet weak var buttonTopLeft: UIButton!
+    @IBOutlet weak var labelTopLeft: UILabel!
     @IBOutlet weak var buttonTopRight: UIButton!
+    @IBOutlet weak var labelTopRight: UILabel!
     @IBOutlet weak var buttonBottomLeft: UIButton!
+    @IBOutlet weak var labelBottomLeft: UILabel!
     @IBOutlet weak var buttonBottomRight: UIButton!
+    @IBOutlet weak var labelBottomRight: UILabel!
 
     @IBOutlet weak var rainIntensityGraph: GraphView!
     @IBOutlet weak var tickStack: UIStackView!
@@ -46,7 +52,9 @@ class HourViewController: UIViewController {
         buttonBottomRight.layer.borderColor = UIColor.lightGray.cgColor
     }
 
-    func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?) {
+    func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?, container: MainViewController) {
+        mainVC = container
+
         graphTitle.text = precipitationType(from: forecast) + " in the next 60 mins."
         minuteSummary.text = oneHourSummary(from: forecast)
         rainIntensityGraph.data = forecast.minutelyRainIntensity
@@ -72,6 +80,31 @@ class HourViewController: UIViewController {
             return first + other
         } else {
             return "No precipitation"
+        }
+    }
+
+    // MARK: - Actions
+
+    /// Calls an automated action the "flips" between two displayed screens.  The particular screen revealed
+    /// is dependent upon the button calling the action.
+    ///
+    /// - Parameter sender: The button requesting the action.
+    ///
+    @IBAction func flip(_ sender: UIButton) {
+        guard let mainVC = mainVC else {
+            return
+        }
+        switch true {
+        case sender == buttonTopLeft: // Hour forecast
+            mainVC.flip(mainVC.hourPanel, rearView: mainVC.hourPanel)
+        case sender == buttonTopRight: // Day forecast
+            mainVC.flip(mainVC.hourPanel, rearView: mainVC.dayPanel)
+        case sender == buttonBottomLeft: // Week forecast
+            mainVC.flip(mainVC.hourPanel, rearView: mainVC.weekPanel)
+        case sender == buttonBottomRight: // Alerts
+            mainVC.flip(mainVC.hourPanel, rearView: mainVC.creditsPanel)
+        default:
+            break
         }
     }
 }

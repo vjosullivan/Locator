@@ -152,16 +152,21 @@ class FrontViewController: UIViewController {
 
     // MARK: - Actions
 
+    /// Calls an automated action the "flips" between two displayed screens.  The particular screen revealed
+    /// is dependent upon the button calling the action.
+    ///
+    /// - Parameter sender: The button requesting the action.
+    ///
     @IBAction func flip(_ sender: UIButton) {
         guard let mainVC = mainVC else {
             return
         }
         switch true {
-        case sender == buttonATL:
+        case sender == buttonATL: // Settings
             mainVC.flip(mainVC.frontPanel, rearView: mainVC.settingsPanel)
-        case sender == buttonABL:
+        case sender == buttonABL: // Daylight
             mainVC.flip(mainVC.frontPanel, rearView: mainVC.solarPanel)
-        case sender == buttonABR:
+        case sender == buttonABR: // Details
             mainVC.flip(mainVC.frontPanel, rearView: mainVC.detailsPanel)
         default:
             break

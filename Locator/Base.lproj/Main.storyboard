@@ -1144,6 +1144,9 @@
                                         <integer key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="flip:" destination="GgB-fi-gQf" eventType="touchUpInside" id="I88-ko-Hv2"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Vs-Hc-0dW" userLabel="buttonBottomLeft">
                                 <rect key="frame" x="-1" y="146" width="44" height="148"/>
@@ -1159,6 +1162,9 @@
                                         <integer key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="flip:" destination="GgB-fi-gQf" eventType="touchUpInside" id="6iJ-v4-YhE"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4We-zU-MkL" userLabel="buttonTopRight">
                                 <rect key="frame" x="316" y="-1" width="44" height="148"/>
@@ -1174,6 +1180,9 @@
                                         <integer key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="flip:" destination="GgB-fi-gQf" eventType="touchUpInside" id="BUg-wq-thf"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uy3-zr-AbG" userLabel="buttonBottomRight">
                                 <rect key="frame" x="316" y="146" width="44" height="148"/>
@@ -1189,6 +1198,9 @@
                                         <integer key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="flip:" destination="GgB-fi-gQf" eventType="touchUpInside" id="3wa-yC-BBK"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="5LW-lw-BkQ">
                                 <rect key="frame" x="51" y="7.5" width="257" height="278"/>
@@ -1341,10 +1353,10 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
-                        <outlet property="buttonBottomLeft" destination="7Vs-Hc-0dW" id="CGP-dG-G65"/>
-                        <outlet property="buttonBottomRight" destination="uy3-zr-AbG" id="f7S-e6-lR5"/>
-                        <outlet property="buttonTopLeft" destination="Va8-jT-yp2" id="DKK-cW-y6m"/>
-                        <outlet property="buttonTopRight" destination="4We-zU-MkL" id="96N-38-W9b"/>
+                        <outlet property="buttonBottomLeft" destination="7Vs-Hc-0dW" id="fob-17-K6A"/>
+                        <outlet property="buttonBottomRight" destination="uy3-zr-AbG" id="iDS-V9-2bh"/>
+                        <outlet property="buttonTopLeft" destination="Va8-jT-yp2" id="bfZ-Pa-nr0"/>
+                        <outlet property="buttonTopRight" destination="4We-zU-MkL" id="U8v-wU-NPo"/>
                         <outlet property="graphTitle" destination="hdh-ra-GCM" id="ivT-ef-miE"/>
                         <outlet property="minuteSummary" destination="w6O-V2-Ycx" id="m25-pi-U1B"/>
                         <outlet property="rainIntensityGraph" destination="uOY-Vl-REQ" id="0a5-zy-6Lv"/>

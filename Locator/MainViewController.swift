@@ -143,7 +143,7 @@ class MainViewController: UIViewController {
                                        backgroundColor: self.currentWeatherBackground.backgroundColor!)
                 self.hourVC?.update(forecast: darkSkyForecast,
                                        foregroundColor: self.currentWeatherSymbol.textColor!,
-                                       backgroundColor: self.currentWeatherBackground.backgroundColor!)
+                                       backgroundColor: self.currentWeatherBackground.backgroundColor!, container: self)
             }
         }
     }
