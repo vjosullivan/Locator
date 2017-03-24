@@ -21,7 +21,7 @@ extension UIColor {
     static let lightSlateGray = UIColor(hexString: "7E7D9C")
     static let agean = UIColor(hexString: "1E456E")
     static let sapphire = UIColor(hexString: "52B1C2")
-    static let midnightBlue = UIColor(hexString: "455395")
+    static let midnightBlue = UIColor(hexString: "5B7CB1")
     static let silver = UIColor(hexString: "C6C6D0")
     static let sienna = UIColor(hexString: "9A7B4F")
     static let darkOliveGreen = UIColor(hexString: "715B3D")
@@ -31,7 +31,7 @@ extension UIColor {
 
     static let clearSky   = UIColor.clearDay.mixedWith(UIColor.clearNight)
     static let clearDay   = UIColor.skyBlue
-    static let clearNight = UIColor.navy
+    static let clearNight = UIColor.midnightBlue
 
     static let wind      = UIColor.windDay.mixedWith(UIColor.windNight)
     static let windDay   = UIColor.teal
