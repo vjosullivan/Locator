@@ -28,7 +28,7 @@ class SolarViewController: UIViewController {
     @IBOutlet weak var moonBackground: UILabel!
     @IBOutlet weak var moonName: UILabel!
 
-    var mainVC: MainViewController?
+//    var mainVC: MainViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -163,6 +163,5 @@ class SolarViewController: UIViewController {
             sunsetTimeThere.text = "No sunset"
             sunsetTimeHere.text  = ""
         }
-
     }
 }

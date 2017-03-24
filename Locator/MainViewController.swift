@@ -80,6 +80,7 @@ class MainViewController: UIViewController {
             creditsVC = segue.destination as? CreditsViewController
         }
     }
+
     // MARK: - IBActions.
 
     @IBAction func selectLocation(_ sender: UIButton) {
@@ -104,7 +105,7 @@ class MainViewController: UIViewController {
         case is DayViewController:
             flip(hourPanel, rearView: dayPanel)
         case is WeekViewController:
-            flip(hourPanel, rearView: hourPanel)
+            flip(hourPanel, rearView: weekPanel)
         case is CreditsViewController:
             flip(hourPanel, rearView: creditsPanel)
         default:
@@ -142,8 +143,17 @@ class MainViewController: UIViewController {
                                        foregroundColor: self.currentWeatherSymbol.textColor!,
                                        backgroundColor: self.currentWeatherBackground.backgroundColor!)
                 self.hourVC?.update(forecast: darkSkyForecast,
-                                       foregroundColor: self.currentWeatherSymbol.textColor!,
-                                       backgroundColor: self.currentWeatherBackground.backgroundColor!, container: self)
+                                    foregroundColor: self.currentWeatherSymbol.textColor!,
+                                    backgroundColor: self.currentWeatherBackground.backgroundColor!, container: self)
+                self.dayVC?.update(forecast: darkSkyForecast,
+                                    foregroundColor: self.currentWeatherSymbol.textColor!,
+                                    backgroundColor: self.currentWeatherBackground.backgroundColor!)
+                self.weekVC?.update(forecast: darkSkyForecast,
+                                    foregroundColor: self.currentWeatherSymbol.textColor!,
+                                    backgroundColor: self.currentWeatherBackground.backgroundColor!)
+                self.creditsVC?.update(forecast: darkSkyForecast,
+                                    foregroundColor: self.currentWeatherSymbol.textColor!,
+                                    backgroundColor: self.currentWeatherBackground.backgroundColor!)
             }
         }
     }
