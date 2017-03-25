@@ -18,13 +18,11 @@ class GraphView: UIView {
         }
         set {
             storedData = newValue
-            print("wahey! \(storedData.count)")
             setNeedsDisplay()
         }
     }
     override init(frame: CGRect) {
         super.init(frame: frame)
-        print(999)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -33,13 +31,10 @@ class GraphView: UIView {
 
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        print("Drawing....")
         guard let context = UIGraphicsGetCurrentContext(),
             !storedData.isEmpty else {
-                print("Not really drawing....")
                 return
         }
-        print("Really drawing....")
 
         let border = Swift.max(rect.height, rect.width) * 0.05
         let minX = border //rect.width * 0.05

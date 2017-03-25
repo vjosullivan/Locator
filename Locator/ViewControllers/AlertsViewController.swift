@@ -1,14 +1,14 @@
 //
-//  CreditsViewController.swift
+//  AlertsViewController.swift
 //  Locator
 //
-//  Created by Vincent O'Sullivan on 23/01/2017.
+//  Created by Vincent O'Sullivan on 25/03/2017.
 //  Copyright © 2017 Vincent O'Sullivan. All rights reserved.
 //
 
 import UIKit
 
-class CreditsViewController: UIViewController {
+class AlertsViewController: UIViewController {
 
     @IBOutlet weak var returnButton: UIButton!
 

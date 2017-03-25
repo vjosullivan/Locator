@@ -52,7 +52,9 @@ class HourViewController: UIViewController {
         buttonBottomRight.layer.borderColor = UIColor.lightGray.cgColor
     }
 
-    func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?, container: MainViewController) {
+    func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?,
+                container: MainViewController) {
+
         mainVC = container
 
         graphTitle.text = precipitationType(from: forecast) + " in the next 60 mins."
@@ -95,13 +97,13 @@ class HourViewController: UIViewController {
             return
         }
         switch true {
-        case sender == buttonTopLeft: // Hour forecast
-            mainVC.flip(mainVC.hourPanel, rearView: mainVC.hourPanel)
-        case sender == buttonTopRight: // Day forecast
+        case sender == buttonTopLeft: // 24 hour forecast
             mainVC.flip(mainVC.hourPanel, rearView: mainVC.dayPanel)
-        case sender == buttonBottomLeft: // Week forecast
+        case sender == buttonTopRight: // 7 day forecast
             mainVC.flip(mainVC.hourPanel, rearView: mainVC.weekPanel)
-        case sender == buttonBottomRight: // Alerts
+        case sender == buttonBottomLeft: // Weather alerts
+            mainVC.flip(mainVC.hourPanel, rearView: mainVC.alertsPanel)
+        case sender == buttonBottomRight: // Credits
             mainVC.flip(mainVC.hourPanel, rearView: mainVC.creditsPanel)
         default:
             break

@@ -58,6 +58,7 @@
 		F166734F1E0298150087C5D7 /* DataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166734D1E0298150087C5D7 /* DataPoint.swift */; };
 		F16673501E0298150087C5D7 /* DataPointInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166734E1E0298150087C5D7 /* DataPointInit.swift */; };
 		F172E53F1DD705A100DDFB8E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E53E1DD705A100DDFB8E /* MainViewController.swift */; };
+		F1B662431E866FB20095F16A /* AlertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B662421E866FB20095F16A /* AlertsViewController.swift */; };
 		F1D5D2951DD70DED00D9DC1F /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5D2941DD70DED00D9DC1F /* LocationListViewController.swift */; };
 		F1D5D29A1DD85B3700D9DC1F /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5D2991DD85B3700D9DC1F /* Place.swift */; };
 		F1D5D29F1DD85DA100D9DC1F /* PlaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5D29E1DD85DA100D9DC1F /* PlaceTests.swift */; };
@@ -133,6 +134,7 @@
 		F166734D1E0298150087C5D7 /* DataPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPoint.swift; sourceTree = "<group>"; };
 		F166734E1E0298150087C5D7 /* DataPointInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPointInit.swift; sourceTree = "<group>"; };
 		F172E53E1DD705A100DDFB8E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F1B662421E866FB20095F16A /* AlertsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsViewController.swift; sourceTree = "<group>"; };
 		F1D5D2941DD70DED00D9DC1F /* LocationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
 		F1D5D2991DD85B3700D9DC1F /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		F1D5D29E1DD85DA100D9DC1F /* PlaceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTests.swift; sourceTree = "<group>"; };
@@ -204,14 +206,15 @@
 		348148711E15C14300079056 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				348148721E15C1AD00079056 /* SolarViewController.swift */,
+				F1B662421E866FB20095F16A /* AlertsViewController.swift */,
+				34A540B11E35F77A00FD7C6E /* CreditsViewController.swift */,
+				34A540AD1E35F70100FD7C6E /* DayViewController.swift */,
 				348148741E15C1FF00079056 /* DetailsViewController.swift */,
-				340FBA081E1A8B1500E2FAD4 /* SettingsViewController.swift */,
 				34BB1CF11E2E6DE400595C91 /* FrontViewController.swift */,
 				34A540AB1E35F69500FD7C6E /* HourViewController.swift */,
-				34A540AD1E35F70100FD7C6E /* DayViewController.swift */,
+				340FBA081E1A8B1500E2FAD4 /* SettingsViewController.swift */,
+				348148721E15C1AD00079056 /* SolarViewController.swift */,
 				34A540AF1E35F73000FD7C6E /* WeekViewController.swift */,
-				34A540B11E35F77A00FD7C6E /* CreditsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				3498D66F1E13CEB70081ECE3 /* RibbonView.swift in Sources */,
 				34F5A4FE1E239E2000E66AC1 /* TimeZone_extension.swift in Sources */,
 				348148731E15C1AD00079056 /* SolarViewController.swift in Sources */,
+				F1B662431E866FB20095F16A /* AlertsViewController.swift in Sources */,
 				3453E2CC1E10730A004D5F46 /* UIColor_extension.swift in Sources */,
 				F166734F1E0298150087C5D7 /* DataPoint.swift in Sources */,
 				F172E53F1DD705A100DDFB8E /* MainViewController.swift in Sources */,

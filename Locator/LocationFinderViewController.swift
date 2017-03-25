@@ -94,7 +94,7 @@ extension LocationFinderViewController: GMSAutocompleteFetcherDelegate, UITableV
     }
 
     func didFailAutocompleteWithError(_ error: Error) {
-        print("F")
+        print("Fail!  This should be handled somewhere.")
     }
 }
 

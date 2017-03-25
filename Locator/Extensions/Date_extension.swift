@@ -25,7 +25,6 @@ extension Date {
             formatter.timeZone = tz
             suffix = (tz.secondsFromGMT() != TimeZone.current.secondsFromGMT())
                 ? tz.localisedAbbreviation() : ""
-            print("TZ \(tz.description), LA = \(tz.localisedAbbreviation()), SFX = \(suffix)")
         } else {
             suffix = ""
         }

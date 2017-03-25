@@ -95,6 +95,10 @@ class DetailsViewController: UIViewController {
         }
     }
 
+    /// Helper function: Updates humidity display on screen.
+    ///
+    /// - Parameter value: Relative humidity value in range 0 to 1.
+    ///
     private func updateHumidity(from value: Double?) {
         if let humidity = value {
             humiditySymbol.text = Weather.humidity.symbol

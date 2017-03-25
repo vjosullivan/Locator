@@ -33,6 +33,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var weekPanel: UIView!
     @IBOutlet weak var creditsPanel: UIView!
     @IBOutlet weak var hourPanel: UIView!
+    @IBOutlet weak var alertsPanel: UIView!
 
     private var frontVC: FrontViewController?
     private var settingsVC: SettingsViewController?
@@ -43,6 +44,7 @@ class MainViewController: UIViewController {
     private var dayVC: DayViewController?
     private var weekVC: WeekViewController?
     private var creditsVC: CreditsViewController?
+    private var alertsVC: AlertsViewController?
 
     private var locationController: LocationController?
 
@@ -78,6 +80,8 @@ class MainViewController: UIViewController {
             weekVC = segue.destination as? WeekViewController
         } else if segue.identifier == "creditsViewSegue" {
             creditsVC = segue.destination as? CreditsViewController
+        } else if segue.identifier == "alertsViewSegue" {
+            alertsVC = segue.destination as? AlertsViewController
         }
     }
 
@@ -108,6 +112,8 @@ class MainViewController: UIViewController {
             flip(hourPanel, rearView: weekPanel)
         case is CreditsViewController:
             flip(hourPanel, rearView: creditsPanel)
+        case is AlertsViewController:
+            flip(hourPanel, rearView: alertsPanel)
         default:
             break
         }
@@ -134,26 +140,29 @@ class MainViewController: UIViewController {
                                      backgroundColor: self.currentWeatherBackground.backgroundColor,
                                      container: self)
                 self.settingsVC?.update(forecast: darkSkyForecast,
-                                        foregroundColor: self.currentWeatherSymbol.textColor!,
-                                        backgroundColor: self.currentWeatherBackground.backgroundColor!)
+                                        foregroundColor: self.currentWeatherSymbol.textColor,
+                                        backgroundColor: self.currentWeatherBackground.backgroundColor)
                 self.solarVC?.update(forecast: darkSkyForecast,
-                                     foregroundColor: self.currentWeatherSymbol.textColor!,
-                                     backgroundColor: self.currentWeatherBackground.backgroundColor!)
+                                     foregroundColor: self.currentWeatherSymbol.textColor,
+                                     backgroundColor: self.currentWeatherBackground.backgroundColor)
                 self.detailsVC?.update(forecast: darkSkyForecast,
-                                       foregroundColor: self.currentWeatherSymbol.textColor!,
-                                       backgroundColor: self.currentWeatherBackground.backgroundColor!)
+                                       foregroundColor: self.currentWeatherSymbol.textColor,
+                                       backgroundColor: self.currentWeatherBackground.backgroundColor)
                 self.hourVC?.update(forecast: darkSkyForecast,
-                                    foregroundColor: self.currentWeatherSymbol.textColor!,
-                                    backgroundColor: self.currentWeatherBackground.backgroundColor!, container: self)
+                                    foregroundColor: self.currentWeatherSymbol.textColor,
+                                    backgroundColor: self.currentWeatherBackground.backgroundColor, container: self)
                 self.dayVC?.update(forecast: darkSkyForecast,
-                                    foregroundColor: self.currentWeatherSymbol.textColor!,
-                                    backgroundColor: self.currentWeatherBackground.backgroundColor!)
+                                    foregroundColor: self.currentWeatherSymbol.textColor,
+                                    backgroundColor: self.currentWeatherBackground.backgroundColor)
                 self.weekVC?.update(forecast: darkSkyForecast,
-                                    foregroundColor: self.currentWeatherSymbol.textColor!,
-                                    backgroundColor: self.currentWeatherBackground.backgroundColor!)
+                                    foregroundColor: self.currentWeatherSymbol.textColor,
+                                    backgroundColor: self.currentWeatherBackground.backgroundColor)
                 self.creditsVC?.update(forecast: darkSkyForecast,
-                                    foregroundColor: self.currentWeatherSymbol.textColor!,
-                                    backgroundColor: self.currentWeatherBackground.backgroundColor!)
+                                    foregroundColor: self.currentWeatherSymbol.textColor,
+                                    backgroundColor: self.currentWeatherBackground.backgroundColor)
+                self.alertsVC?.update(forecast: darkSkyForecast,
+                                      foregroundColor: self.currentWeatherSymbol.textColor,
+                                      backgroundColor: self.currentWeatherBackground.backgroundColor)
             }
         }
     }
@@ -168,7 +177,7 @@ class MainViewController: UIViewController {
         currentWeatherSymbol.text = weather.symbol
         currentWeatherBackground.backgroundColor = weather.color
         currentWeatherSymbol.textColor = weather.isDark ? UIColor.white : UIColor.black
-        drawBackground(foreground: UIColor(white: 1.0, alpha: 0.125),
+        addImageToBackground(foreground: UIColor(white: 1.0, alpha: 0.125),
                        background: weather.color.darker())
     }
 
@@ -181,8 +190,13 @@ class MainViewController: UIViewController {
         return Layer.index
     }
 
-    private func drawBackground(foreground: UIColor, background: UIColor) {
-        print("Stripes!")
+
+    /// Adds a prepared image to the background.
+    ///
+    /// - Parameters:
+    ///   - foreground: Foreground color
+    ///   - background: <#background description#>
+    private func addImageToBackground(foreground: UIColor, background: UIColor) {
         let imageSize = CGSize(width: self.view.frame.maxX, height: self.view.frame.maxY)
         let imageView = UIImageView(frame: CGRect(origin: CGPoint(x: 0.0, y: 0.0), size: imageSize))
         self.view.insertSubview(imageView, at: index())
