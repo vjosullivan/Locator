@@ -106,14 +106,14 @@ class MainViewController: UIViewController {
             flip(frontPanel, rearView: solarPanel)
         case is DetailsViewController:
             flip(frontPanel, rearView: detailsPanel)
-        case is DayViewController:
-            flip(hourPanel, rearView: dayPanel)
+        case is HourViewController:
+            flip(dayPanel, rearView: hourPanel)
         case is WeekViewController:
-            flip(hourPanel, rearView: weekPanel)
+            flip(dayPanel, rearView: weekPanel)
         case is CreditsViewController:
-            flip(hourPanel, rearView: creditsPanel)
+            flip(dayPanel, rearView: creditsPanel)
         case is AlertsViewController:
-            flip(hourPanel, rearView: alertsPanel)
+            flip(dayPanel, rearView: alertsPanel)
         default:
             break
         }
@@ -150,10 +150,10 @@ class MainViewController: UIViewController {
                                        backgroundColor: self.currentWeatherBackground.backgroundColor)
                 self.hourVC?.update(forecast: darkSkyForecast,
                                     foregroundColor: self.currentWeatherSymbol.textColor,
-                                    backgroundColor: self.currentWeatherBackground.backgroundColor, container: self)
+                                    backgroundColor: self.currentWeatherBackground.backgroundColor)
                 self.dayVC?.update(forecast: darkSkyForecast,
                                     foregroundColor: self.currentWeatherSymbol.textColor,
-                                    backgroundColor: self.currentWeatherBackground.backgroundColor)
+                                    backgroundColor: self.currentWeatherBackground.backgroundColor, container: self)
                 self.weekVC?.update(forecast: darkSkyForecast,
                                     foregroundColor: self.currentWeatherSymbol.textColor,
                                     backgroundColor: self.currentWeatherBackground.backgroundColor)
@@ -189,7 +189,6 @@ class MainViewController: UIViewController {
         Layer.index += 1
         return Layer.index
     }
-
 
     /// Adds a prepared image to the background.
     ///

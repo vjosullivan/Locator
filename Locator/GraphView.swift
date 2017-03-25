@@ -31,10 +31,17 @@ class GraphView: UIView {
 
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        guard let context = UIGraphicsGetCurrentContext(),
-            !storedData.isEmpty else {
+        print("Draw the rain...")
+        print("Stored data is \((!storedData.isEmpty ? "" : "not "))empty.")
+//        guard !storedData.isEmpty else {
+//                print("Bailing out 1!")
+//                return
+//        }
+        guard let context = UIGraphicsGetCurrentContext() else {
+                print("Bailing out 2!")
                 return
         }
+        print("Draw the rain again...")
 
         let border = Swift.max(rect.height, rect.width) * 0.05
         let minX = border //rect.width * 0.05
@@ -67,6 +74,7 @@ class GraphView: UIView {
 
         addBorder(context: context, minX: minX, maxX: maxX, minY: minY, maxY: maxY)
         addTicks(context: context, minX: minX, maxX: maxX, minY: minY, maxY: maxY)
+        print("Draw the thirds...")
         addThirds(context: context, minX: minX, maxX: maxX, minY: minY, maxY: maxY)
     }
 
@@ -80,7 +88,17 @@ class GraphView: UIView {
         }
     }
 
+    /// Adds horizontal bars to the graph ( at 1, 2 and 3 thirds up).
+    ///
+    /// - Parameters:
+    ///   - context: The context containing the graph
+    ///   - minX: Lowest x position in pixels on the graph.
+    ///   - maxX: Highest x position in pixels on the graph.
+    ///   - minY: Lowest y position in pixels on the graph.
+    ///   - maxY: Highest y position in pixels on the graph.
+    ///
     private func addThirds(context: CGContext, minX: CGFloat, maxX: CGFloat, minY: CGFloat, maxY: CGFloat) {
+        print("Thirds")
         preserveContext {
             let aThirdUp = (maxY - minY) / 3.0
             for i in 0...2 {
