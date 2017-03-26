@@ -15,16 +15,21 @@ class DayViewController: UIViewController {
     @IBOutlet weak var titleBar: UILabel!
 
     @IBOutlet weak var buttonTopLeft: UIButton!
-    @IBOutlet weak var labelTopLeft: UILabel!
     @IBOutlet weak var buttonTopRight: UIButton!
-    @IBOutlet weak var labelTopRight: UILabel!
     @IBOutlet weak var buttonBottomLeft: UIButton!
-    @IBOutlet weak var labelBottomLeft: UILabel!
     @IBOutlet weak var buttonBottomRight: UIButton!
-    @IBOutlet weak var labelBottomRight: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        buttonTopLeft.transform = CGAffineTransform.init(rotationAngle: CGFloat.pi / 2.0)
+        buttonTopRight.transform = CGAffineTransform.init(rotationAngle: -CGFloat.pi / 2.0)
+        buttonBottomLeft.transform = CGAffineTransform.init(rotationAngle: CGFloat.pi / 2.0)
+        buttonBottomRight.transform = CGAffineTransform.init(rotationAngle: -CGFloat.pi / 2.0)
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
     }
 
     func update(forecast: DarkSkyForecast,
@@ -38,12 +43,12 @@ class DayViewController: UIViewController {
         let backColor = backgroundColor ?? UIColor.darkGray
 
         titleBar.textColor = foreColor
-        view.backgroundColor = backColor
+        buttonTopLeft.setTitleColor(foreColor, for: .normal)
+        buttonTopRight.setTitleColor(foreColor, for: .normal)
+        buttonBottomLeft.setTitleColor(foreColor, for: .normal)
+        buttonBottomRight.setTitleColor(foreColor, for: .normal)
 
-        buttonTopLeft.layer.borderColor = UIColor.lightGray.cgColor
-        buttonTopRight.layer.borderColor = UIColor.lightGray.cgColor
-        buttonBottomLeft.layer.borderColor = UIColor.lightGray.cgColor
-        buttonBottomRight.layer.borderColor = UIColor.lightGray.cgColor
+        view.backgroundColor = backColor
     }
 
     // MARK: - Actions

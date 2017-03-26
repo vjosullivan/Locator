@@ -18,13 +18,9 @@ class FrontViewController: UIViewController {
     @IBOutlet var backgroundColoredViews: [UIView]!
 
     @IBOutlet weak var buttonATR: UIButton!
-    @IBOutlet weak var labelATR: UILabel!
     @IBOutlet weak var buttonATL: UIButton!
-    @IBOutlet weak var labelATL: UILabel!
     @IBOutlet weak var buttonABR: UIButton!
-    @IBOutlet weak var labelABR: UILabel!
     @IBOutlet weak var buttonABL: UIButton!
-    @IBOutlet weak var labelABL: UILabel!
 
     @IBOutlet weak var viewA: UIView!
     @IBOutlet weak var currentWeatherValue: UILabel!
@@ -40,31 +36,14 @@ class FrontViewController: UIViewController {
         // Clear background colors from labels and buttons
         _ = backgroundColoredViews.map { $0.backgroundColor = UIColor.clear }
 
-        buttonATR.layer.borderColor = UIColor.lightGray.cgColor
-        buttonABR.layer.borderColor = UIColor.lightGray.cgColor
-        buttonATL.layer.borderColor = UIColor.lightGray.cgColor
-        buttonABL.layer.borderColor = UIColor.lightGray.cgColor
+        buttonATL.transform = CGAffineTransform.init(rotationAngle: CGFloat.pi / 2.0)
+        buttonATR.transform = CGAffineTransform.init(rotationAngle: -CGFloat.pi / 2.0)
+        buttonABL.transform = CGAffineTransform.init(rotationAngle: CGFloat.pi / 2.0)
+        buttonABR.transform = CGAffineTransform.init(rotationAngle: -CGFloat.pi / 2.0)
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-
-        placeVertical(text: "Settings", on: buttonATL, using: labelATL)
-        placeVertical(text: "Location", on: buttonATR, using: labelATR, rotateClockwise: false)
-        placeVertical(text: "Daylight", on: buttonABL, using: labelABL)
-        placeVertical(text: "Details", on: buttonABR, using: labelABR, rotateClockwise: false)
-    }
-
-    private func placeVertical(text: String, on button: UIButton, using label: UILabel, rotateClockwise: Bool = true) {
-        label.frame = CGRect(x: 0.0, y: 0.0, width: button.frame.width, height: button.frame.height)
-        button.addSubview(label)
-        let angle = rotateClockwise ? CGFloat.pi / 2.0 : -CGFloat.pi / 2.0  // +/- 90°.
-        label.transform = CGAffineTransform.init(rotationAngle: angle)
-        //label.textColor = button.currentTitleColor
-        label.backgroundColor = UIColor.clear
-        label.text = text
-        label.font = button.titleLabel?.font.withSize(14)
-        label.textAlignment = .center
     }
 
     func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?,
@@ -74,10 +53,6 @@ class FrontViewController: UIViewController {
         viewA.backgroundColor = backgroundColor
         currentTemperatureValue.textColor = foregroundColor
         currentWeatherValue.textColor = foregroundColor
-        labelATR.textColor = foregroundColor
-        labelATL.textColor = foregroundColor
-        labelABR.textColor = foregroundColor
-        labelABL.textColor = foregroundColor
         minTempValue.textColor = foregroundColor
         minTempTime.textColor = foregroundColor
         maxTempValue.textColor = foregroundColor
@@ -96,9 +71,13 @@ class FrontViewController: UIViewController {
 
         setMinMaxTemperatures(forecast: forecast, textColor: foregroundColor!)
 
-        //let foreColor = foregroundColor ?? UIColor.white
+        let foreColor = foregroundColor ?? UIColor.white
         let backColor = backgroundColor ?? UIColor.darkGray
 
+        buttonATL.setTitleColor(foreColor, for: .normal)
+        buttonATR.setTitleColor(foreColor, for: .normal)
+        buttonABL.setTitleColor(foreColor, for: .normal)
+        buttonABR.setTitleColor(foreColor, for: .normal)
         view.backgroundColor = backColor
     }
 

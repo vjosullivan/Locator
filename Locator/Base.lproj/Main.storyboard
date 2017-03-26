@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -879,173 +880,132 @@
                                 <rect key="frame" x="0.0" y="0.0" width="359" height="244"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="G8u-zV-srD" userLabel="Current temperature value">
-                                        <rect key="frame" x="86" y="56" width="187" height="96"/>
+                                        <rect key="frame" x="89.5" y="56" width="180" height="96"/>
                                         <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="u4H-tf-5he"/>
                                             <constraint firstAttribute="height" constant="96" id="zOV-mW-XUg"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="53"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Gq8-9H-FZl" userLabel="Low stack">
-                                        <rect key="frame" x="51" y="8" width="24.5" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9Nu-lN-Vi9" userLabel="Minimax stack">
+                                        <rect key="frame" x="0.0" y="8" width="359" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Low" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eHL-1y-5vl" userLabel="minTempValue">
-                                                <rect key="frame" x="0.0" y="0.0" width="24.5" height="13"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="12"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PAh-qY-CjF" userLabel="minTempTime">
-                                                <rect key="frame" x="0.0" y="17" width="24.5" height="13"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="12"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Gq8-9H-FZl" userLabel="Low stack">
+                                                <rect key="frame" x="0.0" y="0.0" width="179.5" height="30"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Low" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eHL-1y-5vl" userLabel="minTempValue">
+                                                        <rect key="frame" x="0.0" y="0.0" width="179.5" height="13"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="PAh-qY-CjF" userLabel="minTempTime">
+                                                        <rect key="frame" x="0.0" y="17" width="179.5" height="13"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="HOf-wJ-aMm"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="qAi-ve-zF9" userLabel="High stack">
+                                                <rect key="frame" x="179.5" y="0.0" width="179.5" height="30"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Q9F-gj-j73" userLabel="maxTempValue">
+                                                        <rect key="frame" x="0.0" y="0.0" width="179.5" height="13"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hOO-gi-00N" userLabel="maxTempTime">
+                                                        <rect key="frame" x="0.0" y="17" width="179.5" height="13"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="Bsb-FU-O5r"/>
+                                                </constraints>
+                                            </stackView>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="HOf-wJ-aMm"/>
-                                        </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="02b-rk-2LW" userLabel="Current weather value">
-                                        <rect key="frame" x="51" y="164" width="257" height="63"/>
+                                        <rect key="frame" x="89.5" y="164" width="180" height="63"/>
                                         <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="63" id="DLV-ix-tSn"/>
+                                            <constraint firstAttribute="width" constant="180" id="ZD5-7A-pv3"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="36"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BzU-Yu-Eyq" userLabel="buttonATL">
-                                        <rect key="frame" x="-1" y="-1" width="44" height="123.5"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BzU-Yu-Eyq" userLabel="buttonATL">
+                                        <rect key="frame" x="-1" y="-1" width="123.5" height="123.5"/>
                                         <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="44" id="xA1-f8-aeC"/>
+                                            <constraint firstAttribute="width" secondItem="BzU-Yu-Eyq" secondAttribute="height" multiplier="1:1" id="MzT-TY-NSS"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="17"/>
-                                        <state key="normal">
+                                        <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="14"/>
+                                        <state key="normal" title="Settings">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                <integer key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="flip:" destination="Y7n-aO-sIV" eventType="touchUpInside" id="KAx-fc-7dg"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTw-BH-sPi" userLabel="LabelATL">
-                                        <rect key="frame" x="158" y="111" width="42" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAk-JL-0ec" userLabel="LabelATR">
-                                        <rect key="frame" x="158" y="111" width="42" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xC-yI-SYU" userLabel="LabelABL">
-                                        <rect key="frame" x="158" y="111" width="42" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="DXI-FY-4kR" userLabel="LabelABR">
-                                        <rect key="frame" x="158" y="111" width="42" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qpv-4K-TDt" userLabel="buttonABL">
-                                        <rect key="frame" x="-1" y="121.5" width="44" height="123.5"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qpv-4K-TDt" userLabel="buttonABL">
+                                        <rect key="frame" x="-1" y="121.5" width="123.5" height="123.5"/>
                                         <color key="backgroundColor" red="0.5" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="44" id="qIG-tL-Swf"/>
+                                            <constraint firstAttribute="width" secondItem="Qpv-4K-TDt" secondAttribute="height" multiplier="1:1" id="JKT-fQ-bMZ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="17"/>
-                                        <state key="normal">
+                                        <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="14"/>
+                                        <state key="normal" title="Daylight">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                <integer key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="flip:" destination="Y7n-aO-sIV" eventType="touchUpInside" id="Srz-Pf-Mjr"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCt-x3-UnQ" userLabel="buttonATR">
-                                        <rect key="frame" x="316" y="-1" width="44" height="123.5"/>
+                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCt-x3-UnQ" userLabel="buttonATR">
+                                        <rect key="frame" x="236.5" y="-1" width="123.5" height="123.5"/>
                                         <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="44" id="ufn-Tc-g5S"/>
+                                            <constraint firstAttribute="width" secondItem="iCt-x3-UnQ" secondAttribute="height" id="jtB-L1-rc4"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="17"/>
-                                        <state key="normal">
+                                        <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="14"/>
+                                        <state key="normal" title="Location">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                <integer key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="selectLocation:" destination="Y7n-aO-sIV" eventType="touchUpInside" id="bOX-qi-Ikh"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qxf-NM-ylx" userLabel="buttonABR">
-                                        <rect key="frame" x="316" y="121.5" width="44" height="123.5"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qxf-NM-ylx" userLabel="buttonABR">
+                                        <rect key="frame" x="236.5" y="121.5" width="123.5" height="123.5"/>
                                         <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="44" id="7V0-M2-RIA"/>
+                                            <constraint firstAttribute="width" secondItem="Qxf-NM-ylx" secondAttribute="height" multiplier="1:1" id="gp5-3d-pV1"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="17"/>
-                                        <state key="normal">
+                                        <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="14"/>
+                                        <state key="normal" title="Details">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                <integer key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="flip:" destination="Y7n-aO-sIV" eventType="touchUpInside" id="mam-nz-2a3"/>
                                         </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="qAi-ve-zF9" userLabel="High stack">
-                                        <rect key="frame" x="280.5" y="8" width="27.5" height="30"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Q9F-gj-j73" userLabel="maxTempValue">
-                                                <rect key="frame" x="0.0" y="0.0" width="27.5" height="13"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="12"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hOO-gi-00N" userLabel="maxTempTime">
-                                                <rect key="frame" x="0.0" y="17" width="27.5" height="13"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="12"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="Bsb-FU-O5r"/>
-                                        </constraints>
-                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -1053,25 +1013,21 @@
                                     <constraint firstItem="G8u-zV-srD" firstAttribute="centerY" secondItem="S4x-Xk-HSm" secondAttribute="centerY" multiplier="0.85" id="46Y-X5-vXg"/>
                                     <constraint firstItem="iCt-x3-UnQ" firstAttribute="top" secondItem="S4x-Xk-HSm" secondAttribute="top" constant="-1" id="50B-s5-Jrz"/>
                                     <constraint firstItem="Qxf-NM-ylx" firstAttribute="top" secondItem="iCt-x3-UnQ" secondAttribute="bottom" constant="-1" id="5FX-gL-iq2"/>
+                                    <constraint firstAttribute="trailing" secondItem="9Nu-lN-Vi9" secondAttribute="trailing" id="93L-1Y-f9P"/>
                                     <constraint firstItem="02b-rk-2LW" firstAttribute="centerX" secondItem="S4x-Xk-HSm" secondAttribute="centerX" id="9Y1-Ay-tPH"/>
                                     <constraint firstItem="Qpv-4K-TDt" firstAttribute="top" secondItem="BzU-Yu-Eyq" secondAttribute="bottom" constant="-1" id="9gZ-GH-NeI"/>
-                                    <constraint firstItem="qAi-ve-zF9" firstAttribute="top" secondItem="S4x-Xk-HSm" secondAttribute="top" constant="8" id="Bh4-j0-mNT"/>
-                                    <constraint firstItem="02b-rk-2LW" firstAttribute="leading" secondItem="Qpv-4K-TDt" secondAttribute="trailing" constant="8" id="DRr-7M-0CG"/>
+                                    <constraint firstItem="9Nu-lN-Vi9" firstAttribute="leading" secondItem="S4x-Xk-HSm" secondAttribute="leading" id="ImE-Tx-IDe"/>
                                     <constraint firstItem="Qxf-NM-ylx" firstAttribute="height" secondItem="iCt-x3-UnQ" secondAttribute="height" id="OEQ-8h-fvE"/>
-                                    <constraint firstItem="Qxf-NM-ylx" firstAttribute="leading" secondItem="G8u-zV-srD" secondAttribute="trailing" constant="43" id="Rrd-xY-hxw"/>
-                                    <constraint firstItem="iCt-x3-UnQ" firstAttribute="leading" secondItem="qAi-ve-zF9" secondAttribute="trailing" constant="8" id="V5k-yD-ay1"/>
                                     <constraint firstItem="BzU-Yu-Eyq" firstAttribute="leading" secondItem="S4x-Xk-HSm" secondAttribute="leading" constant="-1" id="WhG-bH-Mbv"/>
                                     <constraint firstAttribute="trailing" secondItem="iCt-x3-UnQ" secondAttribute="trailing" constant="-1" id="XC2-ZI-3a5"/>
-                                    <constraint firstItem="Gq8-9H-FZl" firstAttribute="top" secondItem="S4x-Xk-HSm" secondAttribute="top" constant="8" id="gh2-Ig-d3K"/>
-                                    <constraint firstItem="Qxf-NM-ylx" firstAttribute="leading" secondItem="02b-rk-2LW" secondAttribute="trailing" constant="8" id="igw-Y5-Htg"/>
-                                    <constraint firstItem="G8u-zV-srD" firstAttribute="leading" secondItem="Qpv-4K-TDt" secondAttribute="trailing" constant="43" id="k1V-ka-MEh"/>
+                                    <constraint firstItem="G8u-zV-srD" firstAttribute="centerX" secondItem="S4x-Xk-HSm" secondAttribute="centerX" id="iWJ-Pt-mHj"/>
                                     <constraint firstItem="02b-rk-2LW" firstAttribute="centerY" secondItem="S4x-Xk-HSm" secondAttribute="centerY" multiplier="1.6" id="kpe-rX-1mX"/>
                                     <constraint firstAttribute="trailing" secondItem="Qxf-NM-ylx" secondAttribute="trailing" constant="-1" id="kqF-yc-Kca"/>
                                     <constraint firstItem="Qpv-4K-TDt" firstAttribute="height" secondItem="BzU-Yu-Eyq" secondAttribute="height" id="l0D-c6-QA1"/>
                                     <constraint firstAttribute="bottom" secondItem="Qpv-4K-TDt" secondAttribute="bottom" constant="-1" id="omV-o0-1cn"/>
                                     <constraint firstItem="BzU-Yu-Eyq" firstAttribute="top" secondItem="S4x-Xk-HSm" secondAttribute="top" constant="-1" id="rNt-Vb-ja7"/>
                                     <constraint firstItem="Qpv-4K-TDt" firstAttribute="leading" secondItem="S4x-Xk-HSm" secondAttribute="leading" constant="-1" id="sfN-S9-OBA"/>
-                                    <constraint firstItem="Gq8-9H-FZl" firstAttribute="leading" secondItem="BzU-Yu-Eyq" secondAttribute="trailing" constant="8" id="tff-3K-YhC"/>
+                                    <constraint firstItem="9Nu-lN-Vi9" firstAttribute="top" secondItem="S4x-Xk-HSm" secondAttribute="top" constant="8" id="vXz-5O-lpb"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -1102,10 +1058,6 @@
                         <outlet property="buttonATR" destination="iCt-x3-UnQ" id="aD2-1S-7JJ"/>
                         <outlet property="currentTemperatureValue" destination="G8u-zV-srD" id="JgP-PK-YSV"/>
                         <outlet property="currentWeatherValue" destination="02b-rk-2LW" id="u80-QK-t6D"/>
-                        <outlet property="labelABL" destination="1xC-yI-SYU" id="PSA-bE-hfZ"/>
-                        <outlet property="labelABR" destination="DXI-FY-4kR" id="hbJ-tk-FVD"/>
-                        <outlet property="labelATL" destination="VTw-BH-sPi" id="Oa6-S5-okb"/>
-                        <outlet property="labelATR" destination="xAk-JL-0ec" id="yTS-jz-lOx"/>
                         <outlet property="maxTempTime" destination="hOO-gi-00N" id="BZt-MP-2s4"/>
                         <outlet property="maxTempValue" destination="Q9F-gj-j73" id="JdW-y9-Q5J"/>
                         <outlet property="minTempTime" destination="PAh-qY-CjF" id="aWh-rG-zxj"/>
@@ -1138,14 +1090,14 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="5LW-lw-BkQ">
                                 <rect key="frame" x="8" y="7.5" width="343" height="278"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One Hour Forecast" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ry3-re-l24">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="19.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Hour" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ry3-re-l24" userLabel="Title">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="27.5"/>
+                                        <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4NC-57-nx2">
-                                        <rect key="frame" x="0.0" y="73" width="343" height="110.5"/>
+                                        <rect key="frame" x="0.0" y="75" width="343" height="110.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uOY-Vl-REQ" userLabel="Rain intensity" customClass="GraphView" customModule="Locator" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="96"/>
@@ -1312,52 +1264,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="359" height="293.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One Day Forecast" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSN-sf-uHa" userLabel="Title">
-                                <rect key="frame" x="51" y="8" width="257" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSN-sf-uHa" userLabel="Title">
+                                <rect key="frame" x="51" y="4" width="257" height="27.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="257" id="k6i-De-9mI"/>
-                                    <constraint firstAttribute="height" constant="19.5" id="vLt-No-dib"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAB-ax-Bag" userLabel="Button Top Left">
-                                <rect key="frame" x="-1" y="-1" width="44" height="148.5"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAB-ax-Bag" userLabel="Button top Left">
+                                <rect key="frame" x="-1" y="-1" width="148.5" height="148.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="KIm-QB-kRl"/>
+                                    <constraint firstAttribute="width" secondItem="EAB-ax-Bag" secondAttribute="height" multiplier="1:1" id="VHe-cZ-Nmp"/>
                                 </constraints>
-                                <state key="normal" title="Hour"/>
+                                <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="14"/>
+                                <state key="normal" title="This Hour"/>
                                 <connections>
                                     <action selector="flip:" destination="VGZ-hz-kI3" eventType="touchUpInside" id="EZi-fp-yLY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HDv-az-Qnc" userLabel="Button bottom left">
-                                <rect key="frame" x="-1" y="146.5" width="44" height="148"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HDv-az-Qnc" userLabel="Button bottom left">
+                                <rect key="frame" x="-1" y="146.5" width="148" height="148"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="1bC-Lq-pqF"/>
+                                    <constraint firstAttribute="width" secondItem="HDv-az-Qnc" secondAttribute="height" multiplier="1:1" id="mas-hv-3Vc"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="14"/>
                                 <state key="normal" title="Alerts"/>
                                 <connections>
                                     <action selector="flip:" destination="VGZ-hz-kI3" eventType="touchUpInside" id="Iq5-UE-cK9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rMh-46-Cqi" userLabel="Button top right">
-                                <rect key="frame" x="316" y="-1" width="44" height="148.5"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rMh-46-Cqi" userLabel="Button top right">
+                                <rect key="frame" x="211.5" y="-1" width="148.5" height="148.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="Txc-Ij-arL"/>
+                                    <constraint firstAttribute="width" secondItem="rMh-46-Cqi" secondAttribute="height" multiplier="1:1" id="JZS-U6-X4a"/>
                                 </constraints>
-                                <state key="normal" title="Week"/>
+                                <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="14"/>
+                                <state key="normal" title="This Week"/>
                                 <connections>
                                     <action selector="flip:" destination="VGZ-hz-kI3" eventType="touchUpInside" id="8bf-tO-Hdr"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VsX-KO-2A8" userLabel="Button bottom right">
-                                <rect key="frame" x="316" y="146.5" width="44" height="148"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VsX-KO-2A8" userLabel="Button bottom right">
+                                <rect key="frame" x="212" y="146.5" width="148" height="148"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="J3m-Aa-Npy"/>
+                                    <constraint firstAttribute="width" secondItem="VsX-KO-2A8" secondAttribute="height" multiplier="1:1" id="OtV-bD-hNu"/>
                                 </constraints>
-                                <state key="normal" title="Creds"/>
+                                <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="14"/>
+                                <state key="normal" title="Credits"/>
                                 <connections>
                                     <action selector="flip:" destination="VGZ-hz-kI3" eventType="touchUpInside" id="1KF-rS-QYE"/>
                                 </connections>
@@ -1374,7 +1329,7 @@
                             <constraint firstItem="kmh-oH-6aB" firstAttribute="top" secondItem="HDv-az-Qnc" secondAttribute="bottom" constant="-1" id="Zvb-D6-YAb"/>
                             <constraint firstItem="HDv-az-Qnc" firstAttribute="leading" secondItem="hqr-Hc-chO" secondAttribute="leading" constant="-1" id="bq3-95-QhH"/>
                             <constraint firstItem="VsX-KO-2A8" firstAttribute="top" secondItem="rMh-46-Cqi" secondAttribute="bottom" constant="-1" id="dAD-OQ-nrE"/>
-                            <constraint firstItem="CSN-sf-uHa" firstAttribute="top" secondItem="kvE-kt-oAa" secondAttribute="bottom" constant="8" id="oss-4r-J4U"/>
+                            <constraint firstItem="CSN-sf-uHa" firstAttribute="top" secondItem="kvE-kt-oAa" secondAttribute="bottom" constant="4" id="oss-4r-J4U"/>
                             <constraint firstItem="EAB-ax-Bag" firstAttribute="leading" secondItem="hqr-Hc-chO" secondAttribute="leading" constant="-1" id="qG1-SS-2ys"/>
                             <constraint firstItem="CSN-sf-uHa" firstAttribute="centerX" secondItem="hqr-Hc-chO" secondAttribute="centerX" id="u9Z-e2-tx2"/>
                             <constraint firstItem="HDv-az-Qnc" firstAttribute="top" secondItem="EAB-ax-Bag" secondAttribute="bottom" constant="-1" id="vIv-Nd-Wnn"/>
@@ -1411,13 +1366,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="359" height="293.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="One Week Forecast" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWA-qc-tQY">
-                                <rect key="frame" x="51" y="8" width="257" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Week" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWA-qc-tQY">
+                                <rect key="frame" x="51" y="4" width="257" height="27.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="257" id="bV4-zm-3Fe"/>
-                                    <constraint firstAttribute="height" constant="19.5" id="q9j-dM-Fbf"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1433,7 +1387,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mWA-qc-tQY" firstAttribute="centerX" secondItem="UOE-hf-iAj" secondAttribute="centerX" id="AZn-Sf-Yfn"/>
-                            <constraint firstItem="mWA-qc-tQY" firstAttribute="top" secondItem="5YG-vz-0FW" secondAttribute="bottom" constant="8" id="Bzh-zM-hbX"/>
+                            <constraint firstItem="mWA-qc-tQY" firstAttribute="top" secondItem="5YG-vz-0FW" secondAttribute="bottom" constant="4" id="Bzh-zM-hbX"/>
                             <constraint firstItem="D2B-b9-mSO" firstAttribute="top" secondItem="Fbw-C1-qMx" secondAttribute="bottom" id="Jbl-sV-VXM"/>
                             <constraint firstAttribute="trailing" secondItem="Fbw-C1-qMx" secondAttribute="trailing" id="PvM-DR-BPh"/>
                             <constraint firstItem="Fbw-C1-qMx" firstAttribute="leading" secondItem="UOE-hf-iAj" secondAttribute="leading" id="ifz-Rl-Xje"/>
@@ -1468,12 +1422,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6kU-io-bFW">
-                                <rect key="frame" x="51" y="8" width="257" height="20"/>
+                                <rect key="frame" x="51" y="4" width="257" height="27.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="19.5" id="M22-L6-nQ0"/>
                                     <constraint firstAttribute="width" constant="257" id="Y51-FX-VWY"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1488,7 +1441,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6kU-io-bFW" firstAttribute="top" secondItem="5c8-gb-XPn" secondAttribute="top" constant="8" id="4Po-gZ-AKz"/>
+                            <constraint firstItem="6kU-io-bFW" firstAttribute="top" secondItem="5c8-gb-XPn" secondAttribute="top" constant="4" id="4Po-gZ-AKz"/>
                             <constraint firstItem="X6i-Z3-oA1" firstAttribute="top" secondItem="vcy-aM-MB2" secondAttribute="bottom" id="5yB-n1-GQS"/>
                             <constraint firstItem="6kU-io-bFW" firstAttribute="centerX" secondItem="5c8-gb-XPn" secondAttribute="centerX" id="8Xn-6S-0qB"/>
                             <constraint firstAttribute="trailing" secondItem="vcy-aM-MB2" secondAttribute="trailing" id="NXB-Bj-TXG"/>
@@ -1524,19 +1477,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather Alerts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sXw-LW-j8Z">
-                                <rect key="frame" x="51" y="8" width="257" height="20"/>
+                                <rect key="frame" x="59.5" y="4" width="240" height="27.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="Cd3-SZ-pZr"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="257" id="XwO-s0-q0u"/>
-                                    <constraint firstAttribute="width" constant="257" id="YIS-Gi-P9k"/>
-                                    <constraint firstAttribute="height" constant="19.5" id="sLZ-TG-Kky"/>
+                                    <constraint firstAttribute="width" constant="240" id="YIS-Gi-P9k"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fMT-xW-wXQ" userLabel="Return button">
                                 <rect key="frame" x="0.0" y="0.0" width="359" height="294"/>
+                                <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="16"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="8" maxX="8" maxY="0.0"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
@@ -1550,7 +1501,7 @@
                             <constraint firstItem="fMT-xW-wXQ" firstAttribute="top" secondItem="zhf-PY-j4n" secondAttribute="bottom" id="Jmc-Zv-Mrh"/>
                             <constraint firstItem="lLs-Il-bJl" firstAttribute="top" secondItem="fMT-xW-wXQ" secondAttribute="bottom" id="Tdb-Jm-9nr"/>
                             <constraint firstItem="sXw-LW-j8Z" firstAttribute="centerX" secondItem="57w-MZ-fGv" secondAttribute="centerX" id="YeL-4u-ckR"/>
-                            <constraint firstItem="sXw-LW-j8Z" firstAttribute="top" secondItem="zhf-PY-j4n" secondAttribute="bottom" constant="8" id="aTA-Xj-udT"/>
+                            <constraint firstItem="sXw-LW-j8Z" firstAttribute="top" secondItem="zhf-PY-j4n" secondAttribute="bottom" constant="4" id="aTA-Xj-udT"/>
                             <constraint firstItem="fMT-xW-wXQ" firstAttribute="leading" secondItem="57w-MZ-fGv" secondAttribute="leading" id="jVO-FE-ZEl"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
