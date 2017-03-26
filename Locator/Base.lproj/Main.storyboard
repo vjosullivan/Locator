@@ -1261,7 +1261,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jca-p1-BKF">
                                 <rect key="frame" x="0.0" y="0.0" width="359" height="293.5"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="8" maxX="8" maxY="0.0"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Done"/>
                                 <connections>
                                     <segue destination="QV5-B7-xs5" kind="unwind" unwindAction="unwindToMainVCWithSegue:" id="ZDz-eU-Du1"/>
                                 </connections>
