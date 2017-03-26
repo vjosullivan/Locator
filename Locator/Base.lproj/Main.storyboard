@@ -730,14 +730,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="359" height="243.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UK - °C,  miles,  mph" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ybz-M1-Nc5" userLabel="Settings label">
+                                <rect key="frame" x="16" y="203.5" width="327" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="P4i-XD-3D6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MrR-Tz-YrG" userLabel="returnButton">
+                                <rect key="frame" x="0.0" y="-0.5" width="359" height="244"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="8" maxX="8" maxY="0.0"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <segue destination="Etq-9n-37M" kind="unwind" unwindAction="unwindToMainVCWithSegue:" id="Y5b-tP-RnL"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="SR3-88-rLy" userLabel="All buttons stack">
-                                <rect key="frame" x="0.0" y="42" width="359" height="142"/>
+                                <rect key="frame" x="0.0" y="42" width="359" height="141.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Wuf-bf-Zax" userLabel="Left stack">
-                                        <rect key="frame" x="0.0" y="0.0" width="119.5" height="142"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="179.5" height="141.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IlY-ac-Pac" userLabel="SI button">
-                                                <rect key="frame" x="0.0" y="0.0" width="119.5" height="56"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="179.5" height="56"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                                 <state key="normal" title="SI"/>
                                                 <connections>
@@ -745,13 +762,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Metric" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUb-rN-pYK" userLabel="SI label">
-                                                <rect key="frame" x="0.0" y="56" width="119.5" height="15"/>
+                                                <rect key="frame" x="0.0" y="56" width="179.5" height="15"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ha-R7-STF" userLabel="CA button">
-                                                <rect key="frame" x="0.0" y="71" width="119.5" height="56"/>
+                                                <rect key="frame" x="0.0" y="71" width="179.5" height="55.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                                 <state key="normal" title="CA"/>
                                                 <connections>
@@ -759,25 +776,18 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Canada" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cE3-I1-gtI" userLabel="CA label">
-                                                <rect key="frame" x="0.0" y="127" width="119.5" height="15"/>
+                                                <rect key="frame" x="0.0" y="126.5" width="179.5" height="15"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2Z-5Q-htu">
-                                        <rect key="frame" x="119.5" y="0.0" width="120" height="142"/>
-                                        <state key="normal" title="Done"/>
-                                        <connections>
-                                            <segue destination="Etq-9n-37M" kind="unwind" unwindAction="unwindToMainVCWithSegue:" id="dkv-3N-hur"/>
-                                        </connections>
-                                    </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Xvg-eA-bQU" userLabel="Right stack">
-                                        <rect key="frame" x="239.5" y="0.0" width="119.5" height="142"/>
+                                        <rect key="frame" x="179.5" y="0.0" width="179.5" height="141.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6K-nd-681" userLabel="UK button">
-                                                <rect key="frame" x="0.0" y="0.0" width="119.5" height="56"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="179.5" height="56"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                                 <state key="normal" title="UK"/>
                                                 <connections>
@@ -785,13 +795,13 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="United Kingdom" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42x-W4-nQV" userLabel="UK label">
-                                                <rect key="frame" x="0.0" y="56" width="119.5" height="15"/>
+                                                <rect key="frame" x="0.0" y="56" width="179.5" height="15"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Vp-rC-Cju" userLabel="US button">
-                                                <rect key="frame" x="0.0" y="71" width="119.5" height="56"/>
+                                                <rect key="frame" x="0.0" y="71" width="179.5" height="55.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                                 <state key="normal" title="US"/>
                                                 <connections>
@@ -799,7 +809,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="United States" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J96-AF-Owm" userLabel="US label">
-                                                <rect key="frame" x="0.0" y="127" width="119.5" height="15"/>
+                                                <rect key="frame" x="0.0" y="126.5" width="179.5" height="15"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -808,36 +818,18 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UK - °C,  miles,  mph" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ybz-M1-Nc5" userLabel="Settings label">
-                                <rect key="frame" x="16" y="204" width="327" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="P4i-XD-3D6"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MrR-Tz-YrG" userLabel="returnButton">
-                                <rect key="frame" x="0.0" y="188" width="359" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="DMJ-PJ-y7i"/>
-                                </constraints>
-                                <connections>
-                                    <segue destination="Etq-9n-37M" kind="unwind" unwindAction="unwindToMainVCWithSegue:" id="Y5b-tP-RnL"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="ybz-M1-Nc5" secondAttribute="trailing" id="1X6-sq-dnJ"/>
-                            <constraint firstItem="MrR-Tz-YrG" firstAttribute="top" secondItem="SR3-88-rLy" secondAttribute="bottom" constant="4" id="25x-mR-sj1"/>
                             <constraint firstItem="ybz-M1-Nc5" firstAttribute="leading" secondItem="9GA-rm-8YV" secondAttribute="leadingMargin" id="7Rm-hw-WQ0"/>
                             <constraint firstItem="SR3-88-rLy" firstAttribute="leading" secondItem="9GA-rm-8YV" secondAttribute="leading" id="7U1-lS-rhU"/>
-                            <constraint firstAttribute="bottom" secondItem="MrR-Tz-YrG" secondAttribute="bottom" constant="8" id="CVi-ib-DRh"/>
+                            <constraint firstAttribute="bottom" secondItem="MrR-Tz-YrG" secondAttribute="bottom" id="CVi-ib-DRh"/>
                             <constraint firstItem="SR3-88-rLy" firstAttribute="leading" secondItem="9GA-rm-8YV" secondAttribute="leading" id="GhF-Zd-dzd"/>
                             <constraint firstAttribute="bottom" secondItem="ybz-M1-Nc5" secondAttribute="bottom" constant="16" id="LCi-YY-NZT"/>
                             <constraint firstAttribute="trailing" secondItem="MrR-Tz-YrG" secondAttribute="trailing" id="Mpu-Lr-A7T"/>
                             <constraint firstAttribute="trailing" secondItem="SR3-88-rLy" secondAttribute="trailing" id="OSl-Ax-5Mt"/>
+                            <constraint firstItem="MrR-Tz-YrG" firstAttribute="top" secondItem="qrf-ir-y1w" secondAttribute="bottom" id="Sj3-1q-hzz"/>
                             <constraint firstItem="SR3-88-rLy" firstAttribute="top" secondItem="qrf-ir-y1w" secondAttribute="bottom" constant="42" id="Wgh-lf-0U2"/>
                             <constraint firstItem="SR3-88-rLy" firstAttribute="top" secondItem="9GA-rm-8YV" secondAttribute="top" constant="42" id="aM4-qX-ds3"/>
                             <constraint firstItem="MrR-Tz-YrG" firstAttribute="leading" secondItem="9GA-rm-8YV" secondAttribute="leading" id="dGk-O1-zPL"/>
@@ -867,7 +859,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Nx-RH-qXZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Etq-9n-37M" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-12" y="-104"/>
+            <point key="canvasLocation" x="-12" y="-104.34782608695653"/>
         </scene>
         <!--Front View Controller-->
         <scene sceneID="fzX-35-iUb">
@@ -1150,15 +1142,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jca-p1-BKF">
-                                        <rect key="frame" x="0.0" y="70" width="343" height="30"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <segue destination="QV5-B7-xs5" kind="unwind" unwindAction="unwindToMainVCWithSegue:" id="ZDz-eU-Du1"/>
-                                        </connections>
-                                    </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4NC-57-nx2">
-                                        <rect key="frame" x="0.0" y="104.5" width="343" height="110.5"/>
+                                        <rect key="frame" x="0.0" y="73" width="343" height="110.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uOY-Vl-REQ" userLabel="Rain intensity" customClass="GraphView" customModule="Locator" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="96"/>
@@ -1271,13 +1256,25 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jca-p1-BKF">
+                                <rect key="frame" x="0.0" y="0.0" width="359" height="293.5"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="8" maxX="8" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="QV5-B7-xs5" kind="unwind" unwindAction="unwindToMainVCWithSegue:" id="ZDz-eU-Du1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="uc9-mh-Zq7" firstAttribute="top" secondItem="5LW-lw-BkQ" secondAttribute="bottom" constant="8" id="1Tb-Wy-fhd"/>
                             <constraint firstItem="5LW-lw-BkQ" firstAttribute="top" secondItem="Sgf-UM-Gqh" secondAttribute="bottom" constant="8" id="3rp-tB-Jhu"/>
                             <constraint firstAttribute="trailing" secondItem="5LW-lw-BkQ" secondAttribute="trailing" constant="8" id="4gv-fy-qHp"/>
+                            <constraint firstAttribute="trailing" secondItem="jca-p1-BKF" secondAttribute="trailing" id="IIP-7h-8G0"/>
+                            <constraint firstItem="uc9-mh-Zq7" firstAttribute="top" secondItem="jca-p1-BKF" secondAttribute="bottom" id="Idi-SN-u3u"/>
+                            <constraint firstItem="jca-p1-BKF" firstAttribute="leading" secondItem="zun-sA-Xo3" secondAttribute="leading" id="LjO-pJ-sT1"/>
                             <constraint firstItem="5LW-lw-BkQ" firstAttribute="leading" secondItem="zun-sA-Xo3" secondAttribute="leading" constant="8" id="Ojl-ls-NOb"/>
+                            <constraint firstItem="jca-p1-BKF" firstAttribute="top" secondItem="Sgf-UM-Gqh" secondAttribute="bottom" id="vmD-W1-FDx"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -1299,7 +1296,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zIT-u8-kg7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="QV5-B7-xs5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1272" y="732"/>
+            <point key="canvasLocation" x="-1272.8" y="731.33433283358329"/>
         </scene>
         <!--Day View Controller-->
         <scene sceneID="6ZE-14-CUL">

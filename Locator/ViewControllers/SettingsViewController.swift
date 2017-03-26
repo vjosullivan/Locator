@@ -32,9 +32,10 @@ class SettingsViewController: UIViewController {
 
         AppSettings.store(key: "units", value: forecast.unitsCode)
 
-        //let foreColor = foregroundColor ?? UIColor.white
+        let foreColor = foregroundColor ?? UIColor.white
         let backColor = backgroundColor ?? UIColor.darkGray
 
+        returnButton.setTitleColor(foreColor, for: .normal)
         view.backgroundColor = backColor
     }
 
