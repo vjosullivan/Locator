@@ -489,7 +489,8 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uh1-6J-OuA">
-                                <rect key="frame" x="0.0" y="0.0" width="351" height="243.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="359" height="243.5"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="8" maxX="8" maxY="0.0"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <segue destination="Rka-xW-f9H" kind="unwind" unwindAction="unwindToMainVCWithSegue:" id="3Zw-Cq-K0k"/>
@@ -517,7 +518,7 @@
                             <constraint firstItem="Uh1-6J-OuA" firstAttribute="leading" secondItem="jxJ-of-aie" secondAttribute="leading" id="dEx-0T-KMw"/>
                             <constraint firstItem="Uh1-6J-OuA" firstAttribute="top" secondItem="jxJ-of-aie" secondAttribute="top" id="iEx-1n-wgi"/>
                             <constraint firstItem="u3G-Ir-w8e" firstAttribute="leading" secondItem="jxJ-of-aie" secondAttribute="leading" constant="8" id="l9E-HF-EBh"/>
-                            <constraint firstAttribute="trailing" secondItem="Uh1-6J-OuA" secondAttribute="trailing" constant="8" id="uk0-Ok-ZUo"/>
+                            <constraint firstAttribute="trailing" secondItem="Uh1-6J-OuA" secondAttribute="trailing" id="uk0-Ok-ZUo"/>
                             <constraint firstItem="GcL-La-cU3" firstAttribute="top" secondItem="Uh1-6J-OuA" secondAttribute="bottom" id="xgb-hS-VbJ"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -656,8 +657,9 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azy-OM-edN">
-                                <rect key="frame" x="16" y="8" width="343" height="236"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azy-OM-edN">
+                                <rect key="frame" x="0.0" y="0.0" width="359" height="244"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="8" maxX="8" maxY="0.0"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <segue destination="UZk-48-tkR" kind="unwind" unwindAction="unwindToMainVCWithSegue:" id="1Ds-xJ-8TI"/>
@@ -682,13 +684,13 @@
                             <constraint firstItem="Y1x-Sg-csU" firstAttribute="centerY" secondItem="JXr-hu-RJY" secondAttribute="centerY" multiplier="1.2" id="Fua-14-CDk"/>
                             <constraint firstItem="9Sc-NW-6G5" firstAttribute="top" secondItem="azy-OM-edN" secondAttribute="bottom" id="IfL-nx-bDs"/>
                             <constraint firstItem="M6M-dk-uev" firstAttribute="centerX" secondItem="QVJ-fl-GlP" secondAttribute="centerX" id="LZX-Cw-YLk"/>
-                            <constraint firstItem="azy-OM-edN" firstAttribute="top" secondItem="UBc-1O-Tmb" secondAttribute="bottom" constant="8" id="WHg-Ki-ugP"/>
+                            <constraint firstItem="azy-OM-edN" firstAttribute="top" secondItem="UBc-1O-Tmb" secondAttribute="bottom" id="WHg-Ki-ugP"/>
                             <constraint firstAttribute="trailing" secondItem="oVj-Ou-c9I" secondAttribute="trailing" constant="8" id="elx-fN-IHx"/>
                             <constraint firstItem="oVj-Ou-c9I" firstAttribute="leading" secondItem="JXr-hu-RJY" secondAttribute="leading" constant="8" id="flR-a1-RMK"/>
                             <constraint firstAttribute="bottom" secondItem="oVj-Ou-c9I" secondAttribute="bottom" constant="2" id="mSF-IU-HpW"/>
                             <constraint firstItem="Y1x-Sg-csU" firstAttribute="leading" secondItem="JXr-hu-RJY" secondAttribute="leading" constant="8" identifier="SunStackLeading" id="maZ-wc-VzI"/>
                             <constraint firstItem="nax-UY-orh" firstAttribute="centerX" secondItem="JXr-hu-RJY" secondAttribute="centerX" id="rmy-w9-eHP"/>
-                            <constraint firstItem="azy-OM-edN" firstAttribute="leading" secondItem="JXr-hu-RJY" secondAttribute="leading" constant="16" id="sHJ-Lh-XnJ"/>
+                            <constraint firstItem="azy-OM-edN" firstAttribute="leading" secondItem="JXr-hu-RJY" secondAttribute="leading" id="sHJ-Lh-XnJ"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -1419,12 +1421,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbw-C1-qMx" userLabel="Return button">
-                                <rect key="frame" x="299" y="0.0" width="60" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="uKi-5z-Ue0"/>
-                                    <constraint firstAttribute="height" constant="48" id="vBa-g5-0o0"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbw-C1-qMx" userLabel="Return button">
+                                <rect key="frame" x="0.0" y="0.0" width="359" height="294"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="8" maxX="8" maxY="0.0"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <segue destination="ogh-cb-GbT" kind="unwind" unwindAction="unwindToMainVCWithSegue:" id="ySw-33-k0M"/>
@@ -1435,7 +1434,9 @@
                         <constraints>
                             <constraint firstItem="mWA-qc-tQY" firstAttribute="centerX" secondItem="UOE-hf-iAj" secondAttribute="centerX" id="AZn-Sf-Yfn"/>
                             <constraint firstItem="mWA-qc-tQY" firstAttribute="top" secondItem="5YG-vz-0FW" secondAttribute="bottom" constant="8" id="Bzh-zM-hbX"/>
+                            <constraint firstItem="D2B-b9-mSO" firstAttribute="top" secondItem="Fbw-C1-qMx" secondAttribute="bottom" id="Jbl-sV-VXM"/>
                             <constraint firstAttribute="trailing" secondItem="Fbw-C1-qMx" secondAttribute="trailing" id="PvM-DR-BPh"/>
+                            <constraint firstItem="Fbw-C1-qMx" firstAttribute="leading" secondItem="UOE-hf-iAj" secondAttribute="leading" id="ifz-Rl-Xje"/>
                             <constraint firstItem="Fbw-C1-qMx" firstAttribute="top" secondItem="5YG-vz-0FW" secondAttribute="bottom" id="yyV-BZ-0Cr"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -1452,7 +1453,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xOE-gh-pAX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ogh-cb-GbT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-897" y="732"/>
+            <point key="canvasLocation" x="-898.39999999999998" y="731.33433283358329"/>
         </scene>
         <!--Credits View Controller-->
         <scene sceneID="8Ao-u1-jKA">
@@ -1476,12 +1477,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcy-aM-MB2" userLabel="Return button">
-                                <rect key="frame" x="299" y="0.0" width="60" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="Y5p-pb-oex"/>
-                                    <constraint firstAttribute="height" constant="48" id="vHT-ng-4a5"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcy-aM-MB2" userLabel="Return button">
+                                <rect key="frame" x="0.0" y="0.0" width="359" height="293.5"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="8" maxX="8" maxY="0.0"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <segue destination="LuI-Gx-2fL" kind="unwind" unwindAction="unwindToMainVCWithSegue:" id="3WC-nt-zRk"/>
@@ -1491,9 +1489,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="6kU-io-bFW" firstAttribute="top" secondItem="5c8-gb-XPn" secondAttribute="top" constant="8" id="4Po-gZ-AKz"/>
+                            <constraint firstItem="X6i-Z3-oA1" firstAttribute="top" secondItem="vcy-aM-MB2" secondAttribute="bottom" id="5yB-n1-GQS"/>
                             <constraint firstItem="6kU-io-bFW" firstAttribute="centerX" secondItem="5c8-gb-XPn" secondAttribute="centerX" id="8Xn-6S-0qB"/>
                             <constraint firstAttribute="trailing" secondItem="vcy-aM-MB2" secondAttribute="trailing" id="NXB-Bj-TXG"/>
                             <constraint firstItem="vcy-aM-MB2" firstAttribute="top" secondItem="5c8-gb-XPn" secondAttribute="top" id="dfW-G4-4p5"/>
+                            <constraint firstItem="vcy-aM-MB2" firstAttribute="leading" secondItem="5c8-gb-XPn" secondAttribute="leading" id="whq-3f-AyZ"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -1509,7 +1509,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W7P-cO-Lf7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="LuI-Gx-2fL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="235" y="732"/>
+            <point key="canvasLocation" x="234.40000000000001" y="731.33433283358329"/>
         </scene>
         <!--Alerts View Controller-->
         <scene sceneID="3z4-cf-NNw">
@@ -1535,12 +1535,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fMT-xW-wXQ" userLabel="Return button">
-                                <rect key="frame" x="299" y="0.0" width="60" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="TZw-ud-mgJ"/>
-                                    <constraint firstAttribute="height" constant="48" id="aUE-QZ-XD9"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fMT-xW-wXQ" userLabel="Return button">
+                                <rect key="frame" x="0.0" y="0.0" width="359" height="294"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="8" maxX="8" maxY="0.0"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <segue destination="wBu-2j-rk0" kind="unwind" unwindAction="unwindToMainVCWithSegue:" id="VPc-2f-1Ef"/>
@@ -1551,8 +1548,10 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="fMT-xW-wXQ" secondAttribute="trailing" id="BeD-et-KGO"/>
                             <constraint firstItem="fMT-xW-wXQ" firstAttribute="top" secondItem="zhf-PY-j4n" secondAttribute="bottom" id="Jmc-Zv-Mrh"/>
+                            <constraint firstItem="lLs-Il-bJl" firstAttribute="top" secondItem="fMT-xW-wXQ" secondAttribute="bottom" id="Tdb-Jm-9nr"/>
                             <constraint firstItem="sXw-LW-j8Z" firstAttribute="centerX" secondItem="57w-MZ-fGv" secondAttribute="centerX" id="YeL-4u-ckR"/>
                             <constraint firstItem="sXw-LW-j8Z" firstAttribute="top" secondItem="zhf-PY-j4n" secondAttribute="bottom" constant="8" id="aTA-Xj-udT"/>
+                            <constraint firstItem="fMT-xW-wXQ" firstAttribute="leading" secondItem="57w-MZ-fGv" secondAttribute="leading" id="jVO-FE-ZEl"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -1568,7 +1567,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SpF-q2-lVu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="wBu-2j-rk0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-143" y="732"/>
+            <point key="canvasLocation" x="-143.19999999999999" y="731.33433283358329"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="bXf-ds-1tN">
