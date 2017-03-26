@@ -19,6 +19,8 @@ class DayViewController: UIViewController {
     @IBOutlet weak var buttonBottomLeft: UIButton!
     @IBOutlet weak var buttonBottomRight: UIButton!
 
+    @IBOutlet weak var summary: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,6 +49,9 @@ class DayViewController: UIViewController {
         buttonTopRight.setTitleColor(foreColor, for: .normal)
         buttonBottomLeft.setTitleColor(foreColor, for: .normal)
         buttonBottomRight.setTitleColor(foreColor, for: .normal)
+
+        summary.textColor = foreColor
+        summary.text = forecast.hourly?.summary ?? ""
 
         view.backgroundColor = backColor
     }

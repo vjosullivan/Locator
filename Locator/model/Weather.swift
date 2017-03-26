@@ -109,6 +109,7 @@ struct Weather {
     /// - Returns: A Weather Awesome character corresponding to the name.
     ///
     static func representedBy(darkSkyIcon: String) -> Weather {
+
         switch darkSkyIcon {
         case "clear-day": return Weather.clearDay
         case "clear-night": return Weather.clearNight

@@ -10,6 +10,7 @@ import UIKit
 
 class WeekViewController: UIViewController {
 
+    @IBOutlet weak var summary: UILabel!
     @IBOutlet weak var returnButton: UIButton!
 
     override func viewDidLoad() {
@@ -19,6 +20,9 @@ class WeekViewController: UIViewController {
     func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?) {
         let foreColor = foregroundColor ?? UIColor.white
         let backColor = backgroundColor ?? UIColor.darkGray
+
+        summary.textColor = foreColor
+        summary.text = forecast.daily?.summary ?? ""
 
         returnButton.setTitleColor(foreColor, for: .normal)
         view.backgroundColor = backColor

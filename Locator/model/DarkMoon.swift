@@ -49,7 +49,7 @@ struct DarkMoon {
         "New\nmoon", "After\nnew moon", "Waxing\ncrescent", "Approaching\nfirst quarter",
         "First\nquarter", "Past\nfirst quarter", "Waxing\ngibbous", "Approaching\nfull moon",
         "Full\nmoon", "Past\nfull moon", "Waining\ngibbous", "Approaching\nlast quarter",
-        "Last\nquarter", "Past\nlast quarter", "Waining\ncrescent", "Approaching\nfull moon"]
+        "Last\nquarter", "Past\nlast quarter", "Waining\ncrescent", "Approaching\nnew moon"]
 
     /// Returns a name for the given moon phase (e.g. "Full moon", "First quarter", etc.).
     ///

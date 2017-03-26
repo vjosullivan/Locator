@@ -17,7 +17,7 @@ class HourViewController: UIViewController {
     @IBOutlet weak var tickStack: UIStackView!
 
     @IBOutlet weak var graphTitle: UILabel!
-    @IBOutlet weak var minuteSummary: UILabel!
+    @IBOutlet weak var summary: UILabel!
 
     @IBOutlet weak var rainingLabel: UILabel!
     @IBOutlet weak var pouringLabel: UILabel!
@@ -46,7 +46,9 @@ class HourViewController: UIViewController {
         returnButton.setTitleColor(foreColor, for: .normal)
 
         graphTitle.text = precipitationType(from: forecast) + " in the next 60 mins."
-        minuteSummary.text = oneHourSummary(from: forecast)
+        summary.text = oneHourSummary(from: forecast)
+        summary.textColor = foreColor
+        
         rainIntensityGraph.data = forecast.minutelyRainIntensity
         view.backgroundColor = backColor
     }

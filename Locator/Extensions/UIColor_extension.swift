@@ -13,6 +13,9 @@ extension UIColor {
     static let amber  = UIColor(red: 1.0, green: 88.0/255, blue: 0.0, alpha: 1.0)
     static let bronze = UIColor(red: 205.0/255.0, green: 127.0/255.0, blue: 50.0/255.0, alpha: 1.0)
     static let naturalYellow = UIColor(red: 255.0/255.0, green: 211.0/255.0, blue: 0.0, alpha: 1.0)
+
+    static let blueGray = UIColor(hexString: "7799BB")
+    static let ashGray = UIColor(hexString: "B2BEB5")
     static let skyBlue = UIColor(hexString: "87CEEB")
     static let navy = UIColor(hexString: "000080")
     static let teal = UIColor(hexString: "008080")
@@ -38,19 +41,19 @@ extension UIColor {
     static let windNight = UIColor.ocean
 
     static let fog      = UIColor.fogDay.mixedWith(UIColor.fogNight)
-    static let fogDay   = UIColor.slateGray
+    static let fogDay   = UIColor.ashGray
     static let fogNight = UIColor.agean
 
     static let partlyCloudy = UIColor.partlyCloudyDay.mixedWith(UIColor.partlyCloudyNight)
     static let partlyCloudyDay = UIColor.sapphire
     static let partlyCloudyNight = UIColor.ocean
 
-    static let cloudy      = UIColor.cloudyDay.mixedWith(UIColor.cloudyNight)
-    static let cloudyDay   = UIColor.sapphire
-    static let cloudyNight = UIColor.ocean
+    static let cloudy      = UIColor.blueGray.darker()
+    static let cloudyDay   = UIColor.blueGray
+    static let cloudyNight = UIColor.blueGray.darker().darker()
 
-    static let rain      = UIColor.rainDay.mixedWith(UIColor.rainNight)
-    static let rainDay   = UIColor.teal
+    static let rain      = UIColor.blueGray.lighter()
+    static let rainDay   = UIColor.ashGray
     static let rainNight = UIColor.ocean
 
     static let hail      = UIColor.hailDay.mixedWith(UIColor.hailNight)

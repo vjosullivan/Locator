@@ -18,7 +18,7 @@ class MainViewController: UIViewController {
     // These views have coloured backgrounds in the storyboard which are cleared when run.
     @IBOutlet var backgroundColoredViews: [UIView]!
 
-    @IBOutlet weak var uiPlace: UILabel!
+    @IBOutlet weak var locationLabel: RibbonView!
 
     @IBOutlet weak var currentWeatherSymbol: UILabel!
     @IBOutlet weak var currentWeatherBackground: UILabel!
@@ -168,7 +168,7 @@ class MainViewController: UIViewController {
     }
 
     private func updateDisplay(with forecast: DarkSkyForecast, for place: Place) {
-        uiPlace.text = place.region != "" ? place.region : place.name
+        locationLabel.text = place.region != "" ? place.region : place.name
         updateWeather(using: forecast.current?.icon)
     }
 

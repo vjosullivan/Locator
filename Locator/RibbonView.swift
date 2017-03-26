@@ -18,6 +18,11 @@ class RibbonView: UILabel {
         super.init(coder: aDecoder)
     }
 
+    override func drawText(in rect: CGRect) {
+        let insets = UIEdgeInsets.init(top: 0, left: 12, bottom: 0, right: 12)
+        super.drawText(in: UIEdgeInsetsInsetRect(rect, insets))
+    }
+
     override func draw(_ rect: CGRect) {
 
         guard let context = UIGraphicsGetCurrentContext() else {
