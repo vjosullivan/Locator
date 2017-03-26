@@ -48,6 +48,8 @@
 		34F5A5001E23D6A600E66AC1 /* Font_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F5A4FF1E23D6A600E66AC1 /* Font_extension.swift */; };
 		B52CD6FBFF14B2F32A23359C /* libPods-Locator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C356B11EB1AD34A8EE3D80C /* libPods-Locator.a */; };
 		F11198E11E08658000D969CF /* weathericons-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F11198E01E08658000D969CF /* weathericons-regular-webfont.ttf */; };
+		F11F081B1E88527500231BEF /* WeatherHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F081A1E88527500231BEF /* WeatherHandler.swift */; };
+		F11F081D1E8856AF00231BEF /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F081C1E8856AF00231BEF /* WeatherTableViewCell.swift */; };
 		F166733F1E0295ED0087C5D7 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166733C1E0295ED0087C5D7 /* LocationController.swift */; };
 		F16673401E0295ED0087C5D7 /* LocationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166733D1E0295ED0087C5D7 /* LocationControllerDelegate.swift */; };
 		F16673411E0295ED0087C5D7 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166733E1E0295ED0087C5D7 /* Location.swift */; };
@@ -124,6 +126,8 @@
 		4C356B11EB1AD34A8EE3D80C /* libPods-Locator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Locator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		513678032403BEE30CBB3F1F /* Pods-Locator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Locator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Locator/Pods-Locator.debug.xcconfig"; sourceTree = "<group>"; };
 		F11198E01E08658000D969CF /* weathericons-regular-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "weathericons-regular-webfont.ttf"; sourceTree = "<group>"; };
+		F11F081A1E88527500231BEF /* WeatherHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherHandler.swift; sourceTree = "<group>"; };
+		F11F081C1E8856AF00231BEF /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
 		F166733C1E0295ED0087C5D7 /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		F166733D1E0295ED0087C5D7 /* LocationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationControllerDelegate.swift; sourceTree = "<group>"; };
 		F166733E1E0295ED0087C5D7 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -215,6 +219,8 @@
 				340FBA081E1A8B1500E2FAD4 /* SettingsViewController.swift */,
 				348148721E15C1AD00079056 /* SolarViewController.swift */,
 				34A540AF1E35F73000FD7C6E /* WeekViewController.swift */,
+				F11F081A1E88527500231BEF /* WeatherHandler.swift */,
+				F11F081C1E8856AF00231BEF /* WeatherTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -544,11 +550,13 @@
 				348BC3411DD1AF3900638D66 /* AppDelegate.swift in Sources */,
 				34A540AE1E35F70100FD7C6E /* DayViewController.swift in Sources */,
 				348914751E39DC3300509CA3 /* RainIntensity.swift in Sources */,
+				F11F081B1E88527500231BEF /* WeatherHandler.swift in Sources */,
 				348148751E15C1FF00079056 /* DetailsViewController.swift in Sources */,
 				F1D5D2A31DD8982400D9DC1F /* PlaceManager.swift in Sources */,
 				34F5A5001E23D6A600E66AC1 /* Font_extension.swift in Sources */,
 				340FBA091E1A8B1600E2FAD4 /* SettingsViewController.swift in Sources */,
 				F16673501E0298150087C5D7 /* DataPointInit.swift in Sources */,
+				F11F081D1E8856AF00231BEF /* WeatherTableViewCell.swift in Sources */,
 				F16673401E0295ED0087C5D7 /* LocationControllerDelegate.swift in Sources */,
 				34A540B21E35F77A00FD7C6E /* CreditsViewController.swift in Sources */,
 				F1D5D29A1DD85B3700D9DC1F /* Place.swift in Sources */,

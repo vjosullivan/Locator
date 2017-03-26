@@ -14,12 +14,16 @@ class DayViewController: UIViewController {
 
     @IBOutlet weak var titleBar: UILabel!
 
+    @IBOutlet weak var weatherTable: UITableView!
+
     @IBOutlet weak var buttonTopLeft: UIButton!
     @IBOutlet weak var buttonTopRight: UIButton!
     @IBOutlet weak var buttonBottomLeft: UIButton!
     @IBOutlet weak var buttonBottomRight: UIButton!
 
     @IBOutlet weak var summary: UILabel!
+
+    private var weatherHandler = WeatherHandler()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +36,9 @@ class DayViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+
+        weatherTable.dataSource = weatherHandler
+        weatherTable.delegate = weatherHandler
     }
 
     func update(forecast: DarkSkyForecast,
@@ -49,6 +56,9 @@ class DayViewController: UIViewController {
         buttonTopRight.setTitleColor(foreColor, for: .normal)
         buttonBottomLeft.setTitleColor(foreColor, for: .normal)
         buttonBottomRight.setTitleColor(foreColor, for: .normal)
+
+        weatherHandler.update(forecast: forecast)
+        weatherTable.reloadData()
 
         summary.textColor = foreColor
         summary.text = forecast.hourly?.summary ?? ""
