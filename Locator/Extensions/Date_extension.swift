@@ -40,6 +40,14 @@ extension Date {
         return "\(f1.string(from: self).lowercased()) \(zone.localisedAbbreviation())"
     }
 
+    func asDDD(timeZone identifier: String? = "") -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEE"
+        formatter.timeZone = getTimeZone(identifier: identifier)
+        let time = formatter.string(from: self).lowercased()
+        return time.capitalized
+    }
+
     func asHpm(showMidday: Bool = false, timeZone identifier: String? = "") -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "ha"

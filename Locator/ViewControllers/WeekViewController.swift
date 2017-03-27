@@ -10,16 +10,26 @@ import UIKit
 
 class WeekViewController: UIViewController {
 
+    @IBOutlet weak var weatherTable: UITableView!
+
     @IBOutlet weak var summary: UILabel!
     @IBOutlet weak var returnButton: UIButton!
 
+    private var weatherHandler = WeatherHandler()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        weatherTable.dataSource = weatherHandler
+        weatherTable.delegate = weatherHandler
     }
 
     func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?) {
         let foreColor = foregroundColor ?? UIColor.white
         let backColor = backgroundColor ?? UIColor.darkGray
+
+        weatherHandler.update(forecast: forecast, detailType: .week)
+        weatherTable.reloadData()
 
         summary.textColor = foreColor
         summary.text = forecast.daily?.summary ?? ""
