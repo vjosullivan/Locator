@@ -17,6 +17,7 @@ extension UIColor {
     static let blueGray = UIColor(hexString: "7799BB")
     static let ashGray = UIColor(hexString: "B2BEB5")
     static let skyBlue = UIColor(hexString: "87CEEB")
+    static let cloudySky = UIColor(hexString: "BCCFD6")
     static let navy = UIColor(hexString: "000080")
     static let teal = UIColor(hexString: "008080")
     static let ocean = UIColor(hexString: "016064")
@@ -45,7 +46,7 @@ extension UIColor {
     static let fogNight = UIColor.agean
 
     static let partlyCloudy = UIColor.partlyCloudyDay.mixedWith(UIColor.partlyCloudyNight)
-    static let partlyCloudyDay = UIColor.sapphire
+    static let partlyCloudyDay = UIColor.cloudySky
     static let partlyCloudyNight = UIColor.ocean
 
     static let cloudy      = UIColor.blueGray.darker()
@@ -103,6 +104,9 @@ extension UIColor {
         let bString = cString.substring(from: 4).substring(to: 2)
 
         var r:CUnsignedInt = 0, g:CUnsignedInt = 0, b:CUnsignedInt = 0
+        Scanner(string: rString).scanHexInt32(&r)
+        Scanner(string: gString).scanHexInt32(&g)
+        Scanner(string: bString).scanHexInt32(&b)
 
         let cgf255: CGFloat = 255.0
         self.init(red: CGFloat(r) / cgf255, green: CGFloat(g) / cgf255, blue: CGFloat(b) / cgf255, alpha: CGFloat(1))

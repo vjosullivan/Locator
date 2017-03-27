@@ -29,9 +29,27 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath) as! WeatherTableViewCell
         // swiftlint:enable force_cast
         if let dataPoint = forecast?.hourly?.dataPoints?[indexPath.row] {
-            cell.time.text = dataPoint.time.asHpm()
+            cell.time.text = dataPoint.time.asHpm(showMidday: true, timeZone: forecast?.timeZone)
             cell.icon.text = Weather.representedBy(darkSkyIcon: dataPoint.icon ?? "").symbol
-            cell.icon.textColor = dataPoint.icon == "clear-day" ? .yellow : .white
+            cell.icon.textColor = dataPoint.icon == "clear-day"
+                ? .yellow
+                : Weather.representedBy(darkSkyIcon: dataPoint.icon ?? "").color
+            cell.maxTemperature.text = "\(Int(dataPoint.temperature?.value ?? 0))\(dataPoint.temperature?.unit.symbol ?? "")"
+            if let precipProbability = dataPoint.precipProbability {
+                let precipPercentage = Int(precipProbability * 10.0) * 10
+                if precipPercentage > 0 {
+                    cell.rain.text = "\(precipPercentage)%"
+                    cell.rain.textColor = UIColor.black
+                    cell.rain.backgroundColor = UIColor.skyBlue.lighter().withAlphaComponent(CGFloat(0.5 + precipProbability * 0.5))
+                    cell.rain.layer.cornerRadius = cell.rain.bounds.width / 2.0
+                } else {
+                    cell.rain.text = "·"
+                    cell.rain.textColor = UIColor.white
+                    cell.rain.backgroundColor = UIColor.black
+                }
+            } else {
+                cell.rain.text = "-"
+            }
             cell.summary.text = dataPoint.summary
         } else {
             cell.time.text = "???"

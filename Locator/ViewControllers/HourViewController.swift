@@ -48,7 +48,7 @@ class HourViewController: UIViewController {
         graphTitle.text = precipitationType(from: forecast) + " in the next 60 mins."
         summary.text = oneHourSummary(from: forecast)
         summary.textColor = foreColor
-        
+
         rainIntensityGraph.data = forecast.minutelyRainIntensity
         view.backgroundColor = backColor
     }

@@ -40,15 +40,16 @@ extension Date {
         return "\(f1.string(from: self).lowercased()) \(zone.localisedAbbreviation())"
     }
 
-    func asHpm(showMidday: Bool = false) -> String {
+    func asHpm(showMidday: Bool = false, timeZone identifier: String? = "") -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "ha"
+        formatter.timeZone = getTimeZone(identifier: identifier)
         let time = formatter.string(from: self).lowercased()
         if showMidday {
             if time == "12pm" {
-                return "midday"
+                return "Noon"
             } else if time == "12am" {
-                return "midnight"
+                return "Night"
             }
         }
         return time
@@ -65,5 +66,19 @@ extension Date {
         cal.timeZone = TimeZone.autoupdatingCurrent
         let components = (cal as NSCalendar).components([.day, .month, .year ], from: Date())
         return cal.date(from: components)!
+    }
+
+    /// Given an (optional) time zone identifier (e.g. "London/Europe"), returns the correspomding `TimeZone`,
+    /// otherwise the local `TimeZone`.
+    ///
+    /// - Parameter identifier: A time zone identifier (e.g. "London/Europe").
+    /// - Returns: If matched, the appropriate `TimeZone`, otherwise the current/local one.
+    ///
+    private func getTimeZone(identifier: String?) -> TimeZone {
+        guard identifier != nil else {
+            return Calendar.current.timeZone
+        }
+        let zone = TimeZone(identifier: identifier!)
+        return zone ?? Calendar.current.timeZone
     }
 }
