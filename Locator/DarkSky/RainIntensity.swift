@@ -36,13 +36,10 @@ struct RainIntensity {
         return data.map {
             switch $0 {
             case 0..<Intensity.low.rawValue:
-//                print ("Low  ", $0, $0 * graphLowRange / rainLowRange)
                 return $0 * graphLowRange / rainLowRange
             case Intensity.low.rawValue..<Intensity.medium.rawValue:
-//                print ("Med  ", $0, 0.3333 + ($0 - Intensity.low.rawValue) * graphMediumRange / rainMediumRange)
                 return 0.3333 + ($0 - Intensity.low.rawValue) * graphMediumRange / rainMediumRange
             case Intensity.medium.rawValue..<Intensity.high.rawValue:
-  //              print ("High ", $0, 0.6667 + ($0 - Intensity.medium.rawValue) * graphHighRange / rainHighRange)
                 return 0.6667 + ($0 - Intensity.medium.rawValue) * graphHighRange / rainHighRange
             default:
                 return 1.0

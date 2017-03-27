@@ -103,9 +103,6 @@ extension UIColor {
         let bString = cString.substring(from: 4).substring(to: 2)
 
         var r:CUnsignedInt = 0, g:CUnsignedInt = 0, b:CUnsignedInt = 0
-        debugPrint("\n\nScan R(\(rString)): \(Scanner(string: rString).scanHexInt32(&r))\n\n")
-        debugPrint("\n\nScan G(\(gString)): \(Scanner(string: gString).scanHexInt32(&g))\n\n")
-        debugPrint("\n\nScan B(\(bString)): \(Scanner(string: bString).scanHexInt32(&b))\n\n")
 
         let cgf255: CGFloat = 255.0
         self.init(red: CGFloat(r) / cgf255, green: CGFloat(g) / cgf255, blue: CGFloat(b) / cgf255, alpha: CGFloat(1))

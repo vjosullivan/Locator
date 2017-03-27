@@ -94,6 +94,7 @@ extension LocationFinderViewController: GMSAutocompleteFetcherDelegate, UITableV
     }
 
     func didFailAutocompleteWithError(_ error: Error) {
+        // TODO: Handle this error.
         print("Fail!  This should be handled somewhere.")
     }
 }
@@ -116,12 +117,14 @@ extension LocationFinderViewController /* UITableViewDataSource extension */ {
         let placeID = places[indexPath.row].placeID
         placesClient.lookUpPlaceID(placeID) { (place: GMSPlace?, error: Error?) -> Void in
             if let error = error {
+                // TODO: Handle this error properly.
                 print("lookup place id query error: \(error.localizedDescription)")
                 return
             }
             if let place = place {
                 self.found(place)
             } else {
+                // TODO: Handle this error properly.
                 print("Place with ID \(placeID) not found.")
                 return
             }
