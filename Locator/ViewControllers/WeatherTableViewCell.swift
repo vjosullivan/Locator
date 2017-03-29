@@ -13,12 +13,13 @@ class WeatherTableViewCell: UITableViewCell {
     @IBOutlet weak var time: UILabel!
     @IBOutlet weak var icon: UILabel!
     @IBOutlet weak var maxTemperature: UILabel!
-    @IBOutlet weak var rain: UILabel!
-    @IBOutlet weak var summary: UILabel!
+    @IBOutlet weak var rain: RaindropLabel!
+    @IBOutlet weak var windBearing: UILabel!
+    @IBOutlet weak var windSpeed: UILabel!
+    //@IBOutlet weak var summary: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

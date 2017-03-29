@@ -50,6 +50,7 @@
 		F11198E11E08658000D969CF /* weathericons-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F11198E01E08658000D969CF /* weathericons-regular-webfont.ttf */; };
 		F11F081B1E88527500231BEF /* WeatherHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F081A1E88527500231BEF /* WeatherHandler.swift */; };
 		F11F081D1E8856AF00231BEF /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F081C1E8856AF00231BEF /* WeatherTableViewCell.swift */; };
+		F11F08201E895F0800231BEF /* CreditsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F081F1E895F0800231BEF /* CreditsViewControllerTests.swift */; };
 		F166733F1E0295ED0087C5D7 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166733C1E0295ED0087C5D7 /* LocationController.swift */; };
 		F16673401E0295ED0087C5D7 /* LocationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166733D1E0295ED0087C5D7 /* LocationControllerDelegate.swift */; };
 		F16673411E0295ED0087C5D7 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166733E1E0295ED0087C5D7 /* Location.swift */; };
@@ -66,6 +67,7 @@
 		F1D5D29F1DD85DA100D9DC1F /* PlaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5D29E1DD85DA100D9DC1F /* PlaceTests.swift */; };
 		F1D5D2A31DD8982400D9DC1F /* PlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5D2A21DD8982400D9DC1F /* PlaceManager.swift */; };
 		F1D60DD31E27E39000E7059C /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D60DD21E27E39000E7059C /* Weather.swift */; };
+		F1E08CC71E8BD48E003561FF /* RaindropLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E08CC61E8BD48E003561FF /* RaindropLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +130,7 @@
 		F11198E01E08658000D969CF /* weathericons-regular-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "weathericons-regular-webfont.ttf"; sourceTree = "<group>"; };
 		F11F081A1E88527500231BEF /* WeatherHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherHandler.swift; sourceTree = "<group>"; };
 		F11F081C1E8856AF00231BEF /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
+		F11F081F1E895F0800231BEF /* CreditsViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewControllerTests.swift; sourceTree = "<group>"; };
 		F166733C1E0295ED0087C5D7 /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		F166733D1E0295ED0087C5D7 /* LocationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationControllerDelegate.swift; sourceTree = "<group>"; };
 		F166733E1E0295ED0087C5D7 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -144,6 +147,7 @@
 		F1D5D29E1DD85DA100D9DC1F /* PlaceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTests.swift; sourceTree = "<group>"; };
 		F1D5D2A21DD8982400D9DC1F /* PlaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceManager.swift; sourceTree = "<group>"; };
 		F1D60DD21E27E39000E7059C /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		F1E08CC61E8BD48E003561FF /* RaindropLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaindropLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +270,7 @@
 				F11198DF1E0864D300D969CF /* Resources */,
 				3498D66E1E13CEB70081ECE3 /* RibbonView.swift */,
 				342A74921E352F01009754AF /* GraphView.swift */,
+				F1E08CC61E8BD48E003561FF /* RaindropLabel.swift */,
 			);
 			path = Locator;
 			sourceTree = "<group>";
@@ -273,6 +278,7 @@
 		348BC3571DD1AF3A00638D66 /* LocatorTests */ = {
 			isa = PBXGroup;
 			children = (
+				F11F081E1E895E9400231BEF /* ViewControllers */,
 				345D13781E32033C00327814 /* DarkSky */,
 				345D13751E31426E00327814 /* Extensions */,
 				346EDC901E30B96400BF7AD3 /* Location */,
@@ -308,6 +314,15 @@
 				F11198E01E08658000D969CF /* weathericons-regular-webfont.ttf */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		F11F081E1E895E9400231BEF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F11F081F1E895F0800231BEF /* CreditsViewControllerTests.swift */,
+			);
+			name = ViewControllers;
+			path = ViewControllerTests;
 			sourceTree = "<group>";
 		};
 		F166733B1E0295CA0087C5D7 /* Location */ = {
@@ -553,6 +568,7 @@
 				F11F081B1E88527500231BEF /* WeatherHandler.swift in Sources */,
 				348148751E15C1FF00079056 /* DetailsViewController.swift in Sources */,
 				F1D5D2A31DD8982400D9DC1F /* PlaceManager.swift in Sources */,
+				F1E08CC71E8BD48E003561FF /* RaindropLabel.swift in Sources */,
 				34F5A5001E23D6A600E66AC1 /* Font_extension.swift in Sources */,
 				340FBA091E1A8B1600E2FAD4 /* SettingsViewController.swift in Sources */,
 				F16673501E0298150087C5D7 /* DataPointInit.swift in Sources */,
@@ -579,6 +595,7 @@
 			files = (
 				345D13811E32A59A00327814 /* DarkSkyForecastTests.swift in Sources */,
 				346EDC9A1E30CEC000BF7AD3 /* DarkMoonTests.swift in Sources */,
+				F11F08201E895F0800231BEF /* CreditsViewControllerTests.swift in Sources */,
 				F1D5D29F1DD85DA100D9DC1F /* PlaceTests.swift in Sources */,
 				348914791E39E4AB00509CA3 /* RainIntensityTests.swift in Sources */,
 				345D137C1E3238A400327814 /* RibbonViewTests.swift in Sources */,
