@@ -55,12 +55,16 @@ class HourViewController: UIViewController {
 
     private func oneHourSummary(from forecast: DarkSkyForecast) -> String {
         let summary: String
-        if let oneHourSummary = forecast.minutely?.summary {
-            summary = oneHourSummary
-        } else if let currentSummary = forecast.current?.summary {
-            summary = "Remaining \(currentSummary.lowercased()) for the next hour."
+        if let minutely = forecast.minutely {
+            if let oneHourSummary = minutely.summary {
+                summary = oneHourSummary
+            } else if let currentSummary = forecast.current?.summary {
+                summary = "Remaining \(currentSummary.lowercased()) for the next hour."
+            } else {
+                summary = ""
+            }
         } else {
-            summary = ""
+            summary = "No radar data available for detailed one hour forecast."
         }
         return summary
     }

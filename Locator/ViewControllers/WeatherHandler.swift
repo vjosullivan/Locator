@@ -125,12 +125,10 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
 
     private func updateWindbearing(label: UILabel, from measurement: Measurement<UnitAngle>?) {
         if let windDirection = measurement {
-            print("A")
             label.text = Weather.windDirection.symbol
             let angle = CGFloat(windDirection.value + 180.0) * CGFloat.pi / 180.0
             label.transform = CGAffineTransform.init(rotationAngle: angle)
         } else {
-            print("B")
             label.text  = ""
         }
     }

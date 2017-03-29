@@ -58,9 +58,7 @@ class DayViewController: UIViewController {
         buttonBottomRight.setTitleColor(foreColor, for: .normal)
 
         weatherHandler.update(forecast: forecast, detailType: .day )
-        print("C")
         weatherTable.reloadData()
-        print("D")
         
         summary.textColor = foreColor
         summary.text = forecast.hourly?.summary ?? ""
