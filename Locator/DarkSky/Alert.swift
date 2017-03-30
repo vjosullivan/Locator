@@ -33,7 +33,7 @@ struct Alert {
     let severity: Severity
 
     /// An HTTP(S) URI that one may refer to for detailed information about the alert.
-    let uri: URL
+    let detailsURL: URL
 }
 
 enum Severity {

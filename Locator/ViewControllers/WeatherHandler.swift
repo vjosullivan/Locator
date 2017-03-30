@@ -96,7 +96,7 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.maxTemperature.text
                 = "\(Int(dataPoint.temperatureMax?.value ?? 0))\(dataPoint.temperatureMax?.unit.symbol ?? "")"
             if let precipProbability = dataPoint.precipProbability {
-                let precipPercentage = Int(precipProbability * 10.0) * 10
+                let precipPercentage = Int((precipProbability + 0.05) * 10.0) * 10
                 if precipPercentage > 0 {
                     cell.rain.text = "\(precipPercentage)%"
                     cell.rain.textColor = UIColor.black
