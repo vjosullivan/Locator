@@ -59,7 +59,7 @@ class DayViewController: UIViewController {
 
         weatherHandler.update(forecast: forecast, detailType: .day )
         weatherTable.reloadData()
-        
+
         summary.textColor = foreColor
         summary.text = forecast.hourly?.summary ?? ""
 

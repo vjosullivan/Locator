@@ -31,7 +31,8 @@ class CreditsViewControllerTests: XCTestCase {
         super.setUp()
 
         let storyboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
-        creditsVC = storyboard.instantiateViewController(withIdentifier: "CreditsViewController") as? CreditsViewController
+        creditsVC = storyboard.instantiateViewController(withIdentifier: "CreditsViewController")
+            as? CreditsViewController
 
         darkSkyForecast = DarkSkyForecast(dictionary: forecast)
     }

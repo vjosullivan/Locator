@@ -236,6 +236,13 @@ class MainViewController: UIViewController {
     }
 
     func flip(_ frontView: UIView, rearView: UIView) {
+
+        UIView.animate(withDuration: 1.0) { () -> Void in
+            self.currentWeatherSymbol.layer.transform = CATransform3DMakeRotation(CGFloat.pi * 1, 0, 0, 1)
+        }
+        UIView.animate(withDuration: 1.0) { () -> Void in
+            self.currentWeatherSymbol.layer.transform = CATransform3DMakeRotation(0.0, 0, 0, 1)
+        }
         if rearView.isHidden {
             let transitionOptions: UIViewAnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]
             UIView.transition(with: frontView, duration: 1.0, options: transitionOptions,

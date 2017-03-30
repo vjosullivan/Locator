@@ -108,8 +108,8 @@ class GraphView: UIView {
 
     private func addTicks(context: CGContext, minX: CGFloat, maxX: CGFloat, minY: CGFloat, maxY: CGFloat) {
         preserveContext {
-            let tickSpan = (maxX - minX) / 6.0
-            for tickIndex in 0...6 {
+            let tickSpan = (maxX - minX) / 4.0
+            for tickIndex in 0...4 {
                 context.move(to: CGPoint(x: minX + tickSpan * CGFloat(tickIndex), y: maxY))
                 context.addLine(to: CGPoint(x: minX + tickSpan * CGFloat(tickIndex), y: maxY + minY / 2.0))
             }

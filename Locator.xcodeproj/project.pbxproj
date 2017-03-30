@@ -68,6 +68,7 @@
 		F1D5D2A31DD8982400D9DC1F /* PlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5D2A21DD8982400D9DC1F /* PlaceManager.swift */; };
 		F1D60DD31E27E39000E7059C /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D60DD21E27E39000E7059C /* Weather.swift */; };
 		F1E08CC71E8BD48E003561FF /* RaindropLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E08CC61E8BD48E003561FF /* RaindropLabel.swift */; };
+		F1E08CC91E8D019E003561FF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E08CC81E8D019E003561FF /* Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +149,7 @@
 		F1D5D2A21DD8982400D9DC1F /* PlaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceManager.swift; sourceTree = "<group>"; };
 		F1D60DD21E27E39000E7059C /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		F1E08CC61E8BD48E003561FF /* RaindropLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaindropLabel.swift; sourceTree = "<group>"; };
+		F1E08CC81E8D019E003561FF /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,6 +347,7 @@
 				F166734E1E0298150087C5D7 /* DataPointInit.swift */,
 				F166734B1E02980C0087C5D7 /* DetailedForecast.swift */,
 				348914741E39DC3300509CA3 /* RainIntensity.swift */,
+				F1E08CC81E8D019E003561FF /* Alert.swift */,
 			);
 			path = DarkSky;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				3453E2CC1E10730A004D5F46 /* UIColor_extension.swift in Sources */,
 				F166734F1E0298150087C5D7 /* DataPoint.swift in Sources */,
 				F172E53F1DD705A100DDFB8E /* MainViewController.swift in Sources */,
+				F1E08CC91E8D019E003561FF /* Alert.swift in Sources */,
 				3422C05B1E1BD01000006EB3 /* Date_extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

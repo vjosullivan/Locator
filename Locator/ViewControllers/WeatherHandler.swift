@@ -93,8 +93,6 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.icon.textColor = dataPoint.icon == "clear-day"
                 ? .yellow
                 : Weather.representedBy(darkSkyIcon: dataPoint.icon ?? "").color
-            //cell.maxTemperature.text
-            //    = "\(Int(dataPoint.temperatureMin?.value ?? 0)) to \(Int(dataPoint.temperatureMax?.value ?? 0))\(dataPoint.temperatureMax?.unit.symbol ?? "")"
             cell.maxTemperature.text
                 = "\(Int(dataPoint.temperatureMax?.value ?? 0))\(dataPoint.temperatureMax?.unit.symbol ?? "")"
             if let precipProbability = dataPoint.precipProbability {
@@ -126,7 +124,7 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
     private func updateWindbearing(label: UILabel, from measurement: Measurement<UnitAngle>?) {
         if let windDirection = measurement {
             label.text = Weather.windDirection.symbol
-            let angle = CGFloat(windDirection.value + 180.0) * CGFloat.pi / 180.0
+            let angle = CGFloat(windDirection.value + 90.0) * CGFloat.pi / 180.0
             label.transform = CGAffineTransform.init(rotationAngle: angle)
         } else {
             label.text  = ""

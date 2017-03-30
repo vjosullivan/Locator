@@ -10,6 +10,7 @@ import UIKit
 
 class AlertsViewController: UIViewController {
 
+    @IBOutlet weak var screenTitle: UILabel!
     @IBOutlet weak var returnButton: UIButton!
 
     override func viewDidLoad() {
@@ -20,6 +21,9 @@ class AlertsViewController: UIViewController {
 
         let foreColor = foregroundColor ?? UIColor.white
         let backColor = backgroundColor ?? UIColor.darkGray
+
+        screenTitle.text = "Alerts"
+        screenTitle.textColor = foreColor
 
         returnButton.setTitleColor(foreColor, for: .normal)
         view.backgroundColor = backColor

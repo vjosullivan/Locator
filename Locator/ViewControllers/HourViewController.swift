@@ -13,6 +13,7 @@ class HourViewController: UIViewController {
     // These views have coloured backgrounds in the storyboard which are cleared when run.
     @IBOutlet var backgroundColoredViews: [UIView]!
 
+    @IBOutlet weak var screenTitle: UILabel!
     @IBOutlet weak var rainIntensityGraph: GraphView!
     @IBOutlet weak var tickStack: UIStackView!
 
@@ -42,6 +43,9 @@ class HourViewController: UIViewController {
 
         let foreColor = foregroundColor ?? UIColor.white
         let backColor = backgroundColor ?? UIColor.darkGray
+
+        screenTitle.text = "Within the hour"
+        screenTitle.textColor = foregroundColor
 
         returnButton.setTitleColor(foreColor, for: .normal)
 

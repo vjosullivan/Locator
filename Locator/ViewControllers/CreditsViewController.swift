@@ -10,6 +10,7 @@ import UIKit
 
 class CreditsViewController: UIViewController {
 
+    @IBOutlet weak var screenTitle: UILabel!
     @IBOutlet weak var returnButton: UIButton!
 
     override func viewDidLoad() {
@@ -20,6 +21,9 @@ class CreditsViewController: UIViewController {
 
         let foreColor = foregroundColor ?? UIColor.white
         let backColor = backgroundColor ?? UIColor.darkGray
+
+        screenTitle.text = "Credits"
+        screenTitle.textColor = foreColor
 
         returnButton.setTitleColor(foreColor, for: .normal)
         view.backgroundColor = backColor
