@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3403E86F1E8E7439003F7026 /* Int_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3403E86E1E8E7439003F7026 /* Int_extension.swift */; };
+		3403E8711E8E7A35003F7026 /* AlertTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3403E8701E8E7A35003F7026 /* AlertTableDataSource.swift */; };
 		340FBA091E1A8B1600E2FAD4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340FBA081E1A8B1500E2FAD4 /* SettingsViewController.swift */; };
 		3422C05B1E1BD01000006EB3 /* Date_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422C05A1E1BD01000006EB3 /* Date_extension.swift */; };
 		3422C05D1E1BF79E00006EB3 /* DarkMoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422C05C1E1BF79E00006EB3 /* DarkMoon.swift */; };
@@ -84,6 +86,8 @@
 
 /* Begin PBXFileReference section */
 		1CA6C082A0A8C47587CC8ADF /* Pods-Locator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Locator.release.xcconfig"; path = "Pods/Target Support Files/Pods-Locator/Pods-Locator.release.xcconfig"; sourceTree = "<group>"; };
+		3403E86E1E8E7439003F7026 /* Int_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Int_extension.swift; sourceTree = "<group>"; };
+		3403E8701E8E7A35003F7026 /* AlertTableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertTableDataSource.swift; sourceTree = "<group>"; };
 		340FBA081E1A8B1500E2FAD4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3422C05A1E1BD01000006EB3 /* Date_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date_extension.swift; sourceTree = "<group>"; };
 		3422C05C1E1BF79E00006EB3 /* DarkMoon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkMoon.swift; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 				34AC7E1D1E1E8AFB00BF33E0 /* String_extension.swift */,
 				34F5A4FD1E239E2000E66AC1 /* TimeZone_extension.swift */,
 				34F5A4FF1E23D6A600E66AC1 /* Font_extension.swift */,
+				3403E86E1E8E7439003F7026 /* Int_extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -229,6 +234,7 @@
 				34A540AF1E35F73000FD7C6E /* WeekViewController.swift */,
 				F11F081A1E88527500231BEF /* WeatherHandler.swift */,
 				F11F081C1E8856AF00231BEF /* WeatherTableViewCell.swift */,
+				3403E8701E8E7A35003F7026 /* AlertTableDataSource.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -553,6 +559,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3403E8711E8E7A35003F7026 /* AlertTableDataSource.swift in Sources */,
 				34DF48E71E292ADB00AC4E16 /* AppSettings.swift in Sources */,
 				F16673471E0297E20087C5D7 /* DarkSkyForecast.swift in Sources */,
 				F166734C1E02980C0087C5D7 /* DetailedForecast.swift in Sources */,
@@ -580,6 +587,7 @@
 				340FBA091E1A8B1600E2FAD4 /* SettingsViewController.swift in Sources */,
 				F16673501E0298150087C5D7 /* DataPointInit.swift in Sources */,
 				F11F081D1E8856AF00231BEF /* WeatherTableViewCell.swift in Sources */,
+				3403E86F1E8E7439003F7026 /* Int_extension.swift in Sources */,
 				F16673401E0295ED0087C5D7 /* LocationControllerDelegate.swift in Sources */,
 				34A540B21E35F77A00FD7C6E /* CreditsViewController.swift in Sources */,
 				F1D5D29A1DD85B3700D9DC1F /* Place.swift in Sources */,

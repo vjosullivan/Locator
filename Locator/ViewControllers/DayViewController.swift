@@ -57,6 +57,7 @@ class DayViewController: UIViewController {
         buttonBottomLeft.setTitleColor(foreColor, for: .normal)
         buttonBottomRight.setTitleColor(foreColor, for: .normal)
 
+        updateText(on: buttonBottomLeft, from: forecast)
         weatherHandler.update(forecast: forecast, detailType: .day )
         weatherTable.reloadData()
 
@@ -88,6 +89,19 @@ class DayViewController: UIViewController {
             mainVC.flip(mainVC.dayPanel, rearView: mainVC.creditsPanel)
         default:
             break
+        }
+    }
+
+    // MARK: - Internal functions.
+
+    private func updateText(on button: UIButton, from forecast: DarkSkyForecast) {
+        if let _ = forecast.alerts {
+            //let plural = alerts.count == 1 ? "" : "s"
+            //button.setTitle("\(alerts.count.asText.capitalized) Alert\(plural)", for: .normal)
+            button.setTitle("Alert", for: .normal)
+            button.setTitleColor(UIColor.red, for: .normal)
+        } else {
+            button.setTitle("No Alerts", for: .normal)
         }
     }
 }

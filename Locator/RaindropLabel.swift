@@ -12,29 +12,47 @@ import UIKit
 ///
 class RaindropLabel: UILabel {
 
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        drawRaindropShape()
+    private var rainOrSnow = PrecipitationType.rain
+
+    var precipitationType: PrecipitationType {
+        get {
+            return rainOrSnow
+        }
+        set {
+            rainOrSnow = newValue
+            setNeedsDisplay()
+        }
     }
 
-    private func drawRaindropShape() {
-        let width = Swift.min(frame.width, frame.height) / 2.0
-        let rainShapedPath = UIBezierPath(
-            roundedRect: bounds,
-            byRoundingCorners: UIRectCorner.topLeft.union(.bottomLeft).union(.bottomRight),
-            cornerRadii: CGSize(width: width, height: width)
-        )
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        drawOutline()
+    }
+
+    private func drawOutline() {
+        let radius = Swift.min(frame.width, frame.height) / 2.0
+        let path: UIBezierPath = (rainOrSnow == .rain)
+            ? UIBezierPath(
+                roundedRect: bounds,
+                byRoundingCorners: UIRectCorner.topLeft.union(.bottomLeft).union(.bottomRight),
+                cornerRadii: CGSize(width: radius, height: radius))
+            : UIBezierPath(roundedRect: bounds, cornerRadius: radius)
 
         let rainMask = CAShapeLayer()
         rainMask.frame = bounds
-        rainMask.path = rainShapedPath.cgPath
+        rainMask.path = path.cgPath
         layer.mask = rainMask
 
         let frameLayer = CAShapeLayer()
         frameLayer.frame = bounds
-        frameLayer.path = rainShapedPath.cgPath
+        frameLayer.path = path.cgPath
         frameLayer.fillColor = nil
         frameLayer.borderColor = nil
         layer.addSublayer(frameLayer)
     }
+}
+
+enum PrecipitationType {
+    case rain
+    case snow
 }

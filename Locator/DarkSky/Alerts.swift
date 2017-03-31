@@ -31,6 +31,7 @@ extension Alerts {
             if let issueTime = item["time"] as? TimeInterval,
                 let alertTitle = item["title"] as? String,
                 let alertDescription = item["description"] as? String,
+                let alertRegions = item["regions"] as? [String],
                 let alertSeverity = item["severity"] as? String,
                 let alertURI = item["uri"] as? String {
 
@@ -49,13 +50,12 @@ extension Alerts {
                 default:
                     severity = .low
                 }
-                let regions   = [String]()
                 let alert = Alert(
                     issued: Date(timeIntervalSince1970: issueTime),
                     expires: expiryTime,
                     title: alertTitle,
                     description: alertDescription,
-                    regions: regions,
+                    regions: alertRegions,
                     severity: severity,
                     source: URL(fileURLWithPath: alertURI).absoluteString)
                 print(alert.description)

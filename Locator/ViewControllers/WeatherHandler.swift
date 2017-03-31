@@ -64,8 +64,10 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
                 if precipPercentage > 0 {
                     cell.rain.text = "\(precipPercentage)%"
                     cell.rain.textColor = UIColor.black
-                    cell.rain.backgroundColor
-                        = UIColor.skyBlue.lighter().withAlphaComponent(CGFloat(0.5 + precipProbability * 0.5))
+                    cell.rain.precipitationType = (dataPoint.precipType == "snow")
+                        ? PrecipitationType.snow : PrecipitationType.rain
+                    let backColor = (dataPoint.precipType == "snow") ? UIColor.white : UIColor.skyBlue.lighter()
+                    cell.rain.backgroundColor = backColor.withAlphaComponent(CGFloat(0.5 + precipProbability * 0.5))
                     cell.rain.layer.cornerRadius = cell.rain.bounds.width / 2.0
                 } else {
                     cell.rain.text = "Dry"
@@ -100,8 +102,10 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
                 if precipPercentage > 0 {
                     cell.rain.text = "\(precipPercentage)%"
                     cell.rain.textColor = UIColor.black
-                    cell.rain.backgroundColor
-                        = UIColor.skyBlue.lighter().withAlphaComponent(CGFloat(0.5 + precipProbability * 0.5))
+                    cell.rain.precipitationType = (dataPoint.precipType == "snow")
+                        ? PrecipitationType.snow : PrecipitationType.rain
+                    let backColor = (dataPoint.precipType == "snow") ? UIColor.white : UIColor.skyBlue.lighter()
+                    cell.rain.backgroundColor = backColor.withAlphaComponent(CGFloat(0.5 + precipProbability * 0.5))
                     cell.rain.layer.cornerRadius = cell.rain.bounds.width / 2.0
                 } else {
                     cell.rain.text = "Dry"
