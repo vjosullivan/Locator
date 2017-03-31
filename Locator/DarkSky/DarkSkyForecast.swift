@@ -23,6 +23,8 @@ struct DarkSkyForecast {
     let hourly: DetailedForecast?
     let daily: DetailedForecast?
 
+    let alerts: [Alert]?
+
     var today: DataPoint? {
         return daily?.dataPoints?[0]
     }
@@ -73,5 +75,10 @@ struct DarkSkyForecast {
         minutely = DetailedForecast(dictionary: dictionary["minutely"] as? [String: AnyObject], units: forecastUnits)
         hourly   = DetailedForecast(dictionary: dictionary["hourly"] as? [String: AnyObject], units: forecastUnits)
         daily    = DetailedForecast(dictionary: dictionary["daily"] as? [String: AnyObject], units: forecastUnits)
+        alerts   = Alerts(from: dictionary["alerts"] as? [[String: AnyObject]])?.alerts
+    }
+
+    private func extractAlerts(dictionary: [String: AnyObject]?) -> [Alert] {
+        return []
     }
 }

@@ -71,7 +71,7 @@ struct Weather {
     static var windCalm: Weather {
         return Weather(symbol: "\u{F0b7}", color: UIColor.clear, isDark: false)
     }
-    static var windDirection: Weather { 
+    static var windDirection: Weather {
         // This symbol is for use with the "Zapf Dingbats" font.
         // For Weather Awesome arrows, use F058 or F0B1.
         return Weather(symbol: "\u{279F}", color: UIColor.clear, isDark: false)

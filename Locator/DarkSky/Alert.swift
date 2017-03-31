@@ -14,7 +14,7 @@ import Foundation
 struct Alert {
 
     /// The UNIX time at which the alert was issued.
-    let time: Date
+    let issued: Date
 
     /// The UNIX time at which the alert will expire.
     let expires: Date?
@@ -33,7 +33,7 @@ struct Alert {
     let severity: Severity
 
     /// An HTTP(S) URI that one may refer to for detailed information about the alert.
-    let detailsURL: URL
+    let source: String
 }
 
 enum Severity {
