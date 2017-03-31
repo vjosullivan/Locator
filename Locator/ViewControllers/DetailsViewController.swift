@@ -86,7 +86,9 @@ class DetailsViewController: UIViewController {
     private func updateWindDirection(from measurement: Measurement<UnitAngle>?) {
         if let windDirection = measurement {
             windSymbol.text = Weather.windDirection.symbol
-            let angle = CGFloat(windDirection.value + 180.0) * CGFloat.pi / 180.0
+            // Add 90° clockwise because the icon currently used points east (90°) 
+            // when the direction value is zero (north).
+            let angle = CGFloat(windDirection.value + 90.0) * CGFloat.pi / 180.0
             windSymbol.transform = CGAffineTransform.init(rotationAngle: angle)
             windSubtext.text = "from \(cardinal(from: windDirection.value))"
         } else {
