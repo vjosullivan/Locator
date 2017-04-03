@@ -41,24 +41,15 @@ extension Alerts {
                 } else {
                     expiryTime = nil
                 }
-                let severity: Severity
-                switch alertSeverity {
-                case "warning":
-                    severity = .high
-                case "watch":
-                    severity = .medium
-                default:
-                    severity = .low
-                }
+                print(alertURI)
                 let alert = Alert(
                     issued: Date(timeIntervalSince1970: issueTime),
                     expires: expiryTime,
-                    title: alertTitle,
-                    description: alertDescription,
+                    alertTitle: alertTitle,
+                    details: alertDescription.realigned(),
                     regions: alertRegions,
-                    severity: severity,
+                    severity: alertSeverity,
                     source: URL(fileURLWithPath: alertURI).absoluteString)
-                print(alert.description)
                 extractedAlerts.append(alert)
             } else {
                 print("Alert extraction failed.")

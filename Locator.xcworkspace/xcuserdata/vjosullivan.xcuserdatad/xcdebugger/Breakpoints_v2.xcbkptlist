@@ -54,49 +54,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Locator/DarkSky/Alerts.swift"
-            timestampString = "512637276.200632"
+            filePath = "Locator/Extensions/String_extension.swift"
+            timestampString = "512907658.642871"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "extractAlerts(from:)"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "realigned()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static Locator.Alerts.(extractAlerts in _C93C8D592BCB1372C603663D9C129027) (from : Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;&gt;) -&gt; Swift.Optional&lt;Swift.Array&lt;Locator.Alert&gt;&gt;"
-                  moduleName = "Locator"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vjosullivan/dev/Locator/Locator/DarkSky/Alerts.swift"
-                  timestampString = "512637580.300459"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "468">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static Locator.Alerts.(extractAlerts in _C93C8D592BCB1372C603663D9C129027) (from : Swift.Array&lt;Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;&gt;) -&gt; Swift.Optional&lt;Swift.Array&lt;Locator.Alert&gt;&gt;"
-                  moduleName = "Locator"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vjosullivan/dev/Locator/Locator/DarkSky/Alerts.swift"
-                  timestampString = "512637580.302479"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "764">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Locator/Extensions/String_extension.swift"
+            timestampString = "512907779.740752"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "realigned()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

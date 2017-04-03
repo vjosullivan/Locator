@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3403E86F1E8E7439003F7026 /* Int_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3403E86E1E8E7439003F7026 /* Int_extension.swift */; };
-		3403E8711E8E7A35003F7026 /* AlertTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3403E8701E8E7A35003F7026 /* AlertTableDataSource.swift */; };
+		3403E8711E8E7A35003F7026 /* AlertsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3403E8701E8E7A35003F7026 /* AlertsHandler.swift */; };
 		340FBA091E1A8B1600E2FAD4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340FBA081E1A8B1500E2FAD4 /* SettingsViewController.swift */; };
 		3422C05B1E1BD01000006EB3 /* Date_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422C05A1E1BD01000006EB3 /* Date_extension.swift */; };
 		3422C05D1E1BF79E00006EB3 /* DarkMoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422C05C1E1BF79E00006EB3 /* DarkMoon.swift */; };
@@ -53,6 +53,7 @@
 		F11F081B1E88527500231BEF /* WeatherHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F081A1E88527500231BEF /* WeatherHandler.swift */; };
 		F11F081D1E8856AF00231BEF /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F081C1E8856AF00231BEF /* WeatherTableViewCell.swift */; };
 		F11F08201E895F0800231BEF /* CreditsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F081F1E895F0800231BEF /* CreditsViewControllerTests.swift */; };
+		F14AB6F61E9236E10074E376 /* AlertsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14AB6F51E9236E10074E376 /* AlertsTableViewCell.swift */; };
 		F166733F1E0295ED0087C5D7 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166733C1E0295ED0087C5D7 /* LocationController.swift */; };
 		F16673401E0295ED0087C5D7 /* LocationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166733D1E0295ED0087C5D7 /* LocationControllerDelegate.swift */; };
 		F16673411E0295ED0087C5D7 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166733E1E0295ED0087C5D7 /* Location.swift */; };
@@ -87,7 +88,7 @@
 /* Begin PBXFileReference section */
 		1CA6C082A0A8C47587CC8ADF /* Pods-Locator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Locator.release.xcconfig"; path = "Pods/Target Support Files/Pods-Locator/Pods-Locator.release.xcconfig"; sourceTree = "<group>"; };
 		3403E86E1E8E7439003F7026 /* Int_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Int_extension.swift; sourceTree = "<group>"; };
-		3403E8701E8E7A35003F7026 /* AlertTableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertTableDataSource.swift; sourceTree = "<group>"; };
+		3403E8701E8E7A35003F7026 /* AlertsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsHandler.swift; sourceTree = "<group>"; };
 		340FBA081E1A8B1500E2FAD4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		3422C05A1E1BD01000006EB3 /* Date_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date_extension.swift; sourceTree = "<group>"; };
 		3422C05C1E1BF79E00006EB3 /* DarkMoon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkMoon.swift; sourceTree = "<group>"; };
@@ -137,6 +138,7 @@
 		F11F081A1E88527500231BEF /* WeatherHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherHandler.swift; sourceTree = "<group>"; };
 		F11F081C1E8856AF00231BEF /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
 		F11F081F1E895F0800231BEF /* CreditsViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewControllerTests.swift; sourceTree = "<group>"; };
+		F14AB6F51E9236E10074E376 /* AlertsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsTableViewCell.swift; sourceTree = "<group>"; };
 		F166733C1E0295ED0087C5D7 /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		F166733D1E0295ED0087C5D7 /* LocationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationControllerDelegate.swift; sourceTree = "<group>"; };
 		F166733E1E0295ED0087C5D7 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -234,7 +236,8 @@
 				34A540AF1E35F73000FD7C6E /* WeekViewController.swift */,
 				F11F081A1E88527500231BEF /* WeatherHandler.swift */,
 				F11F081C1E8856AF00231BEF /* WeatherTableViewCell.swift */,
-				3403E8701E8E7A35003F7026 /* AlertTableDataSource.swift */,
+				3403E8701E8E7A35003F7026 /* AlertsHandler.swift */,
+				F14AB6F51E9236E10074E376 /* AlertsTableViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -559,7 +562,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3403E8711E8E7A35003F7026 /* AlertTableDataSource.swift in Sources */,
+				3403E8711E8E7A35003F7026 /* AlertsHandler.swift in Sources */,
 				34DF48E71E292ADB00AC4E16 /* AppSettings.swift in Sources */,
 				F16673471E0297E20087C5D7 /* DarkSkyForecast.swift in Sources */,
 				F166734C1E02980C0087C5D7 /* DetailedForecast.swift in Sources */,
@@ -581,6 +584,7 @@
 				348914751E39DC3300509CA3 /* RainIntensity.swift in Sources */,
 				F11F081B1E88527500231BEF /* WeatherHandler.swift in Sources */,
 				348148751E15C1FF00079056 /* DetailsViewController.swift in Sources */,
+				F14AB6F61E9236E10074E376 /* AlertsTableViewCell.swift in Sources */,
 				F1D5D2A31DD8982400D9DC1F /* PlaceManager.swift in Sources */,
 				F1E08CC71E8BD48E003561FF /* RaindropLabel.swift in Sources */,
 				34F5A5001E23D6A600E66AC1 /* Font_extension.swift in Sources */,

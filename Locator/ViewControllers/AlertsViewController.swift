@@ -11,10 +11,20 @@ import UIKit
 class AlertsViewController: UIViewController {
 
     @IBOutlet weak var screenTitle: UILabel!
+    @IBOutlet weak var alertsTable: UITableView!
+    @IBOutlet weak var summary: UILabel!
     @IBOutlet weak var returnButton: UIButton!
+
+    private var alertsHandler = AlertsHandler()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        alertsTable.dataSource = alertsHandler
+        alertsTable.delegate = alertsHandler
+
+        alertsTable.rowHeight = UITableViewAutomaticDimension
+        alertsTable.estimatedRowHeight = 140
     }
 
     func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?) {
@@ -22,8 +32,17 @@ class AlertsViewController: UIViewController {
         let foreColor = foregroundColor ?? UIColor.white
         let backColor = backgroundColor ?? UIColor.darkGray
 
-        screenTitle.text = "Alerts"
+        let plural = forecast.alerts?.count == 1 ? "" : "s"
+        screenTitle.text = "\((forecast.alerts?.count ?? 0).asText.capitalized) Alert\(plural)"
         screenTitle.textColor = foreColor
+
+        if forecast.alerts != nil {
+            alertsTable.isHidden = false
+            alertsHandler.update(using: forecast.alerts ?? [Alert]())
+            alertsTable.reloadData()
+        } else {
+            alertsTable.isHidden = true
+        }
 
         returnButton.setTitleColor(foreColor, for: .normal)
         view.backgroundColor = backColor

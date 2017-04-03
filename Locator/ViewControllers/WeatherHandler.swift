@@ -39,6 +39,7 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
         let cell = tableView
             .dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! WeatherTableViewCell
         // swiftlint:enable force_cast
+
         switch detailType {
         case .day:
             return populateHourOfDay(cell: cell,
@@ -60,7 +61,7 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.maxTemperature.text
                 = "\(Int(dataPoint.temperature?.value ?? 0))\(dataPoint.temperature?.unit.symbol ?? "")"
             if let precipProbability = dataPoint.precipProbability {
-                let precipPercentage = Int(precipProbability * 10.0) * 10
+                let precipPercentage = Int((precipProbability + 0.1) * 5.0) * 20
                 if precipPercentage > 0 {
                     cell.rain.text = "\(precipPercentage)%"
                     cell.rain.textColor = UIColor.black
@@ -98,7 +99,7 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.maxTemperature.text
                 = "\(Int(dataPoint.temperatureMax?.value ?? 0))\(dataPoint.temperatureMax?.unit.symbol ?? "")"
             if let precipProbability = dataPoint.precipProbability {
-                let precipPercentage = Int((precipProbability + 0.05) * 10.0) * 10
+                let precipPercentage = Int((precipProbability + 0.1) * 5.0) * 20
                 if precipPercentage > 0 {
                     cell.rain.text = "\(precipPercentage)%"
                     cell.rain.textColor = UIColor.black

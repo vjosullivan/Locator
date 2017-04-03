@@ -36,6 +36,10 @@ class FrontViewController: UIViewController {
         // Clear background colors from labels and buttons
         _ = backgroundColoredViews.map { $0.backgroundColor = UIColor.clear }
 
+        buttonATL.setTitle("Settings", for: .normal)
+        buttonATR.setTitle("Location", for: .normal)
+        buttonABL.setTitle("Daylight", for: .normal)
+        buttonABR.setTitle("Details", for: .normal)
         buttonATL.transform = CGAffineTransform.init(rotationAngle: CGFloat.pi / 2.0)
         buttonATR.transform = CGAffineTransform.init(rotationAngle: -CGFloat.pi / 2.0)
         buttonABL.transform = CGAffineTransform.init(rotationAngle: CGFloat.pi / 2.0)

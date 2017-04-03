@@ -12,7 +12,7 @@ extension Int {
 
     var asText: String {
         if 0 <= self && self <= 10 {
-            return ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"][self]
+            return ["no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"][self]
         }
         return "\(self)"
     }

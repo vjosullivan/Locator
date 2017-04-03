@@ -29,4 +29,18 @@ extension String {
         let endIndex = index(from: range.upperBound)
         return substring(with: startIndex..<endIndex)
     }
+
+    func realigned() -> String {
+        var s1 = self.trimmingCharacters(in: .whitespacesAndNewlines)
+//        while let rangeToReplace = s1.rangeOfCharacter(from: .newlines) {
+//            s1.replaceSubrange(rangeToReplace, with: " ")
+//        }
+        while let rangeToReplace = s1.range(of: "... ") {
+            s1.replaceSubrange(rangeToReplace, with: "...\n")
+        }
+//        while let rangeToReplace = s1.range(of: "ST.\n") {
+//            s1.replaceSubrange(rangeToReplace, with: "ST. ")
+//        }
+        return s1
+    }
 }
