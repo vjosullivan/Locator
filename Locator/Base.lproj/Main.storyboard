@@ -1692,8 +1692,8 @@
                                                     <color key="textColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bN3-fc-nri" userLabel="Regions">
-                                                    <rect key="frame" x="8" y="40.5" width="303" height="27"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bN3-fc-nri" userLabel="Regions">
+                                                    <rect key="frame" x="8" y="40.5" width="303" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="Dxq-32-0YZ"/>
                                                     </constraints>
