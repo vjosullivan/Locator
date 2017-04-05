@@ -11,6 +11,7 @@ import UIKit
 class MainViewController: UIViewController {
 
     let radianConvertion = CGFloat.pi / 180.0
+    let cornerRadius: CGFloat = 12.0
 
     @IBOutlet weak var rainIntensity: GraphView!
     @IBOutlet weak var rainProbability: GraphView!
@@ -138,31 +139,40 @@ class MainViewController: UIViewController {
                 self.frontVC?.update(forecast: darkSkyForecast,
                                      foregroundColor: self.currentWeatherSymbol.textColor,
                                      backgroundColor: self.currentWeatherBackground.backgroundColor,
+                                     cornerRadius: self.cornerRadius,
                                      container: self)
                 self.settingsVC?.update(forecast: darkSkyForecast,
                                         foregroundColor: self.currentWeatherSymbol.textColor,
+                                        cornerRadius: self.cornerRadius,
                                         backgroundColor: self.currentWeatherBackground.backgroundColor)
                 self.solarVC?.update(forecast: darkSkyForecast,
                                      foregroundColor: self.currentWeatherSymbol.textColor,
-                                     backgroundColor: self.currentWeatherBackground.backgroundColor)
+                                     backgroundColor: self.currentWeatherBackground.backgroundColor,
+                                     cornerRadius: self.cornerRadius)
                 self.detailsVC?.update(forecast: darkSkyForecast,
                                        foregroundColor: self.currentWeatherSymbol.textColor,
-                                       backgroundColor: self.currentWeatherBackground.backgroundColor)
+                                       backgroundColor: self.currentWeatherBackground.backgroundColor,
+                                       cornerRadius: self.cornerRadius)
                 self.hourVC?.update(forecast: darkSkyForecast,
                                     foregroundColor: self.currentWeatherSymbol.textColor,
-                                    backgroundColor: self.currentWeatherBackground.backgroundColor)
+                                    backgroundColor: self.currentWeatherBackground.backgroundColor,
+                                    cornerRadius: self.cornerRadius)
                 self.dayVC?.update(forecast: darkSkyForecast,
                                     foregroundColor: self.currentWeatherSymbol.textColor,
-                                    backgroundColor: self.currentWeatherBackground.backgroundColor, container: self)
+                                    backgroundColor: self.currentWeatherBackground.backgroundColor,
+                                    cornerRadius: self.cornerRadius, container: self)
                 self.weekVC?.update(forecast: darkSkyForecast,
                                     foregroundColor: self.currentWeatherSymbol.textColor,
-                                    backgroundColor: self.currentWeatherBackground.backgroundColor)
+                                    backgroundColor: self.currentWeatherBackground.backgroundColor,
+                                    cornerRadius: self.cornerRadius)
                 self.creditsVC?.update(forecast: darkSkyForecast,
                                     foregroundColor: self.currentWeatherSymbol.textColor,
-                                    backgroundColor: self.currentWeatherBackground.backgroundColor)
+                                    backgroundColor: self.currentWeatherBackground.backgroundColor,
+                                    cornerRadius: self.cornerRadius)
                 self.alertsVC?.update(forecast: darkSkyForecast,
                                       foregroundColor: self.currentWeatherSymbol.textColor,
-                                      backgroundColor: self.currentWeatherBackground.backgroundColor)
+                                      backgroundColor: self.currentWeatherBackground.backgroundColor,
+                                      cornerRadius: self.cornerRadius)
             }
         }
     }

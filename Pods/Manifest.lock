@@ -2,17 +2,20 @@ PODS:
   - GoogleMaps/Base (2.1.0)
   - GooglePlaces (2.1.0):
     - GoogleMaps/Base (= 2.1.0)
+  - Reveal-SDK (7)
   - SwiftLint (0.15.0)
 
 DEPENDENCIES:
   - GooglePlaces
+  - Reveal-SDK
   - SwiftLint
 
 SPEC CHECKSUMS:
   GoogleMaps: 06589b9a38097bce0cd6e90f0fd9b5e4b4a9344c
   GooglePlaces: 16e96266483b8010e9f275399403647978523c86
+  Reveal-SDK: 564657bc66c93d2718b1c0121cdebe99d354ddab
   SwiftLint: d73999f81682ab8114d6408c89f83177b2c197d7
 
-PODFILE CHECKSUM: 22e89887564937c1a26f7a15208c880c776ad813
+PODFILE CHECKSUM: 3ab2402e195b64ebea1aa1765a46075bc592b104
 
-COCOAPODS: 1.2.0.beta.1
+COCOAPODS: 1.2.0

@@ -8,23 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		8CF8CD0D5202B89A64DA1EC563A0D694 /* Pods-Locator-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 91EADB0F875C219DF11CFED9194FBA46 /* Pods-Locator-dummy.m */; };
-		DA63C1AD64AA307F4BEC949DC702FD9B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		F25602DB9C6FEE83A3F07C9BCAB8BC5A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		281570CE4923B27D9D846F373B0C16E0 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Subspecs/Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
+		113AB16F9BE7359BBE1DE3BC598EA472 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Subspecs/Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
 		2E6F9A0C7BE10BC9605096051450FACC /* Pods-Locator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Locator.release.xcconfig"; sourceTree = "<group>"; };
+		317AEE4FBA18AD9F94DC904F05C1E48C /* RevealServer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RevealServer.framework; path = "RevealServer-7/iOS/RevealServer.framework"; sourceTree = "<group>"; };
 		4A0A5436D8A0CF2E10DBEF040623C7A0 /* Pods-Locator-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Locator-acknowledgements.plist"; sourceTree = "<group>"; };
 		64E317ED0078388D823D4238E26B975F /* libPods-Locator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Locator.a"; path = "libPods-Locator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		679763F04242D758A8B09E1EE684B84E /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = Frameworks/GooglePlaces.framework; sourceTree = "<group>"; };
 		7AE20A8B8B90DF31AA0995EFA8F3CACD /* Pods-Locator-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Locator-frameworks.sh"; sourceTree = "<group>"; };
 		80438A33F8C46B267CE4F6BF46C5441F /* Pods-Locator-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Locator-acknowledgements.markdown"; sourceTree = "<group>"; };
 		91EADB0F875C219DF11CFED9194FBA46 /* Pods-Locator-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Locator-dummy.m"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		ADCDED42238D7FEE647363449309F73F /* GooglePlaces.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = Frameworks/GooglePlaces.framework/Versions/A/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
 		B438A704C5EC2ACA324F337FCD7DD6BC /* Pods-Locator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Locator.debug.xcconfig"; sourceTree = "<group>"; };
-		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		DC1614AE73F1DDEB8A43280642062054 /* Pods-Locator-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Locator-resources.sh"; sourceTree = "<group>"; };
-		E3102E57B95FF728663974F1CC76C691 /* GooglePlaces.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GooglePlaces.framework; path = Frameworks/GooglePlaces.framework; sourceTree = "<group>"; };
-		EB9476F3869A124CB5EA29031B9BDC15 /* GooglePlaces.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GooglePlaces.bundle; path = Frameworks/GooglePlaces.framework/Versions/A/Resources/GooglePlaces.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,7 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA63C1AD64AA307F4BEC949DC702FD9B /* Foundation.framework in Frameworks */,
+				F25602DB9C6FEE83A3F07C9BCAB8BC5A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,10 +63,18 @@
 			path = "Target Support Files/Pods-Locator";
 			sourceTree = "<group>";
 		};
-		0C035DA230FFA8F2C18152C69C8767B6 /* Frameworks */ = {
+		1847CA00A48F799553A14A05ACF54F8F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				281570CE4923B27D9D846F373B0C16E0 /* GoogleMapsBase.framework */,
+				ADCDED42238D7FEE647363449309F73F /* GooglePlaces.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		283677A15A8834E6F594E0A4D9D93117 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				317AEE4FBA18AD9F94DC904F05C1E48C /* RevealServer.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -78,38 +87,29 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3BE5EE203EED43ADE09C0C0895CEA2BF /* Base */ = {
+		477B3A239F60299A74D24F93DC4D40B6 /* GoogleMaps */ = {
 			isa = PBXGroup;
 			children = (
-				0C035DA230FFA8F2C18152C69C8767B6 /* Frameworks */,
+				49EC37C84DE7507C78EFB8C1AB86608B /* Base */,
+			);
+			name = GoogleMaps;
+			path = GoogleMaps;
+			sourceTree = "<group>";
+		};
+		49EC37C84DE7507C78EFB8C1AB86608B /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				DF324FDF19D933B839A565E8DB72ACCB /* Frameworks */,
 			);
 			name = Base;
 			sourceTree = "<group>";
 		};
-		5AFD716DA033284319037B7E8DF90244 /* GooglePlaces */ = {
+		5A3D22C286923EA3DE6405741BFF6D33 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DCCF0E28283CC6850EB364662375762A /* Frameworks */,
-				5CD1EEB86825B99915B491338BEBB210 /* Resources */,
+				679763F04242D758A8B09E1EE684B84E /* GooglePlaces.framework */,
 			);
-			name = GooglePlaces;
-			path = GooglePlaces;
-			sourceTree = "<group>";
-		};
-		5CD1EEB86825B99915B491338BEBB210 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				EB9476F3869A124CB5EA29031B9BDC15 /* GooglePlaces.bundle */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */,
-			);
-			name = iOS;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -117,48 +117,67 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				BA6BDFD3F0CBF09F2CC4C689BEE8EA4E /* Pods */,
+				CA38B02A454414D65E092AA4929C0631 /* Pods */,
 				33C6B9A3A7A608F2ECCC7ADD12A3B553 /* Products */,
 				056149D57B245696EF44BAADAF454CA2 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		88E2628F5C957C4594D04E89FA3CAE82 /* GoogleMaps */ = {
+		B995DE37285E229FECF295890FD0FD5A /* Reveal-SDK */ = {
 			isa = PBXGroup;
 			children = (
-				3BE5EE203EED43ADE09C0C0895CEA2BF /* Base */,
+				283677A15A8834E6F594E0A4D9D93117 /* Frameworks */,
 			);
-			name = GoogleMaps;
-			path = GoogleMaps;
-			sourceTree = "<group>";
-		};
-		BA6BDFD3F0CBF09F2CC4C689BEE8EA4E /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				88E2628F5C957C4594D04E89FA3CAE82 /* GoogleMaps */,
-				5AFD716DA033284319037B7E8DF90244 /* GooglePlaces */,
-				EAF6CE09F54EBF0F6F6BF06A2F65D5B7 /* SwiftLint */,
-			);
-			name = Pods;
+			name = "Reveal-SDK";
+			path = "Reveal-SDK";
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */,
+				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DCCF0E28283CC6850EB364662375762A /* Frameworks */ = {
+		CA38B02A454414D65E092AA4929C0631 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E3102E57B95FF728663974F1CC76C691 /* GooglePlaces.framework */,
+				477B3A239F60299A74D24F93DC4D40B6 /* GoogleMaps */,
+				EB643BE691A3FDF967BD38D1E8E7A346 /* GooglePlaces */,
+				B995DE37285E229FECF295890FD0FD5A /* Reveal-SDK */,
+				F7FF5319AC70A0D9B8C2A4B8111C2B08 /* SwiftLint */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		DF324FDF19D933B839A565E8DB72ACCB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				113AB16F9BE7359BBE1DE3BC598EA472 /* GoogleMapsBase.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		EAF6CE09F54EBF0F6F6BF06A2F65D5B7 /* SwiftLint */ = {
+		EB643BE691A3FDF967BD38D1E8E7A346 /* GooglePlaces */ = {
+			isa = PBXGroup;
+			children = (
+				5A3D22C286923EA3DE6405741BFF6D33 /* Frameworks */,
+				1847CA00A48F799553A14A05ACF54F8F /* Resources */,
+			);
+			name = GooglePlaces;
+			path = GooglePlaces;
+			sourceTree = "<group>";
+		};
+		F7FF5319AC70A0D9B8C2A4B8111C2B08 /* SwiftLint */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -191,7 +210,7 @@
 		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
@@ -269,11 +288,12 @@
 			};
 			name = Debug;
 		};
-		CACE7C8415F53E79F07C6BBE57F0F61D /* Debug */ = {
+		C9AB81BFD05E6D67605417F865AD0797 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -281,10 +301,13 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
@@ -313,11 +336,12 @@
 			};
 			name = Debug;
 		};
-		ED4FC68AB2A4E06C718CFF338F6F156B /* Release */ = {
+		EDC2AA7A769C7EC8985877948E1A0E59 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -325,10 +349,13 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
@@ -359,8 +386,8 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CACE7C8415F53E79F07C6BBE57F0F61D /* Debug */,
-				ED4FC68AB2A4E06C718CFF338F6F156B /* Release */,
+				C9AB81BFD05E6D67605417F865AD0797 /* Debug */,
+				EDC2AA7A769C7EC8985877948E1A0E59 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

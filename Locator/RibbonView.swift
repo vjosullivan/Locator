@@ -37,8 +37,9 @@ class RibbonView: UILabel {
         context.addLine(to: CGPoint(x: rect.maxX - rect.maxY * 2.0 / 8.0, y: rect.maxY / 2.0))
         context.addLine(to: CGPoint(x: rect.maxX, y: rect.minY))
         context.closePath()
+        context.setFillColor(UIColor.copper.cgColor)
 
-        context.setFillColor(UIColor.hsbBlue.cgColor) //  or(red: 0.0, green: 0.5, blue: 1.0, alpha: 1.0)
+        //context.setFillColor(UIColor.hsbBlue.cgColor) //  or(red: 0.0, green: 0.5, blue: 1.0, alpha: 1.0)
         context.fillPath()
         super.draw(rect)
     }

@@ -12,6 +12,7 @@ extension UIColor {
 
     static let amber  = UIColor(red: 1.0, green: 88.0/255, blue: 0.0, alpha: 1.0)
     static let bronze = UIColor(red: 205.0/255.0, green: 127.0/255.0, blue: 50.0/255.0, alpha: 1.0)
+    static let copper = UIColor(hexString: "B87333")
     static let naturalYellow = UIColor(red: 255.0/255.0, green: 211.0/255.0, blue: 0.0, alpha: 1.0)
 
     static let blueGray = UIColor(hexString: "7799BB")
@@ -33,7 +34,7 @@ extension UIColor {
     static let hsbYellow = UIColor(hue: 52.5/360.0, saturation: 0.9, brightness: 1.0, alpha: 1.0)
     static let hsbBlue   = UIColor(hue: 195.0/360.0, saturation: 0.9, brightness: 1.0, alpha: 1.0)
 
-    static let clearSky   = UIColor.clearDay.mixedWith(UIColor.clearNight)
+    static let clearSky   = clearDay.mixedWith(UIColor.clearNight)
     static let clearDay   = UIColor.skyBlue
     static let clearNight = UIColor.midnightBlue
 
@@ -49,8 +50,8 @@ extension UIColor {
     static let partlyCloudyDay = UIColor.cloudySky
     static let partlyCloudyNight = UIColor.ocean
 
-    static let cloudy      = UIColor.blueGray.darker()
-    static let cloudyDay   = UIColor.blueGray
+    static let cloudy      = UIColor.cloudySky.darker()
+    static let cloudyDay   = UIColor.cloudySky
     static let cloudyNight = UIColor.blueGray.darker().darker()
 
     static let rain      = UIColor.blueGray.lighter()

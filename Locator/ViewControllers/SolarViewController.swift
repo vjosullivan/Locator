@@ -34,7 +34,7 @@ class SolarViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?) {
+    func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?, cornerRadius: CGFloat) {
 
         let foreColor = foregroundColor ?? UIColor.white
         let backColor = backgroundColor ?? UIColor.darkGray
@@ -65,6 +65,7 @@ class SolarViewController: UIViewController {
 
         returnButton.setTitleColor(foreColor, for: .normal)
         view.backgroundColor = backColor
+        view.topCornerRadius = cornerRadius
     }
 
     private func nextSunrise(sunrise: Date?, sunset: Date?) -> String {

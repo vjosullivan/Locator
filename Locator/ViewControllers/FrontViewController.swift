@@ -22,7 +22,6 @@ class FrontViewController: UIViewController {
     @IBOutlet weak var buttonABR: UIButton!
     @IBOutlet weak var buttonABL: UIButton!
 
-    @IBOutlet weak var viewA: UIView!
     @IBOutlet weak var currentWeatherValue: UILabel!
     @IBOutlet weak var currentTemperatureValue: UILabel!
     @IBOutlet weak var minTempValue: UILabel!
@@ -44,17 +43,20 @@ class FrontViewController: UIViewController {
         buttonATR.transform = CGAffineTransform.init(rotationAngle: -CGFloat.pi / 2.0)
         buttonABL.transform = CGAffineTransform.init(rotationAngle: CGFloat.pi / 2.0)
         buttonABR.transform = CGAffineTransform.init(rotationAngle: -CGFloat.pi / 2.0)
+
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
     }
 
-    func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?,
+    func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?, cornerRadius: CGFloat,
                 container: MainViewController) {
         mainVC = container
 
-        viewA.backgroundColor = backgroundColor
+        let foreColor = foregroundColor ?? UIColor.white
+        let backColor = backgroundColor ?? UIColor.darkGray
+
         currentTemperatureValue.textColor = foregroundColor
         currentWeatherValue.textColor = foregroundColor
         minTempValue.textColor = foregroundColor
@@ -75,15 +77,14 @@ class FrontViewController: UIViewController {
 
         setMinMaxTemperatures(forecast: forecast, textColor: foregroundColor!)
 
-        let foreColor = foregroundColor ?? UIColor.white
-        let backColor = backgroundColor ?? UIColor.darkGray
-
         buttonATL.setTitleColor(foreColor, for: .normal)
         buttonATR.setTitleColor(foreColor, for: .normal)
         buttonABL.setTitleColor(foreColor, for: .normal)
         buttonABR.setTitleColor(foreColor, for: .normal)
+
         view.backgroundColor = backColor
-    }
+        view.topCornerRadius = cornerRadius
+}
 
     private func setMinMaxTemperatures(forecast: DarkSkyForecast, textColor: UIColor) {
         if let hi = forecast.today?.temperatureMax {

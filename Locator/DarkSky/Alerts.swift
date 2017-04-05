@@ -17,7 +17,6 @@ extension Alerts {
 
     init?(from dictionary: [[String: AnyObject]]?) {
         guard let dictionary = dictionary, !dictionary.isEmpty else {
-            print("No alerts.")
             return nil
         }
 
@@ -25,7 +24,6 @@ extension Alerts {
     }
 
     private static func extractAlerts(from alertArray: [[String: AnyObject]]) -> [Alert]? {
-        print("Alerts found: \(alertArray.count)")
         var extractedAlerts = [Alert]()
         for item in alertArray {
             if let issueTime = item["time"] as? TimeInterval,

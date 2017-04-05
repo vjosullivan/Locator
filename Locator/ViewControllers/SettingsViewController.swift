@@ -28,7 +28,7 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?) {
+    func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, cornerRadius: CGFloat, backgroundColor: UIColor?) {
 
         AppSettings.store(key: "units", value: forecast.unitsCode)
 
@@ -37,6 +37,7 @@ class SettingsViewController: UIViewController {
 
         returnButton.setTitleColor(foreColor, for: .normal)
         view.backgroundColor = backColor
+        view.topCornerRadius = cornerRadius
     }
 
     @IBAction func switchUnits(_ sender: UIButton) {

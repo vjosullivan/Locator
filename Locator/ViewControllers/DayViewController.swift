@@ -36,16 +36,13 @@ class DayViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        view.bottomCornerRadius = 8.0
 
         weatherTable.dataSource = weatherHandler
         weatherTable.delegate = weatherHandler
     }
 
-    func update(forecast: DarkSkyForecast,
-                foregroundColor: UIColor?,
-                backgroundColor: UIColor?,
-                container: MainViewController) {
-
+    func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?, cornerRadius: CGFloat, container: MainViewController) {
         mainVC = container
 
         let foreColor = foregroundColor ?? UIColor.white
@@ -65,6 +62,7 @@ class DayViewController: UIViewController {
         summary.text = forecast.hourly?.summary ?? ""
 
         view.backgroundColor = backColor
+        view.bottomCornerRadius = cornerRadius
     }
 
     // MARK: - Actions

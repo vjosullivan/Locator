@@ -39,7 +39,7 @@ class HourViewController: UIViewController {
         rainIntensityGraph.layer.borderWidth = 1
     }
 
-    func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?) {
+    func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?, cornerRadius: CGFloat) {
 
         let foreColor = foregroundColor ?? UIColor.white
         let backColor = backgroundColor ?? UIColor.darkGray
@@ -55,6 +55,7 @@ class HourViewController: UIViewController {
 
         rainIntensityGraph.data = forecast.minutelyRainIntensity
         view.backgroundColor = backColor
+        view.bottomCornerRadius = cornerRadius
     }
 
     private func oneHourSummary(from forecast: DarkSkyForecast) -> String {
@@ -79,7 +80,7 @@ class HourViewController: UIViewController {
             let other = String(type.characters.dropFirst())
             return first + other
         } else {
-            return "No precipitation"
+            return "Nothing"
         }
     }
 }

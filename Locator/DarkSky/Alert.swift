@@ -47,7 +47,6 @@ struct Alert {
     }
 
     public func formattedRegionsText() -> String {
-        print("Regions:", regions)
         guard !regions.isEmpty else {
             return "-"
         }
