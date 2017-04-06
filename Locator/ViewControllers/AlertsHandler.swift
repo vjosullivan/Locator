@@ -12,9 +12,11 @@ class AlertsHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
 
     private let reuseIdentifier = "AlertCell"
     private var alerts = [Alert]()
+    private var backgroundColor = UIColor.black
 
-    func update(using alerts: [Alert]) {
+    func update(using alerts: [Alert], backgroundColor: UIColor) {
         self.alerts = alerts
+        self.backgroundColor = backgroundColor
     }
 
     // MARK: - Table view data source
@@ -44,6 +46,7 @@ class AlertsHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
         cell.timeIssued.text = alert.formattedIssuedAtText(includeExpiry: false)
         cell.regions.text = alert.formattedRegionsText()
         cell.details.text = alert.details
+        cell.backgroundColor = backgroundColor
         return cell
     }
 }

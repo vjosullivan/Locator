@@ -35,6 +35,10 @@ class LocationListViewController: UIViewController, UITableViewDataSource {
         uiPlaces.reloadData()
     }
 
+    @IBAction func returnAction() {
+        self.performSegue(withIdentifier: "unwindToMainVC", sender: self)
+    }
+
     @IBAction func unwindToLocationListVC(segue: UIStoryboardSegue) {
         // Here you can receive the parameter(s) from secondVC
         if segue.source is LocationFinderViewController {

@@ -33,10 +33,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOo-5c-0Np">
-                                <rect key="frame" x="223" y="20" width="144" height="48"/>
+                                <rect key="frame" x="16" y="20" width="114.5" height="48"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="144" id="atV-4P-KZU"/>
                                     <constraint firstAttribute="height" constant="48" id="fSM-uj-EYn"/>
                                 </constraints>
                                 <state key="normal" title="Add"/>
@@ -74,14 +73,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcS-Ax-RdT">
-                                <rect key="frame" x="8" y="20" width="144" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lXU-qy-UPQ" userLabel="Cancel">
+                                <rect key="frame" x="261" y="20" width="114" height="48"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.5" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="144" id="1Jf-gs-6QG"/>
+                                    <constraint firstAttribute="height" constant="48" id="dUq-ax-Cs7"/>
+                                </constraints>
+                                <state key="normal" title="Return"/>
+                                <connections>
+                                    <action selector="returnAction" destination="oWF-zq-eB6" eventType="touchUpInside" id="vNV-3O-gEU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcS-Ax-RdT">
+                                <rect key="frame" x="138.5" y="20" width="114.5" height="48"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
                                     <constraint firstAttribute="height" constant="48" id="ec2-Nr-CTg"/>
                                 </constraints>
-                                <state key="normal" title="Clear"/>
+                                <state key="normal" title="Clear all"/>
                                 <connections>
                                     <action selector="clearLocations" destination="oWF-zq-eB6" eventType="touchUpInside" id="tIZ-S5-Teq"/>
                                 </connections>
@@ -90,12 +99,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="faC-m6-wmc" secondAttribute="trailing" constant="8" id="7bv-sc-YKb"/>
-                            <constraint firstAttribute="trailing" secondItem="MOo-5c-0Np" secondAttribute="trailing" constant="8" id="Go3-hi-BbT"/>
+                            <constraint firstItem="lXU-qy-UPQ" firstAttribute="top" secondItem="81R-ps-Akc" secondAttribute="bottom" id="9SD-YL-jm3"/>
+                            <constraint firstAttribute="trailing" secondItem="lXU-qy-UPQ" secondAttribute="trailing" id="ESu-dg-gN4"/>
                             <constraint firstItem="faC-m6-wmc" firstAttribute="leading" secondItem="tot-Ad-Vff" secondAttribute="leading" constant="8" id="HJl-YZ-dEa"/>
                             <constraint firstItem="MOo-5c-0Np" firstAttribute="top" secondItem="81R-ps-Akc" secondAttribute="bottom" id="Nsf-FX-XiM"/>
+                            <constraint firstItem="MOo-5c-0Np" firstAttribute="leading" secondItem="tot-Ad-Vff" secondAttribute="leadingMargin" id="OD2-ng-2MB"/>
+                            <constraint firstItem="zcS-Ax-RdT" firstAttribute="width" secondItem="lXU-qy-UPQ" secondAttribute="width" id="QX8-K9-ewr"/>
+                            <constraint firstItem="lXU-qy-UPQ" firstAttribute="leading" secondItem="zcS-Ax-RdT" secondAttribute="trailing" constant="8" id="VMo-gA-zst"/>
                             <constraint firstItem="faC-m6-wmc" firstAttribute="top" secondItem="MOo-5c-0Np" secondAttribute="bottom" constant="8" id="c1P-ZB-2Y0"/>
+                            <constraint firstItem="MOo-5c-0Np" firstAttribute="width" secondItem="zcS-Ax-RdT" secondAttribute="width" id="iIN-P0-Tfr"/>
+                            <constraint firstItem="zcS-Ax-RdT" firstAttribute="leading" secondItem="MOo-5c-0Np" secondAttribute="trailing" constant="8" id="ooG-hP-sre"/>
                             <constraint firstItem="5Ng-xv-0qU" firstAttribute="top" secondItem="faC-m6-wmc" secondAttribute="bottom" constant="8" id="r34-o3-vWV"/>
-                            <constraint firstItem="zcS-Ax-RdT" firstAttribute="leading" secondItem="tot-Ad-Vff" secondAttribute="leading" constant="8" id="t6W-Ss-xxD"/>
                             <constraint firstItem="zcS-Ax-RdT" firstAttribute="top" secondItem="81R-ps-Akc" secondAttribute="bottom" id="vgc-Hw-YUA"/>
                         </constraints>
                     </view>
@@ -108,7 +122,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sOz-rZ-ltd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="HbS-at-Wbl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="883" y="63"/>
+            <point key="canvasLocation" x="882.39999999999998" y="62.518740629685162"/>
         </scene>
         <!--Location Finder View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -1282,6 +1296,7 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WWW" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3lK-lf-LIN" userLabel="Time label">
                                                             <rect key="frame" x="0.0" y="0.0" width="32" height="28"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="32" id="otU-un-SFm"/>
                                                             </constraints>
@@ -1343,7 +1358,7 @@
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="woa-zF-r9L" secondAttribute="bottom" constant="2" id="3Fo-Ne-jSP"/>
                                                 <constraint firstAttribute="trailing" secondItem="woa-zF-r9L" secondAttribute="trailing" constant="4" id="DrU-l3-stL"/>
@@ -1351,6 +1366,7 @@
                                                 <constraint firstItem="woa-zF-r9L" firstAttribute="top" secondItem="g30-Sg-Rj6" secondAttribute="top" constant="2" id="VFl-6t-YCZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="icon" destination="0Ye-2w-IPr" id="cbt-zy-Qsi"/>
                                             <outlet property="maxTemperature" destination="w3o-MQ-M6d" id="yn6-dN-9m3"/>
@@ -1515,7 +1531,7 @@
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="SeE-UZ-uib" firstAttribute="top" secondItem="wFX-k1-cIa" secondAttribute="top" constant="2" id="MaJ-Pe-UtK"/>
                                                 <constraint firstAttribute="bottom" secondItem="SeE-UZ-uib" secondAttribute="bottom" constant="2" id="OEY-ax-uCM"/>
@@ -1523,6 +1539,7 @@
                                                 <constraint firstItem="SeE-UZ-uib" firstAttribute="leading" secondItem="wFX-k1-cIa" secondAttribute="leading" constant="4" id="fyD-Z9-HIk"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="icon" destination="yH5-Dq-bTn" id="3Zf-vy-aLm"/>
                                             <outlet property="maxTemperature" destination="E3Z-M1-e5e" id="JJV-QY-yJc"/>
@@ -1673,7 +1690,7 @@
                                         <rect key="frame" x="0.0" y="28" width="319" height="97"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0BR-UP-ihz" id="rSF-sh-Lup">
-                                            <rect key="frame" x="0.0" y="0.0" width="319" height="96.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="319" height="97"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hh4-TF-grr" userLabel="Title">

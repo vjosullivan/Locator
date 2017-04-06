@@ -11,7 +11,7 @@ import UIKit
 class MainViewController: UIViewController {
 
     let radianConvertion = CGFloat.pi / 180.0
-    let cornerRadius: CGFloat = 24.0
+    let cornerRadius: CGFloat = 16.0
 
     @IBOutlet weak var rainIntensity: GraphView!
     @IBOutlet weak var rainProbability: GraphView!
@@ -193,7 +193,7 @@ class MainViewController: UIViewController {
         let imageSize = CGSize(width: self.view.frame.maxX, height: self.view.frame.maxY)
         let imageView = UIImageView(frame: CGRect(origin: CGPoint(x: 0.0, y: 0.0), size: imageSize))
         self.view.insertSubview(imageView, at: index())
-        let image = drawCustomImage(size: imageSize, foreground: backgroundColor.darker, background: backgroundColor)
+        let image = drawCustomImage(size: imageSize, foreground: backgroundColor.lighter(by: 0.33) , background: backgroundColor.darker)
         imageView.image = image
         self.view.backgroundColor = backgroundColor
     }
@@ -209,9 +209,6 @@ class MainViewController: UIViewController {
         // Setup complete, do drawing here
         context.setStrokeColor(foreground.cgColor)
         context.setLineWidth(0.5)
-
-        // Would draw a border around the rectangle
-        // context.stroke(bounds)
 
         context.beginPath()
         var x = 0.0

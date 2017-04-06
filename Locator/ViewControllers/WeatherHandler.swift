@@ -18,11 +18,13 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
     fileprivate var forecast: DarkSkyForecast?
     fileprivate var detailType = DetailType.day
     fileprivate var cellIdentifier = ""
+    private var backgroundColor =  UIColor.black
 
-    func update(forecast: DarkSkyForecast, detailType: DetailType) {
+    func update(forecast: DarkSkyForecast, detailType: DetailType, backgroundColor: UIColor) {
         self.forecast = forecast
         self.detailType = detailType
         cellIdentifier = detailType == DetailType.day ? "HourOfDayCell" : "DayOfWeekCell"
+        self.backgroundColor = backgroundColor
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -72,7 +74,7 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
                 } else {
                     cell.rain.text = "Dry"
                     cell.rain.textColor = UIColor.white
-                    cell.rain.backgroundColor = UIColor.black
+                    cell.rain.backgroundColor = UIColor.clear
                     updateWindbearing(label: cell.windBearing, from: dataPoint.windBearing)
                     updateWindspeed(label: cell.windSpeed, from: dataPoint.windSpeed)
                 }
@@ -84,6 +86,7 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.time.text = "???"
             //cell.summary.text = "-"
         }
+        cell.backgroundColor = backgroundColor
         return cell
     }
 
@@ -108,7 +111,7 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
                 } else {
                     cell.rain.text = "Dry"
                     cell.rain.textColor = UIColor.white
-                    cell.rain.backgroundColor = UIColor.black
+                    cell.rain.backgroundColor = UIColor.clear
                 }
                 updateWindbearing(label: cell.windBearing, from: dataPoint.windBearing)
                 updateWindspeed(label: cell.windSpeed, from: dataPoint.windSpeed)
@@ -120,6 +123,7 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.time.text = "???"
             //cell.summary.text = "-"
         }
+        cell.backgroundColor = backgroundColor
         return cell
     }
 

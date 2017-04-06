@@ -52,7 +52,8 @@ class DayViewController: UIViewController {
         buttonBottomRight.setTitleColor(foregroundColor, for: .normal)
 
         updateText(on: buttonBottomLeft, from: forecast)
-        weatherHandler.update(forecast: forecast, detailType: .day )
+        weatherHandler.update(forecast: forecast, detailType: .day, backgroundColor: backgroundColor.darker(by: 0.85))
+        weatherTable.backgroundColor = backgroundColor.darker(by: 0.85)
         weatherTable.reloadData()
 
         summary.textColor = foregroundColor

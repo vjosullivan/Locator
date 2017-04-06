@@ -99,10 +99,10 @@ extension UIColor {
     }
 
     var lighter: UIColor {
-        return lighter(amount: 0.75)
+        return lighter(by: 0.75)
     }
 
-    func lighter(amount: CGFloat) -> UIColor {
+    func lighter(by amount: CGFloat) -> UIColor {
         var h: CGFloat = 0, s: CGFloat = 0
         var b: CGFloat = 0, a: CGFloat = 0
 
