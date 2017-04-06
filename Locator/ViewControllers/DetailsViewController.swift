@@ -31,37 +31,32 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    func update(forecast: DarkSkyForecast,
-                foregroundColor: UIColor?,
-                backgroundColor: UIColor?,
-                cornerRadius: CGFloat) {
-
-        let foreColor = foregroundColor ?? UIColor.white
-        let backColor = backgroundColor ?? UIColor.darkGray
+    func update(forecast: DarkSkyForecast, backgroundColor: UIColor, cornerRadius: CGFloat) {
+        let foregroundColor = backgroundColor.darker
 
         updatePressure(from: forecast.current?.pressure)
         updateHumidity(from: forecast.current?.humidity)
         updateWindSpeed(from: forecast.current?.windSpeed)
         updateWindDirection(from: forecast.current?.windBearing)
 
-        pressureSymbol.textColor = foreColor
-        pressureLabel.textColor = foreColor
-        pressureText.textColor = foreColor
+        pressureSymbol.textColor = foregroundColor
+        pressureLabel.textColor = foregroundColor
+        pressureText.textColor = foregroundColor
 
-        windSymbol.textColor = foreColor
-        windLabel.textColor = foreColor
-        windText.textColor = foreColor
-        windSubtext.textColor = foreColor
+        windSymbol.textColor = foregroundColor
+        windLabel.textColor = foregroundColor
+        windText.textColor = foregroundColor
+        windSubtext.textColor = foregroundColor
 
-        humiditySymbol.textColor = foreColor
-        humidityLabel.textColor = foreColor
-        humidityText.textColor = foreColor
-        detailsLabel.textColor = foreColor
+        humiditySymbol.textColor = foregroundColor
+        humidityLabel.textColor = foregroundColor
+        humidityText.textColor = foregroundColor
+        detailsLabel.textColor = foregroundColor
 
         detailsLabel.text = forecast.hourly?.summary ?? ""
 
-        returnButton.setTitleColor(foreColor, for: .normal)
-        view.backgroundColor = backColor
+        returnButton.setTitleColor(foregroundColor, for: .normal)
+        view.backgroundColor = backgroundColor
         view.topCornerRadius = cornerRadius
     }
 

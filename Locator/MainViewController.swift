@@ -11,7 +11,7 @@ import UIKit
 class MainViewController: UIViewController {
 
     let radianConvertion = CGFloat.pi / 180.0
-    let cornerRadius: CGFloat = 12.0
+    let cornerRadius: CGFloat = 24.0
 
     @IBOutlet weak var rainIntensity: GraphView!
     @IBOutlet weak var rainProbability: GraphView!
@@ -135,61 +135,49 @@ class MainViewController: UIViewController {
         let darkSky = DarkSkyClient(location: Location(latitude: place.latitude, longitude: place.longitude))
         darkSky.fetchForecast { darkSkyForecast in
             DispatchQueue.main.async {
-                self.updateDisplay(with: darkSkyForecast, for: place)
+                let pageColor = UIColor.randomPastel()
+                self.updateDisplay(with: darkSkyForecast, for: place, in: pageColor)
                 self.frontVC?.update(forecast: darkSkyForecast,
-                                     foregroundColor: self.currentWeatherSymbol.textColor,
-                                     backgroundColor: self.currentWeatherBackground.backgroundColor,
+                                     backgroundColor: pageColor,
                                      cornerRadius: self.cornerRadius,
                                      container: self)
                 self.settingsVC?.update(forecast: darkSkyForecast,
-                                        foregroundColor: self.currentWeatherSymbol.textColor,
-                                        backgroundColor: self.currentWeatherBackground.backgroundColor,
+                                        backgroundColor: pageColor,
                                         cornerRadius: self.cornerRadius)
                 self.solarVC?.update(forecast: darkSkyForecast,
-                                     foregroundColor: self.currentWeatherSymbol.textColor,
-                                     backgroundColor: self.currentWeatherBackground.backgroundColor,
+                                     backgroundColor: pageColor,
                                      cornerRadius: self.cornerRadius)
                 self.detailsVC?.update(forecast: darkSkyForecast,
-                                       foregroundColor: self.currentWeatherSymbol.textColor,
-                                       backgroundColor: self.currentWeatherBackground.backgroundColor,
+                                       backgroundColor: pageColor,
                                        cornerRadius: self.cornerRadius)
                 self.hourVC?.update(forecast: darkSkyForecast,
-                                    foregroundColor: self.currentWeatherSymbol.textColor,
-                                    backgroundColor: self.currentWeatherBackground.backgroundColor,
+                                    backgroundColor: pageColor,
                                     cornerRadius: self.cornerRadius)
                 self.dayVC?.update(forecast: darkSkyForecast,
-                                    foregroundColor: self.currentWeatherSymbol.textColor,
-                                    backgroundColor: self.currentWeatherBackground.backgroundColor,
+                                   backgroundColor: pageColor,
                                     cornerRadius: self.cornerRadius, container: self)
                 self.weekVC?.update(forecast: darkSkyForecast,
-                                    foregroundColor: self.currentWeatherSymbol.textColor,
-                                    backgroundColor: self.currentWeatherBackground.backgroundColor,
+                                    backgroundColor: pageColor,
                                     cornerRadius: self.cornerRadius)
                 self.creditsVC?.update(forecast: darkSkyForecast,
-                                    foregroundColor: self.currentWeatherSymbol.textColor,
-                                    backgroundColor: self.currentWeatherBackground.backgroundColor,
-                                    cornerRadius: self.cornerRadius)
+                                       backgroundColor: pageColor,
+                                       cornerRadius: self.cornerRadius)
                 self.alertsVC?.update(forecast: darkSkyForecast,
-                                      foregroundColor: self.currentWeatherSymbol.textColor,
-                                      backgroundColor: self.currentWeatherBackground.backgroundColor,
+                                      backgroundColor: pageColor,
                                       cornerRadius: self.cornerRadius)
-                // Make the sun yellow.
-                if self.currentWeatherSymbol.text == Weather.clearDay.symbol {
-                    self.currentWeatherSymbol.textColor = UIColor.yellow
-                }
             }
         }
     }
 
-    private func updateDisplay(with forecast: DarkSkyForecast, for place: Place) {
+    private func updateDisplay(with forecast: DarkSkyForecast, for place: Place, in color: UIColor) {
         locationLabel.text = place.region != "" ? place.region : place.name
         let weather = Weather.representedBy(darkSkyIcon: forecast.current?.icon ?? "")
         currentWeatherSymbol.text = weather.symbol
-        currentWeatherBackground.backgroundColor = weather.color
-        currentWeatherSymbol.textColor = weather.isDark ? weather.color.lighterColor : weather.color.darkerColor
+        currentWeatherBackground.backgroundColor = color
+        let darkWeatherColor = (weather.color != UIColor.yellow) ? weather.color.darker(by: 0.33) : weather.color
+        currentWeatherSymbol.textColor = darkWeatherColor
 
-        addImageToBackground(foreground: weather.color.lighterColor.darkerColor,
-                       background: weather.color.darkerColor)
+        addImageToBackground(backgroundColor: color.darker)
     }
 
     private struct Layer {
@@ -201,18 +189,13 @@ class MainViewController: UIViewController {
         return Layer.index
     }
 
-    /// Adds a prepared image to the background.
-    ///
-    /// - Parameters:
-    ///   - foreground: Foreground color
-    ///   - background: <#background description#>
-    private func addImageToBackground(foreground: UIColor, background: UIColor) {
+    private func addImageToBackground(backgroundColor: UIColor) {
         let imageSize = CGSize(width: self.view.frame.maxX, height: self.view.frame.maxY)
         let imageView = UIImageView(frame: CGRect(origin: CGPoint(x: 0.0, y: 0.0), size: imageSize))
         self.view.insertSubview(imageView, at: index())
-        let image = drawCustomImage(size: imageSize, foreground: foreground, background: background)
+        let image = drawCustomImage(size: imageSize, foreground: backgroundColor.darker, background: backgroundColor)
         imageView.image = image
-        self.view.backgroundColor = background
+        self.view.backgroundColor = backgroundColor
     }
 
     func drawCustomImage(size: CGSize, foreground: UIColor, background: UIColor) -> UIImage? {

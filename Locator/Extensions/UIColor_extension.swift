@@ -10,77 +10,35 @@ import UIKit
 
 extension UIColor {
 
-    static let amber  = UIColor(red: 1.0, green: 88.0/255, blue: 0.0, alpha: 1.0)
-    static let bronze = UIColor(red: 205.0/255.0, green: 127.0/255.0, blue: 50.0/255.0, alpha: 1.0)
-    static let copper = UIColor(hexString: "B87333")
-    static let naturalYellow = UIColor(red: 255.0/255.0, green: 211.0/255.0, blue: 0.0, alpha: 1.0)
-
-    static let blueGray = UIColor(hexString: "7799BB")
-    static let ashGray = UIColor(hexString: "B2BEB5")
-    static let skyBlue = UIColor(hexString: "87CEEB")
+    static let amber     = UIColor(red: 1.0, green: 191.0/255, blue: 0.0, alpha: 1.0)
+    static let copper    = UIColor(hexString: "B87333")
+    static let blueGray  = UIColor(hexString: "7799BB")
+    static let ashGray   = UIColor(hexString: "B2BEB5")
+    static let skyBlue   = UIColor(hexString: "87CEEB")
     static let cloudySky = UIColor(hexString: "BCCFD6")
-    static let navy = UIColor(hexString: "000080")
-    static let teal = UIColor(hexString: "008080")
-    static let ocean = UIColor(hexString: "016064")
-    static let slateGray = UIColor(hexString: "59788D")
-    static let lightSlateGray = UIColor(hexString: "7E7D9C")
-    static let agean = UIColor(hexString: "1E456E")
-    static let sapphire = UIColor(hexString: "52B1C2")
+    static let teal      = UIColor(hexString: "008080")
+    static let ocean     = UIColor(hexString: "016064")
+    static let agean     = UIColor(hexString: "1E456E")
     static let midnightBlue = UIColor(hexString: "5B7CB1")
-    static let silver = UIColor(hexString: "C6C6D0")
-    static let sienna = UIColor(hexString: "9A7B4F")
-    static let darkOliveGreen = UIColor(hexString: "715B3D")
+    static let silver    = UIColor(hexString: "C6C6D0")
+    static let sienna    = UIColor(hexString: "9A7B4F")
 
-    static let hsbYellow = UIColor(hue: 52.5/360.0, saturation: 0.9, brightness: 1.0, alpha: 1.0)
-    static let hsbBlue   = UIColor(hue: 195.0/360.0, saturation: 0.9, brightness: 1.0, alpha: 1.0)
-
-    static let clearSky   = clearDay.mixedWith(UIColor.clearNight)
-    static let clearDay   = UIColor.skyBlue
+    static let clearDay   = UIColor.yellow
     static let clearNight = UIColor.midnightBlue
-
-    static let wind      = UIColor.windDay.mixedWith(UIColor.windNight)
-    static let windDay   = UIColor.teal
-    static let windNight = UIColor.ocean
-
-    static let fog      = UIColor.fogDay.mixedWith(UIColor.fogNight)
-    static let fogDay   = UIColor.ashGray
-    static let fogNight = UIColor.agean
-
-    static let partlyCloudy = UIColor.partlyCloudyDay.mixedWith(UIColor.partlyCloudyNight)
+    static let wind       = UIColor.teal
+    static let fog        = UIColor.ashGray
     static let partlyCloudyDay = UIColor.cloudySky
     static let partlyCloudyNight = UIColor.ocean
-
-    static let cloudy      = UIColor.cloudySky.darker()
-    static let cloudyDay   = UIColor.cloudySky
-    static let cloudyNight = UIColor.blueGray.darker().darker()
-
-    static let rain      = UIColor.blueGray.lighter()
-    static let rainDay   = UIColor.ashGray
-    static let rainNight = UIColor.ocean
-
-    static let hail      = UIColor.hailDay.mixedWith(UIColor.hailNight)
-    static let hailDay   = UIColor.teal
-    static let hailNight = UIColor.ocean
-
-    static let thunderstorm      = UIColor.thunderstormDay.mixedWith(UIColor.thunderstormNight)
-    static let thunderstormDay   = UIColor.agean
-    static let thunderstormNight = UIColor.midnightBlue
-
-    static let snow      = UIColor.snowDay.mixedWith(UIColor.snowNight)
-    static let snowDay   = UIColor.silver
-    static let snowNight = UIColor.lightSlateGray
-
-    static let sleet      = UIColor.sleetDay.mixedWith(UIColor.sleetNight)
-    static let sleetDay   = UIColor.silver
-    static let sleetNight = UIColor.lightSlateGray
-
-    static let tornado      = UIColor.tornadoDay.mixedWith(UIColor.tornadoNight)
-    static let tornadoDay   = UIColor.teal
-    static let tornadoNight = UIColor.ocean
-
-    static let noWeather      = UIColor.noWeatherDay.mixedWith(UIColor.noWeatherNight)
-    static let noWeatherDay   = UIColor.sienna
-    static let noWeatherNight = UIColor.darkOliveGreen
+    static let cloudy     = UIColor.cloudySky.darker(by: 0.5)
+    static let rain       = UIColor.blueGray.lighter
+    static let rainDay    = UIColor.ashGray
+    static let rainNight  = UIColor.ocean
+    static let hail       = UIColor.teal
+    static let thunderstorm      = UIColor.agean
+    static let snow       = UIColor.silver
+    static let sleet      = UIColor.silver
+    static let tornado    = UIColor.teal
+    static let noWeather  = UIColor.sienna
 
     /// Initialises a `UIColor` generated from a six character hex string.
     /// The hex string may be preceded by an additional symbol `#`.
@@ -122,16 +80,6 @@ extension UIColor {
         return true
     }
 
-    private func mixedWith(_ color: UIColor) -> UIColor {
-        let selfRGB = self.rgb()
-        let otherRGB = color.rgb()
-        return UIColor(
-            red: (selfRGB.red + otherRGB.red) / 2.0,
-            green: (selfRGB.green + otherRGB.green) / 2.0,
-            blue: (selfRGB.blue + otherRGB.blue) / 2.0,
-            alpha: 1.0)
-    }
-
     func rgb() -> (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
         var fRed: CGFloat = 0.0
         var fGreen: CGFloat = 0.0
@@ -141,31 +89,20 @@ extension UIColor {
         return (red: fRed, green: fGreen, blue: fBlue, alpha: fAlpha)
     }
 
-    func lighter() -> UIColor {
-        var hue: CGFloat = 0.0
-        var saturation: CGFloat = 0.0
-        var brightness: CGFloat = 0.0
-        var alpha: CGFloat = 0.0
-        let _ = self.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
-        return UIColor(hue: hue,
-                       saturation: saturation,
-                       brightness: brightness + (1.0 - brightness) * 0.2, alpha: alpha)
+    func hsb() -> (hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) {
+        var fHue: CGFloat = 0.0
+        var fSaturation: CGFloat = 0.0
+        var fBrightness: CGFloat = 0.0
+        var fAlpha: CGFloat = 0.0
+        let _ = self.getHue(&fHue, saturation: &fSaturation, brightness: &fBrightness, alpha: &fAlpha)
+        return (hue: fHue, saturation: fSaturation, brightness: fBrightness, alpha: fAlpha)
     }
 
-    func darker() -> UIColor {
-        var hue: CGFloat = 0.0
-        var saturation: CGFloat = 0.0
-        var brightness: CGFloat = 0.0
-        var alpha: CGFloat = 0.0
-        let _ = self.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
-        return UIColor(hue: hue, saturation: saturation, brightness: brightness * 0.8333, alpha: alpha)
+    var lighter: UIColor {
+        return lighter(amount: 0.75)
     }
 
-    var lighterColor: UIColor {
-        return lighterColor(amount: 0.75)
-    }
-
-    func lighterColor(amount: CGFloat) -> UIColor {
+    func lighter(amount: CGFloat) -> UIColor {
         var h: CGFloat = 0, s: CGFloat = 0
         var b: CGFloat = 0, a: CGFloat = 0
 
@@ -178,11 +115,11 @@ extension UIColor {
                        alpha: a)
     }
 
-    var darkerColor: UIColor {
-        return darkerColor(amount: 0.5)
+    var darker: UIColor {
+        return darker(by: 0.5)
     }
 
-    func darkerColor(amount: CGFloat) -> UIColor {
+    func darker(by amount: CGFloat) -> UIColor {
         var h: CGFloat = 0, s: CGFloat = 0
         var b: CGFloat = 0, a: CGFloat = 0
 
@@ -193,5 +130,16 @@ extension UIColor {
                        saturation: s + (1 - s) * amount, // s * (1 - amount),
                        brightness: b * (1 - amount),
                        alpha: a)
+    }
+}
+
+extension UIColor {
+    func rgbComponents() -> String {
+        let rgb = self.rgb()
+        return "Red: \(Int(rgb.red * 255.0)).  Green: \(Int(rgb.green * 255.0)).  Blue: \(Int(rgb.blue * 255.0))."
+    }
+    func hsbComponents() -> String {
+        let hsb = self.hsb()
+        return "Hue: \(Int(hsb.hue * 255.0)).  Saturation: \(Int(hsb.saturation * 255.0)).  brightness: \(Int(hsb.brightness * 255.0))."
     }
 }

@@ -34,22 +34,20 @@ class SolarViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?, cornerRadius: CGFloat) {
+    func update(forecast: DarkSkyForecast, backgroundColor: UIColor, cornerRadius: CGFloat) {
+        let foregroundColor = backgroundColor.darker
 
-        let foreColor = foregroundColor ?? UIColor.white
-        let backColor = backgroundColor ?? UIColor.darkGray
-
-        updateSunrise(time: forecast.today?.sunriseTime, timeZone: forecast.timeZone, textColor: foreColor)
-        updateSunset(time: forecast.today?.sunsetTime, timeZone: forecast.timeZone, textColor: foreColor)
+        updateSunrise(time: forecast.today?.sunriseTime, timeZone: forecast.timeZone, textColor: foregroundColor)
+        updateSunset(time: forecast.today?.sunsetTime, timeZone: forecast.timeZone, textColor: foregroundColor)
         nextSunriseLabel.text = nextSunrise(sunrise: forecast.today?.sunriseTime, sunset: forecast.today?.sunsetTime)
 
-        sunriseLabel.textColor     = foreColor
-        sunriseTimeThere.textColor = foreColor
-        sunriseTimeHere.textColor  = foreColor
-        sunsetLabel.textColor     = foreColor
-        sunsetTimeThere.textColor = foreColor
-        sunsetTimeHere.textColor  = foreColor
-        nextSunriseLabel.textColor = foreColor
+        sunriseLabel.textColor     = foregroundColor
+        sunriseTimeThere.textColor = foregroundColor
+        sunriseTimeHere.textColor  = foregroundColor
+        sunsetLabel.textColor     = foregroundColor
+        sunsetTimeThere.textColor = foregroundColor
+        sunsetTimeHere.textColor  = foregroundColor
+        nextSunriseLabel.textColor = foregroundColor
 
         if let moonPhase = forecast.today?.moonPhase {
             moonSymbol.text      = DarkMoon.symbol(from: moonPhase)
@@ -57,14 +55,14 @@ class SolarViewController: UIViewController {
             moonBackground.text  = Weather.newMoonAlt.symbol
             moonBackground.textColor = UIColor(white: 0.8, alpha: 0.5)
             moonName.text      = DarkMoon.name(from: moonPhase)
-            moonName.textColor = foreColor
+            moonName.textColor = foregroundColor
         } else {
             moonSymbol.text = ""
             moonName.text   = ""
         }
 
-        returnButton.setTitleColor(foreColor, for: .normal)
-        view.backgroundColor = backColor
+        returnButton.setTitleColor(foregroundColor, for: .normal)
+        view.backgroundColor = backgroundColor
         view.topCornerRadius = cornerRadius
     }
 

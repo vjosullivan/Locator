@@ -33,29 +33,26 @@ class HourViewController: UIViewController {
         _ = backgroundColoredViews.map { $0.backgroundColor = UIColor.clear }
 
         rainIntensityGraph.backgroundColor = UIColor(white: 1.0, alpha: 0.50)
-        rainIntensityGraph.layer.cornerRadius = 8
         rainIntensityGraph.layer.masksToBounds = true
         rainIntensityGraph.layer.borderColor = UIColor(white: 0.66, alpha: 0.25).cgColor
         rainIntensityGraph.layer.borderWidth = 1
     }
 
-    func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?, cornerRadius: CGFloat) {
-
-        let foreColor = foregroundColor ?? UIColor.white
-        let backColor = backgroundColor ?? UIColor.darkGray
+    func update(forecast: DarkSkyForecast, backgroundColor: UIColor, cornerRadius: CGFloat) {
+        let foregroundColor = backgroundColor.darker
 
         screenTitle.text = "Within The Hour"
-        screenTitle.textColor = foreColor
+        screenTitle.textColor = foregroundColor
 
-        returnButton.setTitleColor(foreColor, for: .normal)
+        returnButton.setTitleColor(foregroundColor, for: .normal)
 
         graphTitle.text = precipitationType(from: forecast) + " in the next 60 mins."
-        graphTitle.textColor = foreColor
+        graphTitle.textColor = foregroundColor
         summary.text = oneHourSummary(from: forecast)
-        summary.textColor = foreColor
+        summary.textColor = foregroundColor
 
         rainIntensityGraph.data = forecast.minutelyRainIntensity
-        view.backgroundColor = backColor
+        view.backgroundColor = backgroundColor
         view.bottomCornerRadius = cornerRadius
     }
 

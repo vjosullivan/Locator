@@ -54,10 +54,9 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
                                    from dataPoint: DataPoint?, in timeZone: String) -> WeatherTableViewCell {
         if let dataPoint = dataPoint {
             cell.time.text = dataPoint.time.asHpm(showMidday: true, timeZone: timeZone)
+            cell.time.textColor = (cell.time.text!.substring(to: 1) == "N") ? UIColor.amber : UIColor.white
             cell.icon.text = Weather.representedBy(darkSkyIcon: dataPoint.icon ?? "").symbol
-            cell.icon.textColor = dataPoint.icon == "clear-day"
-                ? .yellow
-                : Weather.representedBy(darkSkyIcon: dataPoint.icon ?? "").color
+            cell.icon.textColor = Weather.representedBy(darkSkyIcon: dataPoint.icon ?? "").color
             cell.maxTemperature.text
                 = "\(Int(dataPoint.temperature?.value ?? 0))\(dataPoint.temperature?.unit.symbol ?? "")"
             if let precipProbability = dataPoint.precipProbability {
@@ -67,8 +66,8 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
                     cell.rain.textColor = UIColor.black
                     cell.rain.precipitationType = (dataPoint.precipType == "snow")
                         ? PrecipitationType.snow : PrecipitationType.rain
-                    let backColor = (dataPoint.precipType == "snow") ? UIColor.white : UIColor.skyBlue.lighter()
-                    cell.rain.backgroundColor = backColor.withAlphaComponent(CGFloat(0.5 + precipProbability * 0.5))
+                    let backgroundColor = (dataPoint.precipType == "snow") ? UIColor.white : UIColor.clearBlue
+                    cell.rain.backgroundColor = backgroundColor.withAlphaComponent(CGFloat(0.5 + precipProbability * 0.5))
                     cell.rain.layer.cornerRadius = cell.rain.bounds.width / 2.0
                 } else {
                     cell.rain.text = "Dry"
@@ -93,9 +92,7 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
         if let dataPoint = dataPoint {
             cell.time.text = dataPoint.time.asDDD(timeZone: forecast?.timeZone)
             cell.icon.text = Weather.representedBy(darkSkyIcon: dataPoint.icon ?? "").symbol
-            cell.icon.textColor = dataPoint.icon == "clear-day"
-                ? .yellow
-                : Weather.representedBy(darkSkyIcon: dataPoint.icon ?? "").color
+            cell.icon.textColor = Weather.representedBy(darkSkyIcon: dataPoint.icon ?? "").color
             cell.maxTemperature.text
                 = "\(Int(dataPoint.temperatureMax?.value ?? 0))\(dataPoint.temperatureMax?.unit.symbol ?? "")"
             if let precipProbability = dataPoint.precipProbability {
@@ -105,8 +102,8 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
                     cell.rain.textColor = UIColor.black
                     cell.rain.precipitationType = (dataPoint.precipType == "snow")
                         ? PrecipitationType.snow : PrecipitationType.rain
-                    let backColor = (dataPoint.precipType == "snow") ? UIColor.white : UIColor.skyBlue.lighter()
-                    cell.rain.backgroundColor = backColor.withAlphaComponent(CGFloat(0.5 + precipProbability * 0.5))
+                    let backgroundColor = (dataPoint.precipType == "snow") ? UIColor.white : UIColor.clearBlue
+                    cell.rain.backgroundColor = backgroundColor.withAlphaComponent(CGFloat(0.5 + precipProbability * 0.5))
                     cell.rain.layer.cornerRadius = cell.rain.bounds.width / 2.0
                 } else {
                     cell.rain.text = "Dry"

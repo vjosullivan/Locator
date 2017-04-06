@@ -65,8 +65,8 @@ struct Weather {
     static var tornado: Weather {
         return Weather(symbol: "\u{F056}", color: UIColor.tornado, isDark: false)
     }
-    static var noWeatherDay: Weather {
-        return Weather(symbol: "\u{F095}", color: UIColor.noWeatherDay, isDark: false)
+    static var noWeather: Weather {
+        return Weather(symbol: "\u{F095}", color: UIColor.noWeather, isDark: false)
     }
     static var windCalm: Weather {
         return Weather(symbol: "\u{F0b7}", color: UIColor.clear, isDark: false)
@@ -124,7 +124,7 @@ struct Weather {
         case "cloudy": return Weather.cloudy
         case "partly-cloudy-day": return Weather.partlyCloudyDay
         case "partly-cloudy-night": return Weather.partlyCloudyNight
-        default: return Weather.noWeatherDay
+        default: return Weather.noWeather
         }
     }
     // swiftlint:enable cyclomatic_complexity

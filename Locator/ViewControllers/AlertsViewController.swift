@@ -27,17 +27,12 @@ class AlertsViewController: UIViewController {
         alertsTable.estimatedRowHeight = 140
     }
 
-    func update(forecast: DarkSkyForecast,
-                foregroundColor: UIColor?,
-                backgroundColor: UIColor?,
-                cornerRadius: CGFloat) {
-
-        let foreColor = foregroundColor ?? UIColor.white
-        let backColor = backgroundColor ?? UIColor.darkGray
+    func update(forecast: DarkSkyForecast, backgroundColor: UIColor, cornerRadius: CGFloat) {
+        let foregroundColor = backgroundColor.darker
 
         let plural = forecast.alerts?.count == 1 ? "" : "s"
         screenTitle.text = "\((forecast.alerts?.count ?? 0).asText.capitalized) Alert\(plural)"
-        screenTitle.textColor = foreColor
+        screenTitle.textColor = foregroundColor
 
         if forecast.alerts != nil {
             alertsTable.isHidden = false
@@ -47,8 +42,8 @@ class AlertsViewController: UIViewController {
             alertsTable.isHidden = true
         }
 
-        returnButton.setTitleColor(foreColor, for: .normal)
-        view.backgroundColor = backColor
+        returnButton.setTitleColor(foregroundColor, for: .normal)
+        view.backgroundColor = backgroundColor
         view.bottomCornerRadius = cornerRadius
     }
 }

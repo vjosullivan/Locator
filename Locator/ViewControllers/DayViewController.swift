@@ -36,32 +36,29 @@ class DayViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        view.bottomCornerRadius = 8.0
 
         weatherTable.dataSource = weatherHandler
         weatherTable.delegate = weatherHandler
     }
 
-    func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?, cornerRadius: CGFloat, container: MainViewController) {
+    func update(forecast: DarkSkyForecast, backgroundColor: UIColor, cornerRadius: CGFloat, container: MainViewController) {
+        let foregroundColor = backgroundColor.darker
         mainVC = container
 
-        let foreColor = foregroundColor ?? UIColor.white
-        let backColor = backgroundColor ?? UIColor.darkGray
-
-        titleBar.textColor = foreColor
-        buttonTopLeft.setTitleColor(foreColor, for: .normal)
-        buttonTopRight.setTitleColor(foreColor, for: .normal)
-        buttonBottomLeft.setTitleColor(foreColor, for: .normal)
-        buttonBottomRight.setTitleColor(foreColor, for: .normal)
+        titleBar.textColor = foregroundColor
+        buttonTopLeft.setTitleColor(foregroundColor, for: .normal)
+        buttonTopRight.setTitleColor(foregroundColor, for: .normal)
+        buttonBottomLeft.setTitleColor(foregroundColor, for: .normal)
+        buttonBottomRight.setTitleColor(foregroundColor, for: .normal)
 
         updateText(on: buttonBottomLeft, from: forecast)
         weatherHandler.update(forecast: forecast, detailType: .day )
         weatherTable.reloadData()
 
-        summary.textColor = foreColor
+        summary.textColor = foregroundColor
         summary.text = forecast.hourly?.summary ?? ""
 
-        view.backgroundColor = backColor
+        view.backgroundColor = backgroundColor
         view.bottomCornerRadius = cornerRadius
     }
 

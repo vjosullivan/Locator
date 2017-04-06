@@ -50,19 +50,17 @@ class FrontViewController: UIViewController {
         super.viewDidLayoutSubviews()
     }
 
-    func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?, cornerRadius: CGFloat,
+    func update(forecast: DarkSkyForecast, backgroundColor: UIColor, cornerRadius: CGFloat,
                 container: MainViewController) {
+        let foregroundColor = backgroundColor.darker
         mainVC = container
 
-        let foreColor = foregroundColor ?? UIColor.white
-        let backColor = backgroundColor ?? UIColor.darkGray
-
-        currentTemperatureValue.textColor = foreColor
-        currentWeatherValue.textColor = foreColor
-        minTempValue.textColor = foreColor
-        minTempTime.textColor = foreColor
-        maxTempValue.textColor = foreColor
-        maxTempTime.textColor = foreColor
+        currentTemperatureValue.textColor = foregroundColor
+        currentWeatherValue.textColor = foregroundColor
+        minTempValue.textColor = foregroundColor
+        minTempTime.textColor = foregroundColor
+        maxTempValue.textColor = foregroundColor
+        maxTempTime.textColor = foregroundColor
 
         if let temperature = forecast.current?.temperature {
             currentTemperatureValue.text  = "\(Int(round(temperature.value)))\(temperature.unit.symbol)"
@@ -75,14 +73,14 @@ class FrontViewController: UIViewController {
             currentWeatherValue.text = "No weather!"
         }
 
-        setMinMaxTemperatures(forecast: forecast, textColor: foreColor)
+        setMinMaxTemperatures(forecast: forecast, textColor: foregroundColor)
 
-        buttonATL.setTitleColor(foreColor, for: .normal)
-        buttonATR.setTitleColor(foreColor, for: .normal)
-        buttonABL.setTitleColor(foreColor, for: .normal)
-        buttonABR.setTitleColor(foreColor, for: .normal)
+        buttonATL.setTitleColor(foregroundColor, for: .normal)
+        buttonATR.setTitleColor(foregroundColor, for: .normal)
+        buttonABL.setTitleColor(foregroundColor, for: .normal)
+        buttonABR.setTitleColor(foregroundColor, for: .normal)
 
-        view.backgroundColor = backColor
+        view.backgroundColor = backgroundColor
         view.topCornerRadius = cornerRadius
 }
 

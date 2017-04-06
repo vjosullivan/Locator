@@ -57,6 +57,8 @@
 		F14E8C481E94D77300C050CC /* UIView_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14E8C471E94D77300C050CC /* UIView_extension.swift */; };
 		F14E8C4A1E95164C00C050CC /* nevis.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F14E8C491E95164C00C050CC /* nevis.ttf */; };
 		F14E8C4B1E95164C00C050CC /* nevis.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F14E8C491E95164C00C050CC /* nevis.ttf */; };
+		F14E8C4D1E96139B00C050CC /* UIColor_pastel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14E8C4C1E96139B00C050CC /* UIColor_pastel.swift */; };
+		F14E8C4E1E96139B00C050CC /* UIColor_pastel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14E8C4C1E96139B00C050CC /* UIColor_pastel.swift */; };
 		F166733F1E0295ED0087C5D7 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166733C1E0295ED0087C5D7 /* LocationController.swift */; };
 		F16673401E0295ED0087C5D7 /* LocationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166733D1E0295ED0087C5D7 /* LocationControllerDelegate.swift */; };
 		F16673411E0295ED0087C5D7 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166733E1E0295ED0087C5D7 /* Location.swift */; };
@@ -144,6 +146,7 @@
 		F14AB6F51E9236E10074E376 /* AlertsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsTableViewCell.swift; sourceTree = "<group>"; };
 		F14E8C471E94D77300C050CC /* UIView_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView_extension.swift; sourceTree = "<group>"; };
 		F14E8C491E95164C00C050CC /* nevis.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = nevis.ttf; sourceTree = "<group>"; };
+		F14E8C4C1E96139B00C050CC /* UIColor_pastel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor_pastel.swift; sourceTree = "<group>"; };
 		F166733C1E0295ED0087C5D7 /* LocationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		F166733D1E0295ED0087C5D7 /* LocationControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationControllerDelegate.swift; sourceTree = "<group>"; };
 		F166733E1E0295ED0087C5D7 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -194,6 +197,7 @@
 				34F5A4FF1E23D6A600E66AC1 /* Font_extension.swift */,
 				3403E86E1E8E7439003F7026 /* Int_extension.swift */,
 				F14E8C471E94D77300C050CC /* UIView_extension.swift */,
+				F14E8C4C1E96139B00C050CC /* UIColor_pastel.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -571,6 +575,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F14E8C4D1E96139B00C050CC /* UIColor_pastel.swift in Sources */,
 				3403E8711E8E7A35003F7026 /* AlertsHandler.swift in Sources */,
 				34DF48E71E292ADB00AC4E16 /* AppSettings.swift in Sources */,
 				F16673471E0297E20087C5D7 /* DarkSkyForecast.swift in Sources */,
@@ -629,6 +634,7 @@
 				F1D5D29F1DD85DA100D9DC1F /* PlaceTests.swift in Sources */,
 				348914791E39E4AB00509CA3 /* RainIntensityTests.swift in Sources */,
 				345D137C1E3238A400327814 /* RibbonViewTests.swift in Sources */,
+				F14E8C4E1E96139B00C050CC /* UIColor_pastel.swift in Sources */,
 				345D13771E31433800327814 /* StringExtensionTests.swift in Sources */,
 				345D137F1E324E0500327814 /* UIColorExtensionTests.swift in Sources */,
 				345D137A1E32037D00327814 /* DarkSkyUnitsTests.swift in Sources */,

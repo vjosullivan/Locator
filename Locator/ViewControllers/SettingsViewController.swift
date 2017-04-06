@@ -28,15 +28,13 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?, cornerRadius: CGFloat) {
+    func update(forecast: DarkSkyForecast, backgroundColor: UIColor, cornerRadius: CGFloat) {
+        let foregroundColor = backgroundColor.darker
 
         AppSettings.store(key: "units", value: forecast.unitsCode)
 
-        let foreColor = foregroundColor ?? UIColor.white
-        let backColor = backgroundColor ?? UIColor.darkGray
-
-        returnButton.setTitleColor(foreColor, for: .normal)
-        view.backgroundColor = backColor
+        returnButton.setTitleColor(foregroundColor, for: .normal)
+        view.backgroundColor = backgroundColor
         view.topCornerRadius = cornerRadius
     }
 

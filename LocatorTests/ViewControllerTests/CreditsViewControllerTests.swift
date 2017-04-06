@@ -48,7 +48,7 @@ class CreditsViewControllerTests: XCTestCase {
     }
 
     func testColours() {
-        creditsVC?.update(forecast: darkSkyForecast!, foregroundColor: UIColor.red, backgroundColor: UIColor.green)
+        creditsVC?.update(forecast: darkSkyForecast!, backgroundColor: UIColor.green, cornerRadius: 8.0)
 
         XCTAssertEqual(UIColor.blue, creditsVC?.returnButton.currentTitleShadowColor)
     }

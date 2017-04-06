@@ -39,7 +39,6 @@ class RibbonView: UILabel {
         context.closePath()
         context.setFillColor(UIColor.copper.cgColor)
 
-        //context.setFillColor(UIColor.hsbBlue.cgColor) //  or(red: 0.0, green: 0.5, blue: 1.0, alpha: 1.0)
         context.fillPath()
         super.draw(rect)
     }

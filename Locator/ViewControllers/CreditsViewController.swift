@@ -17,19 +17,14 @@ class CreditsViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    func update(forecast: DarkSkyForecast,
-                foregroundColor: UIColor?,
-                backgroundColor: UIColor?,
-                cornerRadius: CGFloat) {
-
-        let foreColor = foregroundColor ?? UIColor.white
-        let backColor = backgroundColor ?? UIColor.darkGray
+    func update(forecast: DarkSkyForecast, backgroundColor: UIColor, cornerRadius: CGFloat) {
+        let foregroundColor = backgroundColor.darker
 
         screenTitle.text = "Credits"
-        screenTitle.textColor = foreColor
+        screenTitle.textColor = foregroundColor
 
-        returnButton.setTitleColor(foreColor, for: .normal)
-        view.backgroundColor = backColor
+        returnButton.setTitleColor(foregroundColor, for: .normal)
+        view.backgroundColor = backgroundColor
         view.bottomCornerRadius = cornerRadius
     }
 }

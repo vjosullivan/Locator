@@ -30,7 +30,7 @@ class AlertsHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
         // swiftlint:enable force_cast
 
         let alert = alerts[indexPath.row]
-        cell.alertTitle.text = "\(alert.severity.capitalized) - \(alert.alertTitle)"
+        cell.alertTitle.text = "\(alert.alertTitle)"
         switch alert.severity {
         case "advisory":
             cell.alertTitle.textColor = UIColor.green
@@ -39,7 +39,7 @@ class AlertsHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
         case "warning":
             cell.alertTitle.textColor = UIColor.red
         default:
-            cell.alertTitle.textColor = UIColor.white
+            cell.alertTitle.textColor = UIColor.yellow
         }
         cell.timeIssued.text = alert.formattedIssuedAtText(includeExpiry: false)
         cell.regions.text = alert.formattedRegionsText()
