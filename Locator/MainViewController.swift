@@ -143,8 +143,8 @@ class MainViewController: UIViewController {
                                      container: self)
                 self.settingsVC?.update(forecast: darkSkyForecast,
                                         foregroundColor: self.currentWeatherSymbol.textColor,
-                                        cornerRadius: self.cornerRadius,
-                                        backgroundColor: self.currentWeatherBackground.backgroundColor)
+                                        backgroundColor: self.currentWeatherBackground.backgroundColor,
+                                        cornerRadius: self.cornerRadius)
                 self.solarVC?.update(forecast: darkSkyForecast,
                                      foregroundColor: self.currentWeatherSymbol.textColor,
                                      backgroundColor: self.currentWeatherBackground.backgroundColor,
@@ -173,22 +173,23 @@ class MainViewController: UIViewController {
                                       foregroundColor: self.currentWeatherSymbol.textColor,
                                       backgroundColor: self.currentWeatherBackground.backgroundColor,
                                       cornerRadius: self.cornerRadius)
+                // Make the sun yellow.
+                if self.currentWeatherSymbol.text == Weather.clearDay.symbol {
+                    self.currentWeatherSymbol.textColor = UIColor.yellow
+                }
             }
         }
     }
 
     private func updateDisplay(with forecast: DarkSkyForecast, for place: Place) {
         locationLabel.text = place.region != "" ? place.region : place.name
-        updateWeather(using: forecast.current?.icon)
-    }
-
-    private func updateWeather(using icon: String?) {
-        let weather = Weather.representedBy(darkSkyIcon: icon ?? "")
+        let weather = Weather.representedBy(darkSkyIcon: forecast.current?.icon ?? "")
         currentWeatherSymbol.text = weather.symbol
         currentWeatherBackground.backgroundColor = weather.color
-        currentWeatherSymbol.textColor = weather.isDark ? UIColor.white : UIColor.black
-        addImageToBackground(foreground: UIColor(white: 1.0, alpha: 0.125),
-                       background: weather.color.darker())
+        currentWeatherSymbol.textColor = weather.isDark ? weather.color.lighterColor : weather.color.darkerColor
+
+        addImageToBackground(foreground: weather.color.lighterColor.darkerColor,
+                       background: weather.color.darkerColor)
     }
 
     private struct Layer {
@@ -224,7 +225,7 @@ class MainViewController: UIViewController {
 
         // Setup complete, do drawing here
         context.setStrokeColor(foreground.cgColor)
-        context.setLineWidth(1.0)
+        context.setLineWidth(0.5)
 
         // Would draw a border around the rectangle
         // context.stroke(bounds)
@@ -272,7 +273,7 @@ class MainViewController: UIViewController {
 extension MainViewController: LocationControllerDelegate {
 
     func locationController(_ locationController: LocationController, didUpdateLocation location: Location) {
-        let place = Place(name: "Around here...", region: "", placeID: "",
+        let place = Place(name: "Right Here · Right Now", region: "", placeID: "",
                           latitude: location.latitude, longitude: location.longitude)
         updateWeather(for: place)
     }

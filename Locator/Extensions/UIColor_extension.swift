@@ -160,4 +160,38 @@ extension UIColor {
         let _ = self.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
         return UIColor(hue: hue, saturation: saturation, brightness: brightness * 0.8333, alpha: alpha)
     }
+
+    var lighterColor: UIColor {
+        return lighterColor(amount: 0.75)
+    }
+
+    func lighterColor(amount: CGFloat) -> UIColor {
+        var h: CGFloat = 0, s: CGFloat = 0
+        var b: CGFloat = 0, a: CGFloat = 0
+
+        guard getHue(&h, saturation: &s, brightness: &b, alpha: &a)
+            else {return self}
+
+        return UIColor(hue: h,
+                       saturation: s * (1 - amount), //s + (1 - s) * amount,
+                       brightness: b + (1 - b) * amount,
+                       alpha: a)
+    }
+
+    var darkerColor: UIColor {
+        return darkerColor(amount: 0.5)
+    }
+
+    func darkerColor(amount: CGFloat) -> UIColor {
+        var h: CGFloat = 0, s: CGFloat = 0
+        var b: CGFloat = 0, a: CGFloat = 0
+
+        guard getHue(&h, saturation: &s, brightness: &b, alpha: &a)
+            else {return self}
+
+        return UIColor(hue: h,
+                       saturation: s + (1 - s) * amount, // s * (1 - amount),
+                       brightness: b * (1 - amount),
+                       alpha: a)
+    }
 }

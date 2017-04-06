@@ -44,12 +44,13 @@ class HourViewController: UIViewController {
         let foreColor = foregroundColor ?? UIColor.white
         let backColor = backgroundColor ?? UIColor.darkGray
 
-        screenTitle.text = "Within the hour"
-        screenTitle.textColor = foregroundColor
+        screenTitle.text = "Within The Hour"
+        screenTitle.textColor = foreColor
 
         returnButton.setTitleColor(foreColor, for: .normal)
 
         graphTitle.text = precipitationType(from: forecast) + " in the next 60 mins."
+        graphTitle.textColor = foreColor
         summary.text = oneHourSummary(from: forecast)
         summary.textColor = foreColor
 
@@ -80,7 +81,7 @@ class HourViewController: UIViewController {
             let other = String(type.characters.dropFirst())
             return first + other
         } else {
-            return "Nothing"
+            return "Little or nothing"
         }
     }
 }

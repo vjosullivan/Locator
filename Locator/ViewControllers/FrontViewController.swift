@@ -57,12 +57,12 @@ class FrontViewController: UIViewController {
         let foreColor = foregroundColor ?? UIColor.white
         let backColor = backgroundColor ?? UIColor.darkGray
 
-        currentTemperatureValue.textColor = foregroundColor
-        currentWeatherValue.textColor = foregroundColor
-        minTempValue.textColor = foregroundColor
-        minTempTime.textColor = foregroundColor
-        maxTempValue.textColor = foregroundColor
-        maxTempTime.textColor = foregroundColor
+        currentTemperatureValue.textColor = foreColor
+        currentWeatherValue.textColor = foreColor
+        minTempValue.textColor = foreColor
+        minTempTime.textColor = foreColor
+        maxTempValue.textColor = foreColor
+        maxTempTime.textColor = foreColor
 
         if let temperature = forecast.current?.temperature {
             currentTemperatureValue.text  = "\(Int(round(temperature.value)))\(temperature.unit.symbol)"
@@ -75,7 +75,7 @@ class FrontViewController: UIViewController {
             currentWeatherValue.text = "No weather!"
         }
 
-        setMinMaxTemperatures(forecast: forecast, textColor: foregroundColor!)
+        setMinMaxTemperatures(forecast: forecast, textColor: foreColor)
 
         buttonATL.setTitleColor(foreColor, for: .normal)
         buttonATR.setTitleColor(foreColor, for: .normal)
@@ -91,7 +91,7 @@ class FrontViewController: UIViewController {
             maxTempValue.text = "High \(Int(hi.value))\(hi.unit.symbol)"
             if let maxTime = forecast.today?.temperatureMaxTime {
                 maxTempTime.text = maxTime.asHHMM(timezone: forecast.timeZone)
-                maxTempTime.textColor = Date().isAfter(maxTime) ? UIColor.gray : textColor
+                maxTempTime.textColor = /*Date().isAfter(maxTime) ? UIColor.darkGray :*/ textColor
             } else {
                 maxTempTime.textColor = textColor
             }
@@ -104,7 +104,7 @@ class FrontViewController: UIViewController {
             minTempValue.text = "Low \(Int(lo.value))\(lo.unit.symbol)"
             if let minTime = forecast.today?.temperatureMinTime {
                 minTempTime.text = minTime.asHHMM(timezone: forecast.timeZone)
-                minTempTime.textColor = Date().isAfter(minTime) ? UIColor.gray : textColor
+                minTempTime.textColor = /*Date().isAfter(minTime) ? UIColor.darkGray :*/ textColor
             } else {
                 minTempTime.textColor = textColor
             }

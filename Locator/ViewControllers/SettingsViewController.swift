@@ -28,7 +28,7 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, cornerRadius: CGFloat, backgroundColor: UIColor?) {
+    func update(forecast: DarkSkyForecast, foregroundColor: UIColor?, backgroundColor: UIColor?, cornerRadius: CGFloat) {
 
         AppSettings.store(key: "units", value: forecast.unitsCode)
 

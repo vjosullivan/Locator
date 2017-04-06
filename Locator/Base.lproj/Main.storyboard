@@ -12,8 +12,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Lilly__.ttf">
-            <string>Lilly</string>
+        <array key="nevis.ttf">
+            <string>nevis-Bold</string>
         </array>
         <array key="weathericons-regular-webfont.ttf">
             <string>WeatherIcons-Regular</string>
@@ -288,7 +288,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="MoL-2o-dHv"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="nevis-Bold" family="nevis" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -858,64 +858,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="359" height="251.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BzU-Yu-Eyq" userLabel="buttonATL">
-                                <rect key="frame" x="0.0" y="0.0" width="126" height="126"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="BzU-Yu-Eyq" secondAttribute="height" multiplier="1:1" id="MzT-TY-NSS"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="14"/>
-                                <state key="normal">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="flip:" destination="Y7n-aO-sIV" eventType="touchUpInside" id="KAx-fc-7dg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qpv-4K-TDt" userLabel="buttonABL">
-                                <rect key="frame" x="0.0" y="126" width="125.5" height="125.5"/>
-                                <color key="backgroundColor" red="0.5" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Qpv-4K-TDt" secondAttribute="height" multiplier="1:1" id="JKT-fQ-bMZ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="14"/>
-                                <state key="normal">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="flip:" destination="Y7n-aO-sIV" eventType="touchUpInside" id="Srz-Pf-Mjr"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCt-x3-UnQ" userLabel="buttonATR">
-                                <rect key="frame" x="233" y="0.0" width="126" height="126"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="iCt-x3-UnQ" secondAttribute="height" id="jtB-L1-rc4"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="14"/>
-                                <state key="normal">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="selectLocation:" destination="Y7n-aO-sIV" eventType="touchUpInside" id="bOX-qi-Ikh"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qxf-NM-ylx" userLabel="buttonABR">
-                                <rect key="frame" x="233.5" y="126" width="125.5" height="125.5"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Qxf-NM-ylx" secondAttribute="height" multiplier="1:1" id="gp5-3d-pV1"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="14"/>
-                                <state key="normal">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="flip:" destination="Y7n-aO-sIV" eventType="touchUpInside" id="mam-nz-2a3"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="9Nu-lN-Vi9" userLabel="Minimax stack">
-                                <rect key="frame" x="44" y="8" width="271" height="30"/>
+                                <rect key="frame" x="44" y="7.5" width="271" height="30"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Gq8-9H-FZl" userLabel="Low stack">
                                         <rect key="frame" x="0.0" y="0.0" width="135.5" height="30"/>
@@ -964,27 +908,81 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="G8u-zV-srD" userLabel="Current temperature value">
-                                <rect key="frame" x="89" y="59" width="180" height="96"/>
+                                <rect key="frame" x="44" y="58.5" width="271" height="96"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="180" id="u4H-tf-5he"/>
                                     <constraint firstAttribute="height" constant="96" id="zOV-mW-XUg"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="53"/>
+                                <fontDescription key="fontDescription" name="nevis-Bold" family="nevis" pointSize="60"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="02b-rk-2LW" userLabel="Current weather value">
-                                <rect key="frame" x="89" y="163" width="180" height="63"/>
+                                <rect key="frame" x="44" y="154.5" width="271" height="63"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="63" id="DLV-ix-tSn"/>
-                                    <constraint firstAttribute="width" constant="180" id="ZD5-7A-pv3"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="nevis-Bold" family="nevis" pointSize="44"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BzU-Yu-Eyq" userLabel="buttonATL">
+                                <rect key="frame" x="0.0" y="0.0" width="126" height="126"/>
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="BzU-Yu-Eyq" secondAttribute="height" multiplier="1:1" id="MzT-TY-NSS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="flip:" destination="Y7n-aO-sIV" eventType="touchUpInside" id="KAx-fc-7dg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qpv-4K-TDt" userLabel="buttonABL">
+                                <rect key="frame" x="0.0" y="126" width="125.5" height="125.5"/>
+                                <color key="backgroundColor" red="0.5" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Qpv-4K-TDt" secondAttribute="height" multiplier="1:1" id="JKT-fQ-bMZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="flip:" destination="Y7n-aO-sIV" eventType="touchUpInside" id="Srz-Pf-Mjr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCt-x3-UnQ" userLabel="buttonATR">
+                                <rect key="frame" x="233" y="0.0" width="126" height="126"/>
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="iCt-x3-UnQ" secondAttribute="height" id="jtB-L1-rc4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectLocation:" destination="Y7n-aO-sIV" eventType="touchUpInside" id="bOX-qi-Ikh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qxf-NM-ylx" userLabel="buttonABR">
+                                <rect key="frame" x="233.5" y="126" width="125.5" height="125.5"/>
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Qxf-NM-ylx" secondAttribute="height" multiplier="1:1" id="gp5-3d-pV1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="flip:" destination="Y7n-aO-sIV" eventType="touchUpInside" id="mam-nz-2a3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -994,17 +992,21 @@
                             <constraint firstAttribute="trailing" secondItem="iCt-x3-UnQ" secondAttribute="trailing" id="DCx-iG-x3U"/>
                             <constraint firstItem="G8u-zV-srD" firstAttribute="centerX" secondItem="wT4-hs-c69" secondAttribute="centerX" id="EEM-YY-wGG"/>
                             <constraint firstItem="9Nu-lN-Vi9" firstAttribute="top" secondItem="njs-c8-FwL" secondAttribute="bottom" constant="8" id="Ena-uo-Dip"/>
+                            <constraint firstItem="G8u-zV-srD" firstAttribute="leading" secondItem="wT4-hs-c69" secondAttribute="leading" constant="44" id="HQt-Xv-kYk"/>
                             <constraint firstItem="BzU-Yu-Eyq" firstAttribute="top" secondItem="njs-c8-FwL" secondAttribute="bottom" id="Jo6-9P-XpU"/>
                             <constraint firstItem="Qxf-NM-ylx" firstAttribute="height" secondItem="iCt-x3-UnQ" secondAttribute="height" id="M4M-3N-JHV"/>
                             <constraint firstAttribute="trailing" secondItem="9Nu-lN-Vi9" secondAttribute="trailing" constant="44" id="OMf-Zf-bmO"/>
                             <constraint firstItem="02b-rk-2LW" firstAttribute="centerX" secondItem="wT4-hs-c69" secondAttribute="centerX" id="OzK-Ps-CY3"/>
+                            <constraint firstItem="02b-rk-2LW" firstAttribute="leading" secondItem="wT4-hs-c69" secondAttribute="leading" constant="44" id="Tri-N3-dBN"/>
                             <constraint firstItem="9Nu-lN-Vi9" firstAttribute="leading" secondItem="wT4-hs-c69" secondAttribute="leading" constant="44" id="YCi-I0-2Fr"/>
                             <constraint firstItem="G8u-zV-srD" firstAttribute="centerY" secondItem="wT4-hs-c69" secondAttribute="centerY" multiplier="0.85" id="YOf-qg-Ce4"/>
-                            <constraint firstItem="02b-rk-2LW" firstAttribute="top" secondItem="G8u-zV-srD" secondAttribute="bottom" constant="8" id="dTt-7H-IsF"/>
+                            <constraint firstAttribute="trailing" secondItem="G8u-zV-srD" secondAttribute="trailing" constant="44" id="bzU-MW-jmI"/>
+                            <constraint firstItem="02b-rk-2LW" firstAttribute="top" secondItem="G8u-zV-srD" secondAttribute="bottom" id="dTt-7H-IsF"/>
                             <constraint firstItem="Qpv-4K-TDt" firstAttribute="height" secondItem="BzU-Yu-Eyq" secondAttribute="height" id="dnB-m7-R9h"/>
                             <constraint firstItem="QQ2-ip-gOi" firstAttribute="top" secondItem="Qxf-NM-ylx" secondAttribute="bottom" id="fcl-JD-RwB"/>
                             <constraint firstItem="BzU-Yu-Eyq" firstAttribute="leading" secondItem="wT4-hs-c69" secondAttribute="leading" id="ffI-Ey-5mU"/>
                             <constraint firstItem="QQ2-ip-gOi" firstAttribute="top" secondItem="Qpv-4K-TDt" secondAttribute="bottom" id="fkf-he-WPN"/>
+                            <constraint firstAttribute="trailing" secondItem="02b-rk-2LW" secondAttribute="trailing" constant="44" id="rDG-ne-8je"/>
                             <constraint firstItem="Qxf-NM-ylx" firstAttribute="top" secondItem="iCt-x3-UnQ" secondAttribute="bottom" id="vKK-7d-hkc"/>
                             <constraint firstItem="iCt-x3-UnQ" firstAttribute="top" secondItem="njs-c8-FwL" secondAttribute="bottom" id="xh3-1G-cZG"/>
                         </constraints>
@@ -1030,7 +1032,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A7T-j6-jrX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="464" y="-104"/>
+            <point key="canvasLocation" x="463.19999999999999" y="-104.34782608695653"/>
         </scene>
         <!--Hour View Controller-->
         <scene sceneID="Fhz-ra-jOA">
@@ -1045,13 +1047,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Within The Hour" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ry3-re-l24" userLabel="Screen title">
-                                <rect key="frame" x="40" y="4" width="279" height="27.5"/>
-                                <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="16"/>
+                                <rect key="frame" x="40" y="4" width="279" height="18"/>
+                                <fontDescription key="fontDescription" name="nevis-Bold" family="nevis" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4NC-57-nx2">
-                                <rect key="frame" x="40" y="74" width="279" height="154"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="4NC-57-nx2">
+                                <rect key="frame" x="40" y="72" width="279" height="158"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uOY-Vl-REQ" userLabel="Rain intensity" customClass="GraphView" customModule="Locator" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="279" height="139.5"/>
@@ -1133,7 +1135,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rain in the next 60 minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdh-ra-GCM" userLabel="Graph title">
-                                        <rect key="frame" x="0.0" y="139.5" width="279" height="14.5"/>
+                                        <rect key="frame" x="0.0" y="143.5" width="279" height="14.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1205,11 +1207,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSN-sf-uHa" userLabel="Screen title">
-                                <rect key="frame" x="51" y="4" width="257" height="27.5"/>
+                                <rect key="frame" x="51" y="4" width="257" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="257" id="k6i-De-9mI"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="nevis-Bold" family="nevis" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1218,7 +1220,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="EAB-ax-Bag" secondAttribute="height" multiplier="1:1" id="VHe-cZ-Nmp"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <state key="normal" title="This Hour"/>
                                 <connections>
                                     <action selector="flip:" destination="VGZ-hz-kI3" eventType="touchUpInside" id="EZi-fp-yLY"/>
@@ -1229,7 +1231,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="HDv-az-Qnc" secondAttribute="height" multiplier="1:1" id="mas-hv-3Vc"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <state key="normal" title="Alerts"/>
                                 <connections>
                                     <action selector="flip:" destination="VGZ-hz-kI3" eventType="touchUpInside" id="Iq5-UE-cK9"/>
@@ -1240,7 +1242,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="rMh-46-Cqi" secondAttribute="height" multiplier="1:1" id="JZS-U6-X4a"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <state key="normal" title="This Week"/>
                                 <connections>
                                     <action selector="flip:" destination="VGZ-hz-kI3" eventType="touchUpInside" id="8bf-tO-Hdr"/>
@@ -1251,7 +1253,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="VsX-KO-2A8" secondAttribute="height" multiplier="1:1" id="OtV-bD-hNu"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                 <state key="normal" title="Credits"/>
                                 <connections>
                                     <action selector="flip:" destination="VGZ-hz-kI3" eventType="touchUpInside" id="1KF-rS-QYE"/>
@@ -1264,7 +1266,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="32" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p6k-Ku-w4A">
-                                <rect key="frame" x="40" y="39" width="279" height="230"/>
+                                <rect key="frame" x="40" y="29.5" width="279" height="239.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1419,11 +1421,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Week" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWA-qc-tQY" userLabel="Screen title">
-                                <rect key="frame" x="51" y="4" width="257" height="27.5"/>
+                                <rect key="frame" x="51" y="4" width="257" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="257" id="bV4-zm-3Fe"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="nevis-Bold" family="nevis" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1436,7 +1438,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="32" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Url-RG-GeD">
-                                <rect key="frame" x="20" y="39.5" width="319" height="230.5"/>
+                                <rect key="frame" x="20" y="30" width="319" height="240"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -1587,11 +1589,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6kU-io-bFW" userLabel="Screen title">
-                                <rect key="frame" x="51" y="4" width="257" height="27.5"/>
+                                <rect key="frame" x="51" y="4" width="257" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="257" id="Y51-FX-VWY"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="nevis-Bold" family="nevis" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1637,17 +1639,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather Alerts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sXw-LW-j8Z" userLabel="Screen title">
-                                <rect key="frame" x="59.5" y="4" width="240" height="27.5"/>
+                                <rect key="frame" x="59.5" y="4" width="240" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="YIS-Gi-P9k"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="nevis-Bold" family="nevis" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fMT-xW-wXQ" userLabel="Return button">
                                 <rect key="frame" x="0.0" y="0.0" width="359" height="302"/>
-                                <fontDescription key="fontDescription" name="Lilly" family="Lilly" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="8" maxX="8" maxY="0.0"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
@@ -1664,7 +1666,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" allowsSelection="NO" rowHeight="97" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ppL-bg-abJ" userLabel="Alerts table">
-                                <rect key="frame" x="20" y="31.5" width="319" height="233.5"/>
+                                <rect key="frame" x="20" y="30" width="319" height="235"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AlertCell" rowHeight="97" id="0BR-UP-ihz" userLabel="Alert cell" customClass="AlertsTableViewCell" customModule="Locator" customModuleProvider="target">
@@ -1754,7 +1756,7 @@
                             <constraint firstItem="sXw-LW-j8Z" firstAttribute="top" secondItem="zhf-PY-j4n" secondAttribute="bottom" constant="4" id="aTA-Xj-udT"/>
                             <constraint firstItem="lLs-Il-bJl" firstAttribute="top" secondItem="pfe-Ck-8VC" secondAttribute="bottom" constant="8" id="fvc-Zm-S40"/>
                             <constraint firstItem="fMT-xW-wXQ" firstAttribute="leading" secondItem="57w-MZ-fGv" secondAttribute="leading" id="jVO-FE-ZEl"/>
-                            <constraint firstItem="ppL-bg-abJ" firstAttribute="top" secondItem="sXw-LW-j8Z" secondAttribute="bottom" id="p9d-ra-d2d"/>
+                            <constraint firstItem="ppL-bg-abJ" firstAttribute="top" secondItem="sXw-LW-j8Z" secondAttribute="bottom" constant="8" id="p9d-ra-d2d"/>
                             <constraint firstAttribute="trailing" secondItem="ppL-bg-abJ" secondAttribute="trailing" constant="20" id="ql1-jr-dc6"/>
                         </constraints>
                     </view>

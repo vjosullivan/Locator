@@ -32,6 +32,7 @@
 	<array>
 		<string>weathericons-regular-webfont.ttf</string>
 		<string>Lilly__.ttf</string>
+		<string>nevis.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
