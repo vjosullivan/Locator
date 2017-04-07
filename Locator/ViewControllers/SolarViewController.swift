@@ -124,43 +124,34 @@ class SolarViewController: UIViewController {
         return "\(preposition) \(hours) hour\(plural) to \(name)."
     }
 
-    private func updateSunrise(time: Date?, timeZone identifier: String, textColor: UIColor) {
-        if let sunrise = time {
-            sunriseSymbol.text = Weather.sunrise.symbol
-            let sunriseTheirTime = sunrise.asHMZ(timeZone: identifier)
-            sunriseTimeThere.text = sunriseTheirTime
-            let sunriseOurTime = sunrise.asHMZ(timeZone: TimeZone.current.identifier)
-            if sunriseTheirTime.substring(0..<5) != sunriseOurTime.substring(0..<5) {
-                sunriseTimeHere.text  = "(\(sunriseOurTime))"
-            } else {
-                sunriseTimeHere.text  = ""
-            }
-            sunriseSymbol.textColor = Date().isAfter(sunrise) ? UIColor.amber : textColor
-        } else {
-            sunriseSymbol.text      = Weather.stars.symbol
-            sunriseSymbol.textColor = UIColor.amber
-            sunriseTimeThere.text = "No sunrise"
-            sunriseTimeHere.text  = ""
-        }
+    private func updateSunrise(time: Date?, timeZone: String?, textColor: UIColor) {
+        update(symbol: sunriseSymbol, theirTime: sunriseTimeThere, ourTime: sunriseTimeHere,
+               eventTime: time, timeZone: timeZone, textColor: textColor)
     }
 
-    private func updateSunset(time: Date?, timeZone identifier: String?, textColor: UIColor) {
-        if let sunset = time {
-            sunsetSymbol.text = Weather.sunset.symbol
-            let sunsetTheirTime = sunset.asHMZ(timeZone: identifier)
-            let sunsetOurTime   = sunset.asHMZ(timeZone: TimeZone.current.identifier)
-            sunsetTimeThere.text = sunsetTheirTime
-            if sunsetTheirTime.substring(0..<5) != sunsetOurTime.substring(0..<5) {
-                sunsetTimeHere.text  = "(\(sunsetOurTime))"
+    private func updateSunset(time: Date?, timeZone: String?, textColor: UIColor) {
+        update(symbol: sunsetSymbol, theirTime: sunsetTimeThere, ourTime: sunsetTimeHere,
+               eventTime: time, timeZone: timeZone, textColor: textColor)
+    }
+
+    private func update(symbol: UILabel, theirTime: UILabel, ourTime: UILabel,
+                        eventTime: Date?, timeZone identifier: String?, textColor: UIColor) {
+        if let eventTime = eventTime {
+            symbol.text = Weather.sunset.symbol
+            let eventTheirTime = eventTime.asHMZ(timeZone: identifier)
+            let eventOurTime   = eventTime.asHMZ(timeZone: TimeZone.current.identifier)
+            theirTime.text = eventTheirTime
+            if eventTheirTime.substring(0..<5) != eventOurTime.substring(0..<5) {
+                ourTime.text  = "(\(eventOurTime))"
             } else {
-                sunsetTimeHere.text  = ""
+                ourTime.text  = ""
             }
-            sunsetSymbol.textColor = Date().isAfter(sunset) ? UIColor.amber : textColor
+            symbol.textColor = Date().isAfter(eventTime) ? textColor : UIColor.amber
         } else {
-            sunsetSymbol.text      = "\u{F077}"
-            sunsetSymbol.textColor = UIColor.amber
-            sunsetTimeThere.text = "No sunset"
-            sunsetTimeHere.text  = ""
+            symbol.text      = Weather.stars.symbol
+            symbol.textColor = textColor
+            theirTime.text = "None"
+            ourTime.text = ""
         }
     }
 }

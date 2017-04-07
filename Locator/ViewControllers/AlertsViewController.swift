@@ -36,7 +36,7 @@ class AlertsViewController: UIViewController {
 
         if forecast.alerts != nil {
             alertsTable.isHidden = false
-            alertsHandler.update(using: forecast.alerts ?? [Alert](), backgroundColor: backgroundColor.darker(by: 0.85))
+            alertsHandler.update(using: forecast.alerts ?? [Alert](), backgroundColor: backgroundColor.darker(by: 0.75))
             alertsTable.reloadData()
         } else {
             alertsTable.isHidden = true

@@ -31,7 +31,7 @@ class WeekViewController: UIViewController {
         screenTitle.text = "This Week"
         screenTitle.textColor = foregroundColor
 
-        weatherHandler.update(forecast: forecast, detailType: .week, backgroundColor: backgroundColor.darker(by: 0.85))
+        weatherHandler.update(forecast: forecast, detailType: .week, backgroundColor: backgroundColor.darker(by: 0.75))
         weatherTable.reloadData()
 
         summary.textColor = foregroundColor
