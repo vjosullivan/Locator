@@ -54,50 +54,30 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
 
     private func populateHourOfDay(cell: WeatherTableViewCell,
                                    from dataPoint: DataPoint?, in timeZone: String) -> WeatherTableViewCell {
-        if let dataPoint = dataPoint {
-            cell.time.text = dataPoint.time.asHpm(showMidday: true, timeZone: timeZone)
+        return populate(cell: cell, from: dataPoint, in: timeZone) {
+            cell.time.text = dataPoint?.time.asHpm(showMidday: true, timeZone: timeZone)
             cell.time.textColor = (cell.time.text!.substring(to: 1) == "N") ? UIColor.amber : UIColor.white
-            cell.icon.text = Weather.representedBy(darkSkyIcon: dataPoint.icon ?? "").symbol
-            cell.icon.textColor = Weather.representedBy(darkSkyIcon: dataPoint.icon ?? "").color
             cell.maxTemperature.text
-                = "\(Int(dataPoint.temperature?.value ?? 0))\(dataPoint.temperature?.unit.symbol ?? "")"
-            if let precipProbability = dataPoint.precipProbability {
-                let precipPercentage = Int((precipProbability + 0.1) * 5.0) * 20
-                if precipPercentage > 0 {
-                    cell.rain.text = "\(precipPercentage)%"
-                    cell.rain.textColor = UIColor.black
-                    cell.rain.precipitationType = (dataPoint.precipType == "snow")
-                        ? PrecipitationType.snow : PrecipitationType.rain
-                    let backgroundColor = (dataPoint.precipType == "snow") ? UIColor.white : UIColor.clearBlue
-                    cell.rain.backgroundColor = backgroundColor.withAlphaComponent(CGFloat(0.5 + precipProbability * 0.5))
-                    cell.rain.layer.cornerRadius = cell.rain.bounds.width / 2.0
-                } else {
-                    cell.rain.text = "Dry"
-                    cell.rain.textColor = UIColor.white
-                    cell.rain.backgroundColor = UIColor.clear
-                    updateWindbearing(label: cell.windBearing, from: dataPoint.windBearing)
-                    updateWindspeed(label: cell.windSpeed, from: dataPoint.windSpeed)
-                }
-            } else {
-                cell.rain.text = "-"
-            }
-            //cell.summary.text = dataPoint.summary
-        } else {
-            cell.time.text = "???"
-            //cell.summary.text = "-"
+                = "\(Int(dataPoint?.temperature?.value ?? 0))\(dataPoint?.temperature?.unit.symbol ?? "")"
         }
-        cell.backgroundColor = backgroundColor
-        return cell
     }
 
     private func populateDayOfWeek(cell: WeatherTableViewCell,
                                    from dataPoint: DataPoint?, in timeZone: String) -> WeatherTableViewCell {
+        return populate(cell: cell, from: dataPoint, in: timeZone) {
+            cell.time.text = dataPoint?.time.asDDD(timeZone: forecast?.timeZone)
+            cell.time.textColor = (cell.time.text!.substring(to: 1) == "S") ? UIColor.amber : UIColor.white
+            cell.maxTemperature.text
+                = "\(Int(dataPoint?.temperatureMax?.value ?? 0))\(dataPoint?.temperatureMax?.unit.symbol ?? "")"
+        }
+    }
+
+    private func populate(cell: WeatherTableViewCell,
+                          from dataPoint: DataPoint?, in timeZone: String, completion: () -> Void) -> WeatherTableViewCell {
         if let dataPoint = dataPoint {
-            cell.time.text = dataPoint.time.asDDD(timeZone: forecast?.timeZone)
+            completion()
             cell.icon.text = Weather.representedBy(darkSkyIcon: dataPoint.icon ?? "").symbol
             cell.icon.textColor = Weather.representedBy(darkSkyIcon: dataPoint.icon ?? "").color
-            cell.maxTemperature.text
-                = "\(Int(dataPoint.temperatureMax?.value ?? 0))\(dataPoint.temperatureMax?.unit.symbol ?? "")"
             if let precipProbability = dataPoint.precipProbability {
                 let precipPercentage = Int((precipProbability + 0.1) * 5.0) * 20
                 if precipPercentage > 0 {
@@ -113,15 +93,13 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
                     cell.rain.textColor = UIColor.white
                     cell.rain.backgroundColor = UIColor.clear
                 }
-                updateWindbearing(label: cell.windBearing, from: dataPoint.windBearing)
-                updateWindspeed(label: cell.windSpeed, from: dataPoint.windSpeed)
             } else {
                 cell.rain.text = "-"
             }
-            //cell.summary.text = dataPoint.summary
+            updateWindbearing(label: cell.windBearing, from: dataPoint.windBearing)
+            updateWindspeed(label: cell.windSpeed, from: dataPoint.windSpeed)
         } else {
             cell.time.text = "???"
-            //cell.summary.text = "-"
         }
         cell.backgroundColor = backgroundColor
         return cell
