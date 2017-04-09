@@ -85,8 +85,8 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
                     cell.rain.textColor = UIColor.black
                     cell.rain.precipitationType = (dataPoint.precipType == "snow")
                         ? PrecipitationType.snow : PrecipitationType.rain
-                    let backgroundColor = (dataPoint.precipType == "snow") ? UIColor.white : UIColor.clearBlue
-                    cell.rain.backgroundColor = backgroundColor.withAlphaComponent(CGFloat(0.5 + precipProbability * 0.5))
+                    let precipitationColor = (dataPoint.precipType == "snow") ? UIColor.white : UIColor.clearBlue
+                    cell.rain.backgroundColor = precipitationColor.withAlphaComponent(CGFloat(0.5 + precipProbability * 0.5))
                     cell.rain.layer.cornerRadius = cell.rain.bounds.width / 2.0
                 } else {
                     cell.rain.text = "Dry"
