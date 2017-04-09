@@ -42,13 +42,12 @@ extension DataPoint {
         precipType = dictionary["precipType"] as? String
 
         if let p = dictionary["pressure"] as? Double {
-            pressure = OptionalMeasurement(value: round(p) as AnyObject?, unit: units.airPressure)
+            pressure = OptionalMeasurement(value: round(p) as AnyObject?, unit: UnitPressure.hectopascals)?
+                .converted(to: units.airPressure)
         } else {
             pressure = nil
         }
-
         summary = dictionary["summary"] as? String
-
         sunriseTime = Date(unixDate: dictionary["sunriseTime"])
         sunsetTime  = Date(unixDate: dictionary["sunsetTime"])
 

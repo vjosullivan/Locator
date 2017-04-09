@@ -10,22 +10,28 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
-    @IBOutlet weak var usButton: UIButton!
-    @IBOutlet weak var ukButton: UIButton!
-    @IBOutlet weak var caButton: UIButton!
-    @IBOutlet weak var siButton: UIButton!
+    @IBOutlet weak var unitsLabel: UILabel!
 
-    @IBOutlet weak var usUnits: UILabel!
-    @IBOutlet weak var ukUnits: UILabel!
-    @IBOutlet weak var caUnits: UILabel!
-    @IBOutlet weak var siUnits: UILabel!
-
+    @IBOutlet weak var unitsSettings: UISegmentedControl!
     @IBOutlet weak var settingsLabel: UILabel!
 
     @IBOutlet weak var returnButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let units = DarkSkyUnits.units(from: AppSettings.retrieve(key: "units", defaultValue: "auto"))
+        switch units {
+        case DarkSkyUnits.us:
+            unitsSettings.selectedSegmentIndex = 3
+        case DarkSkyUnits.uk2:
+            unitsSettings.selectedSegmentIndex = 2
+        case DarkSkyUnits.ca:
+            unitsSettings.selectedSegmentIndex = 1
+        default:
+            unitsSettings.selectedSegmentIndex = 0
+        }
+        setUnits(unitsSettings)
     }
 
     func update(forecast: DarkSkyForecast, backgroundColor: UIColor, cornerRadius: CGFloat) {
@@ -34,26 +40,28 @@ class SettingsViewController: UIViewController {
         AppSettings.store(key: "units", value: forecast.unitsCode)
 
         returnButton.setTitleColor(foregroundColor, for: .normal)
+        let textColor = backgroundColor.darker
+        unitsLabel.textColor = textColor
+        unitsSettings.tintColor = textColor
+        settingsLabel.textColor = textColor
         view.backgroundColor = backgroundColor
         view.topCornerRadius = cornerRadius
     }
 
-    @IBAction func switchUnits(_ sender: UIButton) {
-        switch sender {
-        case usButton:
-            AppSettings.store(key: "units", value: "us")
-            settingsLabel.text = "US units: ˚F, miles, mph, mbar"
-        case ukButton:
-            AppSettings.store(key: "units", value: "uk2")
-            settingsLabel.text = "UK units: ˚C, miles, mph, hPa"
-        case caButton:
-            AppSettings.store(key: "units", value: "ca")
-            settingsLabel.text = "CA units: ˚C, kilometers, km/h, mmHg"
-        case siButton:
+    @IBAction func setUnits(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
             AppSettings.store(key: "units", value: "si")
-            settingsLabel.text = "SI units: ˚C, metres, m/s, hPa"
+            settingsLabel.text = "Celsius  ·  metres  ·  m/s  ·  hPa"
+        case 1:
+            AppSettings.store(key: "units", value: "ca")
+            settingsLabel.text = "Celsius  ·  kilometers  ·  km/h  ·  kPa"
+        case 2:
+            AppSettings.store(key: "units", value: "uk2")
+            settingsLabel.text = "Celsius  ·  miles  ·  mph  ·  mbar"
         default:
-            AppSettings.store(key: "units", value: "auto")
+            AppSettings.store(key: "units", value: "us")
+            settingsLabel.text = "Fahrenheit  ·  miles  ·  mph  ·  inHg"
         }
     }
 }

@@ -69,8 +69,12 @@ enum DarkSkyUnits {
 
     var airPressure: UnitPressure {
         switch self {
-        case .si, .ca, .uk2, .auto:
+        case .si, .auto:
             return .hectopascals
+        case .uk2:
+            return .millibars
+        case .ca:
+            return .kilopascals
         case .us:
             return .inchesOfMercury
         }

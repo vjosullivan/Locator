@@ -60,11 +60,25 @@ class DetailsViewController: UIViewController {
         view.topCornerRadius = cornerRadius
     }
 
+    /// Updates the air pressure display from the supplied air pressure measurement.
+    /// Different air pressure units require slightly different display formats.
+    ///
+    /// - Parameter measurement: An air pressure measurement.
+    ///
     private func updatePressure(from measurement: Measurement<UnitPressure>?) {
         if let measurement = measurement {
             pressureSymbol.text = Weather.barometer.symbol
             pressureLabel.text = "Pressure"
-            pressureText.text  = "\(Int(measurement.value)) \(measurement.unit.symbol)"
+            let pressureValue: String
+            switch measurement.unit {
+            case UnitPressure.inchesOfMercury:
+                pressureValue = String(Double(Int(measurement.value * 100)) / 100.0)
+            case UnitPressure.kilopascals:
+                pressureValue = String(Double(Int(measurement.value * 10)) / 10.0)
+            default:
+                pressureValue = String(Int(measurement.value))
+            }
+            pressureText.text  = "\(pressureValue) \(measurement.unit.symbol)"
         } else {
             pressureSymbol.text = ""
             pressureLabel.text = "No pressure"
@@ -72,6 +86,10 @@ class DetailsViewController: UIViewController {
         }
     }
 
+    /// Updates the wind speed display from the supplied measurement.
+    ///
+    /// - Parameter measurement: A wind speed measurement.
+    ///
     private func updateWindSpeed(from measurement: Measurement<UnitSpeed>?) {
         if let windSpeed = measurement {
             windLabel.text = "Wind"
@@ -82,6 +100,10 @@ class DetailsViewController: UIViewController {
         }
     }
 
+    /// Updates the wind direction display from the supplied measurement.
+    ///
+    /// - Parameter measurement: A wind direction measurement.
+    ///
     private func updateWindDirection(from measurement: Measurement<UnitAngle>?) {
         if let windDirection = measurement {
             windSymbol.text = Weather.windDirection.symbol
