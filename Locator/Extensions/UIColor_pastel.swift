@@ -12,16 +12,16 @@ extension UIColor {
 
     private static var previousIndex = -1
 
-    static let pastelGreen  = UIColor(red:  83.0/255.0, green: 151.0/255.0, blue:  112.0/255.0, alpha: 1.0)
-    static let dimGray      = UIColor(red:  75.0/255.0, green: 125.0/255.0, blue:  116.0/255.0, alpha: 1.0)
-    static let pastelBlue   = UIColor(red: 141.0/255.0, green: 194.0/255.0, blue:  188.0/255.0, alpha: 1.0)
-    static let wheat        = UIColor(red: 237.0/255.0, green: 214.0/255.0, blue:  180.0/255.0, alpha: 1.0)
-    static let indianRed    = UIColor(red: 190.0/255.0, green: 116.0/255.0, blue:  103.0/255.0, alpha: 1.0)
-    static let sandyBrown   = UIColor(red: 226.0/255.0, green: 174.0/255.0, blue:   99.0/255.0, alpha: 1.0)
-    static let pastelYellow = UIColor(red: 238.0/255.0, green: 221.0/255.0, blue:  152.0/255.0, alpha: 1.0)
-    static let clearBlue      = UIColor(red: 127.0/255.0, green: 183.0/255.0, blue:  229.0/255.0, alpha: 1.0)
+    static let paleGrey     = UIColor(red: 223.0/255.0, green: 223.0/255.0, blue:  223.0/255.0, alpha: 1.0)
+    static let paleRed      = UIColor(red: 223.0/255.0, green: 207.0/255.0, blue:  207.0/255.0, alpha: 1.0)
+    static let paleGreen    = UIColor(red: 207.0/255.0, green: 223.0/255.0, blue:  207.0/255.0, alpha: 1.0)
+    static let paleBlue     = UIColor(red: 207.0/255.0, green: 223.0/255.0, blue:  224.0/255.0, alpha: 1.0)
+    static let paleUnRed    = UIColor(red: 207.0/255.0, green: 223.0/255.0, blue:  223.0/255.0, alpha: 1.0)
+    static let paleUnGreen  = UIColor(red: 223.0/255.0, green: 207.0/255.0, blue:  223.0/255.0, alpha: 1.0)
+    static let paleUnBlue   = UIColor(red: 223.0/255.0, green: 223.0/255.0, blue:  207.0/255.0, alpha: 1.0)
+    static let clearBlue    = UIColor(red: 128.0/255.0, green: 183.0/255.0, blue:  228.0/255.0, alpha: 1.0)
 
-    private static let pastels = [pastelGreen, dimGray, pastelBlue, wheat, indianRed, sandyBrown, pastelYellow, clearBlue]
+    private static let pastels = [paleGrey, paleRed, paleGreen, paleBlue, paleUnRed, paleUnGreen, paleUnBlue]
 
     public static func randomPastel() -> UIColor {
 
