@@ -114,7 +114,7 @@ class SolarViewController: UIViewController {
             preposition = "Under"
             hours += 1
         case 56...59:
-            preposition = "Just undert"
+            preposition = "Just under"
             hours += 1
         default:
             preposition = "almost exactly"
