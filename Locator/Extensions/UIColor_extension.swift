@@ -116,7 +116,7 @@ extension UIColor {
     }
 
     var darker: UIColor {
-        return darker(by: 0.5)
+        return darker(by: 0.4)
     }
 
     func darker(by amount: CGFloat) -> UIColor {
