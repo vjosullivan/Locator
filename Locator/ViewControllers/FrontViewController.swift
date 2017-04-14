@@ -68,7 +68,7 @@ class FrontViewController: UIViewController {
             currentTemperatureValue.text  = ""
         }
         if let summary = forecast.current?.summary {
-            currentWeatherValue.text = "\(summary)"
+            currentWeatherValue.text = "\(summary)".uppercased()
         } else {
             currentWeatherValue.text = "No weather!"
         }
