@@ -126,18 +126,18 @@ class SolarViewController: UIViewController {
 
     private func updateSunrise(time: Date?, timeZone: String?, textColor: UIColor) {
         update(symbol: sunriseSymbol, theirTime: sunriseTimeThere, ourTime: sunriseTimeHere,
-               eventTime: time, timeZone: timeZone, textColor: textColor)
+               eventTime: time, timeZone: timeZone, textColor: textColor, icon: Weather.sunrise.symbol)
     }
 
     private func updateSunset(time: Date?, timeZone: String?, textColor: UIColor) {
         update(symbol: sunsetSymbol, theirTime: sunsetTimeThere, ourTime: sunsetTimeHere,
-               eventTime: time, timeZone: timeZone, textColor: textColor)
+               eventTime: time, timeZone: timeZone, textColor: textColor, icon: Weather.sunset.symbol)
     }
 
     private func update(symbol: UILabel, theirTime: UILabel, ourTime: UILabel,
-                        eventTime: Date?, timeZone identifier: String?, textColor: UIColor) {
+                        eventTime: Date?, timeZone identifier: String?, textColor: UIColor, icon: String) {
         if let eventTime = eventTime {
-            symbol.text = Weather.sunset.symbol
+            symbol.text = icon
             let eventTheirTime = eventTime.asHMZ(timeZone: identifier)
             let eventOurTime   = eventTime.asHMZ(timeZone: TimeZone.current.identifier)
             theirTime.text = eventTheirTime
