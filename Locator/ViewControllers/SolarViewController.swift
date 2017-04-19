@@ -124,20 +124,50 @@ class SolarViewController: UIViewController {
         return "\(preposition) \(hours) hour\(plural) to \(name)."
     }
 
+    /// Updates the displayed sunrise details.  If the timezone of the location is different to
+    /// the local timezone, both timezones are displayed.
+    ///
+    /// - Parameters:
+    ///   - time: The time of the sunrise.
+    ///   - timeZone: The timezone of the location displayed.
+    ///   - textColor: The colour to be used for the text.
+    ///
     private func updateSunrise(time: Date?, timeZone: String?, textColor: UIColor) {
-        update(symbol: sunriseSymbol, theirTime: sunriseTimeThere, ourTime: sunriseTimeHere,
+        update(iconLabel: sunriseSymbol, theirTime: sunriseTimeThere, ourTime: sunriseTimeHere,
                eventTime: time, timeZone: timeZone, textColor: textColor, icon: Weather.sunrise.symbol)
     }
 
+    /// Updates the displayed sunset details.  If the timezone of the location is different to
+    /// the local timezone, both timezones are displayed.
+    ///
+    /// - Parameters:
+    ///   - time: The time of the sunset.
+    ///   - timeZone: The timezone of the location displayed.
+    ///   - textColor: The colour to be used for the text.
+    ///
     private func updateSunset(time: Date?, timeZone: String?, textColor: UIColor) {
-        update(symbol: sunsetSymbol, theirTime: sunsetTimeThere, ourTime: sunsetTimeHere,
+        update(iconLabel: sunsetSymbol, theirTime: sunsetTimeThere, ourTime: sunsetTimeHere,
                eventTime: time, timeZone: timeZone, textColor: textColor, icon: Weather.sunset.symbol)
     }
 
-    private func update(symbol: UILabel, theirTime: UILabel, ourTime: UILabel,
+
+    /// A convenience function that updates the displayed event (e.g. sunrise or sunset) details.
+    /// If the timezone of the location is different to
+    /// the local timezone, both timezones are displayed.
+    ///
+    /// - Parameters:
+    ///   - symbol: The label that displays the event's icon.
+    ///   - theirTime: The time at the location.
+    ///   - ourTime: The local time
+    ///   - eventTime: The time at which the event occurs.
+    ///   - identifier: <#identifier description#>
+    ///   - textColor: The foreground colour to be used.
+    ///   - icon: The icon to be displayed.
+    ///
+    private func update(iconLabel: UILabel, theirTime: UILabel, ourTime: UILabel,
                         eventTime: Date?, timeZone identifier: String?, textColor: UIColor, icon: String) {
         if let eventTime = eventTime {
-            symbol.text = icon
+            iconLabel.text = icon
             let eventTheirTime = eventTime.asHMZ(timeZone: identifier)
             let eventOurTime   = eventTime.asHMZ(timeZone: TimeZone.current.identifier)
             theirTime.text = eventTheirTime
@@ -146,10 +176,10 @@ class SolarViewController: UIViewController {
             } else {
                 ourTime.text  = ""
             }
-            symbol.textColor = Date().isAfter(eventTime) ? textColor : UIColor.amber
+            iconLabel.textColor = Date().isAfter(eventTime) ? textColor : UIColor.amber
         } else {
-            symbol.text      = Weather.stars.symbol
-            symbol.textColor = textColor
+            iconLabel.text      = Weather.stars.symbol
+            iconLabel.textColor = textColor
             theirTime.text = "None"
             ourTime.text = ""
         }
