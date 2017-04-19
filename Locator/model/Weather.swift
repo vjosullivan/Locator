@@ -104,7 +104,6 @@ struct Weather {
         return Weather(symbol: "\u{F0EB}", color: UIColor.clear, isDark: false)
     }
 
-    // swiftlint:disable cyclomatic_complexity
     /// Converts a "Dark Sky" icon label into a Weather Awesome character.
     ///
     /// - Parameter darkSkyIcon: A Dark Sky icon name (e.g. "clear-day").
@@ -112,20 +111,16 @@ struct Weather {
     ///
     static func representedBy(darkSkyIcon: String) -> Weather {
 
-        switch darkSkyIcon {
-        case "clear-day": return Weather.clearDay
-        case "clear-night": return Weather.clearNight
-        case "rain": return Weather.rain
-        case "rain-day": return Weather.rainDay
-        case "snow": return Weather.snow
-        case "sleet": return Weather.sleet
-        case "wind": return Weather.wind
-        case "fog": return Weather.fog
-        case "cloudy": return Weather.cloudy
-        case "partly-cloudy-day": return Weather.partlyCloudyDay
-        case "partly-cloudy-night": return Weather.partlyCloudyNight
-        default: return Weather.noWeather
+        let weatherStrings = ["clear-day", "clear-night", "rain", "rain-day", "snow",
+                              "sleet", "wind", "fog", "cloudy",
+                              "partly-cloudy-day", "partly-cloudy-night"]
+        let weatherObjects = [Weather.clearDay, Weather.clearNight, Weather.rain, Weather.rainDay, Weather.snow,
+                              Weather.sleet, Weather.wind, Weather.fog, Weather.cloudy,
+                              Weather.partlyCloudyDay, Weather.partlyCloudyNight]
+        if let index = weatherStrings.index(of: darkSkyIcon) {
+            return weatherObjects[index]
+        } else {
+            return Weather.noWeather
         }
     }
-    // swiftlint:enable cyclomatic_complexity
 }
