@@ -155,15 +155,16 @@ class WeatherTests: XCTestCase {
 
     func testWindDirection() {
         let w = Weather.windDirection
-        XCTAssertEqual("\u{f0b1}", w.symbol)
+        // Test for "Zapf Dingbats" font symbol for this weather type.
+        XCTAssertEqual("\u{279F}", w.symbol)
         XCTAssertEqual(UIColor.clear, w.color)
         XCTAssertEqual(false, w.isDark)
     }
 
-    func testNoWeatherDay() {
-        let w = Weather.noWeatherDay
+    func testNoWeather() {
+        let w = Weather.noWeather
         XCTAssertEqual("\u{f095}", w.symbol)
-        XCTAssertEqual(UIColor.noWeatherDay, w.color)
+        XCTAssertEqual(UIColor.noWeather, w.color)
         XCTAssertEqual(false, w.isDark)
     }
 

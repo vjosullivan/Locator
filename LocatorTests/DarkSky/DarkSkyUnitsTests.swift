@@ -49,8 +49,8 @@ class DarkSkyUnitsTests: XCTestCase {
 
     func testAirPressure() {
         XCTAssertEqual(UnitPressure.inchesOfMercury, usUnits.airPressure)
-        XCTAssertEqual(UnitPressure.hectopascals, ukUnits.airPressure)
-        XCTAssertEqual(UnitPressure.hectopascals, caUnits.airPressure)
+        XCTAssertEqual(UnitPressure.millibars, ukUnits.airPressure)
+        XCTAssertEqual(UnitPressure.kilopascals, caUnits.airPressure)
         XCTAssertEqual(UnitPressure.hectopascals, siUnits.airPressure)
     }
 

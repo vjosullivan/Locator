@@ -49,6 +49,7 @@
 		34F5A4FE1E239E2000E66AC1 /* TimeZone_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F5A4FD1E239E2000E66AC1 /* TimeZone_extension.swift */; };
 		34F5A5001E23D6A600E66AC1 /* Font_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F5A4FF1E23D6A600E66AC1 /* Font_extension.swift */; };
 		B52CD6FBFF14B2F32A23359C /* libPods-Locator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C356B11EB1AD34A8EE3D80C /* libPods-Locator.a */; };
+		F10F531E1EAB63CD007D0144 /* FrontViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F531D1EAB63CD007D0144 /* FrontViewControllerTests.swift */; };
 		F11198E11E08658000D969CF /* weathericons-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F11198E01E08658000D969CF /* weathericons-regular-webfont.ttf */; };
 		F11F081B1E88527500231BEF /* WeatherHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F081A1E88527500231BEF /* WeatherHandler.swift */; };
 		F11F081D1E8856AF00231BEF /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F081C1E8856AF00231BEF /* WeatherTableViewCell.swift */; };
@@ -139,6 +140,7 @@
 		34F5A4FF1E23D6A600E66AC1 /* Font_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font_extension.swift; sourceTree = "<group>"; };
 		4C356B11EB1AD34A8EE3D80C /* libPods-Locator.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Locator.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		513678032403BEE30CBB3F1F /* Pods-Locator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Locator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Locator/Pods-Locator.debug.xcconfig"; sourceTree = "<group>"; };
+		F10F531D1EAB63CD007D0144 /* FrontViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontViewControllerTests.swift; sourceTree = "<group>"; };
 		F11198E01E08658000D969CF /* weathericons-regular-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "weathericons-regular-webfont.ttf"; sourceTree = "<group>"; };
 		F11F081A1E88527500231BEF /* WeatherHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherHandler.swift; sourceTree = "<group>"; };
 		F11F081C1E8856AF00231BEF /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 		348BC33F1DD1AF3900638D66 /* Locator */ = {
 			isa = PBXGroup;
 			children = (
+				F10F531C1EAB638D007D0144 /* Presenters */,
 				348BC3401DD1AF3900638D66 /* AppDelegate.swift */,
 				348BC34C1DD1AF3A00638D66 /* LaunchScreen.storyboard */,
 				348BC3441DD1AF3900638D66 /* Main.storyboard */,
@@ -330,6 +333,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F10F531C1EAB638D007D0144 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenters;
+			sourceTree = "<group>";
+		};
 		F11198DF1E0864D300D969CF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				F11F081F1E895F0800231BEF /* CreditsViewControllerTests.swift */,
+				F10F531D1EAB63CD007D0144 /* FrontViewControllerTests.swift */,
 			);
 			name = ViewControllers;
 			path = ViewControllerTests;
@@ -640,6 +651,7 @@
 				345D137A1E32037D00327814 /* DarkSkyUnitsTests.swift in Sources */,
 				346EDC921E30B99400BF7AD3 /* LocationTests.swift in Sources */,
 				346EDC8F1E30ADF600BF7AD3 /* JSONFixture.swift in Sources */,
+				F10F531E1EAB63CD007D0144 /* FrontViewControllerTests.swift in Sources */,
 				345D13741E31239400327814 /* WeatherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
