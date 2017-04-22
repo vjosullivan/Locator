@@ -12,6 +12,10 @@ import UIKit
 
 class FrontViewController: UIViewController {
 
+    static let id = "FrontViewControllerID"
+
+    var presenter: FrontViewPresenter?
+
     var mainVC: MainViewController?
 
     // These views have coloured backgrounds in the storyboard which are cleared when run.
@@ -31,6 +35,8 @@ class FrontViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        presenter?.viewCreated()
 
         // Clear background colors from labels and buttons
         _ = backgroundColoredViews.map { $0.backgroundColor = UIColor.clear }

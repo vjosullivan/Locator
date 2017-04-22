@@ -12,10 +12,15 @@ import XCTest
 class FrontViewControllerTests: XCTestCase {
 
     // MARK: - Constants and parameters.
+
     private let storyBoardName = "Main"
 
-    //let presenter: FrontViewPresenterMock
+    // MARK: - Object under test.
+
+    var presenter: FrontViewPresenterMock!
     var testee: FrontViewController!
+
+    // MARK: - Unit test housekeeping.
 
     override func setUp() {
         super.setUp()
@@ -28,18 +33,42 @@ class FrontViewControllerTests: XCTestCase {
     }
 
     private func createTestee() {
-        testee = FrontViewController()
+        presenter = FrontViewPresenterMock()
+
+        let storyboard = UIStoryboard(name: storyBoardName, bundle: nil)
+        testee = storyboard.instantiateViewController(withIdentifier: FrontViewController.id) as? FrontViewController
     }
 
     private func releaseTestee() {
         testee = nil
+        presenter = nil
     }
 
-    func testNotNull() {
+    // MARK: - Basic tests.
+
+    func testeeNotNull() {
         XCTAssertNotNil(testee)
+    }
+
+    // MARK: - Event handling tests.
+
+    func testeeLoadedInformsPresenter() {
+        // Set up test.
+        testee.presenter = presenter
+
+        // Perform action.
+        _ = testee.view
+
+        // Assert results.
+        XCTAssertTrue(presenter!.isViewCreatedInvoked)
     }
 }
 
-//class FrontViewPresenterMock: FrontViewPresenter {
-//
-//}
+class FrontViewPresenterMock: FrontViewPresenter {
+
+    public private(set) var isViewCreatedInvoked = false
+
+    override func viewCreated() {
+        isViewCreatedInvoked = true
+    }
+}
