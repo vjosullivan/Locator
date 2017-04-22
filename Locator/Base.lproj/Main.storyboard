@@ -1540,32 +1540,76 @@
                                 <rect key="frame" x="51" y="4" width="257" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="257" id="Y51-FX-VWY"/>
+                                    <constraint firstAttribute="height" constant="18" id="cPw-qY-m1t"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="nevis-Bold" family="nevis" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="brw-TX-hGm" userLabel="Credits scroll view">
+                                <rect key="frame" x="20" y="30" width="319" height="234.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBl-ZO-SNf" userLabel="Credits text">
+                                        <rect key="frame" x="0.0" y="0.0" width="319" height="258"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="RAINCOAT">
+                                                <attributes>
+                                                    <font key="NSFont" metaFont="system" size="17"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="cBl-ZO-SNf" firstAttribute="leading" secondItem="brw-TX-hGm" secondAttribute="leading" id="IFG-gO-TsZ"/>
+                                    <constraint firstItem="cBl-ZO-SNf" firstAttribute="top" secondItem="brw-TX-hGm" secondAttribute="top" id="Riv-aZ-3kX"/>
+                                    <constraint firstItem="cBl-ZO-SNf" firstAttribute="height" secondItem="brw-TX-hGm" secondAttribute="height" multiplier="1.1" id="fTe-dc-55h"/>
+                                    <constraint firstItem="cBl-ZO-SNf" firstAttribute="width" secondItem="brw-TX-hGm" secondAttribute="width" id="pC3-Yt-iZS"/>
+                                </constraints>
+                            </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcy-aM-MB2" userLabel="Return button">
-                                <rect key="frame" x="0.0" y="0.0" width="359" height="301.5"/>
+                                <rect key="frame" x="179.5" y="0.0" width="179.5" height="301.5"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="8" maxX="8" maxY="0.0"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <segue destination="LuI-Gx-2fL" kind="unwind" unwindAction="unwindToMainVCWithSegue:" id="3WC-nt-zRk"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jh3-vZ-Fzt" userLabel="Credits button">
+                                <rect key="frame" x="0.0" y="0.0" width="179.5" height="301.5"/>
+                                <inset key="contentEdgeInsets" minX="8" minY="8" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Roll credits"/>
+                                <connections>
+                                    <action selector="rollCredits" destination="jXU-se-F3w" eventType="touchUpInside" id="kBw-Az-hQP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="brw-TX-hGm" firstAttribute="leading" secondItem="5c8-gb-XPn" secondAttribute="leading" constant="20" id="0yp-qm-XPz"/>
                             <constraint firstItem="6kU-io-bFW" firstAttribute="top" secondItem="5c8-gb-XPn" secondAttribute="top" constant="4" id="4Po-gZ-AKz"/>
+                            <constraint firstItem="brw-TX-hGm" firstAttribute="top" secondItem="6kU-io-bFW" secondAttribute="bottom" constant="8" id="4lg-ep-pI2"/>
                             <constraint firstItem="X6i-Z3-oA1" firstAttribute="top" secondItem="vcy-aM-MB2" secondAttribute="bottom" id="5yB-n1-GQS"/>
+                            <constraint firstItem="jh3-vZ-Fzt" firstAttribute="top" secondItem="t2v-h2-bhD" secondAttribute="bottom" id="6gD-Ki-i5O"/>
                             <constraint firstItem="6kU-io-bFW" firstAttribute="centerX" secondItem="5c8-gb-XPn" secondAttribute="centerX" id="8Xn-6S-0qB"/>
+                            <constraint firstItem="vcy-aM-MB2" firstAttribute="width" secondItem="jh3-vZ-Fzt" secondAttribute="width" id="MWt-mi-k9g"/>
                             <constraint firstAttribute="trailing" secondItem="vcy-aM-MB2" secondAttribute="trailing" id="NXB-Bj-TXG"/>
+                            <constraint firstItem="jh3-vZ-Fzt" firstAttribute="leading" secondItem="5c8-gb-XPn" secondAttribute="leading" id="ViZ-YZ-hCY"/>
+                            <constraint firstItem="X6i-Z3-oA1" firstAttribute="top" secondItem="brw-TX-hGm" secondAttribute="bottom" constant="37" id="adn-0W-SgT"/>
+                            <constraint firstItem="X6i-Z3-oA1" firstAttribute="top" secondItem="jh3-vZ-Fzt" secondAttribute="bottom" id="cd9-ov-i1q"/>
+                            <constraint firstAttribute="trailing" secondItem="brw-TX-hGm" secondAttribute="trailing" constant="20" id="dDc-FX-zgB"/>
                             <constraint firstItem="vcy-aM-MB2" firstAttribute="top" secondItem="5c8-gb-XPn" secondAttribute="top" id="dfW-G4-4p5"/>
-                            <constraint firstItem="vcy-aM-MB2" firstAttribute="leading" secondItem="5c8-gb-XPn" secondAttribute="leading" id="whq-3f-AyZ"/>
+                            <constraint firstItem="vcy-aM-MB2" firstAttribute="leading" secondItem="jh3-vZ-Fzt" secondAttribute="trailing" id="tfv-iG-dBv"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="credits" destination="cBl-ZO-SNf" id="pNW-W7-Za6"/>
+                        <outlet property="creditsScrollView" destination="brw-TX-hGm" id="tqW-1k-dUt"/>
                         <outlet property="returnButton" destination="vcy-aM-MB2" id="GC9-aC-0qS"/>
+                        <outlet property="rollCreditsButton" destination="jh3-vZ-Fzt" id="U0D-DZ-qhr"/>
                         <outlet property="screenTitle" destination="6kU-io-bFW" id="6qk-Pg-K02"/>
                     </connections>
                 </viewController>
@@ -1621,7 +1665,7 @@
                                         <rect key="frame" x="0.0" y="28" width="319" height="97"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0BR-UP-ihz" id="rSF-sh-Lup">
-                                            <rect key="frame" x="0.0" y="0.0" width="319" height="97"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="319" height="96.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hh4-TF-grr" userLabel="Title">
