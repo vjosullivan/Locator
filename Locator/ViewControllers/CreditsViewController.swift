@@ -95,10 +95,8 @@ class CreditsViewController: UIViewController {
     private func applyEdgeFading(color: UIColor) {
         print("Wahey!")
 
-        let innerColor = color.withAlphaComponent(0.0).cgColor //UIColor(red: 212.0/255.0, green: 214.0/255.0, blue: 1.0, alpha: 0.0).cgColor
-        let outerColor = color.withAlphaComponent(1.0).cgColor //UIColor(red: 212.0/255.0, green: 214.0/255.0, blue: 1.0, alpha: 1.0).cgColor
-        //let innerColor = UIColor(white: 1.0, alpha: 0.0).cgColor
-        //let outerColor = UIColor(white: 1.0, alpha: 1.0).cgColor
+        let innerColor = color.withAlphaComponent(0.0).cgColor
+        let outerColor = color.withAlphaComponent(1.0).cgColor
 
         // first, define a horizontal gradient (left/right edges)
         hMaskLayer.opacity = 0.9
