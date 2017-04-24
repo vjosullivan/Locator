@@ -863,7 +863,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="G8u-zV-srD" userLabel="Current temperature value">
                                         <rect key="frame" x="0.0" y="0.0" width="271" height="90"/>
                                         <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="nevis-Bold" family="nevis" pointSize="84"/>
+                                        <fontDescription key="fontDescription" name="nevis-Bold" family="nevis" pointSize="72"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1665,7 +1665,7 @@
                                         <rect key="frame" x="0.0" y="28" width="319" height="97"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0BR-UP-ihz" id="rSF-sh-Lup">
-                                            <rect key="frame" x="0.0" y="0.0" width="319" height="97"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="319" height="96.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="hh4-TF-grr" userLabel="Title">

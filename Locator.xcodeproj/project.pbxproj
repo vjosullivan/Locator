@@ -280,7 +280,6 @@
 		348BC33F1DD1AF3900638D66 /* Locator */ = {
 			isa = PBXGroup;
 			children = (
-				F10F531C1EAB638D007D0144 /* Presenters */,
 				348BC3401DD1AF3900638D66 /* AppDelegate.swift */,
 				348BC34C1DD1AF3A00638D66 /* LaunchScreen.storyboard */,
 				348BC3441DD1AF3900638D66 /* Main.storyboard */,
@@ -291,6 +290,7 @@
 				348BC3471DD1AF3900638D66 /* Locator.xcdatamodeld */,
 				348BC34F1DD1AF3A00638D66 /* Info.plist */,
 				348148711E15C14300079056 /* ViewControllers */,
+				F10F531C1EAB638D007D0144 /* Presenters */,
 				3453E2CA1E10729C004D5F46 /* Extensions */,
 				F16673421E02965D0087C5D7 /* DarkSky */,
 				F166733B1E0295CA0087C5D7 /* Location */,
