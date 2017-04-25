@@ -11,7 +11,7 @@ import UIKit
 class MainViewController: UIViewController {
 
     let radianConvertion = CGFloat.pi / 180.0
-    let cornerRadius: CGFloat = 16.0
+    private let cornerRadius: CGFloat = 16.0
 
     @IBOutlet weak var rainIntensity: GraphView!
     @IBOutlet weak var rainProbability: GraphView!
@@ -137,10 +137,11 @@ class MainViewController: UIViewController {
             DispatchQueue.main.async {
                 let pageColor = UIColor.randomPastel()
                 self.updateDisplay(with: darkSkyForecast, for: place, in: pageColor)
-                self.frontVC?.update(forecast: darkSkyForecast,
-                                     backgroundColor: pageColor,
-                                     cornerRadius: self.cornerRadius,
-                                     container: self)
+                self.frontVC?.configure(presenter: FrontViewPresenter(forecast: darkSkyForecast),
+                                        backgroundColor: pageColor,
+                                        cornerRadius: self.cornerRadius,
+                                        container: self)
+                //self.frontVC?.updateData(forecast: darkSkyForecast)
                 self.settingsVC?.update(forecast: darkSkyForecast,
                                         backgroundColor: pageColor,
                                         cornerRadius: self.cornerRadius)

@@ -6,11 +6,13 @@
 //  Copyright © 2017 Vincent O'Sullivan. All rights reserved.
 //
 
-import Foundation
-
 import UIKit
 
 class FrontViewController: UIViewController {
+
+    static let id = "FrontViewControllerID"
+
+    var presenter: FrontViewPresenter?
 
     var mainVC: MainViewController?
 
@@ -29,105 +31,37 @@ class FrontViewController: UIViewController {
     @IBOutlet weak var maxTempValue: UILabel!
     @IBOutlet weak var maxTempTime: UILabel!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        presenter?.viewCreated(view: self)
+    }
+
+    func configure(presenter: FrontViewPresenter,
+                   backgroundColor: UIColor,
+                   cornerRadius: CGFloat,
+                   container: MainViewController) {
+
+        self.presenter = presenter
+        view.backgroundColor = backgroundColor
+        view.topCornerRadius = cornerRadius
+        mainVC = container
 
         // Clear background colors from labels and buttons
         _ = backgroundColoredViews.map { $0.backgroundColor = UIColor.clear }
 
-        buttonATL.setTitle("Settings", for: .normal)
-        buttonATR.setTitle("Location", for: .normal)
-        buttonABL.setTitle("Daylight", for: .normal)
-        buttonABR.setTitle("Details", for: .normal)
         buttonATL.transform = CGAffineTransform.init(rotationAngle: CGFloat.pi / 2.0)
         buttonATR.transform = CGAffineTransform.init(rotationAngle: -CGFloat.pi / 2.0)
         buttonABL.transform = CGAffineTransform.init(rotationAngle: CGFloat.pi / 2.0)
         buttonABR.transform = CGAffineTransform.init(rotationAngle: -CGFloat.pi / 2.0)
 
-    }
-
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    }
-
-    func update(forecast: DarkSkyForecast, backgroundColor: UIColor, cornerRadius: CGFloat,
-                container: MainViewController) {
         let foregroundColor = backgroundColor.darker
-        mainVC = container
-
         currentTemperatureValue.textColor = foregroundColor
         currentWeatherValue.textColor = foregroundColor
-        minTempValue.textColor = foregroundColor
-        minTempTime.textColor = foregroundColor
-        maxTempValue.textColor = foregroundColor
-        maxTempTime.textColor = foregroundColor
-
-        if let temperature = forecast.current?.temperature {
-            currentTemperatureValue.text  = "\(Int(round(temperature.value)))\(temperature.unit.symbol)"
-        } else {
-            currentTemperatureValue.text  = ""
-        }
-        if let summary = forecast.current?.summary {
-            currentWeatherValue.text = "\(summary)".uppercased()
-        } else {
-            currentWeatherValue.text = "No weather!"
-        }
-
-        setMinMaxTemperatures(forecast: forecast, textColor: foregroundColor)
 
         buttonATL.setTitleColor(foregroundColor, for: .normal)
         buttonATR.setTitleColor(foregroundColor, for: .normal)
         buttonABL.setTitleColor(foregroundColor, for: .normal)
         buttonABR.setTitleColor(foregroundColor, for: .normal)
-
-        view.backgroundColor = backgroundColor
-        view.topCornerRadius = cornerRadius
-}
-
-    private func setMinMaxTemperatures(forecast: DarkSkyForecast, textColor: UIColor) {
-        if let hi = forecast.today?.temperatureMax {
-            maxTempValue.text = "High \(Int(hi.value))\(hi.unit.symbol)"
-            if let maxTime = forecast.today?.temperatureMaxTime {
-                maxTempTime.text = maxTime.asHHMM(timezone: forecast.timeZone)
-                maxTempTime.textColor = /*Date().isAfter(maxTime) ? UIColor.darkGray :*/ textColor
-            } else {
-                maxTempTime.textColor = textColor
-            }
-            maxTempValue.textColor = maxTempTime.textColor
-        } else {
-            maxTempValue.text = ""
-            maxTempTime.text = ""
-        }
-        if let lo = forecast.today?.temperatureMin {
-            minTempValue.text = "Low \(Int(lo.value))\(lo.unit.symbol)"
-            if let minTime = forecast.today?.temperatureMinTime {
-                minTempTime.text = minTime.asHHMM(timezone: forecast.timeZone)
-                minTempTime.textColor = /*Date().isAfter(minTime) ? UIColor.darkGray :*/ textColor
-            } else {
-                minTempTime.textColor = textColor
-            }
-            minTempValue.textColor = minTempTime.textColor
-        } else {
-            minTempValue.text = ""
-            minTempTime.text = ""
-        }
-        if let maxTime = forecast.today?.temperatureMaxTime,
-            let minTime = forecast.today?.temperatureMinTime {
-            // Put the earlier min/max time on the left.
-            if minTime.isAfter(maxTime) {
-                let tempValue = minTempValue.text
-                let tempTime = minTempTime.text
-                let tempColor = minTempValue.textColor
-                minTempValue.text = maxTempValue.text
-                minTempValue.textColor = maxTempValue.textColor
-                minTempTime.text = maxTempTime.text
-                minTempTime.textColor = maxTempTime.textColor
-                maxTempValue.text = tempValue
-                maxTempValue.textColor = tempColor
-                maxTempTime.text = tempTime
-                maxTempTime.textColor = tempColor
-            }
-        }
     }
 
     // MARK: - Actions
@@ -155,5 +89,42 @@ class FrontViewController: UIViewController {
 
     @IBAction func selectLocation(_ sender: UIButton) {
         mainVC?.performSegue(withIdentifier: "segueToLocationList", sender: nil)
+    }
+}
+
+extension FrontViewController: FrontView {
+
+    func initialiseSettingsButton(title: String) {
+        buttonATL.setTitle("Settings", for: .normal)
+    }
+    func initialiseSolarButton(title: String) {
+        buttonABL.setTitle("Daylight", for: .normal)
+    }
+    func initialiseDetailsButton(title: String) {
+        buttonABR.setTitle("Details", for: .normal)
+    }
+    func initialiseLocationButton(title: String) {
+        buttonATR.setTitle("Location", for: .normal)
+    }
+
+    func updateEarlyMinMax(_ temperature: String, at time: String, highlight: Bool) {
+        minTempValue.text = temperature
+        minTempValue.textColor = (highlight) ? UIColor.amber : currentTemperatureValue.textColor
+
+        minTempTime.text = time
+        minTempTime.textColor = minTempValue.textColor
+    }
+
+    func updateLateMinMax(_ temperature: String, at time: String, highlight: Bool) {
+        maxTempValue.text = temperature
+        maxTempValue.textColor = (highlight) ? UIColor.amber : currentTemperatureValue.textColor
+
+        maxTempTime.text = time
+        maxTempTime.textColor = maxTempValue.textColor
+    }
+
+    func updateCurrentWeather(temperature: String, weather: String) {
+        currentTemperatureValue.text = temperature
+        currentWeatherValue.text = weather
     }
 }
