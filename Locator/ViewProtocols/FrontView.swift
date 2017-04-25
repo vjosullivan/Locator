@@ -7,10 +7,10 @@
 //
 
 protocol FrontView {
-    func initialiseSettingsButton(title: String)
-    func initialiseSolarButton(title: String)
-    func initialiseDetailsButton(title: String)
-    func initialiseLocationButton(title: String)
+    func setSettingsButton(title: String)
+    func setSolarButton(title: String)
+    func setDetailsButton(title: String)
+    func setLocationButton(title: String)
 
     func updateEarlyMinMax(_ temperature: String, at time: String, highlight: Bool)
     func updateLateMinMax(_ temperature: String, at time: String, highlight: Bool)

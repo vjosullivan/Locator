@@ -94,16 +94,16 @@ class FrontViewController: UIViewController {
 
 extension FrontViewController: FrontView {
 
-    func initialiseSettingsButton(title: String) {
+    func setSettingsButton(title: String) {
         buttonATL.setTitle("Settings", for: .normal)
     }
-    func initialiseSolarButton(title: String) {
+    func setSolarButton(title: String) {
         buttonABL.setTitle("Daylight", for: .normal)
     }
-    func initialiseDetailsButton(title: String) {
+    func setDetailsButton(title: String) {
         buttonABR.setTitle("Details", for: .normal)
     }
-    func initialiseLocationButton(title: String) {
+    func setLocationButton(title: String) {
         buttonATR.setTitle("Location", for: .normal)
     }
 
