@@ -25,6 +25,11 @@ class FrontViewPresenter {
     public func viewCreated(view: FrontView) {
         self.view = view
 
+        self.view?.initialiseSettingsButton(title: "Settings")
+        self.view?.initialiseSolarButton(title: "Daylight")
+        self.view?.initialiseDetailsButton(title: "Details")
+        self.view?.initialiseLocationButton(title: "Location")
+
         updateCurrentWeather()
         updateMinMaxValues()
     }

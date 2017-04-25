@@ -93,8 +93,9 @@ class DayViewController: UIViewController {
     private func updateText(on button: UIButton, from forecast: DarkSkyForecast) {
         if let alerts = forecast.alerts {
             let plural = alerts.count == 1 ? "" : "s"
-            button.setTitle("\(alerts.count.asText.capitalized) Alert\(plural)", for: .normal)
-            button.setTitleColor(UIColor.yellow, for: .normal)
+            //button.setTitle("\(alerts.count.asText.capitalized) Alert\(plural)", for: .normal)
+            button.setTitle("Weather Alert\(plural)", for: .normal)
+            button.setTitleColor(UIColor.red, for: .normal)
         } else {
             button.setTitle("No Alerts", for: .normal)
         }

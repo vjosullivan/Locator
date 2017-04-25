@@ -71,6 +71,7 @@
 		F166734F1E0298150087C5D7 /* DataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166734D1E0298150087C5D7 /* DataPoint.swift */; };
 		F16673501E0298150087C5D7 /* DataPointInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166734E1E0298150087C5D7 /* DataPointInit.swift */; };
 		F172E53F1DD705A100DDFB8E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E53E1DD705A100DDFB8E /* MainViewController.swift */; };
+		F17C199A1EAF16A800DEC23D /* FrontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17C19991EAF16A800DEC23D /* FrontView.swift */; };
 		F1884ADA1E8E28CB00EA6290 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1884AD91E8E28CB00EA6290 /* Alerts.swift */; };
 		F1B662431E866FB20095F16A /* AlertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B662421E866FB20095F16A /* AlertsViewController.swift */; };
 		F1D5D2951DD70DED00D9DC1F /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5D2941DD70DED00D9DC1F /* LocationListViewController.swift */; };
@@ -161,6 +162,7 @@
 		F166734D1E0298150087C5D7 /* DataPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPoint.swift; sourceTree = "<group>"; };
 		F166734E1E0298150087C5D7 /* DataPointInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPointInit.swift; sourceTree = "<group>"; };
 		F172E53E1DD705A100DDFB8E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F17C19991EAF16A800DEC23D /* FrontView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontView.swift; sourceTree = "<group>"; };
 		F1884AD91E8E28CB00EA6290 /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		F1B662421E866FB20095F16A /* AlertsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsViewController.swift; sourceTree = "<group>"; };
 		F1D5D2941DD70DED00D9DC1F /* LocationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 				348BC3471DD1AF3900638D66 /* Locator.xcdatamodeld */,
 				348BC34F1DD1AF3A00638D66 /* Info.plist */,
 				348148711E15C14300079056 /* ViewControllers */,
+				F17C19981EAF167000DEC23D /* ViewProtocols */,
 				F10F531C1EAB638D007D0144 /* Presenters */,
 				3453E2CA1E10729C004D5F46 /* Extensions */,
 				F16673421E02965D0087C5D7 /* DarkSky */,
@@ -387,6 +390,14 @@
 				F1884AD91E8E28CB00EA6290 /* Alerts.swift */,
 			);
 			path = DarkSky;
+			sourceTree = "<group>";
+		};
+		F17C19981EAF167000DEC23D /* ViewProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				F17C19991EAF16A800DEC23D /* FrontView.swift */,
+			);
+			path = ViewProtocols;
 			sourceTree = "<group>";
 		};
 		F1D5D2981DD85B0000D9DC1F /* model */ = {
@@ -603,6 +614,7 @@
 				34A540B01E35F73000FD7C6E /* WeekViewController.swift in Sources */,
 				F1D5D2951DD70DED00D9DC1F /* LocationListViewController.swift in Sources */,
 				F166734A1E0297F80087C5D7 /* DarkSkyUnits.swift in Sources */,
+				F17C199A1EAF16A800DEC23D /* FrontView.swift in Sources */,
 				F1884ADA1E8E28CB00EA6290 /* Alerts.swift in Sources */,
 				F16673441E0296AB0087C5D7 /* DarkSkyClient.swift in Sources */,
 				34BB1CF21E2E6DE400595C91 /* FrontViewController.swift in Sources */,

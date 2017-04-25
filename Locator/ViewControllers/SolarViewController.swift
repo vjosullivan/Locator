@@ -150,7 +150,6 @@ class SolarViewController: UIViewController {
                eventTime: time, timeZone: timeZone, textColor: textColor, icon: Weather.sunset.symbol)
     }
 
-
     /// A convenience function that updates the displayed event (e.g. sunrise or sunset) details.
     /// If the timezone of the location is different to
     /// the local timezone, both timezones are displayed.

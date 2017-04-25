@@ -49,10 +49,6 @@ class FrontViewController: UIViewController {
         // Clear background colors from labels and buttons
         _ = backgroundColoredViews.map { $0.backgroundColor = UIColor.clear }
 
-        buttonATL.setTitle("Settings", for: .normal)
-        buttonATR.setTitle("Location", for: .normal)
-        buttonABL.setTitle("Daylight", for: .normal)
-        buttonABR.setTitle("Details", for: .normal)
         buttonATL.transform = CGAffineTransform.init(rotationAngle: CGFloat.pi / 2.0)
         buttonATR.transform = CGAffineTransform.init(rotationAngle: -CGFloat.pi / 2.0)
         buttonABL.transform = CGAffineTransform.init(rotationAngle: CGFloat.pi / 2.0)
@@ -96,13 +92,20 @@ class FrontViewController: UIViewController {
     }
 }
 
-protocol FrontView {
-    func updateEarlyMinMax(_ temperature: String, at time: String, highlight: Bool)
-    func updateLateMinMax(_ temperature: String, at time: String, highlight: Bool)
-    func updateCurrentWeather(temperature: String, weather: String)
-}
-
 extension FrontViewController: FrontView {
+
+    func initialiseSettingsButton(title: String) {
+        buttonATL.setTitle("Settings", for: .normal)
+    }
+    func initialiseSolarButton(title: String) {
+        buttonABL.setTitle("Daylight", for: .normal)
+    }
+    func initialiseDetailsButton(title: String) {
+        buttonABR.setTitle("Details", for: .normal)
+    }
+    func initialiseLocationButton(title: String) {
+        buttonATR.setTitle("Location", for: .normal)
+    }
 
     func updateEarlyMinMax(_ temperature: String, at time: String, highlight: Bool) {
         minTempValue.text = temperature
