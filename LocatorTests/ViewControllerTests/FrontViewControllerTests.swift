@@ -18,46 +18,46 @@ class FrontViewControllerTests: XCTestCase {
     // MARK: - Object under test.
 
     var presenter: FrontViewPresenterMock!
-    var testee: FrontViewController!
+    var frontVC: FrontViewController!
+    var forecast: DarkSkyForecast!
 
     // MARK: - Unit test housekeeping.
 
     override func setUp() {
         super.setUp()
-        createTestee()
+        presenter = FrontViewPresenterMock(forecast: createForecast())
+
+        let storyboard = UIStoryboard(name: storyBoardName, bundle: nil)
+        frontVC = storyboard.instantiateViewController(withIdentifier: FrontViewController.id) as? FrontViewController
     }
 
     override func tearDown() {
-        releaseTestee()
+        frontVC = nil
+        presenter = nil
         super.tearDown()
     }
 
-    private func createTestee() {
-        presenter = FrontViewPresenterMock()
-
-        let storyboard = UIStoryboard(name: storyBoardName, bundle: nil)
-        testee = storyboard.instantiateViewController(withIdentifier: FrontViewController.id) as? FrontViewController
-    }
-
-    private func releaseTestee() {
-        testee = nil
-        presenter = nil
+    private func createForecast() -> DarkSkyForecast {
+        let json = ["latitude": 51.3, "longitude": -1.0, "timezone": "Europe/London", "flags": ["units": "uk2"]] as [String : AnyObject]
+        let forecast = DarkSkyForecast(dictionary: json)
+        return forecast!
     }
 
     // MARK: - Basic tests.
 
-    func testeeNotNull() {
-        XCTAssertNotNil(testee)
+    func testNotNull() {
+        XCTAssertNotNil(frontVC)
     }
 
     // MARK: - Event handling tests.
 
-    func testeeLoadedInformsPresenter() {
+    func testFrontVCLoadedInformsPresenter() {
         // Set up test.
-        testee.presenter = presenter
+        frontVC.presenter = presenter
 
         // Perform action.
-        _ = testee.view
+        _ = frontVC.view
+        frontVC.viewDidLayoutSubviews()
 
         // Assert results.
         XCTAssertTrue(presenter!.isViewCreatedInvoked)
@@ -68,7 +68,7 @@ class FrontViewPresenterMock: FrontViewPresenter {
 
     public private(set) var isViewCreatedInvoked = false
 
-    override func viewCreated() {
+    override func viewCreated(view: FrontView) {
         isViewCreatedInvoked = true
     }
 }

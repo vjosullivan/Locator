@@ -134,43 +134,47 @@ class MainViewController: UIViewController {
     fileprivate func updateWeather(for place: Place) {
         let darkSky = DarkSkyClient(location: Location(latitude: place.latitude, longitude: place.longitude))
         darkSky.fetchForecast { darkSkyForecast in
-            DispatchQueue.main.async {
-                let pageColor = UIColor.randomPastel()
-                self.updateDisplay(with: darkSkyForecast, for: place, in: pageColor)
-                self.frontVC?.configure(presenter: FrontViewPresenter(forecast: darkSkyForecast),
-                                        backgroundColor: pageColor,
-                                        cornerRadius: self.cornerRadius,
-                                        container: self)
-                //self.frontVC?.updateData(forecast: darkSkyForecast)
-                self.settingsVC?.update(forecast: darkSkyForecast,
-                                        backgroundColor: pageColor,
-                                        cornerRadius: self.cornerRadius)
-                self.solarVC?.update(forecast: darkSkyForecast,
-                                     backgroundColor: pageColor,
-                                     cornerRadius: self.cornerRadius)
-                self.detailsVC?.update(forecast: darkSkyForecast,
-                                       backgroundColor: pageColor,
-                                       cornerRadius: self.cornerRadius)
-                self.hourVC?.update(forecast: darkSkyForecast,
-                                    backgroundColor: pageColor,
-                                    cornerRadius: self.cornerRadius)
-                self.dayVC?.update(forecast: darkSkyForecast,
-                                   backgroundColor: pageColor,
-                                    cornerRadius: self.cornerRadius, container: self)
-                self.weekVC?.update(forecast: darkSkyForecast,
-                                    backgroundColor: pageColor,
-                                    cornerRadius: self.cornerRadius)
-                self.creditsVC?.update(forecast: darkSkyForecast,
-                                       backgroundColor: pageColor,
-                                       cornerRadius: self.cornerRadius)
-                self.alertsVC?.update(forecast: darkSkyForecast,
-                                      backgroundColor: pageColor,
-                                      cornerRadius: self.cornerRadius)
-            }
+            self.updateForcast(using: darkSkyForecast, for: place)
         }
     }
 
-    private func updateDisplay(with forecast: DarkSkyForecast, for place: Place, in color: UIColor) {
+    private func updateForcast(using forecast: DarkSkyForecast, for place: Place) {
+        DispatchQueue.main.async {
+            let pageColor = UIColor.randomPastel()
+            self.updateCurrentWeather(with: forecast, for: place, in: pageColor)
+            self.frontVC?.configure(presenter: FrontViewPresenter(forecast: forecast),
+                                    backgroundColor: pageColor,
+                                    cornerRadius: self.cornerRadius,
+                                    container: self)
+            //self.frontVC?.updateData(forecast: darkSkyForecast)
+            self.settingsVC?.update(forecast: forecast,
+                                    backgroundColor: pageColor,
+                                    cornerRadius: self.cornerRadius)
+            self.solarVC?.update(forecast: forecast,
+                                 backgroundColor: pageColor,
+                                 cornerRadius: self.cornerRadius)
+            self.detailsVC?.update(forecast: forecast,
+                                   backgroundColor: pageColor,
+                                   cornerRadius: self.cornerRadius)
+            self.hourVC?.update(forecast: forecast,
+                                backgroundColor: pageColor,
+                                cornerRadius: self.cornerRadius)
+            self.dayVC?.update(forecast: forecast,
+                               backgroundColor: pageColor,
+                               cornerRadius: self.cornerRadius, container: self)
+            self.weekVC?.update(forecast: forecast,
+                                backgroundColor: pageColor,
+                                cornerRadius: self.cornerRadius)
+            self.creditsVC?.update(forecast: forecast,
+                                   backgroundColor: pageColor,
+                                   cornerRadius: self.cornerRadius)
+            self.alertsVC?.update(forecast: forecast,
+                                  backgroundColor: pageColor,
+                                  cornerRadius: self.cornerRadius)
+        }
+    }
+
+    private func updateCurrentWeather(with forecast: DarkSkyForecast, for place: Place, in color: UIColor) {
         locationLabel.text = place.region != "" ? place.region : place.name
         let weather = Weather.representedBy(darkSkyIcon: forecast.current?.icon ?? "")
         currentWeatherSymbol.text = weather.symbol
