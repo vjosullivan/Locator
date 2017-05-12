@@ -50,6 +50,7 @@ extension LocationController: CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("LocationController: didFail: \(error.localizedDescription)")
         locationDelegate?.locationController(self, didFailWithError: error)
     }
 }
