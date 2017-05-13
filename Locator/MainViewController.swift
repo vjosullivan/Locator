@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class MainViewController: UIViewController {
 
@@ -56,6 +57,10 @@ class MainViewController: UIViewController {
 
         frontPanel.isHidden = false
 
+        //       update()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
         update()
     }
 
@@ -264,10 +269,72 @@ extension MainViewController: LocationControllerDelegate {
     }
 
     func locationController(_ locationController: LocationController, didFailWithError error: Error) {
-        let msg = "No weather forecast available at the moment.\n\n\(error)"
-        let alertController = UIAlertController(title: "Current Weather", message: msg, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        print("MainViewController: Location controller did fail with error \(error.localizedDescription).")
+        if let status = (error as? LocationStatus) {
+            switch status {
+            case .authorityDenied:
+                requestUpdateApplicationSetting()
+            case .authorityRestricted:
+                displayRestrictedAlert()
+            case .serviceNotEnabled:
+                requestUpdatePrivacySettings()
+            }
+        } else {
+            let msg = "Unable to determine current location.  Please try later.\n\n\(error)"
+            let alertController = UIAlertController(title: "Location Services Disabled", message: msg, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
+
+    private func requestUpdatePrivacySettings() {
+        displaySettingsAlert(title: "Location Tracking Disabled",
+                     message: "This device is not tracking it's own location.\n\n"
+                        + "To enable local weather forecasting, "
+                        + "open this device's location settings and enable 'Location Services'.",
+                     url: URL(string: "App-Prefs:root=LOCATION_SERVICES"),
+                     withCancelKey: true)
+    }
+
+    private func requestUpdateApplicationSetting() {
+        displaySettingsAlert(title: "Location Tracking Denied",
+                             message: "Raincoat cannot access this device's location.\n\n"
+                                + "To enable local weather forecasting, "
+                                + "open this app's settings and set Raincoat's location access to 'Always'.",
+                             url: URL(string: UIApplicationOpenSettingsURLString),
+                             withCancelKey: true)
+    }
+
+    private func displayRestrictedAlert() {
+        displaySettingsAlert(title: "Background Location Access Restricted",
+                             message: "Sorry.  This application is not permitted to access location information on this device.",
+                             url: nil,
+                             withCancelKey: false)
+    }
+
+    private func displaySettingsAlert(title: String, message: String, url: URL?, withCancelKey: Bool) {
+        let alertController = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert)
+
+        if withCancelKey {
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alertController.addAction(cancelAction)
+        }
+
+        let okAction: UIAlertAction
+        if let url = url {
+            okAction = UIAlertAction(title: "Open Settings", style: .default) { (_) in
+                UIApplication.shared.open(url, options: [:], completionHandler: { (_) in
+                    self.locationLabel.text = "Tap to try again."})
+            }
+        } else {
+            okAction = UIAlertAction(title: "OK", style: .default)
+        }
         alertController.addAction(okAction)
+
         self.present(alertController, animated: true, completion: nil)
     }
 }

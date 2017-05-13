@@ -9,6 +9,12 @@
 import Foundation
 import CoreLocation
 
+enum LocationStatus: Error {
+    case authorityDenied
+    case authorityRestricted
+    case serviceNotEnabled
+}
+
 class LocationController: CLLocationManager {
 
     weak var locationDelegate: LocationControllerDelegate?
@@ -22,10 +28,20 @@ class LocationController: CLLocationManager {
 
     override func requestLocation() {
         // TASK: Review this code.
+        print("LocationController: requesting location.  (enabled=\(CLLocationManager.locationServicesEnabled()))")
         if CLLocationManager.locationServicesEnabled() {
-            delegate = self
-            desiredAccuracy = kCLLocationAccuracyHundredMeters
-            super.requestLocation()
+            switch CLLocationManager.authorizationStatus() {
+            case .authorizedAlways, .authorizedWhenInUse:
+                delegate = self
+                desiredAccuracy = kCLLocationAccuracyHundredMeters
+                super.requestLocation()
+            case .denied, .notDetermined:
+                locationDelegate?.locationController(self, didFailWithError: LocationStatus.authorityDenied)
+            case .restricted:
+                locationDelegate?.locationController(self, didFailWithError: LocationStatus.authorityRestricted)
+            }
+        } else {
+            locationDelegate?.locationController(self, didFailWithError: LocationStatus.serviceNotEnabled)
         }
     }
 
@@ -44,6 +60,7 @@ class LocationController: CLLocationManager {
 extension LocationController: CLLocationManagerDelegate {
 
     func locationManager(_ client: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("LocationController: didUpdate: \(locations)")
         let coords = locations[0].coordinate
         let location = Location(latitude: coords.latitude, longitude: coords.longitude)
         locationDelegate?.locationController(self, didUpdateLocation: location)
