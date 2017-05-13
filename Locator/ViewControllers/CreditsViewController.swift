@@ -93,7 +93,6 @@ class CreditsViewController: UIViewController {
     }
 
     private func applyEdgeFading(color: UIColor) {
-        print("Wahey!")
 
         let innerColor = color.withAlphaComponent(0.0).cgColor
         let outerColor = color.withAlphaComponent(1.0).cgColor

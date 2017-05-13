@@ -296,7 +296,7 @@
                                     <constraint firstItem="sBo-Y3-GOl" firstAttribute="leading" secondItem="ZIf-tB-n07" secondAttribute="leading" id="vej-kC-B7N"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Looking for some weather..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="v7o-eT-5Th" userLabel="Location label" customClass="RibbonView" customModule="Locator" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="⋅" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="v7o-eT-5Th" userLabel="Location label" customClass="RibbonView" customModule="Locator" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="321.5" width="375" height="36"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class MainViewController: UIViewController {
 
@@ -56,6 +57,10 @@ class MainViewController: UIViewController {
 
         frontPanel.isHidden = false
 
+        //       update()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
         update()
     }
 
@@ -264,10 +269,78 @@ extension MainViewController: LocationControllerDelegate {
     }
 
     func locationController(_ locationController: LocationController, didFailWithError error: Error) {
-        let msg = "No weather forecast available at the moment.\n\n\(error)"
-        let alertController = UIAlertController(title: "Current Weather", message: msg, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        print("MainViewController: Location controller did fail with error \(error.localizedDescription).")
+        if let status = (error as? LocationStatus) {
+            switch status {
+            case .authorityDenied:
+                requestUpdateApplicationSetting()
+            case .authorityRestricted:
+                displayRestrictedAlert()
+            case .serviceNotEnabled:
+                requestUpdatePrivacySettings()
+            }
+        } else {
+            let msg = "Unable to determine current location.  Please try later.\n\n\(error)"
+            let alertController = UIAlertController(title: "Location Services Disabled", message: msg, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
+
+    private func requestUpdatePrivacySettings() {
+        let alertController = UIAlertController(
+            title: "Location Tracking Disabled",
+            message: "This device is not currently tracking it's location.\n\n"
+                + "To enable weather forecasting for your current location, "
+                + "open this device's location settings and enable 'Location Services'.",
+            preferredStyle: .alert)
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+
+        let openAction = UIAlertAction(title: "Open Settings", style: .default) { (_) in
+
+            if let url = URL(string: "App-Prefs:root=LOCATION_SERVICES") {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+        alertController.addAction(openAction)
+
+        self.present(alertController, animated: true, completion: nil)
+    }
+
+    private func requestUpdateApplicationSetting() {
+        let alertController = UIAlertController(
+            title: "Location Tracking Denied",
+            message: "Raincoat is not currently tracking this device's location.\n\n"
+                + "To enable weather forecasting for your current location, "
+                + "open this app's settings and set location access to 'Always'.",
+            preferredStyle: .alert)
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+
+        let openAction = UIAlertAction(title: "Open Settings", style: .default) { (_) in
+
+            if let url = URL(string: UIApplicationOpenSettingsURLString) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
+        alertController.addAction(openAction)
+
+        self.present(alertController, animated: true, completion: nil)
+    }
+
+    private func displayRestrictedAlert() {
+        let alertController = UIAlertController(
+            title: "Background Location Access Restricted",
+            message: "Sorry.  This application is not permitted to access location information on this device.",
+            preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default)
         alertController.addAction(okAction)
+        
         self.present(alertController, animated: true, completion: nil)
     }
 }
