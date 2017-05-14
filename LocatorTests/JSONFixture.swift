@@ -22,26 +22,22 @@ class JSONFixture {
 
     private func readFixture(_ fixture: String) -> String? {
         guard let path = Bundle(for: type(of: self)).path(forResource: fixture, ofType: "json") else {
-            print("JSON Fixture: File '\(fixture).json' not found.")
             return nil
         }
         do {
             return try String.init(contentsOfFile: path, encoding: .utf8)
         } catch {
-            print("JSON Fixture: (file read) \(error.localizedDescription)")
             return nil
         }
     }
 
     private func dictionary(from string: String) -> [String: Any]? {
         guard let data = string.data(using: .utf8) else {
-            print("JSON Fixture: Unable to extract data from contents.")
             return nil
         }
         do {
             return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
         } catch {
-            print("JSON Fixture: (data conversion) \(error.localizedDescription)")
             return nil
         }
     }

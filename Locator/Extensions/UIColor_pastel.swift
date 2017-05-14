@@ -40,7 +40,6 @@ extension UIColor {
         repeat {
             randomIndex = Int(arc4random_uniform(UInt32(pastels.count - 1)))
         } while randomIndex == previousIndex
-        print(randomIndex)
         previousIndex = randomIndex
         return pastels[randomIndex]
     }

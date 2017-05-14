@@ -281,7 +281,6 @@ extension MainViewController: LocationControllerDelegate {
     }
 
     func locationController(_ locationController: LocationController, didFailWithError error: Error) {
-        print("MainViewController: Location controller did fail with error \(error.localizedDescription).")
         if let status = (error as? LocationStatus) {
             switch status {
             case .authorityDenied:

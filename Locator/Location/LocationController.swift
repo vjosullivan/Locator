@@ -27,8 +27,6 @@ class LocationController: CLLocationManager {
     }
 
     override func requestLocation() {
-        // TASK: Review this code.
-        print("LocationController: requesting location.  (enabled=\(CLLocationManager.locationServicesEnabled()))")
         if CLLocationManager.locationServicesEnabled() {
             switch CLLocationManager.authorizationStatus() {
             case .authorizedAlways, .authorizedWhenInUse:
@@ -60,14 +58,12 @@ class LocationController: CLLocationManager {
 extension LocationController: CLLocationManagerDelegate {
 
     func locationManager(_ client: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("LocationController: didUpdate: \(locations)")
         let coords = locations[0].coordinate
         let location = Location(latitude: coords.latitude, longitude: coords.longitude)
         locationDelegate?.locationController(self, didUpdateLocation: location)
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("LocationController: didFail: \(error.localizedDescription)")
         locationDelegate?.locationController(self, didFailWithError: error)
     }
 }

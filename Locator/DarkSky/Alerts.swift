@@ -23,7 +23,12 @@ extension Alerts {
         alerts = Alerts.extractAlerts(from: dictionary)
     }
 
-    private static func extractAlerts(from alertArray: [[String: AnyObject]]) -> [Alert]? {
+    /// Extracts and returns weather `Alert`s from the supplied dictionary.
+    ///
+    /// - Parameter alertArray: A `Dictionary` of weather alert data.
+    /// - Returns: An array of zero or more weather `Alerts` objects.
+    ///
+    private static func extractAlerts(from alertArray: [[String: AnyObject]]) -> [Alert] {
         var extractedAlerts = [Alert]()
         for item in alertArray {
             if let issueTime = item["time"] as? TimeInterval,
@@ -39,7 +44,6 @@ extension Alerts {
                 } else {
                     expiryTime = nil
                 }
-                print(alertURI)
                 let alert = Alert(
                     issued: Date(timeIntervalSince1970: issueTime),
                     expires: expiryTime,
@@ -49,8 +53,6 @@ extension Alerts {
                     severity: alertSeverity,
                     source: URL(fileURLWithPath: alertURI).absoluteString)
                 extractedAlerts.append(alert)
-            } else {
-                print("Alert extraction failed.")
             }
         }
         return extractedAlerts
