@@ -94,8 +94,8 @@ extension LocationFinderViewController: GMSAutocompleteFetcherDelegate, UITableV
     }
 
     func didFailAutocompleteWithError(_ error: Error) {
-        // TODO: Handle this error.
-        print("Fail!  This should be handled somewhere.")
+        // Ignore this error and let the user continue.
+        print("Google place name autocomple error: \(error.localizedDescription).")
     }
 }
 
@@ -117,18 +117,29 @@ extension LocationFinderViewController /* UITableViewDataSource extension */ {
         let placeID = places[indexPath.row].placeID
         placesClient.lookUpPlaceID(placeID) { (place: GMSPlace?, error: Error?) -> Void in
             if let error = error {
-                // TODO: Handle this error properly.
                 print("lookup place id query error: \(error.localizedDescription)")
+                self.displayAlert(title: "Place Name Lookup",
+                                  text: "Something wierd happened (see below) when looking up this place.  Try again.",
+                                  error: error)
                 return
             }
             if let place = place {
                 self.found(place)
             } else {
-                // TODO: Handle this error properly.
                 print("Place with ID \(placeID) not found.")
+                self.displayAlert(title: "It's Out There Somewhere",
+                                  text: "Where ever it was, it's gone.  Has it moved?  It may be worth trying again.",
+                                  error: nil)
                 return
             }
         }
+    }
+
+    private func displayAlert(title: String, text: String, error: Error?) {
+        let message = error == nil ? text : text + "\n\n\(error!)"
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 
