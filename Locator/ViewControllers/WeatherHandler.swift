@@ -68,7 +68,7 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.time.text = dataPoint?.time.asDDD(timeZone: forecast?.timeZone)
             cell.time.textColor = (cell.time.text!.substring(to: 1) == "S") ? UIColor.amber : UIColor.white
             cell.maxTemperature.text
-                = "\(Int(dataPoint?.temperatureMax?.value ?? 0))\(dataPoint?.temperatureMax?.unit.symbol ?? "")"
+                = "\(Int(dataPoint?.temperatureMax?.value ?? 0))/\(Int(dataPoint?.temperatureMin?.value ?? 0))\(dataPoint?.temperatureMax?.unit.symbol ?? "")"
         }
     }
 

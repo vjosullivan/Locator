@@ -23,7 +23,7 @@
         <!--Location List View Controller-->
         <scene sceneID="uNT-RS-yue">
             <objects>
-                <viewController id="oWF-zq-eB6" customClass="LocationListViewController" customModule="Locator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LocationListViewControllerID" id="oWF-zq-eB6" customClass="LocationListViewController" customModule="Locator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="81R-ps-Akc"/>
                         <viewControllerLayoutGuide type="bottom" id="5Ng-xv-0qU"/>
@@ -127,7 +127,7 @@
         <!--Location Finder View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LocationFinderViewController" customModule="Locator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LocationFinderViewControllerID" id="BYZ-38-t0r" customClass="LocationFinderViewController" customModule="Locator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -201,7 +201,7 @@
         <!--Main View Controller-->
         <scene sceneID="YgS-21-8oC">
             <objects>
-                <viewController id="Smw-Ad-c4j" customClass="MainViewController" customModule="Locator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewControllerID" id="Smw-Ad-c4j" customClass="MainViewController" customModule="Locator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nTc-4f-mSR"/>
                         <viewControllerLayoutGuide type="bottom" id="oMu-UA-TUq"/>
@@ -414,7 +414,7 @@
         <!--Details View Controller-->
         <scene sceneID="JUh-Fd-YdW">
             <objects>
-                <viewController id="YmE-XQ-MKW" customClass="DetailsViewController" customModule="Locator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsViewControllerID" id="YmE-XQ-MKW" customClass="DetailsViewController" customModule="Locator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1Xx-Kf-nra"/>
                         <viewControllerLayoutGuide type="bottom" id="GcL-La-cU3"/>
@@ -560,7 +560,7 @@
         <!--Solar View Controller-->
         <scene sceneID="GEy-8e-iWo">
             <objects>
-                <viewController id="Q5g-4W-T4p" customClass="SolarViewController" customModule="Locator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SolarViewControllerID" id="Q5g-4W-T4p" customClass="SolarViewController" customModule="Locator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UBc-1O-Tmb"/>
                         <viewControllerLayoutGuide type="bottom" id="9Sc-NW-6G5"/>
@@ -982,7 +982,7 @@
         <!--Hour View Controller-->
         <scene sceneID="Fhz-ra-jOA">
             <objects>
-                <viewController id="GgB-fi-gQf" customClass="HourViewController" customModule="Locator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HourViewControllerID" id="GgB-fi-gQf" customClass="HourViewController" customModule="Locator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Sgf-UM-Gqh"/>
                         <viewControllerLayoutGuide type="bottom" id="uc9-mh-Zq7"/>
@@ -1142,7 +1142,7 @@
         <!--Day View Controller-->
         <scene sceneID="6ZE-14-CUL">
             <objects>
-                <viewController id="VGZ-hz-kI3" customClass="DayViewController" customModule="Locator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DayViewControllerID" id="VGZ-hz-kI3" customClass="DayViewController" customModule="Locator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kvE-kt-oAa"/>
                         <viewControllerLayoutGuide type="bottom" id="kmh-oH-6aB"/>
@@ -1358,7 +1358,7 @@
         <!--Week View Controller-->
         <scene sceneID="qGF-Ht-Gxt">
             <objects>
-                <viewController id="qoO-wf-iI8" customClass="WeekViewController" customModule="Locator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WeekViewControllerID" id="qoO-wf-iI8" customClass="WeekViewController" customModule="Locator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5YG-vz-0FW"/>
                         <viewControllerLayoutGuide type="bottom" id="D2B-b9-mSO"/>
@@ -1409,16 +1409,16 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123°F" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="E3Z-M1-e5e" userLabel="Temperature label">
-                                                            <rect key="frame" x="65" y="0.0" width="36" height="28"/>
+                                                            <rect key="frame" x="62" y="0.0" width="48" height="28"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="36" id="w2O-E0-aSF"/>
+                                                                <constraint firstAttribute="width" constant="48" id="w2O-E0-aSF"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yH5-Dq-bTn" userLabel="Icon label">
-                                                            <rect key="frame" x="134" y="0.0" width="28" height="28"/>
+                                                            <rect key="frame" x="140" y="0.0" width="28" height="28"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="yH5-Dq-bTn" secondAttribute="height" multiplier="1:1" id="A6c-DE-Yzj"/>
                                                             </constraints>
@@ -1427,7 +1427,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="caz-oW-ouH" userLabel="Rain label" customClass="RaindropLabel" customModule="Locator" customModuleProvider="target">
-                                                            <rect key="frame" x="194.5" y="0.0" width="27.5" height="28"/>
+                                                            <rect key="frame" x="197.5" y="0.0" width="27.5" height="28"/>
                                                             <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="caz-oW-ouH" secondAttribute="height" multiplier="1:1" id="BD3-4d-k6d"/>
@@ -1621,7 +1621,7 @@
         <!--Alerts View Controller-->
         <scene sceneID="3z4-cf-NNw">
             <objects>
-                <viewController id="jeV-Qu-nSE" customClass="AlertsViewController" customModule="Locator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AlertsViewControllerID" id="jeV-Qu-nSE" customClass="AlertsViewController" customModule="Locator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zhf-PY-j4n"/>
                         <viewControllerLayoutGuide type="bottom" id="lLs-Il-bJl"/>
@@ -1763,23 +1763,6 @@
                 <exit id="wBu-2j-rk0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-143.19999999999999" y="731.33433283358329"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="bXf-ds-1tN">
-            <objects>
-                <viewController id="H3b-Ts-S6X" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7n3-T1-zZN"/>
-                        <viewControllerLayoutGuide type="bottom" id="kMk-TX-p8T"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="902-ak-Y4A">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nft-LN-Rgb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
 </document>
