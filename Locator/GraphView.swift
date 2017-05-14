@@ -31,10 +31,6 @@ class GraphView: UIView {
 
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        // TODO: Investigate why the comented out code exists.  Presumably to prevent too many calls to weather API.
-//        guard !storedData.isEmpty else {
-//                return
-//        }
         guard let context = UIGraphicsGetCurrentContext() else {
                 return
         }

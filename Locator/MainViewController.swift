@@ -138,9 +138,21 @@ class MainViewController: UIViewController {
 
     fileprivate func updateWeather(for place: Place) {
         let darkSky = DarkSkyClient(location: Location(latitude: place.latitude, longitude: place.longitude))
-        darkSky.fetchForecast { darkSkyForecast in
-            self.updateForcast(using: darkSkyForecast, for: place)
-        }
+        darkSky.fetchForecast(
+            completionHandler: { darkSkyForecast in
+                self.updateForcast(using: darkSkyForecast, for: place)},
+            errorHandler: { errorText in
+                let alertController = UIAlertController(
+                    title: "No Weather Today",
+                    message: "Either there is no weather today or there is a problem with your Internet connection or something."
+                    + "\n⋅\nCheck everything and try again." + "\n⋅\nIf it helps, we found this:\n\"\(errorText)\".",
+                    preferredStyle: .alert)
+
+                alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alertController, animated: true, completion: nil)
+                self.locationLabel.text = "Tap to try again."
+                }
+        )
     }
 
     private func updateForcast(using forecast: DarkSkyForecast, for place: Place) {
