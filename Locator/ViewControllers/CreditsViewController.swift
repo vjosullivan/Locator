@@ -16,6 +16,7 @@ class CreditsViewController: UIViewController {
     @IBOutlet weak var rollCreditsButton: UIButton!
     @IBOutlet weak var creditsScrollView: UIScrollView!
     @IBOutlet weak var credits: UILabel!
+    @IBOutlet weak var darkSkyLabel: UILabel!
 
     let hMaskLayer = CAGradientLayer()
 
@@ -40,6 +41,7 @@ class CreditsViewController: UIViewController {
 
         screenTitle.text = "Credits"
         screenTitle.textColor = foregroundColor
+        darkSkyLabel.textColor = foregroundColor
         credits.attributedText = creditsText(textColor: foregroundColor)
 
         returnButton.setTitleColor(foregroundColor, for: .normal)
