@@ -16,7 +16,7 @@ class CreditsViewController: UIViewController {
     @IBOutlet weak var rollCreditsButton: UIButton!
     @IBOutlet weak var creditsScrollView: UIScrollView!
     @IBOutlet weak var credits: UILabel!
-    @IBOutlet weak var darkSkyLabel: UILabel!
+    @IBOutlet weak var darkSkyButton: UIButton!
 
     let hMaskLayer = CAGradientLayer()
 
@@ -32,6 +32,12 @@ class CreditsViewController: UIViewController {
         fadeInCredits()
     }
 
+    @IBAction func linkToDarkSky(_ sender: UIButton) {
+        if let url = URL(string: "https://darksky.net/poweredby/") {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
+
     @IBAction func rollCredits() {
         loopCredits()
     }
@@ -41,7 +47,7 @@ class CreditsViewController: UIViewController {
 
         screenTitle.text = "Credits"
         screenTitle.textColor = foregroundColor
-        darkSkyLabel.textColor = foregroundColor
+        darkSkyButton.setTitleColor(foregroundColor, for: .normal)
         credits.attributedText = creditsText(textColor: foregroundColor)
 
         returnButton.setTitleColor(foregroundColor, for: .normal)
@@ -52,24 +58,25 @@ class CreditsViewController: UIViewController {
     }
 
     private func creditsText(textColor: UIColor) -> NSAttributedString {
-        let myString = "RAINCOAT\n\nDesigned and developed by\n\nVincent O'Sullivan\n\n\n"
-            + "Original Artwork by\n\nBeth Rose\n\n\n"
-            + "Weather data by\n\nDark Sky\n\n\n"
-            + "Weather symbols by\n\nWeather Awesome"
+        let myString = "RAINCOAT\n\nDesigned and developed by\nVincent O'Sullivan\n·\n"
+            + "Powered by\nDark Sky\n·\n"
+            + "Original Artwork\nBeth Rose\n·\n"
+            + "Weather Symbols\nWeather Awesome\n·\n"
+            + "Font (Nevis)\ntenbytwenty"
 
         let titleAttributes = [
-            UIFontDescriptorFamilyAttribute: "Helvetica",
+            UIFontDescriptorFamilyAttribute: "Nevis",
             UIFontWeightTrait : UIFontWeightHeavy] as [String : Any]
         let subTitleAttributes = [
-            UIFontDescriptorFamilyAttribute: "Helvetica",
-            UIFontWeightTrait : UIFontWeightRegular] as [String : Any]
+            UIFontDescriptorFamilyAttribute: "Nevis",
+            UIFontWeightTrait : UIFontWeightThin] as [String : Any]
         let nameAttributes = [
-            UIFontDescriptorFamilyAttribute: "ChalkDuster",
-            UIFontWeightTrait : UIFontWeightRegular] as [String : Any]
+            UIFontDescriptorFamilyAttribute: "Nevis",
+            UIFontWeightTrait : UIFontWeightHeavy] as [String : Any]
 
         let titleFont = UIFont(descriptor: UIFontDescriptor(fontAttributes: titleAttributes), size: 18.0)
-        let subTitleFont = UIFont(descriptor: UIFontDescriptor(fontAttributes: subTitleAttributes), size: 12.0)
-        let nameFont = UIFont(descriptor: UIFontDescriptor(fontAttributes: nameAttributes), size: 15.0)
+        let subTitleFont = UIFont(descriptor: UIFontDescriptor(fontAttributes: subTitleAttributes), size: 13.5)
+        let nameFont = UIFont(descriptor: UIFontDescriptor(fontAttributes: nameAttributes), size: 18.0)
 
         let myMutableString = NSMutableAttributedString(
             string: myString,
@@ -80,16 +87,22 @@ class CreditsViewController: UIViewController {
                                      range: NSRange(location: 0, length: 8))
         myMutableString.addAttribute(NSFontAttributeName,
                                      value: nameFont,
-                                     range: NSRange(location: 37, length: 18))
+                                     range: NSRange(location: 36, length: 18))
         myMutableString.addAttribute(NSFontAttributeName,
                                      value: nameFont,
-                                     range: NSRange(location: 79, length: 9))
+                                     range: NSRange(location: 68, length: 9))
         myMutableString.addAttribute(NSFontAttributeName,
                                      value: nameFont,
-                                     range: NSRange(location: 108, length: 8))
+                                     range: NSRange(location: 96, length: 9))
         myMutableString.addAttribute(NSFontAttributeName,
                                      value: nameFont,
-                                     range: NSRange(location: 139, length: 15))
+                                     range: NSRange(location: 124, length: 15))
+        myMutableString.addAttribute(NSFontAttributeName,
+                                     value: nameFont,
+                                     range: NSRange(location: 155, length: 3))
+        myMutableString.addAttribute(NSFontAttributeName,
+                                     value: nameFont,
+                                     range: NSRange(location: 160, length: 6))
         //Add more attributes here
         return myMutableString
     }
@@ -102,7 +115,7 @@ class CreditsViewController: UIViewController {
         // first, define a horizontal gradient (left/right edges)
         hMaskLayer.opacity = 0.9
         hMaskLayer.colors = [outerColor, innerColor, innerColor, outerColor]
-        hMaskLayer.locations = [NSNumber(value: 0.0), NSNumber(value: 0.05), NSNumber(value: 0.8), NSNumber(value: 1.0)]
+        hMaskLayer.locations = [NSNumber(value: 0.0), NSNumber(value: 0.05), NSNumber(value: 0.85), NSNumber(value: 1.0)]
         hMaskLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
         hMaskLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
         let maskFrame = CGRect(x: creditsScrollView.frame.origin.x,
@@ -111,8 +124,8 @@ class CreditsViewController: UIViewController {
                                height: creditsScrollView.frame.size.height)
         hMaskLayer.frame = maskFrame
 
-        // you must add the masks to the root view, not the scrollView, otherwise
-        //  the masks will move as the user scrolls!
+        // The mask must be added to the root view, not the scrollView,
+        // otherwise it will move as the user scrolls!
         view.layer.addSublayer(hMaskLayer)
     }
 
@@ -122,7 +135,7 @@ class CreditsViewController: UIViewController {
         let finalOffset = CGPoint(x: 0.0, y: -(creditsScrollView.intrinsicContentSize.height - frame.size.height) * 1.5)
         self.creditsScrollView.contentOffset = CGPoint.zero
 
-        UIView.animate(withDuration: 12.0, delay: 0.0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 9.0, delay: 0.0, options: .curveEaseIn, animations: {
             self.creditsScrollView.contentOffset = finalOffset
         }, completion: { (_) in
             self.fadeInCredits()
@@ -132,7 +145,7 @@ class CreditsViewController: UIViewController {
     private func fadeInCredits() {
         self.credits.alpha = 0.0
         self.creditsScrollView.contentOffset = CGPoint.zero
-        UIView.animate(withDuration: 2.0, delay: 0.0, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 2.0, delay: 0.75, options: .curveEaseOut, animations: {
             self.credits.alpha = 1.0
         }, completion: { (_) in
             self.rollCreditsButton.isEnabled = true

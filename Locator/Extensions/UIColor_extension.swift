@@ -10,7 +10,7 @@ import UIKit
 
 extension UIColor {
 
-    static let amber     = UIColor(red: 1.0, green: 191.0/255, blue: 0.0, alpha: 1.0)
+    static let amber     = UIColor(red: 232.0/255.0, green: 97.0/255, blue: 0.0, alpha: 1.0)
     static let copper    = UIColor(hexString: "B87333")
     static let blueGray  = UIColor(hexString: "7799BB")
     static let ashGray   = UIColor(hexString: "B2BEB5")
