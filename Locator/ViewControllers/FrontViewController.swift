@@ -109,7 +109,7 @@ extension FrontViewController: FrontView {
 
     func updateEarlyMinMax(_ temperature: String, at time: String, highlight: Bool) {
         minTempValue.text = temperature
-        minTempValue.textColor = (highlight) ? UIColor.amber : currentTemperatureValue.textColor
+        minTempValue.textColor = (highlight) ? UIColor.amber : UIColor.darkGray // currentTemperatureValue.textColor
 
         minTempTime.text = time
         minTempTime.textColor = minTempValue.textColor
@@ -117,7 +117,7 @@ extension FrontViewController: FrontView {
 
     func updateLateMinMax(_ temperature: String, at time: String, highlight: Bool) {
         maxTempValue.text = temperature
-        maxTempValue.textColor = (highlight) ? UIColor.amber : currentTemperatureValue.textColor
+        maxTempValue.textColor = (highlight) ? UIColor.amber : UIColor.darkGray // currentTemperatureValue.textColor
 
         maxTempTime.text = time
         maxTempTime.textColor = maxTempValue.textColor

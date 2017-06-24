@@ -37,6 +37,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var hourPanel: UIView!
     @IBOutlet weak var alertsPanel: UIView!
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+
     private var frontVC: FrontViewController?
     private var settingsVC: SettingsViewController?
     private var solarVC: SolarViewController?
@@ -138,6 +140,8 @@ class MainViewController: UIViewController {
 
     fileprivate func updateWeather(for place: Place) {
         let darkSky = DarkSkyClient(location: Location(latitude: place.latitude, longitude: place.longitude))
+        activityIndicator.startAnimating()
+        //locationLabel.text = "·"
         darkSky.fetchForecast(
             completionHandler: { darkSkyForecast in
                 self.updateForcast(using: darkSkyForecast, for: place)},
@@ -145,12 +149,14 @@ class MainViewController: UIViewController {
                 let alertController = UIAlertController(
                     title: "No Weather Today",
                     message: "Either there is no weather today or there is a problem with your Internet connection or something."
-                    + "\n⋅\nCheck everything and try again." + "\n⋅\nIf it helps, we found this:\n\"\(errorText)\".",
+                    + "\n⋅\nThis message cropped up instead:\n\"\(errorText)\""
+                    + "\n⋅\nCheck everything and try again." + "\n",
                     preferredStyle: .alert)
 
                 alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(alertController, animated: true, completion: nil)
                 self.locationLabel.text = "Tap to try again."
+                self.activityIndicator.stopAnimating()
                 }
         )
     }
@@ -200,6 +206,7 @@ class MainViewController: UIViewController {
         currentWeatherSymbol.textColor = darkWeatherColor
 
         addImageToBackground(backgroundColor: color.darker)
+        activityIndicator.stopAnimating()
     }
 
     private struct Layer {
