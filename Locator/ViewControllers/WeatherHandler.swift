@@ -15,9 +15,14 @@ enum DetailType {
 
 class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
 
-    fileprivate var forecast: DarkSkyForecast?
-    fileprivate var detailType = DetailType.day
-    fileprivate var cellIdentifier = ""
+    // MARK: - Local constants and variables.
+
+    private let hourLineCount = 37 // The number of lines of hour by hour weather displayed.
+    private let dayLineCount  =  8 // The number of lines of day by day weather displayed.
+
+    private var forecast: DarkSkyForecast?
+    private var detailType = DetailType.day
+    private var cellIdentifier = ""
     private var backgroundColor =  UIColor.black
 
     func update(forecast: DarkSkyForecast, detailType: DetailType, backgroundColor: UIColor) {
@@ -28,8 +33,10 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // The number of rows displayed is dependent upon whether hourly or daily
+        // data is to be displayed and limited by the data available.
         if let forecast = forecast {
-            let rowCount = (detailType == .day) ? 25 : 8
+            let rowCount = (detailType == .day) ? hourLineCount : dayLineCount
             return Swift.min(rowCount, forecast.hourly?.dataPoints?.count ?? 0)
         } else {
             return 0
