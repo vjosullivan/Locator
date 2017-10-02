@@ -14,20 +14,26 @@ extension String {
         return self.index(startIndex, offsetBy: from)
     }
 
+    /// Returns the substring, starting from the given character to the end.
+    /// For example: "abcdef"[3...] returns "def".
+    ///
+    /// - Parameter from: The position of the first character to be returned.
+    /// - Returns: A substring of this string, starting from the given character to the end.
+    ///
     func substring(from: Int) -> String {
         let fromIndex = index(from: from)
-        return substring(from: fromIndex)
+        return String(self[fromIndex...])
     }
 
     func substring(to: Int) -> String {
         let toIndex = index(from: to)
-        return substring(to: toIndex)
+        return String(self[..<toIndex])
     }
 
     func substring(_ range: Range<Int>) -> String {
         let startIndex = index(from: range.lowerBound)
         let endIndex = index(from: range.upperBound)
-        return substring(with: startIndex..<endIndex)
+        return String(self[startIndex..<endIndex])
     }
 
     func realigned() -> String {

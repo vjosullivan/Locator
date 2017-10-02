@@ -64,43 +64,43 @@ class CreditsViewController: UIViewController {
             + "Weather Symbols\nWeather Awesome\n·\n"
             + "Font (Nevis)\ntenbytwenty"
 
-        let titleAttributes = [
-            UIFontDescriptorFamilyAttribute: "Nevis",
-            UIFontWeightTrait : UIFontWeightHeavy] as [String : Any]
-        let subTitleAttributes = [
-            UIFontDescriptorFamilyAttribute: "Nevis",
-            UIFontWeightTrait : UIFontWeightThin] as [String : Any]
-        let nameAttributes = [
-            UIFontDescriptorFamilyAttribute: "Nevis",
-            UIFontWeightTrait : UIFontWeightHeavy] as [String : Any]
+        let titleDescriptor = UIFontDescriptor(
+            fontAttributes: [UIFontDescriptor.AttributeName.family: "Nevis",
+                             UIFontDescriptor.AttributeName.traits: [UIFontDescriptor.TraitKey.weight: UIFont.Weight.heavy]])
 
-        let titleFont = UIFont(descriptor: UIFontDescriptor(fontAttributes: titleAttributes), size: 18.0)
-        let subTitleFont = UIFont(descriptor: UIFontDescriptor(fontAttributes: subTitleAttributes), size: 13.5)
-        let nameFont = UIFont(descriptor: UIFontDescriptor(fontAttributes: nameAttributes), size: 18.0)
+        let subTitleDescriptor = UIFontDescriptor(
+            fontAttributes: [UIFontDescriptor.AttributeName.family: "Nevis",
+                             UIFontDescriptor.AttributeName.traits: [UIFontDescriptor.TraitKey.weight : UIFont.Weight.thin]])
+
+        let nameDescriptor = UIFontDescriptor(
+            fontAttributes: [UIFontDescriptor.AttributeName.family: "Nevis",
+                             UIFontDescriptor.AttributeName.traits: [UIFontDescriptor.TraitKey.weight: UIFont.Weight.heavy]])
+
+        let titleFont = UIFont(descriptor: titleDescriptor, size: 18.0)
+        let subTitleFont = UIFont(descriptor: subTitleDescriptor, size: 13.5)
+        let nameFont = UIFont(descriptor: nameDescriptor, size: 18.0)
 
         let myMutableString = NSMutableAttributedString(
             string: myString,
-            attributes: [NSFontAttributeName: subTitleFont, NSForegroundColorAttributeName: textColor])
+            attributes: [NSAttributedStringKey.font: subTitleFont, NSAttributedStringKey.foregroundColor: textColor])
 
-        myMutableString.addAttribute(NSFontAttributeName,
-                                     value: titleFont,
+        myMutableString.addAttribute(NSAttributedStringKey.font, value: titleFont,
                                      range: NSRange(location: 0, length: 8))
-        myMutableString.addAttribute(NSFontAttributeName,
-                                     value: nameFont,
+        myMutableString.addAttribute(NSAttributedStringKey.font, value: nameFont,
                                      range: NSRange(location: 36, length: 18))
-        myMutableString.addAttribute(NSFontAttributeName,
+        myMutableString.addAttribute(NSAttributedStringKey.font,
                                      value: nameFont,
                                      range: NSRange(location: 68, length: 9))
-        myMutableString.addAttribute(NSFontAttributeName,
+        myMutableString.addAttribute(NSAttributedStringKey.font,
                                      value: nameFont,
                                      range: NSRange(location: 96, length: 9))
-        myMutableString.addAttribute(NSFontAttributeName,
+        myMutableString.addAttribute(NSAttributedStringKey.font,
                                      value: nameFont,
                                      range: NSRange(location: 124, length: 15))
-        myMutableString.addAttribute(NSFontAttributeName,
+        myMutableString.addAttribute(NSAttributedStringKey.font,
                                      value: nameFont,
                                      range: NSRange(location: 155, length: 3))
-        myMutableString.addAttribute(NSFontAttributeName,
+        myMutableString.addAttribute(NSAttributedStringKey.font,
                                      value: nameFont,
                                      range: NSRange(location: 160, length: 6))
         //Add more attributes here

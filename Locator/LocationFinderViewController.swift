@@ -52,7 +52,7 @@ class LocationFinderViewController: UIViewController {
         return fetcher
     }
 
-    func textFieldDidChange(textField: UITextField) {
+    @objc func textFieldDidChange(textField: UITextField) {
         fetcher?.sourceTextHasChanged(textField.text!)
     }
 

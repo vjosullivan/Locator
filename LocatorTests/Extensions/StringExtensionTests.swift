@@ -17,6 +17,7 @@ class StringExtensionTests: XCTestCase {
 
     func testSubstringTo() {
         XCTAssertEqual("ab", "abcde".substring(to: 2))
+        XCTAssertEqual("abcd", "abcde".substring(to: 4))
     }
 
     func testSubstringRange() {

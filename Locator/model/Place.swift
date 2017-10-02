@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Place: NSCoder {
+class Place: NSObject, NSCoding {
 
     let name: String
     let region: String
@@ -26,12 +26,13 @@ class Place: NSCoder {
 
         self.latitude  = latitude
         self.longitude = longitude
+        super.init()
     }
 
     // MARK: - NSCODER related methods.
 
     /// Required by `NSCoder`.
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         // swiftlint:disable force_cast
         self.name = aDecoder.decodeObject(forKey: "name") as! String
         self.region = aDecoder.decodeObject(forKey: "region") as! String
@@ -41,8 +42,8 @@ class Place: NSCoder {
         // swiftlint:enable force_cast
     }
 
-    /// Required by `NSCoder`.
-    func encodeWithCoder(_ aCoder: NSCoder) {
+    /// Required by `NSCoding`.
+    func encode(with aCoder: NSCoder) {
         aCoder.encode(name, forKey: "name")
         aCoder.encode(region, forKey: "region")
         aCoder.encode(placeID, forKey: "placeID")

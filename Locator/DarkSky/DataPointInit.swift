@@ -12,9 +12,7 @@ extension DataPoint {
 
     init?(dictionary: [String: AnyObject], units: DarkSkyUnits) {
 
-        guard let timeValue = dictionary["time"] as? Double else {
-            return nil
-        }
+        guard let timeValue = dictionary["time"] as? Double else { return nil }
         time = Date(timeIntervalSince1970: timeValue)
 
         apparentTemperature = getTemperature(from: dictionary["apparentTemperature"], unit: units.temperature)
