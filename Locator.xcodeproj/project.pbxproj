@@ -261,6 +261,7 @@
 		348BC3341DD1AF3900638D66 = {
 			isa = PBXGroup;
 			children = (
+				F18AA5E21F84AF25002CFAE5 /* docs */,
 				348BC3631DD1AF6B00638D66 /* Podfile */,
 				348BC33F1DD1AF3900638D66 /* Locator */,
 				348BC3571DD1AF3A00638D66 /* LocatorTests */,
@@ -398,6 +399,13 @@
 				F17C19991EAF16A800DEC23D /* FrontView.swift */,
 			);
 			path = ViewProtocols;
+			sourceTree = "<group>";
+		};
+		F18AA5E21F84AF25002CFAE5 /* docs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = docs;
 			sourceTree = "<group>";
 		};
 		F1D5D2981DD85B0000D9DC1F /* model */ = {
