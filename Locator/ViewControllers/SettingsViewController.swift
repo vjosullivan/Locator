@@ -11,8 +11,10 @@ import UIKit
 class SettingsViewController: UIViewController {
 
     @IBOutlet weak var unitsLabel: UILabel!
+    @IBOutlet weak var options1Label: UILabel!
 
     @IBOutlet weak var unitsSettings: UISegmentedControl!
+    @IBOutlet weak var option1Settings: UISegmentedControl!
     @IBOutlet weak var settingsLabel: UILabel!
 
     @IBOutlet weak var returnButton: UIButton!
@@ -32,6 +34,13 @@ class SettingsViewController: UIViewController {
             unitsSettings.selectedSegmentIndex = 0
         }
         setUnits(unitsSettings)
+        let option1 = AppSettings.retrieve(key: "option1", defaultValue: "wind")
+        switch option1 {
+        case "uvIndex":
+            option1Settings.selectedSegmentIndex = 1
+        default:
+            option1Settings.selectedSegmentIndex = 0
+        }
     }
 
     func update(forecast: DarkSkyForecast, backgroundColor: UIColor, cornerRadius: CGFloat) {
@@ -44,6 +53,8 @@ class SettingsViewController: UIViewController {
         unitsLabel.textColor = textColor
         unitsSettings.tintColor = textColor
         settingsLabel.textColor = textColor
+        options1Label.textColor = textColor
+        option1Settings.tintColor = textColor
         view.backgroundColor = backgroundColor
         view.topCornerRadius = cornerRadius
     }
@@ -62,6 +73,15 @@ class SettingsViewController: UIViewController {
         default:
             AppSettings.store(key: "units", value: "us")
             settingsLabel.text = "Fahrenheit  ·  miles  ·  mph  ·  inHg"
+        }
+    }
+
+    @IBAction func setOption1(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 1:
+            AppSettings.store(key: "option1", value: "uvIndex")
+        default:
+            AppSettings.store(key: "option1", value: "wind")
         }
     }
 }
