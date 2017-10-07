@@ -163,6 +163,7 @@ class MainViewController: UIViewController {
 
     private func updateForcast(using forecast: DarkSkyForecast, for place: Place) {
         DispatchQueue.main.async {
+            let displayOption1 = 99
             let pageColor = UIColor.randomPastel()
             self.updateCurrentWeather(with: forecast, for: place, in: pageColor)
             self.frontVC?.configure(presenter: FrontViewPresenter(forecast: forecast),

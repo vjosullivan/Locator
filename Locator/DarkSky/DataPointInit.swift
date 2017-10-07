@@ -30,6 +30,7 @@ extension DataPoint {
         nearestStormBearing  = OptionalMeasurement(value: dictionary["nearestStormBearing"], unit: units.angle)
         nearestStormDistance = OptionalMeasurement(value: dictionary["nearestStormDistance"], unit: units.distance)
 
+        uvIndex = dictionary["uvIndex"]?.doubleValue
         ozone = dictionary["ozone"]?.doubleValue
 
         precipAccumulation = OptionalMeasurement(value: dictionary["precipAccumulation"], unit: units.accumulation)

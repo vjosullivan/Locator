@@ -41,7 +41,8 @@ class DayViewController: UIViewController {
         weatherTable.delegate = weatherHandler
     }
 
-    func update(forecast: DarkSkyForecast, backgroundColor: UIColor, cornerRadius: CGFloat, container: MainViewController) {
+    func update(forecast: DarkSkyForecast, backgroundColor: UIColor, cornerRadius: CGFloat, container: MainViewController,
+                displayOption1: DisplayOption1) {
         let foregroundColor = backgroundColor.darker
         mainVC = container
 
@@ -52,7 +53,7 @@ class DayViewController: UIViewController {
         buttonBottomRight.setTitleColor(foregroundColor, for: .normal)
 
         updateText(on: buttonBottomLeft, from: forecast)
-        weatherHandler.update(forecast: forecast, detailType: .day, backgroundColor: backgroundColor.darker(by: 0.75))
+        weatherHandler.update(forecast: forecast, detailType: .day, backgroundColor: backgroundColor.darker(by: 0.75), displayOption1: displayOption1)
         weatherTable.backgroundColor = backgroundColor.darker(by: 0.5)
         weatherTable.reloadData()
 

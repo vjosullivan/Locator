@@ -57,6 +57,8 @@ struct DataPoint {
     ///  but rather a storm in the vicinity of that location.)
     let nearestStormDistance: Measurement<UnitLength>?
 
+    /// An standard measurement of the strength of sunburn-producing ultraviolet (UV) radiation.  Optional.
+    let uvIndex: Double?
     /// The columnar density of total atmospheric ozone at the given time in Dobson units.  Optional.
     let ozone: Double?
 

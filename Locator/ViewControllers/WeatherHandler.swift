@@ -13,6 +13,11 @@ enum DetailType {
     case week
 }
 
+enum DisplayOption1 {
+    case wind  // Display the wind speed and direction.
+    case light // Display the UV index and cloud cover.
+}
+
 class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
 
     // MARK: - Local constants and variables.
@@ -22,12 +27,15 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
 
     private var forecast: DarkSkyForecast?
     private var detailType = DetailType.day
+    private var displayOption1 = DisplayOption1.wind
     private var cellIdentifier = ""
     private var backgroundColor =  UIColor.black
 
-    func update(forecast: DarkSkyForecast, detailType: DetailType, backgroundColor: UIColor) {
+    func update(forecast: DarkSkyForecast, detailType: DetailType, backgroundColor: UIColor,
+                displayOption1: DisplayOption1) {
         self.forecast = forecast
         self.detailType = detailType
+        self.displayOption1 = displayOption1
         cellIdentifier = detailType == DetailType.day ? "HourOfDayCell" : "DayOfWeekCell"
         self.backgroundColor = backgroundColor
     }
@@ -103,8 +111,10 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
             } else {
                 cell.rain.text = "-"
             }
-            updateWindbearing(label: cell.windBearing, from: dataPoint.windBearing)
-            updateWindspeed(label: cell.windSpeed, from: dataPoint.windSpeed)
+            updateWindbearing(label: cell.windBearing, from: dataPoint.windBearing, visibility: displayOption1)
+            updateWindspeed(label: cell.windSpeed, from: dataPoint.windSpeed, visibility: displayOption1)
+            updateCloudCover(label: cell.windBearing, from: dataPoint.cloudCover, visibility: displayOption1)
+            updateUVIndex(label: cell.windSpeed, from: dataPoint.uvIndex, visibility: displayOption1)
         } else {
             cell.time.text = "???"
         }
@@ -112,21 +122,41 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
         return cell
     }
 
-    private func updateWindbearing(label: UILabel, from measurement: Measurement<UnitAngle>?) {
-        if let windDirection = measurement {
-            label.text = Weather.windDirection.symbol
-            let angle = CGFloat(windDirection.value + 90.0) * CGFloat.pi / 180.0
-            label.transform = CGAffineTransform.init(rotationAngle: angle)
-        } else {
-            label.text  = ""
+    private func updateWindbearing(label: UILabel, from measurement: Measurement<UnitAngle>?,
+                                   visibility: DisplayOption1) {
+        guard let measurement = measurement, visibility == .wind else {
+            label.text = ""
+            return
         }
+        label.text = Weather.windDirection.symbol
+        let angle = CGFloat(measurement.value + 90.0) * CGFloat.pi / 180.0
+        label.transform = CGAffineTransform.init(rotationAngle: angle)
     }
 
-    private func updateWindspeed(label: UILabel, from measurement: Measurement<UnitSpeed>?) {
-        if let measurement = measurement {
-            label.text = "\(Int(measurement.value))\n\(measurement.unit.symbol)"
-        } else {
+    private func updateWindspeed(label: UILabel, from measurement: Measurement<UnitSpeed>?,
+                                 visibility: DisplayOption1) {
+        guard let measurement = measurement, visibility == .wind else {
             label.text = ""
+            return
         }
+        label.text = "\(Int(measurement.value))\n\(measurement.unit.symbol)"
+    }
+
+    private func updateCloudCover(label: UILabel, from measurement: Double?,
+                                   visibility: DisplayOption1) {
+        guard let measurement = measurement, visibility == .light else {
+            label.text = ""
+            return
+        }
+        label.text = "\(measurement)"
+    }
+
+    private func updateUVIndex(label: UILabel, from measurement: Double?,
+                                 visibility: DisplayOption1) {
+        guard let measurement = measurement, visibility == .light else {
+            label.text = ""
+            return
+        }
+        label.text = "\(measurement)"
     }
 }

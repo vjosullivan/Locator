@@ -25,13 +25,13 @@ class WeekViewController: UIViewController {
         weatherTable.delegate = weatherHandler
     }
 
-    func update(forecast: DarkSkyForecast, backgroundColor: UIColor, cornerRadius: CGFloat) {
+    func update(forecast: DarkSkyForecast, backgroundColor: UIColor, cornerRadius: CGFloat, displayOption1: DisplayOption1) {
         let foregroundColor = backgroundColor.darker
 
         screenTitle.text = "This Week"
         screenTitle.textColor = foregroundColor
 
-        weatherHandler.update(forecast: forecast, detailType: .week, backgroundColor: backgroundColor.darker(by: 0.75))
+        weatherHandler.update(forecast: forecast, detailType: .week, backgroundColor: backgroundColor.darker(by: 0.75), displayOption1: displayOption1)
         weatherTable.reloadData()
 
         summary.textColor = foregroundColor
