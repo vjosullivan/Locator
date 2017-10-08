@@ -111,10 +111,15 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
             } else {
                 cell.rain.text = "-"
             }
-            updateWindbearing(label: cell.windBearing, from: dataPoint.windBearing, visibility: displayOption1)
-            updateWindspeed(label: cell.windSpeed, from: dataPoint.windSpeed, visibility: displayOption1)
-            updateCloudCover(label: cell.windBearing, from: dataPoint.cloudCover, visibility: displayOption1)
-            updateUVIndex(label: cell.windSpeed, from: dataPoint.uvIndex, visibility: displayOption1)
+            switch displayOption1 {
+            case .wind:
+                updateWindbearing(label: cell.windBearing, from: dataPoint.windBearing)
+                updateWindspeed(label: cell.windSpeed, from: dataPoint.windSpeed)
+            case .light:
+                updateWindbearing(label: cell.windBearing, from: dataPoint.windBearing)
+                //updateCloudCover(label: cell.windBearing, from: dataPoint.cloudCover)
+                updateUVIndex(label: cell.windSpeed, from: dataPoint.uvIndex)
+            }
         } else {
             cell.time.text = "???"
         }
@@ -122,9 +127,8 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
         return cell
     }
 
-    private func updateWindbearing(label: UILabel, from measurement: Measurement<UnitAngle>?,
-                                   visibility: DisplayOption1) {
-        guard let measurement = measurement, visibility == .wind else {
+    private func updateWindbearing(label: UILabel, from measurement: Measurement<UnitAngle>?) {
+        guard let measurement = measurement else {
             label.text = ""
             return
         }
@@ -133,30 +137,55 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
         label.transform = CGAffineTransform.init(rotationAngle: angle)
     }
 
-    private func updateWindspeed(label: UILabel, from measurement: Measurement<UnitSpeed>?,
-                                 visibility: DisplayOption1) {
-        guard let measurement = measurement, visibility == .wind else {
+    private func updateWindspeed(label: UILabel, from measurement: Measurement<UnitSpeed>?) {
+        label.backgroundColor = .clear
+        label.textColor = .white
+        guard let measurement = measurement else {
             label.text = ""
             return
         }
         label.text = "\(Int(measurement.value))\n\(measurement.unit.symbol)"
     }
 
-    private func updateCloudCover(label: UILabel, from measurement: Double?,
-                                   visibility: DisplayOption1) {
-        guard let measurement = measurement, visibility == .light else {
+    private func updateCloudCover(label: UILabel, from measurement: Double?) {
+        guard let measurement = measurement else {
             label.text = ""
             return
         }
         label.text = "\(measurement)"
     }
 
-    private func updateUVIndex(label: UILabel, from measurement: Double?,
-                                 visibility: DisplayOption1) {
-        guard let measurement = measurement, visibility == .light else {
+    private func updateUVIndex(label: UILabel, from measurement: Double?) {
+        guard let measurement = measurement else {
+            label.backgroundColor = .clear
             label.text = ""
             return
         }
-        label.text = "\(measurement)"
+        let color = uvColor(measurement)
+        label.backgroundColor = color.background
+        label.textColor = color.foreground
+        label.text = "\(Int(measurement))"
+        label.cornerRadius = 8
+    }
+
+    private func uvColor(_ value: Double) -> (background:UIColor, foreground: UIColor) {
+        let uvColor: (UIColor, UIColor)
+        switch value {
+        case 0:
+            uvColor = (.darkGray, .white)
+        case 0..<3:
+            uvColor = (.green, .black)
+        case 3..<6:
+            uvColor = (.yellow, .black)
+        case 6..<8:
+            uvColor = (.orange, .white)
+        case 8..<11:
+            uvColor = (.red, .white)
+        case 11..<20:
+            uvColor = (.purple, .white)
+        default:
+            uvColor = (.black, .white)
+        }
+        return uvColor
     }
 }

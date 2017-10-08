@@ -1557,7 +1557,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xOE-gh-pAX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ogh-cb-GbT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-521" y="1037"/>
+            <point key="canvasLocation" x="-521" y="1049"/>
         </scene>
         <!--Credits View Controller-->
         <scene sceneID="8Ao-u1-jKA">
@@ -1664,7 +1664,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W7P-cO-Lf7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="LuI-Gx-2fL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="234.40000000000001" y="731.33433283358329"/>
+            <point key="canvasLocation" x="650" y="730"/>
         </scene>
         <!--Alerts View Controller-->
         <scene sceneID="3z4-cf-NNw">
@@ -1808,7 +1808,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SpF-q2-lVu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="wBu-2j-rk0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-143.19999999999999" y="731.33433283358329"/>
+            <point key="canvasLocation" x="65" y="730"/>
         </scene>
     </scenes>
 </document>

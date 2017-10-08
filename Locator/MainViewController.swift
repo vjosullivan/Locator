@@ -163,7 +163,13 @@ class MainViewController: UIViewController {
 
     private func updateForcast(using forecast: DarkSkyForecast, for place: Place) {
         DispatchQueue.main.async {
-            let displayOption1 = 99
+            let displayOption1: DisplayOption1
+            switch AppSettings.retrieve(key: "option1", defaultValue: "wind") {
+            case "uvIndex":
+                displayOption1 = .light
+            default:
+                displayOption1 = .wind
+            }
             let pageColor = UIColor.randomPastel()
             self.updateCurrentWeather(with: forecast, for: place, in: pageColor)
             self.frontVC?.configure(presenter: FrontViewPresenter(forecast: forecast),
@@ -185,10 +191,10 @@ class MainViewController: UIViewController {
                                 cornerRadius: self.cornerRadius)
             self.dayVC?.update(forecast: forecast,
                                backgroundColor: pageColor,
-                               cornerRadius: self.cornerRadius, container: self)
+                               cornerRadius: self.cornerRadius, container: self, displayOption1: displayOption1)
             self.weekVC?.update(forecast: forecast,
                                 backgroundColor: pageColor,
-                                cornerRadius: self.cornerRadius)
+                                cornerRadius: self.cornerRadius, displayOption1: displayOption1)
             self.creditsVC?.update(forecast: forecast,
                                    backgroundColor: pageColor,
                                    cornerRadius: self.cornerRadius)

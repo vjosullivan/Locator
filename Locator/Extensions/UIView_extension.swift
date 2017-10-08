@@ -28,6 +28,15 @@ extension UIView {
         }
     }
 
+    var cornerRadius: CGFloat {
+        get {
+            return 0.0
+        }
+        set {
+            roundCorners(radius: newValue, corners: UIRectCorner.allCorners)
+        }
+    }
+
     private func roundCorners(radius: CGFloat, corners: UIRectCorner) {
         let path = UIBezierPath(
             roundedRect: bounds,
