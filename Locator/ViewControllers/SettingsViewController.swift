@@ -15,7 +15,8 @@ class SettingsViewController: UIViewController {
 
     @IBOutlet weak var unitsSettings: UISegmentedControl!
     @IBOutlet weak var option1Settings: UISegmentedControl!
-    @IBOutlet weak var settingsLabel: UILabel!
+    @IBOutlet weak var displayedUnits: UILabel!
+    @IBOutlet weak var displayedSettings: UILabel!
 
     @IBOutlet weak var returnButton: UIButton!
 
@@ -41,6 +42,7 @@ class SettingsViewController: UIViewController {
         default:
             option1Settings.selectedSegmentIndex = 0
         }
+        setOption1(option1Settings)
     }
 
     func update(forecast: DarkSkyForecast, backgroundColor: UIColor, cornerRadius: CGFloat) {
@@ -52,7 +54,8 @@ class SettingsViewController: UIViewController {
         let textColor = backgroundColor.darker
         unitsLabel.textColor = textColor
         unitsSettings.tintColor = textColor
-        settingsLabel.textColor = textColor
+        displayedUnits.textColor = textColor
+        displayedSettings.textColor = textColor
         options1Label.textColor = textColor
         option1Settings.tintColor = textColor
         view.backgroundColor = backgroundColor
@@ -63,16 +66,16 @@ class SettingsViewController: UIViewController {
         switch sender.selectedSegmentIndex {
         case 0:
             AppSettings.store(key: "units", value: "si")
-            settingsLabel.text = "Celsius  ·  metres  ·  m/s  ·  hPa"
+            displayedUnits.text = "Celsius  ·  metres  ·  m/s  ·  hPa"
         case 1:
             AppSettings.store(key: "units", value: "ca")
-            settingsLabel.text = "Celsius  ·  kilometers  ·  km/h  ·  kPa"
+            displayedUnits.text = "Celsius  ·  kilometers  ·  km/h  ·  kPa"
         case 2:
             AppSettings.store(key: "units", value: "uk2")
-            settingsLabel.text = "Celsius  ·  miles  ·  mph  ·  mbar"
+            displayedUnits.text = "Celsius  ·  miles  ·  mph  ·  mbar"
         default:
             AppSettings.store(key: "units", value: "us")
-            settingsLabel.text = "Fahrenheit  ·  miles  ·  mph  ·  inHg"
+            displayedUnits.text = "Fahrenheit  ·  miles  ·  mph  ·  inHg"
         }
     }
 
@@ -80,8 +83,10 @@ class SettingsViewController: UIViewController {
         switch sender.selectedSegmentIndex {
         case 1:
             AppSettings.store(key: "option1", value: "uvIndex")
+            displayedSettings.text = "cloud cover  ·  UV index"
         default:
             AppSettings.store(key: "option1", value: "wind")
-        }
+            displayedSettings.text = "wind bearing  ·  wind speed"
+       }
     }
 }

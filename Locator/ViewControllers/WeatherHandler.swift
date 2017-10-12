@@ -113,11 +113,14 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
             }
             switch displayOption1 {
             case .wind:
+                cell.cloudCover.isHidden = true
+                cell.windBearing.isHidden = false
                 updateWindbearing(label: cell.windBearing, from: dataPoint.windBearing)
                 updateWindspeed(label: cell.windSpeed, from: dataPoint.windSpeed)
             case .light:
-                updateWindbearing(label: cell.windBearing, from: dataPoint.windBearing)
-                //updateCloudCover(label: cell.windBearing, from: dataPoint.cloudCover)
+                cell.cloudCover.isHidden = false
+                cell.windBearing.isHidden = true
+                updateCloudCover(image: cell.cloudCover, from: dataPoint.cloudCover)
                 updateUVIndex(label: cell.windSpeed, from: dataPoint.uvIndex)
             }
         } else {
@@ -147,12 +150,57 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
         label.text = "\(Int(measurement.value))\n\(measurement.unit.symbol)"
     }
 
-    private func updateCloudCover(label: UILabel, from measurement: Double?) {
+    private func updateCloudCover(image: UIImageView, from measurement: Double?) {
         guard let measurement = measurement else {
-            label.text = ""
+            image.image = nil
             return
         }
-        label.text = "\(measurement)"
+        switch measurement {
+        case 0.000..<0.025:
+            image.image = UIImage(named: "Picon00")
+        case 0.025..<0.075:
+            image.image = UIImage(named: "Picon05")
+        case 0.075..<0.125:
+            image.image = UIImage(named: "Picon10")
+        case 0.125..<0.175:
+            image.image = UIImage(named: "Picon15")
+        case 0.175..<0.225:
+            image.image = UIImage(named: "Picon20")
+        case 0.225..<0.275:
+            image.image = UIImage(named: "Picon25")
+        case 0.275..<0.325:
+            image.image = UIImage(named: "Picon30")
+        case 0.325..<0.375:
+            image.image = UIImage(named: "Picon35")
+        case 0.375..<0.425:
+            image.image = UIImage(named: "Picon40")
+        case 0.425..<0.475:
+            image.image = UIImage(named: "Picon45")
+        case 0.475..<0.525:
+            image.image = UIImage(named: "Picon50")
+        case 0.525..<0.575:
+            image.image = UIImage(named: "Picon55")
+        case 0.575..<0.625:
+            image.image = UIImage(named: "Picon60")
+        case 0.625..<0.675:
+            image.image = UIImage(named: "Picon65")
+        case 0.675..<0.725:
+            image.image = UIImage(named: "Picon70")
+        case 0.725..<0.775:
+            image.image = UIImage(named: "Picon75")
+        case 0.775..<0.825:
+            image.image = UIImage(named: "Picon80")
+        case 0.825..<0.875:
+            image.image = UIImage(named: "Picon85")
+        case 0.875..<0.925:
+            image.image = UIImage(named: "Picon90")
+        case 0.925..<0.975:
+            image.image = UIImage(named: "Picon95")
+        case 0.975...1.000:
+            image.image = UIImage(named: "Picon99")
+        default:
+            image.image = UIImage(named: "Picon99")
+        }
     }
 
     private func updateUVIndex(label: UILabel, from measurement: Double?) {

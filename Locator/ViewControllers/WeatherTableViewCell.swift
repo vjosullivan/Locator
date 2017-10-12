@@ -14,6 +14,7 @@ class WeatherTableViewCell: UITableViewCell {
     @IBOutlet weak var icon: UILabel!
     @IBOutlet weak var maxTemperature: UILabel!
     @IBOutlet weak var rain: RaindropLabel!
+    @IBOutlet weak var cloudCover: UIImageView!
     @IBOutlet weak var windBearing: UILabel!
     @IBOutlet weak var windSpeed: UILabel!
     //@IBOutlet weak var summary: UILabel!
