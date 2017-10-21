@@ -13,6 +13,7 @@
 		3422C05B1E1BD01000006EB3 /* Date_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422C05A1E1BD01000006EB3 /* Date_extension.swift */; };
 		3422C05D1E1BF79E00006EB3 /* DarkMoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422C05C1E1BF79E00006EB3 /* DarkMoon.swift */; };
 		342A74931E352F01009754AF /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A74921E352F01009754AF /* GraphView.swift */; };
+		3440EEC11F9A064C009C9D76 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440EEC01F9A064C009C9D76 /* ViewModel.swift */; };
 		3453E2CC1E10730A004D5F46 /* UIColor_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3453E2CB1E10730A004D5F46 /* UIColor_extension.swift */; };
 		345D13741E31239400327814 /* WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D13731E31239400327814 /* WeatherTests.swift */; };
 		345D13771E31433800327814 /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D13761E31433800327814 /* StringExtensionTests.swift */; };
@@ -101,6 +102,7 @@
 		3422C05A1E1BD01000006EB3 /* Date_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date_extension.swift; sourceTree = "<group>"; };
 		3422C05C1E1BF79E00006EB3 /* DarkMoon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkMoon.swift; sourceTree = "<group>"; };
 		342A74921E352F01009754AF /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		3440EEC01F9A064C009C9D76 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		3453E2CB1E10730A004D5F46 /* UIColor_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor_extension.swift; sourceTree = "<group>"; };
 		345D13731E31239400327814 /* WeatherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTests.swift; sourceTree = "<group>"; };
 		345D13761E31433800327814 /* StringExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionTests.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				34A540AB1E35F69500FD7C6E /* HourViewController.swift */,
 				340FBA081E1A8B1500E2FAD4 /* SettingsViewController.swift */,
 				348148721E15C1AD00079056 /* SolarViewController.swift */,
+				3440EEC01F9A064C009C9D76 /* ViewModel.swift */,
 				34A540AF1E35F73000FD7C6E /* WeekViewController.swift */,
 				F11F081A1E88527500231BEF /* WeatherHandler.swift */,
 				F11F081C1E8856AF00231BEF /* WeatherTableViewCell.swift */,
@@ -620,6 +623,7 @@
 				F166733F1E0295ED0087C5D7 /* LocationController.swift in Sources */,
 				348BC3491DD1AF3A00638D66 /* Locator.xcdatamodeld in Sources */,
 				342A74931E352F01009754AF /* GraphView.swift in Sources */,
+				3440EEC11F9A064C009C9D76 /* ViewModel.swift in Sources */,
 				3422C05D1E1BF79E00006EB3 /* DarkMoon.swift in Sources */,
 				F16673411E0295ED0087C5D7 /* Location.swift in Sources */,
 				348BC3431DD1AF3900638D66 /* LocationFinderViewController.swift in Sources */,

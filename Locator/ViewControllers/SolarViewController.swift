@@ -28,159 +28,75 @@ class SolarViewController: UIViewController {
     @IBOutlet weak var moonBackground: UILabel!
     @IBOutlet weak var moonName: UILabel!
 
-//    var mainVC: MainViewController?
+    var backgroundColor: UIColor? {
+        didSet {
+            updateColors()
+            updateTextColors()
+        }
+    }
+    var viewModel: SolarViewModel? {
+        didSet {
+            updateView()
+            updateTextColors()
+        }
+    }
+    var cornerRadius: CGFloat? {
+        didSet {
+            view.topCornerRadius = cornerRadius ?? 8
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-    func update(forecast: DarkSkyForecast, backgroundColor: UIColor, cornerRadius: CGFloat) {
-        let foregroundColor = backgroundColor.darker
+    fileprivate func updateTextColors() {
+        guard let textColor = backgroundColor?.darker, let viewModel = viewModel else { return }
 
-        updateSunrise(time: forecast.today?.sunriseTime, timeZone: forecast.timeZone, textColor: foregroundColor)
-        updateSunset(time: forecast.today?.sunsetTime, timeZone: forecast.timeZone, textColor: foregroundColor)
-        nextSunriseLabel.text = nextSunrise(sunrise: forecast.today?.sunriseTime, sunset: forecast.today?.sunsetTime)
+        sunriseSymbol.textColor = viewModel.sunHasRisenToday ? .amber : textColor
+        sunsetSymbol.textColor  = viewModel.sunHasSetToday ? .amber : textColor
+    }
 
-        sunriseLabel.textColor     = foregroundColor
-        sunriseTimeThere.textColor = foregroundColor
-        sunriseTimeHere.textColor  = foregroundColor
-        sunsetLabel.textColor     = foregroundColor
-        sunsetTimeThere.textColor = foregroundColor
-        sunsetTimeHere.textColor  = foregroundColor
-        nextSunriseLabel.textColor = foregroundColor
+    fileprivate func updateView() {
+        guard let viewModel = viewModel else { return }
 
-        if let moonPhase = forecast.today?.moonPhase {
-            moonSymbol.text      = DarkMoon.symbol(from: moonPhase)
-            moonSymbol.textColor = UIColor(white: 1.0, alpha: 0.9)
+        sunriseTimeThere.text = viewModel.sunriseTimeAtLocation
+        sunriseTimeHere.text  = viewModel.sunriseTimeAtDevice
+        sunriseSymbol.text    = viewModel.sunriseIcon
+
+        sunsetTimeThere.text = viewModel.sunsetTimeAtLocation
+        sunsetTimeHere.text  = viewModel.sunsetTimeAtDevice
+        sunsetSymbol.text    = viewModel.sunsetIcon
+
+        nextSunriseLabel.text = viewModel.timeToSunRiseOrSet
+
+        if viewModel.moonPhaseIcon.isEmpty {
+            moonSymbol.text     = ""
+            moonBackground.text = ""
+            moonName.text       = ""
+        } else {
+            moonSymbol.text = viewModel.moonPhaseIcon
             moonBackground.text  = Weather.newMoonAlt.symbol
-            moonBackground.textColor = UIColor(white: 0.8, alpha: 0.5)
-            moonName.text      = DarkMoon.name(from: moonPhase)
-            moonName.textColor = foregroundColor
-        } else {
-            moonSymbol.text = ""
-            moonName.text   = ""
+            moonName.text   = viewModel.moonPhaseText
         }
+    }
 
-        returnButton.setTitleColor(foregroundColor, for: .normal)
+    fileprivate func updateColors() {
+        guard let textColor = backgroundColor?.darker else { return }
+
+        sunriseLabel.textColor     = textColor
+        sunriseTimeThere.textColor = textColor
+        sunriseTimeHere.textColor  = textColor
+        sunsetLabel.textColor     = textColor
+        sunsetTimeThere.textColor = textColor
+        sunsetTimeHere.textColor  = textColor
+        nextSunriseLabel.textColor = textColor
+
+        moonSymbol.textColor = UIColor(white: 1.0, alpha: 0.9)
+        moonBackground.textColor = UIColor(white: 0.8, alpha: 0.5)
+        moonName.textColor = textColor
+
+        returnButton.setTitleColor(textColor, for: .normal)
         view.backgroundColor = backgroundColor
-        view.topCornerRadius = cornerRadius
-    }
-
-    private func nextSunrise(sunrise: Date?, sunset: Date?) -> String {
-        guard let sunrise = sunrise, let sunset = sunset else {
-            return ""
-        }
-        let now = Date()
-        if sunrise.isAfter(now) && (sunset.isAfter(sunrise) || now.isAfter(sunset)) {
-            return timeToEvent(called: "Sunrise", at: sunrise)
-        }
-        if sunset.isAfter(now) && (sunrise.isAfter(sunset) || now.isAfter(sunrise)) {
-            return timeToEvent(called: "Sunset", at: sunset)
-        }
-        return ""
-    }
-
-    /// Return a longhand description of the time remaining until the named event occurs.
-    ///
-    /// - Parameters:
-    ///   - name: The name of the event (e.g. "Sunrise")
-    ///   - time: The date of the occurrence of the event.  
-    ///           If the date is not a future date, an empty `String` is returned.
-    /// - Returns: A longhand description of the time remaining to the named event.
-    ///
-    private func timeToEvent(called name: String, at time: Date) -> String {
-        let now = Date()
-        guard time.isAfter(now) else {
-            return ""
-        }
-        let minutes = Int(time.timeIntervalSince(Date()) / 60.0)
-        if minutes < 60 {
-            let plural = minutes == 1 ? "" : "s"
-            return "\(name) in \(minutes) minute\(plural)."
-        }
-        var hours = minutes / 60
-        let preposition: String
-        switch (minutes % 60) {
-        case 1...5:
-            preposition = "About"
-        case 6...15:
-            preposition = "Just over"
-        case 16...30:
-            preposition = "Well over"
-        case 31...45:
-            preposition = "Well under"
-            hours += 1
-        case 46...55:
-            preposition = "Under"
-            hours += 1
-        case 56...59:
-            preposition = "Just under"
-            hours += 1
-        default:
-            preposition = "almost exactly"
-        }
-        let plural = hours == 1 ? "" : "s"
-
-        return "\(preposition) \(hours) hour\(plural) to \(name)."
-    }
-
-    /// Updates the displayed sunrise details.  If the timezone of the location is different to
-    /// the local timezone, both timezones are displayed.
-    ///
-    /// - Parameters:
-    ///   - time: The time of the sunrise.
-    ///   - timeZone: The timezone of the location displayed.
-    ///   - textColor: The colour to be used for the text.
-    ///
-    private func updateSunrise(time: Date?, timeZone: String?, textColor: UIColor) {
-        update(iconLabel: sunriseSymbol, theirTime: sunriseTimeThere, ourTime: sunriseTimeHere,
-               eventTime: time, timeZone: timeZone, textColor: textColor, icon: Weather.sunrise.symbol)
-    }
-
-    /// Updates the displayed sunset details.  If the timezone of the location is different to
-    /// the local timezone, both timezones are displayed.
-    ///
-    /// - Parameters:
-    ///   - time: The time of the sunset.
-    ///   - timeZone: The timezone of the location displayed.
-    ///   - textColor: The colour to be used for the text.
-    ///
-    private func updateSunset(time: Date?, timeZone: String?, textColor: UIColor) {
-        update(iconLabel: sunsetSymbol, theirTime: sunsetTimeThere, ourTime: sunsetTimeHere,
-               eventTime: time, timeZone: timeZone, textColor: textColor, icon: Weather.sunset.symbol)
-    }
-
-    /// A convenience function that updates the displayed event (e.g. sunrise or sunset) details.
-    /// If the timezone of the location is different to
-    /// the local timezone, both timezones are displayed.
-    ///
-    /// - Parameters:
-    ///   - symbol: The label that displays the event's icon.
-    ///   - theirTime: The time at the location.
-    ///   - ourTime: The local time
-    ///   - eventTime: The time at which the event occurs.
-    ///   - identifier: <#identifier description#>
-    ///   - textColor: The foreground colour to be used.
-    ///   - icon: The icon to be displayed.
-    ///
-    private func update(iconLabel: UILabel, theirTime: UILabel, ourTime: UILabel,
-                        eventTime: Date?, timeZone identifier: String?, textColor: UIColor, icon: String) {
-        if let eventTime = eventTime {
-            iconLabel.text = icon
-            let eventTheirTime = eventTime.asHMZ(timeZone: identifier)
-            let eventOurTime   = eventTime.asHMZ(timeZone: TimeZone.current.identifier)
-            theirTime.text = eventTheirTime
-            if eventTheirTime.substring(0..<5) != eventOurTime.substring(0..<5) {
-                ourTime.text  = "(\(eventOurTime))"
-            } else {
-                ourTime.text  = ""
-            }
-            iconLabel.textColor = Date().isAfter(eventTime) ? textColor : UIColor.amber
-        } else {
-            iconLabel.text      = Weather.stars.symbol
-            iconLabel.textColor = textColor
-            theirTime.text = "None"
-            ourTime.text = ""
-        }
     }
 }

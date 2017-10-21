@@ -180,9 +180,9 @@ class MainViewController: UIViewController {
             self.settingsVC?.update(forecast: forecast,
                                     backgroundColor: pageColor,
                                     cornerRadius: self.cornerRadius)
-            self.solarVC?.update(forecast: forecast,
-                                 backgroundColor: pageColor,
-                                 cornerRadius: self.cornerRadius)
+            self.solarVC?.backgroundColor = pageColor
+            self.solarVC?.cornerRadius    = self.cornerRadius
+            self.solarVC?.viewModel       = ViewModel(with: forecast)
             self.detailsVC?.update(forecast: forecast,
                                    backgroundColor: pageColor,
                                    cornerRadius: self.cornerRadius)
