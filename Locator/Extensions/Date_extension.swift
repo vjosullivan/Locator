@@ -32,7 +32,7 @@ extension Date {
     }
 
     func asHMZ(timeZone: String? = nil) -> String {
-        let zone = TimeZone(identifier: timeZone ?? "") ?? TimeZone.current
+        guard let zone = TimeZone(identifier: timeZone ?? "") else { return "" }
 
         let f1 = DateFormatter()
         f1.timeZone  = zone

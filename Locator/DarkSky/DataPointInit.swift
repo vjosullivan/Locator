@@ -40,12 +40,8 @@ extension DataPoint {
         precipProbability = dictionary["precipProbability"]?.doubleValue
         precipType = dictionary["precipType"] as? String
 
-        if let p = dictionary["pressure"] as? Double {
-            pressure = OptionalMeasurement(value: round(p) as AnyObject?, unit: UnitPressure.hectopascals)?
-                .converted(to: units.airPressure)
-        } else {
-            pressure = nil
-        }
+        pressure = DataPoint.pressure(from: dictionary["pressure"] as? Double, in: units.airPressure)
+
         summary = dictionary["summary"] as? String
         sunriseTime = Date(unixDate: dictionary["sunriseTime"])
         sunsetTime  = Date(unixDate: dictionary["sunsetTime"])
@@ -63,6 +59,20 @@ extension DataPoint {
         } else {
             windSpeed   = nil
         }
+    }
+
+    /// Encapsulate the given value and units as a pressure `Measurement`.
+    ///
+    /// - Parameters:
+    ///   - from value: The value to be encapsulated.
+    ///   - in units: The pressure units to be used (e.g. hectopascals),
+    /// - Returns: An (optional) pressure measurement.
+    ///
+    private static func pressure(from value: Double?, in units: UnitPressure) -> Measurement<UnitPressure>? {
+        guard let value = value else { return nil }
+
+        return OptionalMeasurement(value: round(value) as AnyObject?, unit: UnitPressure.hectopascals)?
+                .converted(to: units)
     }
 }
 

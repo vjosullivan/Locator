@@ -34,7 +34,7 @@ class SolarViewController: UIViewController {
             updateTextColors()
         }
     }
-    var viewModel: SolarViewModel? {
+    var viewModel: SolarViewRepresentable? {
         didSet {
             updateView()
             updateTextColors()
@@ -61,11 +61,11 @@ class SolarViewController: UIViewController {
         guard let viewModel = viewModel else { return }
 
         sunriseTimeThere.text = viewModel.sunriseTimeAtLocation
-        sunriseTimeHere.text  = viewModel.sunriseTimeAtDevice
+        sunriseTimeHere.text  = (viewModel.sunriseTimeAtDevice.isEmpty) ? " " : viewModel.sunriseTimeAtDevice
         sunriseSymbol.text    = viewModel.sunriseIcon
 
         sunsetTimeThere.text = viewModel.sunsetTimeAtLocation
-        sunsetTimeHere.text  = viewModel.sunsetTimeAtDevice
+        sunsetTimeHere.text  = (viewModel.sunsetTimeAtDevice.isEmpty) ? " " : viewModel.sunsetTimeAtDevice
         sunsetSymbol.text    = viewModel.sunsetIcon
 
         nextSunriseLabel.text = viewModel.timeToSunRiseOrSet

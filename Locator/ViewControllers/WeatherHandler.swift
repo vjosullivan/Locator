@@ -197,9 +197,9 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
         case 0.925..<0.975:
             image.image = UIImage(named: "Picon95")
         case 0.975...1.000:
-            image.image = UIImage(named: "Picon99")
+            image.image = UIImage(named: "Picon100")
         default:
-            image.image = UIImage(named: "Picon99")
+            image.image = UIImage(named: "PiconXX")
         }
     }
 

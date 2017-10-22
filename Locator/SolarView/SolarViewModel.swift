@@ -8,32 +8,7 @@
 
 import Foundation
 
-protocol SolarViewModel {
-    /// The local time of sunrise at the given forecast location.
-    var sunriseTimeAtLocation: String { get }
-    /// The local time of sunrise at the device running this app.
-    var sunriseTimeAtDevice: String { get }
-    /// The icon to be displayed, either for sunrise or for no sunrise.
-    var sunriseIcon: String { get }
-    /// The icon to be displayed, either for sunset or for no sunset.
-    var sunsetIcon: String { get }
-    /// The local time of sunset at the given forecast location.
-    var sunsetTimeAtLocation: String { get }
-    /// The local time of sunset at the device running this app.
-    var sunsetTimeAtDevice: String { get }
-    /// `true` if sunrise has already occurred today, otherwise `false`.
-    var sunHasRisenToday: Bool { get }
-    /// `true` if sunset has already occurred today, otherwise `false`.
-    var sunHasSetToday: Bool { get }
-    /// The amount of time left until the next sunrise or sunset today.
-    var timeToSunRiseOrSet: String { get }
-    /// The icon to be displayed to show the moon phase.
-    var moonPhaseIcon: String { get }
-    /// The text to be displayed to describle the moon phase.
-    var moonPhaseText: String { get }
-}
-
-class ViewModel: SolarViewModel {
+class SolarViewModel: SolarViewRepresentable {
     var sunriseTimeAtLocation: String
     var sunriseTimeAtDevice: String
     var sunriseIcon: String
@@ -49,24 +24,31 @@ class ViewModel: SolarViewModel {
     var moonPhaseIcon: String
     var moonPhaseText: String
 
-    init(with forecast: DarkSkyForecast) {
-        sunriseTimeAtLocation = forecast.today?.sunriseTime?.asHMZ(timeZone: forecast.timeZone) ?? "None"
-        sunsetTimeAtLocation  = forecast.today?.sunsetTime?.asHMZ(timeZone: forecast.timeZone) ?? "None"
+    private let time: Clock
+
+    init(with forecast: DarkSkyForecast, time: Clock) {
+        self.time = time
+
+        sunriseTimeAtLocation = forecast.today?.sunriseTime?.asHMZ(timeZone: forecast.timeZone) ?? "No sunrise"
+        sunsetTimeAtLocation  = forecast.today?.sunsetTime?.asHMZ(timeZone: forecast.timeZone) ?? "No sunset"
         if TimeZone.current.identifier != forecast.timeZone {
             sunriseTimeAtDevice = forecast.today?.sunriseTime?.asHMZ(timeZone: TimeZone.current.identifier) ?? ""
             sunsetTimeAtDevice  = forecast.today?.sunsetTime?.asHMZ(timeZone: TimeZone.current.identifier) ?? ""
         } else {
-            sunriseTimeAtDevice = " "
-            sunsetTimeAtDevice  = " "
+            sunriseTimeAtDevice = ""
+            sunsetTimeAtDevice  = ""
         }
 
-        sunriseIcon = (forecast.today?.sunriseTime != nil) ? Weather.sunrise.symbol : Weather.stars.symbol
-        sunsetIcon  = (forecast.today?.sunsetTime != nil) ? Weather.sunset.symbol : Weather.stars.symbol
+        sunriseIcon = (sunriseTimeAtLocation.isEmpty || forecast.today?.sunriseTime == nil)
+            ? Weather.stars.symbol : Weather.sunrise.symbol
+        sunsetIcon  = (sunsetTimeAtLocation.isEmpty || forecast.today?.sunsetTime == nil)
+            ? Weather.stars.symbol : Weather.sunset.symbol
 
-        sunHasRisenToday = Date().isAfter(forecast.today?.sunriseTime ?? Date.distantFuture)
-        sunHasSetToday   = Date().isAfter(forecast.today?.sunsetTime ?? Date.distantFuture)
+        sunHasRisenToday = time.current.isAfter(forecast.today?.sunriseTime ?? Date.distantFuture)
+        sunHasSetToday   = time.current.isAfter(forecast.today?.sunsetTime ?? Date.distantFuture)
 
-        timeToSunRiseOrSet = ViewModel.nextSunrise(sunrise: forecast.today?.sunriseTime, sunset: forecast.today?.sunsetTime)
+        timeToSunRiseOrSet = SolarViewModel.nextSunrise(
+            now: time.current, sunrise: forecast.today?.sunriseTime, sunset: forecast.today?.sunsetTime)
 
         if let moonPhase = forecast.today?.moonPhase {
             moonPhaseIcon = DarkMoon.symbol(from: moonPhase)
@@ -77,16 +59,15 @@ class ViewModel: SolarViewModel {
         }
     }
 
-    private static func nextSunrise(sunrise: Date?, sunset: Date?) -> String {
+    private static func nextSunrise(now: Date, sunrise: Date?, sunset: Date?) -> String {
         guard let sunrise = sunrise, let sunset = sunset else {
             return ""
         }
-        let now = Date()
         if sunrise.isAfter(now) && (sunset.isAfter(sunrise) || now.isAfter(sunset)) {
-            return timeToEvent(called: "Sunrise", at: sunrise)
+            return timeToEvent(called: "Sunrise", at: sunrise, from: now)
         }
         if sunset.isAfter(now) && (sunrise.isAfter(sunset) || now.isAfter(sunrise)) {
-            return timeToEvent(called: "Sunset", at: sunset)
+            return timeToEvent(called: "Sunset", at: sunset, from: now)
         }
         return ""
     }
@@ -99,12 +80,11 @@ class ViewModel: SolarViewModel {
     ///           If the date is not a future date, an empty `String` is returned.
     /// - Returns: A longhand description of the time remaining to the named event.
     ///
-    private static func timeToEvent(called name: String, at time: Date) -> String {
-        let now = Date()
+    private static func timeToEvent(called name: String, at time: Date, from now: Date) -> String {
         guard time.isAfter(now) else {
             return ""
         }
-        let minutes = Int(time.timeIntervalSince(Date()) / 60.0)
+        let minutes = Int(time.timeIntervalSince(now) / 60.0)
         if minutes < 60 {
             let plural = minutes == 1 ? "" : "s"
             return "\(name) in \(minutes) minute\(plural)."
@@ -131,7 +111,7 @@ class ViewModel: SolarViewModel {
             preposition = "almost exactly"
         }
         let plural = hours == 1 ? "" : "s"
-        
+
         return "\(preposition) \(hours) hour\(plural) to \(name)."
     }
 }

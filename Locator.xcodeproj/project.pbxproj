@@ -13,7 +13,7 @@
 		3422C05B1E1BD01000006EB3 /* Date_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422C05A1E1BD01000006EB3 /* Date_extension.swift */; };
 		3422C05D1E1BF79E00006EB3 /* DarkMoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422C05C1E1BF79E00006EB3 /* DarkMoon.swift */; };
 		342A74931E352F01009754AF /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A74921E352F01009754AF /* GraphView.swift */; };
-		3440EEC11F9A064C009C9D76 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440EEC01F9A064C009C9D76 /* ViewModel.swift */; };
+		3440EEC11F9A064C009C9D76 /* SolarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440EEC01F9A064C009C9D76 /* SolarViewModel.swift */; };
 		3453E2CC1E10730A004D5F46 /* UIColor_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3453E2CB1E10730A004D5F46 /* UIColor_extension.swift */; };
 		345D13741E31239400327814 /* WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D13731E31239400327814 /* WeatherTests.swift */; };
 		345D13771E31433800327814 /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D13761E31433800327814 /* StringExtensionTests.swift */; };
@@ -72,6 +72,8 @@
 		F166734F1E0298150087C5D7 /* DataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166734D1E0298150087C5D7 /* DataPoint.swift */; };
 		F16673501E0298150087C5D7 /* DataPointInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F166734E1E0298150087C5D7 /* DataPointInit.swift */; };
 		F172E53F1DD705A100DDFB8E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172E53E1DD705A100DDFB8E /* MainViewController.swift */; };
+		F176BBBD1F9B36A600E78E1C /* SolarViewRespresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176BBBC1F9B36A600E78E1C /* SolarViewRespresentable.swift */; };
+		F176BBC01F9B4C7900E78E1C /* SolarViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176BBBF1F9B4C7900E78E1C /* SolarViewModelTests.swift */; };
 		F17C199A1EAF16A800DEC23D /* FrontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17C19991EAF16A800DEC23D /* FrontView.swift */; };
 		F1884ADA1E8E28CB00EA6290 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1884AD91E8E28CB00EA6290 /* Alerts.swift */; };
 		F1B662431E866FB20095F16A /* AlertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B662421E866FB20095F16A /* AlertsViewController.swift */; };
@@ -82,6 +84,9 @@
 		F1D60DD31E27E39000E7059C /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D60DD21E27E39000E7059C /* Weather.swift */; };
 		F1E08CC71E8BD48E003561FF /* RaindropLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E08CC61E8BD48E003561FF /* RaindropLabel.swift */; };
 		F1E08CC91E8D019E003561FF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E08CC81E8D019E003561FF /* Alert.swift */; };
+		F1FDE9031F9BA93300D88975 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FDE9021F9BA93300D88975 /* Clock.swift */; };
+		F1FDE9051F9BA96900D88975 /* SystemClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FDE9041F9BA96900D88975 /* SystemClock.swift */; };
+		F1FDE9071F9BAAE100D88975 /* MockClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FDE9061F9BAAE100D88975 /* MockClock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,7 +107,7 @@
 		3422C05A1E1BD01000006EB3 /* Date_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date_extension.swift; sourceTree = "<group>"; };
 		3422C05C1E1BF79E00006EB3 /* DarkMoon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkMoon.swift; sourceTree = "<group>"; };
 		342A74921E352F01009754AF /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
-		3440EEC01F9A064C009C9D76 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		3440EEC01F9A064C009C9D76 /* SolarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarViewModel.swift; sourceTree = "<group>"; };
 		3453E2CB1E10730A004D5F46 /* UIColor_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor_extension.swift; sourceTree = "<group>"; };
 		345D13731E31239400327814 /* WeatherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTests.swift; sourceTree = "<group>"; };
 		345D13761E31433800327814 /* StringExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionTests.swift; sourceTree = "<group>"; };
@@ -164,6 +169,8 @@
 		F166734D1E0298150087C5D7 /* DataPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPoint.swift; sourceTree = "<group>"; };
 		F166734E1E0298150087C5D7 /* DataPointInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPointInit.swift; sourceTree = "<group>"; };
 		F172E53E1DD705A100DDFB8E /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F176BBBC1F9B36A600E78E1C /* SolarViewRespresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarViewRespresentable.swift; sourceTree = "<group>"; };
+		F176BBBF1F9B4C7900E78E1C /* SolarViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarViewModelTests.swift; sourceTree = "<group>"; };
 		F17C19991EAF16A800DEC23D /* FrontView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontView.swift; sourceTree = "<group>"; };
 		F1884AD91E8E28CB00EA6290 /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		F18AA5E31F84B054002CFAE5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -175,6 +182,9 @@
 		F1D60DD21E27E39000E7059C /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		F1E08CC61E8BD48E003561FF /* RaindropLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaindropLabel.swift; sourceTree = "<group>"; };
 		F1E08CC81E8D019E003561FF /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		F1FDE9021F9BA93300D88975 /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
+		F1FDE9041F9BA96900D88975 /* SystemClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemClock.swift; sourceTree = "<group>"; };
+		F1FDE9061F9BAAE100D88975 /* MockClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockClock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,8 +261,6 @@
 				34BB1CF11E2E6DE400595C91 /* FrontViewController.swift */,
 				34A540AB1E35F69500FD7C6E /* HourViewController.swift */,
 				340FBA081E1A8B1500E2FAD4 /* SettingsViewController.swift */,
-				348148721E15C1AD00079056 /* SolarViewController.swift */,
-				3440EEC01F9A064C009C9D76 /* ViewModel.swift */,
 				34A540AF1E35F73000FD7C6E /* WeekViewController.swift */,
 				F11F081A1E88527500231BEF /* WeatherHandler.swift */,
 				F11F081C1E8856AF00231BEF /* WeatherTableViewCell.swift */,
@@ -296,6 +304,7 @@
 				348BC34A1DD1AF3A00638D66 /* Assets.xcassets */,
 				348BC3471DD1AF3900638D66 /* Locator.xcdatamodeld */,
 				348BC34F1DD1AF3A00638D66 /* Info.plist */,
+				F176BBBB1F9B360300E78E1C /* SolarView */,
 				348148711E15C14300079056 /* ViewControllers */,
 				F17C19981EAF167000DEC23D /* ViewProtocols */,
 				F10F531C1EAB638D007D0144 /* Presenters */,
@@ -314,6 +323,7 @@
 		348BC3571DD1AF3A00638D66 /* LocatorTests */ = {
 			isa = PBXGroup;
 			children = (
+				F176BBBE1F9B4C5300E78E1C /* SolarView */,
 				F11F081E1E895E9400231BEF /* ViewControllers */,
 				345D13781E32033C00327814 /* DarkSky */,
 				345D13751E31426E00327814 /* Extensions */,
@@ -395,6 +405,27 @@
 				F1884AD91E8E28CB00EA6290 /* Alerts.swift */,
 			);
 			path = DarkSky;
+			sourceTree = "<group>";
+		};
+		F176BBBB1F9B360300E78E1C /* SolarView */ = {
+			isa = PBXGroup;
+			children = (
+				3440EEC01F9A064C009C9D76 /* SolarViewModel.swift */,
+				348148721E15C1AD00079056 /* SolarViewController.swift */,
+				F176BBBC1F9B36A600E78E1C /* SolarViewRespresentable.swift */,
+				F1FDE9021F9BA93300D88975 /* Clock.swift */,
+				F1FDE9041F9BA96900D88975 /* SystemClock.swift */,
+			);
+			path = SolarView;
+			sourceTree = "<group>";
+		};
+		F176BBBE1F9B4C5300E78E1C /* SolarView */ = {
+			isa = PBXGroup;
+			children = (
+				F176BBBF1F9B4C7900E78E1C /* SolarViewModelTests.swift */,
+				F1FDE9061F9BAAE100D88975 /* MockClock.swift */,
+			);
+			path = SolarView;
 			sourceTree = "<group>";
 		};
 		F17C19981EAF167000DEC23D /* ViewProtocols */ = {
@@ -623,7 +654,7 @@
 				F166733F1E0295ED0087C5D7 /* LocationController.swift in Sources */,
 				348BC3491DD1AF3A00638D66 /* Locator.xcdatamodeld in Sources */,
 				342A74931E352F01009754AF /* GraphView.swift in Sources */,
-				3440EEC11F9A064C009C9D76 /* ViewModel.swift in Sources */,
+				3440EEC11F9A064C009C9D76 /* SolarViewModel.swift in Sources */,
 				3422C05D1E1BF79E00006EB3 /* DarkMoon.swift in Sources */,
 				F16673411E0295ED0087C5D7 /* Location.swift in Sources */,
 				348BC3431DD1AF3900638D66 /* LocationFinderViewController.swift in Sources */,
@@ -636,6 +667,7 @@
 				34BB1CF21E2E6DE400595C91 /* FrontViewController.swift in Sources */,
 				34AC7E1E1E1E8AFB00BF33E0 /* String_extension.swift in Sources */,
 				348BC3411DD1AF3900638D66 /* AppDelegate.swift in Sources */,
+				F176BBBD1F9B36A600E78E1C /* SolarViewRespresentable.swift in Sources */,
 				34A540AE1E35F70100FD7C6E /* DayViewController.swift in Sources */,
 				348914751E39DC3300509CA3 /* RainIntensity.swift in Sources */,
 				F11F081B1E88527500231BEF /* WeatherHandler.swift in Sources */,
@@ -653,6 +685,7 @@
 				34A540B21E35F77A00FD7C6E /* CreditsViewController.swift in Sources */,
 				F1D5D29A1DD85B3700D9DC1F /* Place.swift in Sources */,
 				34A540AC1E35F69500FD7C6E /* HourViewController.swift in Sources */,
+				F1FDE9031F9BA93300D88975 /* Clock.swift in Sources */,
 				F1D60DD31E27E39000E7059C /* Weather.swift in Sources */,
 				F14E8C481E94D77300C050CC /* UIView_extension.swift in Sources */,
 				3498D66F1E13CEB70081ECE3 /* RibbonView.swift in Sources */,
@@ -664,6 +697,7 @@
 				F172E53F1DD705A100DDFB8E /* MainViewController.swift in Sources */,
 				F1E08CC91E8D019E003561FF /* Alert.swift in Sources */,
 				3422C05B1E1BD01000006EB3 /* Date_extension.swift in Sources */,
+				F1FDE9051F9BA96900D88975 /* SystemClock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,6 +705,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1FDE9071F9BAAE100D88975 /* MockClock.swift in Sources */,
 				345D13811E32A59A00327814 /* DarkSkyForecastTests.swift in Sources */,
 				346EDC9A1E30CEC000BF7AD3 /* DarkMoonTests.swift in Sources */,
 				F11F08201E895F0800231BEF /* CreditsViewControllerTests.swift in Sources */,
@@ -684,6 +719,7 @@
 				346EDC921E30B99400BF7AD3 /* LocationTests.swift in Sources */,
 				346EDC8F1E30ADF600BF7AD3 /* JSONFixture.swift in Sources */,
 				F10F531E1EAB63CD007D0144 /* FrontViewControllerTests.swift in Sources */,
+				F176BBC01F9B4C7900E78E1C /* SolarViewModelTests.swift in Sources */,
 				345D13741E31239400327814 /* WeatherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
