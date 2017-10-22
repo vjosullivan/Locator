@@ -16,10 +16,12 @@ class FrontViewPresenter {
     }
 
     private let forecast: DarkSkyForecast
+    private let clock: Clock
     private var view: FrontView?
 
-    init(forecast: DarkSkyForecast) {
+    init(forecast: DarkSkyForecast, clock: Clock) {
         self.forecast = forecast
+        self.clock = clock
     }
 
     public func viewCreated(view: FrontView) {
@@ -84,7 +86,7 @@ class FrontViewPresenter {
         if let time = time {
             timeText = time.asHHMM(timezone: forecast.timeZone)
             // Set highlight on for future dates.
-            highlight = time.isAfter(Date())
+            highlight = time.isAfter(clock.currentDateTime)
         } else {
             timeText = ""
             highlight = false

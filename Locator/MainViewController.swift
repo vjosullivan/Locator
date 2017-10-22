@@ -172,7 +172,7 @@ class MainViewController: UIViewController {
             }
             let pageColor = UIColor.randomPastel()
             self.updateCurrentWeather(with: forecast, for: place, in: pageColor)
-            self.frontVC?.configure(presenter: FrontViewPresenter(forecast: forecast),
+            self.frontVC?.configure(presenter: FrontViewPresenter(forecast: forecast, clock: SystemClock()),
                                     backgroundColor: pageColor,
                                     cornerRadius: self.cornerRadius,
                                     container: self)
@@ -182,7 +182,7 @@ class MainViewController: UIViewController {
                                     cornerRadius: self.cornerRadius)
             self.solarVC?.backgroundColor = pageColor
             self.solarVC?.cornerRadius    = self.cornerRadius
-            self.solarVC?.viewModel       = SolarViewModel(with: forecast, time: SystemClock())
+            self.solarVC?.viewModel       = SolarViewModel(with: forecast, clock: SystemClock())
             self.detailsVC?.update(forecast: forecast,
                                    backgroundColor: pageColor,
                                    cornerRadius: self.cornerRadius)

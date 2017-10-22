@@ -13,7 +13,7 @@ struct MockClock: Clock {
 
     let timeIntervalSince1970: TimeInterval
 
-    var current: Date {
+    var currentDateTime: Date {
         return Date(timeIntervalSince1970: timeIntervalSince1970)
     }
 }

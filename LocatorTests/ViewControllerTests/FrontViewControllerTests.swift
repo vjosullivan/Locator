@@ -25,7 +25,7 @@ class FrontViewControllerTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        presenter = FrontViewPresenterMock(forecast: createForecast())
+        presenter = FrontViewPresenterMock(forecast: createForecast(), clock: SystemClock())
 
         let storyboard = UIStoryboard(name: storyBoardName, bundle: nil)
         frontVC = storyboard.instantiateViewController(withIdentifier: FrontViewController.id) as? FrontViewController

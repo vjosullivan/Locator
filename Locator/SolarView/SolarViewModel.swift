@@ -24,10 +24,10 @@ class SolarViewModel: SolarViewRepresentable {
     var moonPhaseIcon: String
     var moonPhaseText: String
 
-    private let time: Clock
+    private let clock: Clock
 
-    init(with forecast: DarkSkyForecast, time: Clock) {
-        self.time = time
+    init(with forecast: DarkSkyForecast, clock: Clock) {
+        self.clock = clock
 
         sunriseTimeAtLocation = forecast.today?.sunriseTime?.asHMZ(timeZone: forecast.timeZone) ?? "No sunrise"
         sunsetTimeAtLocation  = forecast.today?.sunsetTime?.asHMZ(timeZone: forecast.timeZone) ?? "No sunset"
@@ -44,11 +44,11 @@ class SolarViewModel: SolarViewRepresentable {
         sunsetIcon  = (sunsetTimeAtLocation.isEmpty || forecast.today?.sunsetTime == nil)
             ? Weather.stars.symbol : Weather.sunset.symbol
 
-        sunHasRisenToday = time.current.isAfter(forecast.today?.sunriseTime ?? Date.distantFuture)
-        sunHasSetToday   = time.current.isAfter(forecast.today?.sunsetTime ?? Date.distantFuture)
+        sunHasRisenToday = clock.currentDateTime.isAfter(forecast.today?.sunriseTime ?? Date.distantFuture)
+        sunHasSetToday   = clock.currentDateTime.isAfter(forecast.today?.sunsetTime ?? Date.distantFuture)
 
         timeToSunRiseOrSet = SolarViewModel.nextSunrise(
-            now: time.current, sunrise: forecast.today?.sunriseTime, sunset: forecast.today?.sunsetTime)
+            now: clock.currentDateTime, sunrise: forecast.today?.sunriseTime, sunset: forecast.today?.sunsetTime)
 
         if let moonPhase = forecast.today?.moonPhase {
             moonPhaseIcon = DarkMoon.symbol(from: moonPhase)

@@ -61,7 +61,7 @@ class SolarViewModelTests: XCTestCase {
 
     func testViewModelNoData() {
 
-        let viewModel = SolarViewModel(with: noForecast!, time: SystemClock())
+        let viewModel = SolarViewModel(with: noForecast!, clock: SystemClock())
 
         XCTAssertEqual("No sunrise", viewModel.sunriseTimeAtLocation)
         XCTAssertEqual("", viewModel.sunriseTimeAtDevice)
@@ -83,7 +83,7 @@ class SolarViewModelTests: XCTestCase {
         let deviceSunrise   = Date(timeIntervalSince1970: sunrise).asHMZ(timeZone: SolarViewModelTests.deviceTimeZone)
         let deviceSunset    = Date(timeIntervalSince1970: sunset).asHMZ(timeZone: SolarViewModelTests.deviceTimeZone)
 
-        let viewModel = SolarViewModel(with: forecast!, time: SystemClock())
+        let viewModel = SolarViewModel(with: forecast!, clock: SystemClock())
 
         XCTAssertEqual(locationSunrise, viewModel.sunriseTimeAtLocation)
         XCTAssertEqual(locationSunset, viewModel.sunsetTimeAtLocation)
@@ -95,14 +95,14 @@ class SolarViewModelTests: XCTestCase {
 
     func testSunHasNeitherRisenNorSet() {
 
-        let viewModel = SolarViewModel(with: forecast!, time: MockClock(timeIntervalSince1970: beforeSunrise))
+        let viewModel = SolarViewModel(with: forecast!, clock: MockClock(timeIntervalSince1970: beforeSunrise))
 
         XCTAssertFalse(viewModel.sunHasRisenToday)
         XCTAssertFalse(viewModel.sunHasRisenToday)
     }
 
     func testSunHasBothRisenAndSet() {
-        let viewModel = SolarViewModel(with: forecast!, time: MockClock(timeIntervalSince1970: afterSunset))
+        let viewModel = SolarViewModel(with: forecast!, clock: MockClock(timeIntervalSince1970: afterSunset))
 
         XCTAssertTrue(viewModel.sunHasRisenToday)
         XCTAssertTrue(viewModel.sunHasRisenToday)
@@ -110,19 +110,19 @@ class SolarViewModelTests: XCTestCase {
     }
 
     func testTimeToSunRise() {
-        let viewModel = SolarViewModel(with: forecast!, time: MockClock(timeIntervalSince1970: beforeSunrise))
+        let viewModel = SolarViewModel(with: forecast!, clock: MockClock(timeIntervalSince1970: beforeSunrise))
 
         XCTAssertEqual("Sunrise in 30 minutes.", viewModel.timeToSunRiseOrSet)
     }
 
     func testTimeToSunSet() {
-        let viewModel = SolarViewModel(with: forecast!, time: MockClock(timeIntervalSince1970: beforeSunset))
+        let viewModel = SolarViewModel(with: forecast!, clock: MockClock(timeIntervalSince1970: beforeSunset))
 
         XCTAssertEqual("Sunset in 15 minutes.", viewModel.timeToSunRiseOrSet)
     }
 
     func testMoonPhase() {
-        let viewModel = SolarViewModel(with: forecast!, time: MockClock(timeIntervalSince1970: beforeSunset))
+        let viewModel = SolarViewModel(with: forecast!, clock: MockClock(timeIntervalSince1970: beforeSunset))
 
         XCTAssertEqual("\u{F0A3}", viewModel.moonPhaseIcon)
         XCTAssertEqual("Full\nmoon", viewModel.moonPhaseText)
@@ -133,7 +133,7 @@ class SolarViewModelTests: XCTestCase {
         let forecastWithBadTimeZone = forecastData(timeZone: SolarViewModelTests.invalidTimeZone)
         let badForecast = DarkSkyForecast(dictionary: forecastWithBadTimeZone)
 
-        let viewModel = SolarViewModel(with: badForecast!, time: SystemClock())
+        let viewModel = SolarViewModel(with: badForecast!, clock: SystemClock())
 
         XCTAssertEqual("", viewModel.sunriseTimeAtLocation)
         XCTAssertEqual("", viewModel.sunsetTimeAtLocation)
@@ -145,7 +145,7 @@ class SolarViewModelTests: XCTestCase {
         let forecastLocalLocn = forecastData(timeZone: TimeZone.current.identifier)
         let localForecast = DarkSkyForecast(dictionary: forecastLocalLocn)
 
-        let viewModel = SolarViewModel(with: localForecast!, time: SystemClock())
+        let viewModel = SolarViewModel(with: localForecast!, clock: SystemClock())
 
         let locationSunrise = Date(timeIntervalSince1970: sunrise).asHMZ(timeZone: SolarViewModelTests.deviceTimeZone)
         let locationSunset  = Date(timeIntervalSince1970: sunset).asHMZ(timeZone: SolarViewModelTests.deviceTimeZone)

@@ -9,7 +9,7 @@
 import Foundation
 
 struct SystemClock: Clock {
-    var current: Date {
+    var currentDateTime: Date {
         return Date()
     }
 }

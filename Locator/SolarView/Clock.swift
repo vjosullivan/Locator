@@ -9,5 +9,5 @@
 import Foundation
 
 protocol Clock {
-    var current: Date { get }
+    var currentDateTime: Date { get }
 }
