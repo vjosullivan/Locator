@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
     // MARK: - Local constants and variables.
 
     let radianConvertion = CGFloat.pi / 180.0
-    private let cornerRadius: CGFloat = 36.0
+    private let cornerRadius: CGFloat = MainViewController.deviceIsIPhoneX ? 42 : 12
 
     @IBOutlet weak var rainIntensity: GraphView!
     @IBOutlet weak var rainProbability: GraphView!
@@ -58,7 +58,6 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         frontPanel.isHidden = false
 
         //       update()
@@ -68,8 +67,7 @@ class MainViewController: UIViewController {
         update()
     }
 
-    override func prefersHomeIndicatorAutoHidden() -> Bool
-    {
+    override func prefersHomeIndicatorAutoHidden() -> Bool {
         return true
     }
 
@@ -151,15 +149,15 @@ class MainViewController: UIViewController {
                 let alertController = UIAlertController(
                     title: "No Weather Today",
                     message: "Either there is no weather today or there is a problem with your Internet connection or something."
-                    + "\n⋅\nThis message cropped up instead:\n\"\(errorText)\""
-                    + "\n⋅\nCheck everything and try again." + "\n",
+                        + "\n⋅\nThis message cropped up instead:\n\"\(errorText)\""
+                        + "\n⋅\nCheck everything and try again." + "\n",
                     preferredStyle: .alert)
 
                 alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(alertController, animated: true, completion: nil)
                 self.locationLabel.text = "Tap to try again."
                 self.activityIndicator.stopAnimating()
-                }
+        }
         )
     }
 
@@ -173,6 +171,7 @@ class MainViewController: UIViewController {
                 displayOption1 = .wind
             }
             let pageColor = UIColor.randomPastel()
+            self.locationLabel.backgroundColor = pageColor
             self.updateCurrentWeather(with: forecast, for: place, in: pageColor)
             self.frontVC?.configure(presenter: FrontViewPresenter(forecast: forecast, clock: SystemClock()),
                                     backgroundColor: pageColor,
@@ -286,6 +285,11 @@ class MainViewController: UIViewController {
                               animations: { frontView.isHidden = false }, completion: nil)
         }
     }
+
+    private static var deviceIsIPhoneX: Bool {
+        return UIDevice().userInterfaceIdiom == .phone &&
+            UIScreen.main.nativeBounds.height == 2436
+    }
 }
 
 extension MainViewController: LocationControllerDelegate {
@@ -317,11 +321,11 @@ extension MainViewController: LocationControllerDelegate {
 
     private func requestUpdatePrivacySettings() {
         displaySettingsAlert(title: "Location Tracking Disabled",
-                     message: "This device is not tracking it's own location.\n\n"
-                        + "To enable local weather forecasting, "
-                        + "open this device's location settings and enable 'Location Services'.",
-                     url: URL(string: "App-Prefs:root=LOCATION_SERVICES"),
-                     withCancelKey: true)
+                             message: "This device is not tracking it's own location.\n\n"
+                                + "To enable local weather forecasting, "
+                                + "open this device's location settings and enable 'Location Services'.",
+                             url: URL(string: "App-Prefs:root=LOCATION_SERVICES"),
+                             withCancelKey: true)
     }
 
     private func requestUpdateApplicationSetting() {

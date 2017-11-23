@@ -45,7 +45,7 @@ class CreditsViewController: UIViewController {
     func update(forecast: DarkSkyForecast, backgroundColor: UIColor, cornerRadius: CGFloat) {
         let foregroundColor = backgroundColor.darker
 
-        screenTitle.text = "Credits"
+        screenTitle.text = "Raincoat"
         screenTitle.textColor = foregroundColor
         darkSkyButton.setTitleColor(foregroundColor, for: .normal)
         credits.attributedText = creditsText(textColor: foregroundColor)
@@ -58,15 +58,11 @@ class CreditsViewController: UIViewController {
     }
 
     private func creditsText(textColor: UIColor) -> NSAttributedString {
-        let myString = "RAINCOAT\n\nDesigned and developed by\nVincent O'Sullivan\n·\n"
-            + "Powered by\nDark Sky\n·\n"
-            + "Original Artwork\nBeth Rose\n·\n"
-            + "Weather Symbols\nWeather Awesome\n·\n"
+        let myString = "\n\nDesigned and developed by\nVincent O'Sullivan\n\n·\n\n"
+            + "Original Artwork\nBethany Rose\n\n·\n\n"
+            + "Powered by\nDark Sky\n\n·\n\n"
+            + "Weather Symbols\nWeather Awesome\n\n·\n\n"
             + "Font (Nevis)\ntenbytwenty"
-
-        let titleDescriptor = UIFontDescriptor(
-            fontAttributes: [UIFontDescriptor.AttributeName.family: "Nevis",
-                             UIFontDescriptor.AttributeName.traits: [UIFontDescriptor.TraitKey.weight: UIFont.Weight.heavy]])
 
         let subTitleDescriptor = UIFontDescriptor(
             fontAttributes: [UIFontDescriptor.AttributeName.family: "Nevis",
@@ -76,33 +72,30 @@ class CreditsViewController: UIViewController {
             fontAttributes: [UIFontDescriptor.AttributeName.family: "Nevis",
                              UIFontDescriptor.AttributeName.traits: [UIFontDescriptor.TraitKey.weight: UIFont.Weight.heavy]])
 
-        let titleFont = UIFont(descriptor: titleDescriptor, size: 18.0)
         let subTitleFont = UIFont(descriptor: subTitleDescriptor, size: 13.5)
-        let nameFont = UIFont(descriptor: nameDescriptor, size: 18.0)
+        let nameFont = UIFont(descriptor: nameDescriptor, size: 20.0)
 
         let myMutableString = NSMutableAttributedString(
             string: myString,
             attributes: [NSAttributedStringKey.font: subTitleFont, NSAttributedStringKey.foregroundColor: textColor])
 
-        myMutableString.addAttribute(NSAttributedStringKey.font, value: titleFont,
-                                     range: NSRange(location: 0, length: 8))
         myMutableString.addAttribute(NSAttributedStringKey.font, value: nameFont,
-                                     range: NSRange(location: 36, length: 18))
+                                     range: NSRange(location: 28, length: 18))
         myMutableString.addAttribute(NSAttributedStringKey.font,
                                      value: nameFont,
-                                     range: NSRange(location: 68, length: 9))
+                                     range: NSRange(location: 68, length: 12))
         myMutableString.addAttribute(NSAttributedStringKey.font,
                                      value: nameFont,
-                                     range: NSRange(location: 96, length: 9))
+                                     range: NSRange(location: 96, length: 8))
         myMutableString.addAttribute(NSAttributedStringKey.font,
                                      value: nameFont,
-                                     range: NSRange(location: 124, length: 15))
+                                     range: NSRange(location: 125, length: 15))
         myMutableString.addAttribute(NSAttributedStringKey.font,
                                      value: nameFont,
-                                     range: NSRange(location: 155, length: 3))
+                                     range: NSRange(location: 158, length: 3))
         myMutableString.addAttribute(NSAttributedStringKey.font,
                                      value: nameFont,
-                                     range: NSRange(location: 160, length: 6))
+                                     range: NSRange(location: 163, length: 6))
         //Add more attributes here
         return myMutableString
     }
