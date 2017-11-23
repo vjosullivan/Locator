@@ -74,8 +74,8 @@ class HourViewController: UIViewController {
 
     private func precipitationType(from forecast: DarkSkyForecast) -> String {
         if let type = forecast.current?.precipType {
-            let first = String(type.characters.prefix(1)).capitalized
-            let other = String(type.characters.dropFirst())
+            let first = String(type[type.startIndex]).capitalized
+            let other = type.dropFirst()
             return first + other
         } else {
             return "Little or nothing"

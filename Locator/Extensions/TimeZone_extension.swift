@@ -20,13 +20,13 @@ extension TimeZone {
         let name: String
         if self.isDaylightSavingTime() {
             let summerName = self.localizedName(for: .daylightSaving, locale: Locale.current)!
-            name = (String(summerName.characters.prefix(3)) != "GMT")
+            name = (String(summerName.prefix(3)) != "GMT")
                 ? summerName
                 : self.localizedName(for: .standard, locale: Locale.current)!
         } else {
             name = self.localizedName(for: .standard, locale: Locale.current)!
         }
-        if name.characters.count > 3 && String(name.characters.prefix(3)) != "GMT" {
+        if name.count > 3 && String(name.prefix(3)) != "GMT" {
             return name.components(separatedBy: " ").reduce("") {$0 + String($1[$1.startIndex]) }
         } else {
             return name

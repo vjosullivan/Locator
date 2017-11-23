@@ -53,7 +53,7 @@ extension UIColor {
             cString = cString.substring(from: 1)
         }
 
-        if cString.characters.count != 6 || !UIColor.isHexString(cString) {
+        if cString.count != 6 || !UIColor.isHexString(cString) {
             self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
             return
         }
