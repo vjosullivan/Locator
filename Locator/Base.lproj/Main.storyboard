@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Smw-Ad-c4j">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Smw-Ad-c4j">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -402,7 +402,7 @@
                             <constraint firstItem="ZIf-tB-n07" firstAttribute="leading" secondItem="DGn-o4-IUR" secondAttribute="leading" constant="8" id="bJo-ug-FWp"/>
                             <constraint firstItem="ZIf-tB-n07" firstAttribute="top" secondItem="nTc-4f-mSR" secondAttribute="bottom" id="byS-IR-4tw"/>
                             <constraint firstAttribute="trailing" secondItem="xSE-pJ-xJs" secondAttribute="trailing" id="djC-xD-eSm"/>
-                            <constraint firstItem="oMu-UA-TUq" firstAttribute="top" secondItem="YId-6T-wFX" secondAttribute="bottom" constant="8" id="eZt-ao-5nK"/>
+                            <constraint firstAttribute="bottom" secondItem="YId-6T-wFX" secondAttribute="bottom" constant="8" id="eZt-ao-5nK"/>
                             <constraint firstItem="HHw-eJ-ACb" firstAttribute="bottom" secondItem="v7o-eT-5Th" secondAttribute="bottom" id="jU0-uh-gQN"/>
                             <constraint firstItem="HHw-eJ-ACb" firstAttribute="centerX" secondItem="DGn-o4-IUR" secondAttribute="centerX" id="mQ9-No-yMR"/>
                             <constraint firstItem="v7o-eT-5Th" firstAttribute="leading" secondItem="DGn-o4-IUR" secondAttribute="leading" id="qB9-bg-ILW"/>

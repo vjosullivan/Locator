@@ -11,8 +11,10 @@ import CoreLocation
 
 class MainViewController: UIViewController {
 
+    // MARK: - Local constants and variables.
+
     let radianConvertion = CGFloat.pi / 180.0
-    private let cornerRadius: CGFloat = 16.0
+    private let cornerRadius: CGFloat = 36.0
 
     @IBOutlet weak var rainIntensity: GraphView!
     @IBOutlet weak var rainProbability: GraphView!
@@ -66,9 +68,9 @@ class MainViewController: UIViewController {
         update()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func prefersHomeIndicatorAutoHidden() -> Bool
+    {
+        return true
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
