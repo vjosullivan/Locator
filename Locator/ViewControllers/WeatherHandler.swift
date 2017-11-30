@@ -122,7 +122,7 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
             case .light:
                 cell.cloudCover.isHidden = false
                 cell.windBearing.isHidden = true
-                updateCloudCover(image: cell.cloudCover, from: dataPoint.cloudCover)
+                cell.cloudCover.image = cloudCoverImage(from: dataPoint.cloudCover)
                 updateUVIndex(label: cell.windSpeed, from: dataPoint.uvIndex)
             }
         } else {
@@ -152,56 +152,39 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
         label.text = "\(Int(measurement.value))\n\(measurement.unit.symbol)"
     }
 
-    private func updateCloudCover(image: UIImageView, from measurement: Double?) {
+    /// Returns an image that illustrates the amount of cloud cover
+    /// between 0.0 (clear) and 1.0 (fully overcast).
+    ///
+    /// - Parameter measurement: The amount of cloud cover.
+    /// - Returns: A cloud cover image.
+    ///
+    private func cloudCoverImage(from measurement: Double?) -> UIImage? {
         guard let measurement = measurement else {
-            image.image = nil
-            return
+            return nil
         }
         switch measurement {
-        case 0.000..<0.025:
-            image.image = UIImage(named: "Picon00")
-        case 0.025..<0.075:
-            image.image = UIImage(named: "Picon05")
-        case 0.075..<0.125:
-            image.image = UIImage(named: "Picon10")
-        case 0.125..<0.175:
-            image.image = UIImage(named: "Picon15")
-        case 0.175..<0.225:
-            image.image = UIImage(named: "Picon20")
-        case 0.225..<0.275:
-            image.image = UIImage(named: "Picon25")
-        case 0.275..<0.325:
-            image.image = UIImage(named: "Picon30")
-        case 0.325..<0.375:
-            image.image = UIImage(named: "Picon35")
-        case 0.375..<0.425:
-            image.image = UIImage(named: "Picon40")
-        case 0.425..<0.475:
-            image.image = UIImage(named: "Picon45")
-        case 0.475..<0.525:
-            image.image = UIImage(named: "Picon50")
-        case 0.525..<0.575:
-            image.image = UIImage(named: "Picon55")
-        case 0.575..<0.625:
-            image.image = UIImage(named: "Picon60")
-        case 0.625..<0.675:
-            image.image = UIImage(named: "Picon65")
-        case 0.675..<0.725:
-            image.image = UIImage(named: "Picon70")
-        case 0.725..<0.775:
-            image.image = UIImage(named: "Picon75")
-        case 0.775..<0.825:
-            image.image = UIImage(named: "Picon80")
-        case 0.825..<0.875:
-            image.image = UIImage(named: "Picon85")
-        case 0.875..<0.925:
-            image.image = UIImage(named: "Picon90")
-        case 0.925..<0.975:
-            image.image = UIImage(named: "Picon95")
-        case 0.975...1.000:
-            image.image = UIImage(named: "Picon100")
-        default:
-            image.image = UIImage(named: "PiconXX")
+        case 0.000..<0.025: return UIImage(named: "Picon00")
+        case 0.025..<0.075: return UIImage(named: "Picon05")
+        case 0.075..<0.125: return UIImage(named: "Picon10")
+        case 0.125..<0.175: return UIImage(named: "Picon15")
+        case 0.175..<0.225: return UIImage(named: "Picon20")
+        case 0.225..<0.275: return UIImage(named: "Picon25")
+        case 0.275..<0.325: return UIImage(named: "Picon30")
+        case 0.325..<0.375: return UIImage(named: "Picon35")
+        case 0.375..<0.425: return UIImage(named: "Picon40")
+        case 0.425..<0.475: return UIImage(named: "Picon45")
+        case 0.475..<0.525: return UIImage(named: "Picon50")
+        case 0.525..<0.575: return UIImage(named: "Picon55")
+        case 0.575..<0.625: return UIImage(named: "Picon60")
+        case 0.625..<0.675: return UIImage(named: "Picon65")
+        case 0.675..<0.725: return UIImage(named: "Picon70")
+        case 0.725..<0.775: return UIImage(named: "Picon75")
+        case 0.775..<0.825: return UIImage(named: "Picon80")
+        case 0.825..<0.875: return UIImage(named: "Picon85")
+        case 0.875..<0.925: return UIImage(named: "Picon90")
+        case 0.925..<0.975: return UIImage(named: "Picon95")
+        case 0.975...1.000: return UIImage(named: "Picon100")
+        default:            return UIImage(named: "PiconXX")
         }
     }
 
