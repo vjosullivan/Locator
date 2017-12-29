@@ -54,6 +54,11 @@ class DetailsViewController: UIViewController {
             updateWindDirection(from: current.windBearing)
         }
 
+        minTempValue.textColor = foregroundColor
+        minTempTime.textColor = foregroundColor
+        maxTempValue.textColor = foregroundColor
+        maxTempTime.textColor = foregroundColor
+
         pressureSymbol.textColor = foregroundColor
         pressureLabel.textColor = foregroundColor
         pressureText.textColor = foregroundColor
@@ -126,16 +131,18 @@ class DetailsViewController: UIViewController {
 
     func updateEarlyMinMax(_ temperature: String, at time: String, highlight: Bool) {
         minTempValue.text = temperature
-        minTempValue.textColor = (highlight) ? UIColor.amber : UIColor.darkGray // currentTemperatureValue.textColor
-
+        if highlight {
+            minTempValue.textColor = UIColor.amber
+        }
         minTempTime.text = time
         minTempTime.textColor = minTempValue.textColor
     }
 
     func updateLateMinMax(_ temperature: String, at time: String, highlight: Bool) {
         maxTempValue.text = temperature
-        maxTempValue.textColor = (highlight) ? UIColor.amber : UIColor.darkGray // currentTemperatureValue.textColor
-
+        if highlight {
+            maxTempValue.textColor = UIColor.amber
+        }
         maxTempTime.text = time
         maxTempTime.textColor = maxTempValue.textColor
     }
