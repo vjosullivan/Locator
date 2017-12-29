@@ -12,7 +12,5 @@ protocol FrontView {
     func setDetailsButton(title: String)
     func setLocationButton(title: String)
 
-    func updateEarlyMinMax(_ temperature: String, at time: String, highlight: Bool)
-    func updateLateMinMax(_ temperature: String, at time: String, highlight: Bool)
     func updateCurrentWeather(temperature: String, weather: String)
 }

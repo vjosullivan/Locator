@@ -26,10 +26,6 @@ class FrontViewController: UIViewController {
 
     @IBOutlet weak var currentWeatherValue: UILabel!
     @IBOutlet weak var currentTemperatureValue: UILabel!
-    @IBOutlet weak var minTempValue: UILabel!
-    @IBOutlet weak var minTempTime: UILabel!
-    @IBOutlet weak var maxTempValue: UILabel!
-    @IBOutlet weak var maxTempTime: UILabel!
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -105,22 +101,6 @@ extension FrontViewController: FrontView {
     }
     func setLocationButton(title: String) {
         buttonATR.setTitle("Location", for: .normal)
-    }
-
-    func updateEarlyMinMax(_ temperature: String, at time: String, highlight: Bool) {
-        minTempValue.text = temperature
-        minTempValue.textColor = (highlight) ? UIColor.amber : UIColor.darkGray // currentTemperatureValue.textColor
-
-        minTempTime.text = time
-        minTempTime.textColor = minTempValue.textColor
-    }
-
-    func updateLateMinMax(_ temperature: String, at time: String, highlight: Bool) {
-        maxTempValue.text = temperature
-        maxTempValue.textColor = (highlight) ? UIColor.amber : UIColor.darkGray // currentTemperatureValue.textColor
-
-        maxTempTime.text = time
-        maxTempTime.textColor = maxTempValue.textColor
     }
 
     func updateCurrentWeather(temperature: String, weather: String) {

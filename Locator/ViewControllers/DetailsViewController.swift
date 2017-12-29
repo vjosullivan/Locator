@@ -134,7 +134,7 @@ class DetailsViewController: UIViewController {
         if highlight {
             minTempValue.textColor = UIColor.amber
         }
-        minTempTime.text = time
+        minTempTime.text = "@ \(time)"
         minTempTime.textColor = minTempValue.textColor
     }
 
@@ -143,7 +143,7 @@ class DetailsViewController: UIViewController {
         if highlight {
             maxTempValue.textColor = UIColor.amber
         }
-        maxTempTime.text = time
+        maxTempTime.text = "@ \(time)"
         maxTempTime.textColor = maxTempValue.textColor
     }
 
