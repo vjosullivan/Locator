@@ -82,6 +82,7 @@
 		F1D5D29F1DD85DA100D9DC1F /* PlaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5D29E1DD85DA100D9DC1F /* PlaceTests.swift */; };
 		F1D5D2A31DD8982400D9DC1F /* PlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5D2A21DD8982400D9DC1F /* PlaceManager.swift */; };
 		F1D60DD31E27E39000E7059C /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D60DD21E27E39000E7059C /* Weather.swift */; };
+		F1DB07971FF680840032FF6D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1DB07961FF680830032FF6D /* CoreData.framework */; };
 		F1E08CC71E8BD48E003561FF /* RaindropLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E08CC61E8BD48E003561FF /* RaindropLabel.swift */; };
 		F1E08CC91E8D019E003561FF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E08CC81E8D019E003561FF /* Alert.swift */; };
 		F1FDE9031F9BA93300D88975 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FDE9021F9BA93300D88975 /* Clock.swift */; };
@@ -180,6 +181,7 @@
 		F1D5D29E1DD85DA100D9DC1F /* PlaceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTests.swift; sourceTree = "<group>"; };
 		F1D5D2A21DD8982400D9DC1F /* PlaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceManager.swift; sourceTree = "<group>"; };
 		F1D60DD21E27E39000E7059C /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		F1DB07961FF680830032FF6D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		F1E08CC61E8BD48E003561FF /* RaindropLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaindropLabel.swift; sourceTree = "<group>"; };
 		F1E08CC81E8D019E003561FF /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		F1FDE9021F9BA93300D88975 /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1DB07971FF680840032FF6D /* CoreData.framework in Frameworks */,
 				B52CD6FBFF14B2F32A23359C /* libPods-Locator.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +342,7 @@
 		9EE7C2F2D9049A0CDB069BA2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F1DB07961FF680830032FF6D /* CoreData.framework */,
 				4C356B11EB1AD34A8EE3D80C /* libPods-Locator.a */,
 			);
 			name = Frameworks;

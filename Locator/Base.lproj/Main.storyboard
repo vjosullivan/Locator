@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Smw-Ad-c4j">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Smw-Ad-c4j">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -445,6 +445,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="255.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="DjE-e8-kUp" userLabel="Minimax stack">
+                                <rect key="frame" x="44" y="8" width="287" height="30"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="2we-26-3EW" userLabel="Low stack">
+                                        <rect key="frame" x="0.0" y="0.0" width="143.5" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HdB-U7-jDS" userLabel="minTempValue">
+                                                <rect key="frame" x="0.0" y="0.0" width="143.5" height="13"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="mID-L9-4VF" userLabel="minTempTime">
+                                                <rect key="frame" x="0.0" y="17" width="143.5" height="13"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="l95-hz-C0B"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vxJ-jU-N53" userLabel="High stack">
+                                        <rect key="frame" x="143.5" y="0.0" width="143.5" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="DmO-hp-lk3" userLabel="maxTempValue">
+                                                <rect key="frame" x="0.0" y="0.0" width="143.5" height="13"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="G4e-8v-HNj" userLabel="maxTempTime">
+                                                <rect key="frame" x="0.0" y="17" width="143.5" height="13"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="o50-gA-HPH"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="o7O-UE-3JE" userLabel="Details stack">
                                 <rect key="frame" x="24" y="57.5" width="327" height="77"/>
                                 <subviews>
@@ -548,14 +597,17 @@
                             <constraint firstItem="o7O-UE-3JE" firstAttribute="leading" secondItem="jxJ-of-aie" secondAttribute="leading" constant="24" id="4LC-Se-icx"/>
                             <constraint firstItem="PA2-Sb-cHG" firstAttribute="centerX" secondItem="jxJ-of-aie" secondAttribute="centerX" id="FQX-bB-YM9"/>
                             <constraint firstItem="o7O-UE-3JE" firstAttribute="centerY" secondItem="jxJ-of-aie" secondAttribute="centerY" multiplier="0.75" id="JRV-WR-iri"/>
+                            <constraint firstItem="DjE-e8-kUp" firstAttribute="leading" secondItem="jxJ-of-aie" secondAttribute="leading" constant="44" id="JrG-Ee-buM"/>
                             <constraint firstAttribute="trailing" secondItem="o7O-UE-3JE" secondAttribute="trailing" constant="24" id="PK5-Sw-Sb0"/>
                             <constraint firstItem="u3G-Ir-w8e" firstAttribute="top" secondItem="PA2-Sb-cHG" secondAttribute="bottom" constant="8" id="PsG-ed-m9N"/>
                             <constraint firstItem="GcL-La-cU3" firstAttribute="top" secondItem="u3G-Ir-w8e" secondAttribute="bottom" constant="8" id="TMP-lh-S7R"/>
                             <constraint firstAttribute="trailing" secondItem="u3G-Ir-w8e" secondAttribute="trailing" constant="8" id="U5G-H4-EdH"/>
                             <constraint firstItem="Uh1-6J-OuA" firstAttribute="leading" secondItem="jxJ-of-aie" secondAttribute="leading" id="dEx-0T-KMw"/>
                             <constraint firstItem="Uh1-6J-OuA" firstAttribute="top" secondItem="jxJ-of-aie" secondAttribute="top" constant="8" id="iEx-1n-wgi"/>
+                            <constraint firstAttribute="trailing" secondItem="DjE-e8-kUp" secondAttribute="trailing" constant="44" id="jmg-MY-XsQ"/>
                             <constraint firstItem="u3G-Ir-w8e" firstAttribute="leading" secondItem="jxJ-of-aie" secondAttribute="leading" constant="8" id="l9E-HF-EBh"/>
                             <constraint firstAttribute="trailing" secondItem="Uh1-6J-OuA" secondAttribute="trailing" constant="22" id="uk0-Ok-ZUo"/>
+                            <constraint firstItem="DjE-e8-kUp" firstAttribute="top" secondItem="1Xx-Kf-nra" secondAttribute="bottom" constant="8" id="wE4-Gw-Q5E"/>
                             <constraint firstItem="GcL-La-cU3" firstAttribute="top" secondItem="Uh1-6J-OuA" secondAttribute="bottom" id="xgb-hS-VbJ"/>
                         </constraints>
                     </view>
@@ -1659,13 +1711,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="brw-TX-hGm" firstAttribute="leading" secondItem="ywz-dm-wLK" secondAttribute="leading" id="0yp-qm-XPz"/>
+                            <constraint firstAttribute="trailing" secondItem="jh3-vZ-Fzt" secondAttribute="trailing" id="38Q-be-lRU"/>
                             <constraint firstItem="6kU-io-bFW" firstAttribute="top" secondItem="5c8-gb-XPn" secondAttribute="top" constant="4" id="4Po-gZ-AKz"/>
                             <constraint firstItem="brw-TX-hGm" firstAttribute="top" secondItem="ywz-dm-wLK" secondAttribute="top" id="4lg-ep-pI2"/>
                             <constraint firstItem="X6i-Z3-oA1" firstAttribute="top" secondItem="BVW-ev-0fQ" secondAttribute="bottom" constant="8" id="65b-pQ-KaQ"/>
                             <constraint firstItem="jh3-vZ-Fzt" firstAttribute="top" secondItem="t2v-h2-bhD" secondAttribute="bottom" id="6gD-Ki-i5O"/>
                             <constraint firstAttribute="trailing" secondItem="ByL-MZ-g2f" secondAttribute="trailing" constant="8" id="7Q0-oK-g04"/>
                             <constraint firstItem="ywz-dm-wLK" firstAttribute="bottom" secondItem="brw-TX-hGm" secondAttribute="bottom" id="9FK-hl-D0M"/>
-                            <constraint firstItem="jh3-vZ-Fzt" firstAttribute="width" secondItem="5c8-gb-XPn" secondAttribute="width" id="9UQ-JF-QOo"/>
                             <constraint firstItem="vcy-aM-MB2" firstAttribute="height" secondItem="5c8-gb-XPn" secondAttribute="height" multiplier="0.25" id="FV6-2u-elb"/>
                             <constraint firstAttribute="trailing" secondItem="BVW-ev-0fQ" secondAttribute="trailing" constant="8" id="L7f-uT-QJg"/>
                             <constraint firstItem="BVW-ev-0fQ" firstAttribute="leading" secondItem="5c8-gb-XPn" secondAttribute="leading" constant="8" id="LML-eA-tUV"/>
