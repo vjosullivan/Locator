@@ -10,6 +10,16 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
+    private enum MinMaxType: String {
+        case minimum = "Low"
+        case maximum = "High"
+    }
+
+    @IBOutlet weak var minTempValue: UILabel!
+    @IBOutlet weak var minTempTime: UILabel!
+    @IBOutlet weak var maxTempValue: UILabel!
+    @IBOutlet weak var maxTempTime: UILabel!
+
     @IBOutlet weak var pressureSymbol: UILabel!
     @IBOutlet weak var pressureLabel: UILabel!
     @IBOutlet weak var pressureText: UILabel!
@@ -34,10 +44,15 @@ class DetailsViewController: UIViewController {
     func update(forecast: DarkSkyForecast, backgroundColor: UIColor, cornerRadius: CGFloat) {
         let foregroundColor = backgroundColor.darker
 
-        updatePressure(from: forecast.current?.pressure)
-        updateHumidity(from: forecast.current?.humidity)
-        updateWindSpeed(from: forecast.current?.windSpeed)
-        updateWindDirection(from: forecast.current?.windBearing)
+        if let today = forecast.today {
+            updateMinMaxValues(for: today, timeZone: forecast.timeZone)
+        }
+        if let current = forecast.current {
+            updatePressure(from: current.pressure)
+            updateHumidity(from: current.humidity)
+            updateWindSpeed(from: current.windSpeed)
+            updateWindDirection(from: current.windBearing)
+        }
 
         pressureSymbol.textColor = foregroundColor
         pressureLabel.textColor = foregroundColor
@@ -59,6 +74,72 @@ class DetailsViewController: UIViewController {
         view.backgroundColor = backgroundColor
         view.topCornerRadius = cornerRadius
     }
+
+    func updateMinMaxValues(for today: DataPoint, timeZone: String) {
+        let minData = setMinMax(type: .minimum, temperature: today.temperatureMin, time: today.temperatureMinTime, timeZone: timeZone)
+        let maxData = setMinMax(type: .maximum, temperature: today.temperatureMax, time: today.temperatureMaxTime, timeZone: timeZone)
+
+        if let maxTime = today.temperatureMaxTime, let minTime = today.temperatureMinTime {
+
+            // Put the earlier min/max time on the left.
+            let minimumFirst = maxTime.isAfter(minTime)
+            let earlyData = minimumFirst ? minData : maxData
+            let laterData = minimumFirst ? maxData : minData
+
+            updateEarlyMinMax(earlyData.valueText, at: earlyData.timeText, highlight: earlyData.highlight)
+            updateLateMinMax(laterData.valueText, at: laterData.timeText, highlight: laterData.highlight)
+        }
+    }
+
+    /// Returns displayable data for the today's minimum or maximum temperature.
+    ///
+    /// - Parameters:
+    ///   - type: Flag to indicate today's minimum or maximum.
+    ///   - temperature: A temperature measurement.
+    ///   - time: The time at which the temperature is expected.
+    /// - Returns: Displayable temperature/time data.
+    ///
+    private func setMinMax(type: MinMaxType,
+                           temperature: Measurement<UnitTemperature>?,
+                           time: Date?,
+                           timeZone: String) -> (valueText: String, timeText: String, highlight: Bool) {
+        guard let temperature = temperature else {
+            return (valueText: "", timeText: "", highlight: false)
+        }
+
+        var valueText = ""
+        var timeText = ""
+        var highlight = false
+
+        valueText = "\(type.rawValue) \(Int(temperature.value))\(temperature.unit.symbol)"
+        if let time = time {
+            timeText = time.asHHMM(timezone: timeZone)
+            // Set highlight on for future dates.
+            highlight = time.isAfter(SystemClock().currentDateTime)
+        } else {
+            timeText = ""
+            highlight = false
+        }
+
+        return (valueText: valueText, timeText: timeText, highlight: highlight)
+    }
+
+    func updateEarlyMinMax(_ temperature: String, at time: String, highlight: Bool) {
+        minTempValue.text = temperature
+        minTempValue.textColor = (highlight) ? UIColor.amber : UIColor.darkGray // currentTemperatureValue.textColor
+
+        minTempTime.text = time
+        minTempTime.textColor = minTempValue.textColor
+    }
+
+    func updateLateMinMax(_ temperature: String, at time: String, highlight: Bool) {
+        maxTempValue.text = temperature
+        maxTempValue.textColor = (highlight) ? UIColor.amber : UIColor.darkGray // currentTemperatureValue.textColor
+
+        maxTempTime.text = time
+        maxTempTime.textColor = maxTempValue.textColor
+    }
+
 
     /// Updates the air pressure display from the supplied air pressure measurement.
     /// Different air pressure units require slightly different display formats.

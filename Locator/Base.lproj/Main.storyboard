@@ -616,6 +616,10 @@
                         <outlet property="humidityLabel" destination="PIb-wB-ma3" id="a43-m0-3JX"/>
                         <outlet property="humiditySymbol" destination="QDD-bg-cuL" id="fft-4Y-mpd"/>
                         <outlet property="humidityText" destination="FhN-4q-Vpr" id="Go8-5x-Rd2"/>
+                        <outlet property="maxTempTime" destination="G4e-8v-HNj" id="aaX-8H-ePm"/>
+                        <outlet property="maxTempValue" destination="DmO-hp-lk3" id="DEy-Bl-GFK"/>
+                        <outlet property="minTempTime" destination="mID-L9-4VF" id="1jd-KW-web"/>
+                        <outlet property="minTempValue" destination="HdB-U7-jDS" id="MGe-tj-Dq3"/>
                         <outlet property="pressureLabel" destination="VnA-F4-b8L" id="tsA-Cw-eOq"/>
                         <outlet property="pressureSymbol" destination="n5B-Dl-NgP" id="YBj-qh-s2H"/>
                         <outlet property="pressureText" destination="QCl-BJ-a84" id="LH9-WW-E5E"/>
