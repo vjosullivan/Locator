@@ -1231,7 +1231,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAB-ax-Bag" userLabel="Button top Left">
-                                <rect key="frame" x="8" y="0.0" width="143.5" height="143.5"/>
+                                <rect key="frame" x="8" y="0.0" width="143" height="143"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="EAB-ax-Bag" secondAttribute="height" multiplier="1:1" id="9jE-pT-tiP"/>
                                 </constraints>
@@ -1242,7 +1242,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HDv-az-Qnc" userLabel="Button bottom left">
-                                <rect key="frame" x="8" y="143.5" width="143" height="142.5"/>
+                                <rect key="frame" x="8" y="143" width="143.5" height="143"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="HDv-az-Qnc" secondAttribute="height" multiplier="1:1" id="4xk-BR-zkA"/>
                                 </constraints>
@@ -1253,7 +1253,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rMh-46-Cqi" userLabel="Button top right">
-                                <rect key="frame" x="224" y="0.0" width="143" height="143.5"/>
+                                <rect key="frame" x="224.5" y="0.0" width="142.5" height="143"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="rMh-46-Cqi" secondAttribute="height" multiplier="1:1" id="N0H-RW-qOC"/>
                                 </constraints>
@@ -1264,7 +1264,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VsX-KO-2A8" userLabel="Button bottom right">
-                                <rect key="frame" x="224.5" y="143.5" width="142.5" height="142.5"/>
+                                <rect key="frame" x="224" y="143" width="143" height="143"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="VsX-KO-2A8" secondAttribute="height" multiplier="1:1" id="nyh-qi-jVV"/>
                                 </constraints>

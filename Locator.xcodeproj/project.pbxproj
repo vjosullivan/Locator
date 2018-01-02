@@ -56,6 +56,8 @@
 		F11F081B1E88527500231BEF /* WeatherHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F081A1E88527500231BEF /* WeatherHandler.swift */; };
 		F11F081D1E8856AF00231BEF /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F081C1E8856AF00231BEF /* WeatherTableViewCell.swift */; };
 		F11F08201E895F0800231BEF /* CreditsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11F081F1E895F0800231BEF /* CreditsViewControllerTests.swift */; };
+		F140C2E91FFAB2C400890242 /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140C2E81FFAB2C400890242 /* DetailsPresenter.swift */; };
+		F140C2EB1FFAB32300890242 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F140C2EA1FFAB32300890242 /* DetailsView.swift */; };
 		F14AB6F61E9236E10074E376 /* AlertsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14AB6F51E9236E10074E376 /* AlertsTableViewCell.swift */; };
 		F14E8C481E94D77300C050CC /* UIView_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14E8C471E94D77300C050CC /* UIView_extension.swift */; };
 		F14E8C4A1E95164C00C050CC /* nevis.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F14E8C491E95164C00C050CC /* nevis.ttf */; };
@@ -156,6 +158,8 @@
 		F11F081A1E88527500231BEF /* WeatherHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherHandler.swift; sourceTree = "<group>"; };
 		F11F081C1E8856AF00231BEF /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
 		F11F081F1E895F0800231BEF /* CreditsViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewControllerTests.swift; sourceTree = "<group>"; };
+		F140C2E81FFAB2C400890242 /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
+		F140C2EA1FFAB32300890242 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		F14AB6F51E9236E10074E376 /* AlertsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsTableViewCell.swift; sourceTree = "<group>"; };
 		F14E8C471E94D77300C050CC /* UIView_extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView_extension.swift; sourceTree = "<group>"; };
 		F14E8C491E95164C00C050CC /* nevis.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = nevis.ttf; sourceTree = "<group>"; };
@@ -361,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				F10F531F1EAB6E38007D0144 /* FrontViewPresenter.swift */,
+				F140C2E81FFAB2C400890242 /* DetailsPresenter.swift */,
 			);
 			path = Presenters;
 			sourceTree = "<group>";
@@ -436,6 +441,7 @@
 			isa = PBXGroup;
 			children = (
 				F17C19991EAF16A800DEC23D /* FrontView.swift */,
+				F140C2EA1FFAB32300890242 /* DetailsView.swift */,
 			);
 			path = ViewProtocols;
 			sourceTree = "<group>";
@@ -654,12 +660,14 @@
 				3403E8711E8E7A35003F7026 /* AlertsHandler.swift in Sources */,
 				34DF48E71E292ADB00AC4E16 /* AppSettings.swift in Sources */,
 				F16673471E0297E20087C5D7 /* DarkSkyForecast.swift in Sources */,
+				F140C2E91FFAB2C400890242 /* DetailsPresenter.swift in Sources */,
 				F166734C1E02980C0087C5D7 /* DetailedForecast.swift in Sources */,
 				F166733F1E0295ED0087C5D7 /* LocationController.swift in Sources */,
 				348BC3491DD1AF3A00638D66 /* Locator.xcdatamodeld in Sources */,
 				342A74931E352F01009754AF /* GraphView.swift in Sources */,
 				3440EEC11F9A064C009C9D76 /* SolarViewModel.swift in Sources */,
 				3422C05D1E1BF79E00006EB3 /* DarkMoon.swift in Sources */,
+				F140C2EB1FFAB32300890242 /* DetailsView.swift in Sources */,
 				F16673411E0295ED0087C5D7 /* Location.swift in Sources */,
 				348BC3431DD1AF3900638D66 /* LocationFinderViewController.swift in Sources */,
 				34A540B01E35F73000FD7C6E /* WeekViewController.swift in Sources */,

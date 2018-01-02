@@ -103,7 +103,7 @@ extension FrontViewController: FrontView {
         buttonATR.setTitle("Location", for: .normal)
     }
 
-    func updateCurrentWeather(temperature: String, weather: String) {
+    func updateWeatherText(temperature: String, weather: String) {
         currentTemperatureValue.text = temperature
         currentWeatherValue.text = weather
     }

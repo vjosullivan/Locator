@@ -12,5 +12,5 @@ protocol FrontView {
     func setDetailsButton(title: String)
     func setLocationButton(title: String)
 
-    func updateCurrentWeather(temperature: String, weather: String)
+    func updateWeatherText(temperature: String, weather: String)
 }

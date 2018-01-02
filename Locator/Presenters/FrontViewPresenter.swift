@@ -30,13 +30,13 @@ class FrontViewPresenter {
         updateCurrentWeather()
     }
 
-    func updateCurrentWeather() {
+    private func updateCurrentWeather() {
         var temperatureText = ""
         if let temperature = forecast.current?.temperature {
             temperatureText  = "\(Int(round(temperature.value)))\(temperature.unit.symbol)"
         }
         let weatherText = forecast.current?.summary?.uppercased() ?? ""
 
-        view?.updateCurrentWeather(temperature: temperatureText, weather: weatherText)
+        view?.updateWeatherText(temperature: temperatureText, weather: weatherText)
     }
 }
