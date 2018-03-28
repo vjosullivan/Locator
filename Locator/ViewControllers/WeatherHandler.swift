@@ -23,7 +23,7 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
     // MARK: - Local constants and variables.
 
     private let hourLineCount = 37 // The number of lines of hour by hour weather displayed.
-    private let dayLineCount  =  8 // The number of lines of day by day weather displayed.
+    private let dayLineCount  = 15 // The number of lines of day by day weather displayed.
 
     private var forecast: DarkSkyForecast?
     private var detailType = DetailType.day
@@ -44,8 +44,11 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
         // The number of rows displayed is dependent upon whether hourly or daily
         // data is to be displayed and limited by the data available.
         if let forecast = forecast {
-            let rowCount = (detailType == .day) ? hourLineCount : dayLineCount
-            return Swift.min(rowCount, forecast.hourly?.dataPoints?.count ?? 0)
+            if detailType == .day {
+                return Swift.min(dayLineCount, forecast.daily?.dataPoints?.count ?? 0)
+            } else {
+                return Swift.min(hourLineCount, forecast.hourly?.dataPoints?.count ?? 0)
+            }
         } else {
             return 0
         }
