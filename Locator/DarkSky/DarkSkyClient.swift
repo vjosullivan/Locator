@@ -13,7 +13,7 @@ public typealias DarkSkyHandler = (_ data: Data?, _ response: URLResponse?, _ er
 struct DarkSkyClient {
 
     private static let darkSkyUrl = "https://api.darksky.net/forecast/"
-    private static let darkSkyKey = "7f7075d90bf85644daa070b898a10132"
+    private static let darkSkyAPIKey: String? = valueForAPIKey("DARK_SKY_API_KEY")
     private static let ukSuffix   = "units=uk2"
 
     fileprivate let url: URL
@@ -24,9 +24,13 @@ struct DarkSkyClient {
     /// - returns: A `DarkSkyClient` dedicated to the suppled location.
     ///
     init(location: Location) {
-        url = URL(string: DarkSkyClient.darkSkyUrl + DarkSkyClient.darkSkyKey +
-            "/\(location.latitude),\(location.longitude)" +
-            "?units=\(AppSettings.retrieve(key: "units", defaultValue: "auto"))")!
+        if let darkSkyAPIKey = DarkSkyClient.darkSkyAPIKey {
+            url = URL(string: DarkSkyClient.darkSkyUrl + darkSkyAPIKey +
+                "/\(location.latitude),\(location.longitude)" +
+                "?units=\(AppSettings.retrieve(key: "units", defaultValue: "auto"))")!
+        } else {
+            fatalError("Dark Sky API key required.")
+        }
     }
 
     /// Initialiser: Utilises "dependency injection" to initialise the client with a predefined URL.

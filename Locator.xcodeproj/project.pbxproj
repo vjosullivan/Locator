@@ -79,6 +79,8 @@
 		F17C199A1EAF16A800DEC23D /* FrontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17C19991EAF16A800DEC23D /* FrontView.swift */; };
 		F1884ADA1E8E28CB00EA6290 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1884AD91E8E28CB00EA6290 /* Alerts.swift */; };
 		F1B662431E866FB20095F16A /* AlertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B662421E866FB20095F16A /* AlertsViewController.swift */; };
+		F1C6CD14206B6476006D793F /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1C6CD13206B6476006D793F /* APIKeys.plist */; };
+		F1C6CD16206B65AD006D793F /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C6CD15206B65AD006D793F /* APIKeys.swift */; };
 		F1D5D2951DD70DED00D9DC1F /* LocationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5D2941DD70DED00D9DC1F /* LocationListViewController.swift */; };
 		F1D5D29A1DD85B3700D9DC1F /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5D2991DD85B3700D9DC1F /* Place.swift */; };
 		F1D5D29F1DD85DA100D9DC1F /* PlaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D5D29E1DD85DA100D9DC1F /* PlaceTests.swift */; };
@@ -180,6 +182,8 @@
 		F1884AD91E8E28CB00EA6290 /* Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		F18AA5E31F84B054002CFAE5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F1B662421E866FB20095F16A /* AlertsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertsViewController.swift; sourceTree = "<group>"; };
+		F1C6CD13206B6476006D793F /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
+		F1C6CD15206B65AD006D793F /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		F1D5D2941DD70DED00D9DC1F /* LocationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationListViewController.swift; sourceTree = "<group>"; };
 		F1D5D2991DD85B3700D9DC1F /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		F1D5D29E1DD85DA100D9DC1F /* PlaceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTests.swift; sourceTree = "<group>"; };
@@ -280,6 +284,7 @@
 		348BC3341DD1AF3900638D66 = {
 			isa = PBXGroup;
 			children = (
+				F1C6CD13206B6476006D793F /* APIKeys.plist */,
 				F18AA5E21F84AF25002CFAE5 /* docs */,
 				348BC3631DD1AF6B00638D66 /* Podfile */,
 				348BC33F1DD1AF3900638D66 /* Locator */,
@@ -323,6 +328,7 @@
 				3498D66E1E13CEB70081ECE3 /* RibbonView.swift */,
 				342A74921E352F01009754AF /* GraphView.swift */,
 				F1E08CC61E8BD48E003561FF /* RaindropLabel.swift */,
+				F1C6CD15206B65AD006D793F /* APIKeys.swift */,
 			);
 			path = Locator;
 			sourceTree = "<group>";
@@ -572,6 +578,7 @@
 				348BC34B1DD1AF3A00638D66 /* Assets.xcassets in Resources */,
 				348BC3641DD1AF6B00638D66 /* Podfile in Resources */,
 				F11198E11E08658000D969CF /* weathericons-regular-webfont.ttf in Resources */,
+				F1C6CD14206B6476006D793F /* APIKeys.plist in Resources */,
 				F14E8C4A1E95164C00C050CC /* nevis.ttf in Resources */,
 				348BC3461DD1AF3900638D66 /* Main.storyboard in Resources */,
 			);
@@ -667,6 +674,7 @@
 				342A74931E352F01009754AF /* GraphView.swift in Sources */,
 				3440EEC11F9A064C009C9D76 /* SolarViewModel.swift in Sources */,
 				3422C05D1E1BF79E00006EB3 /* DarkMoon.swift in Sources */,
+				F1C6CD16206B65AD006D793F /* APIKeys.swift in Sources */,
 				F140C2EB1FFAB32300890242 /* DetailsView.swift in Sources */,
 				F16673411E0295ED0087C5D7 /* Location.swift in Sources */,
 				348BC3431DD1AF3900638D66 /* LocationFinderViewController.swift in Sources */,
