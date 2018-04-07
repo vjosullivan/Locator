@@ -3,4 +3,3 @@ target 'Locator' do
     pod 'GooglePlaces'
     pod 'Reveal-SDK', :configurations => ['Debug']
 end
-pod 'SwiftLint'
