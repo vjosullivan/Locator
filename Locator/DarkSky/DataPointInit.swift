@@ -18,8 +18,8 @@ extension DataPoint {
         apparentTemperature = getTemperature(from: dictionary["apparentTemperature"], unit: units.temperature)
         apparentTemperatureMax = getTemperature(from: dictionary["apparentTemperatureMax"], unit: units.temperature)
         apparentTemperatureMin = getTemperature(from: dictionary["apparentTemperatureMin"], unit: units.temperature)
-        apparentTemperatureMaxTime = Date(unixDate: dictionary["apparentTemperatureMaxTime"])
-        apparentTemperatureMinTime = Date(unixDate: dictionary["apparentTemperatureMinTime"])
+        apparentTemperatureHighTime = Date(unixDate: dictionary["apparentTemperatureHighTime"])
+        apparentTemperatureLowTime = Date(unixDate: dictionary["apparentTemperatureLowTime"])
 
         cloudCover = dictionary["cloudCover"]?.doubleValue
         dewPoint   = OptionalMeasurement(value: dictionary["dewPoint"], unit: units.temperature)
@@ -49,8 +49,8 @@ extension DataPoint {
         temperature = getTemperature(from: dictionary["temperature"], unit: units.temperature)
         temperatureMax = getTemperature(from: dictionary["temperatureMax"], unit: units.temperature)
         temperatureMin = getTemperature(from: dictionary["temperatureMin"], unit: units.temperature)
-        temperatureMaxTime = Date(unixDate: dictionary["temperatureMaxTime"])
-        temperatureMinTime = Date(unixDate: dictionary["temperatureMinTime"])
+        temperatureHighTime = Date(unixDate: dictionary["temperatureHighTime"])
+        temperatureLowTime = Date(unixDate: dictionary["temperatureLowTime"])
 
         visibility  = OptionalMeasurement(value: dictionary["visibility"], unit: units.distance)
         windBearing = OptionalMeasurement(value: dictionary["windBearing"], unit: units.angle)

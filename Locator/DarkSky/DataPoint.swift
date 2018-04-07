@@ -18,11 +18,11 @@ struct DataPoint {
     /// The maximum apparent or "feels like" temperature of the day.  Only given on daily data point.  Optional.
     let apparentTemperatureMax: Measurement<UnitTemperature>?
     /// The UNIX time of when apparentTemperatureMax occurs during a given day.
-    let apparentTemperatureMaxTime: Date?
+    let apparentTemperatureHighTime: Date?
     /// The minimum apparent or "feels like" temperature of the day.  Only given on daily data point.  Optional.
     let apparentTemperatureMin: Measurement<UnitTemperature>?
     /// The UNIX time of when apparentTemperatureMin occurs during a given day.  Optional.
-    let apparentTemperatureMinTime: Date?
+    let apparentTemperatureLowTime: Date?
 
     /// The percentage (sic.) of sky occluded by clouds, between 0 and 1, inclusive.  Optional.
     let cloudCover: Double?
@@ -91,11 +91,11 @@ struct DataPoint {
     /// The maximum value of temperature during a given day.  Only on daily.  Optional.
     let temperatureMax: Measurement<UnitTemperature>?
     /// The UNIX time of when temperatureMax occurs during a given day.  Only on daily.  Optional.
-    let temperatureMaxTime: Date?
+    let temperatureHighTime: Date?
     /// The minimum value of temperature during a given day.  Only on daily.  Optional.
     let temperatureMin: Measurement<UnitTemperature>?
     /// The UNIX time of when temperatureMin occurs during a given day.  Only on daily.  Optional.
-    let temperatureMinTime: Date?
+    let temperatureLowTime: Date?
 
     /// The average visibility (capped at approx. 10 miles).
     let visibility: Measurement<UnitLength>?

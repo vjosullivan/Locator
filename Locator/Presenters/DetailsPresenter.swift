@@ -25,12 +25,12 @@ class DetailsPresenter {
     public func viewCreated(view: DetailsView) {
         let minData = formatTemperatureData(prefix: "Low",
                                             temperature: forecast.today?.temperatureMin,
-                                            time: forecast.today?.temperatureMinTime,
+                                            time: forecast.today?.temperatureLowTime,
                                             timeZone: forecast.timeZone)
         view.minimum(temperature: minData.temperatureText, time: minData.timeText, highlight: minData.highlight)
         let maxData = formatTemperatureData(prefix: "High",
                                             temperature: forecast.today?.temperatureMax,
-                                            time: forecast.today?.temperatureMaxTime,
+                                            time: forecast.today?.temperatureHighTime,
                                             timeZone: forecast.timeZone)
         view.maximum(temperature: maxData.temperatureText, time: maxData.timeText, highlight: maxData.highlight)
 
