@@ -16,8 +16,8 @@ extension DataPoint {
         time = Date(timeIntervalSince1970: timeValue)
 
         apparentTemperature = getTemperature(from: dictionary["apparentTemperature"], unit: units.temperature)
-        apparentTemperatureMax = getTemperature(from: dictionary["apparentTemperatureMax"], unit: units.temperature)
-        apparentTemperatureMin = getTemperature(from: dictionary["apparentTemperatureMin"], unit: units.temperature)
+        apparentTemperatureHigh = getTemperature(from: dictionary["apparentTemperatureHigh"], unit: units.temperature)
+        apparentTemperatureLow = getTemperature(from: dictionary["apparentTemperatureLow"], unit: units.temperature)
         apparentTemperatureHighTime = Date(unixDate: dictionary["apparentTemperatureHighTime"])
         apparentTemperatureLowTime = Date(unixDate: dictionary["apparentTemperatureLowTime"])
 
@@ -47,8 +47,8 @@ extension DataPoint {
         sunsetTime  = Date(unixDate: dictionary["sunsetTime"])
 
         temperature = getTemperature(from: dictionary["temperature"], unit: units.temperature)
-        temperatureMax = getTemperature(from: dictionary["temperatureMax"], unit: units.temperature)
-        temperatureMin = getTemperature(from: dictionary["temperatureMin"], unit: units.temperature)
+        temperatureHigh = getTemperature(from: dictionary["temperatureHigh"], unit: units.temperature)
+        temperatureLow = getTemperature(from: dictionary["temperatureLow"], unit: units.temperature)
         temperatureHighTime = Date(unixDate: dictionary["temperatureHighTime"])
         temperatureLowTime = Date(unixDate: dictionary["temperatureLowTime"])
 
