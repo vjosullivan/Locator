@@ -45,9 +45,9 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
         // data is to be displayed and limited by the data available.
         if let forecast = forecast {
             if detailType == .day {
-                return Swift.min(dayLineCount, forecast.daily?.dataPoints?.count ?? 0)
-            } else {
                 return Swift.min(hourLineCount, forecast.hourly?.dataPoints?.count ?? 0)
+            } else {
+                return Swift.min(dayLineCount, forecast.daily?.dataPoints?.count ?? 0)
             }
         } else {
             return 0
