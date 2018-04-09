@@ -182,7 +182,7 @@ class MainViewController: UIViewController {
                                     cornerRadius: self.cornerRadius)
             self.solarVC?.backgroundColor = pageColor
             self.solarVC?.cornerRadius    = self.cornerRadius
-            self.solarVC?.viewModel       = SolarViewModel(with: forecastXXXXX, today: forecast.today)
+            self.solarVC?.viewModel       = SolarViewModel(today: forecast.today)
             self.detailsVC?.configure(presenter: DetailsPresenter(forecast: forecastXXXXX, clock: SystemClock()),
                                       backgroundColor: pageColor,
                                       cornerRadius: self.cornerRadius)

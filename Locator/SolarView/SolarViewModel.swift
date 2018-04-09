@@ -24,91 +24,27 @@ class SolarViewModel: SolarViewRepresentable {
     var moonPhaseIcon: String
     var moonPhaseText: String
 
-    init(with forecast: DarkSkyForecast, today: DataPointCodableViewModel) {
+    init(today: DataPointCodableViewModel) {
 
         sunriseTimeAtLocation = today.sunrise
         sunsetTimeAtLocation  = today.sunset
-        if TimeZone.current.identifier != forecast.timeZone {
-            sunriseTimeAtDevice = today.sunriseDeviceTimezone
-            sunsetTimeAtDevice  = today.sunsetDeviceTimezone
+        if TimeZone.current.identifier != today.timeZone {
+            sunriseTimeAtDevice = today.sunriseUsingDeviceTimezone
+            sunsetTimeAtDevice  = today.sunsetUsingDeviceTimezone
         } else {
             sunriseTimeAtDevice = ""
             sunsetTimeAtDevice  = ""
         }
 
-        sunriseIcon = (sunriseTimeAtLocation.isEmpty || forecast.today?.sunriseTime == nil)
-            ? Weather.stars.symbol : Weather.sunrise.symbol
-        sunsetIcon  = (sunsetTimeAtLocation.isEmpty || forecast.today?.sunsetTime == nil)
-            ? Weather.stars.symbol : Weather.sunset.symbol
+        sunriseIcon = today.sunriseIcon
+        sunsetIcon  = today.sunsetIcon
 
-        sunHasRisenToday = SystemClock().currentDateTime.isAfter(forecast.today?.sunriseTime ?? Date.distantFuture)
-        sunHasSetToday   = SystemClock().currentDateTime.isAfter(forecast.today?.sunsetTime ?? Date.distantFuture)
+        sunHasRisenToday = today.sunriseHasOccurred
+        sunHasSetToday   = today.sunsetHasOccurred
 
-        timeToSunRiseOrSet = SolarViewModel.nextSunrise(
-            now: SystemClock().currentDateTime, sunrise: forecast.today?.sunriseTime, sunset: forecast.today?.sunsetTime)
+        timeToSunRiseOrSet = today.timeToNextSunRiseOrSet
 
-        if let moonPhase = forecast.today?.moonPhase {
-            moonPhaseIcon = DarkMoon.symbol(from: moonPhase)
-            moonPhaseText = DarkMoon.name(from: moonPhase)
-        } else {
-            moonPhaseIcon = ""
-            moonPhaseText = ""
-        }
-    }
-
-    private static func nextSunrise(now: Date, sunrise: Date?, sunset: Date?) -> String {
-        guard let sunrise = sunrise, let sunset = sunset else {
-            return ""
-        }
-        if sunrise.isAfter(now) && (sunset.isAfter(sunrise) || now.isAfter(sunset)) {
-            return timeToEvent(called: "Sunrise", at: sunrise, from: now)
-        }
-        if sunset.isAfter(now) && (sunrise.isAfter(sunset) || now.isAfter(sunrise)) {
-            return timeToEvent(called: "Sunset", at: sunset, from: now)
-        }
-        return ""
-    }
-
-    /// Return a longhand description of the time remaining until the named event occurs.
-    ///
-    /// - Parameters:
-    ///   - name: The name of the event (e.g. "Sunrise")
-    ///   - time: The date of the occurrence of the event.
-    ///           If the date is not a future date, an empty `String` is returned.
-    /// - Returns: A longhand description of the time remaining to the named event.
-    ///
-    private static func timeToEvent(called name: String, at time: Date, from now: Date) -> String {
-        guard time.isAfter(now) else {
-            return ""
-        }
-        let minutes = Int(time.timeIntervalSince(now) / 60.0)
-        if minutes < 60 {
-            let plural = minutes == 1 ? "" : "s"
-            return "\(name) in \(minutes) minute\(plural)."
-        }
-        var hours = minutes / 60
-        let preposition: String
-        switch (minutes % 60) {
-        case 1...5:
-            preposition = "About"
-        case 6...15:
-            preposition = "Just over"
-        case 16...30:
-            preposition = "Over"
-        case 31...45:
-            preposition = "Well under"
-            hours += 1
-        case 46...55:
-            preposition = "Under"
-            hours += 1
-        case 56...59:
-            preposition = "Just under"
-            hours += 1
-        default:
-            preposition = "almost exactly"
-        }
-        let plural = hours == 1 ? "" : "s"
-
-        return "\(preposition) \(hours) hour\(plural) to \(name)."
+        moonPhaseIcon = today.moonIcon
+        moonPhaseText = today.moonText
     }
 }
