@@ -39,7 +39,7 @@ struct Alert {
         let form2 = DateFormatter()
         form2.dateStyle = .medium
         form2.timeStyle = .short
-        var text = "Issued: \(form1.string(from: issued)), \(form2.string(from: issued))."
+        var text = "\(form1.string(from: issued)), \(form2.string(from: issued))."
         if includeExpiry, let expires = expires {
             text += "  Expires: \(form1.string(from: expires)), \(form2.string(from: expires))."
         }
