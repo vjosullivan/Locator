@@ -22,7 +22,7 @@ class WeatherHandler: NSObject, UITableViewDataSource, UITableViewDelegate {
 
     // MARK: - Local constants and variables.
 
-    private let hourLineCount = 37 // The number of lines of hour by hour weather displayed.
+    private let hourLineCount = 49 // The number of lines of hour by hour weather displayed.
     private let dayLineCount  = 15 // The number of lines of day by day weather displayed.
 
     private var forecast: DarkSkyForecast?
