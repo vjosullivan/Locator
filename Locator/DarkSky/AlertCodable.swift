@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+struct AlertCodable: Codable {
+    let description: String?
+    let expires: Date?
+    let regions: [String]?
+    let severity: String?
+    let time: Date?
+    let title: String?
+    let uri: URL?
+}

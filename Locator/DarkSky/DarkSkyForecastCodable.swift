@@ -7,3 +7,24 @@
 //
 
 import Foundation
+
+struct DarkSkyForecastCodable: Codable {
+    let latitude:  Double
+    let longitude: Double
+    let timezone:  String
+
+    let currently: DataPointCodable?
+    
+    let minutely:  DataBlockCodable?
+    let hourly:    DataBlockCodable?
+    let daily:     DataBlockCodable?
+
+    let alerts:    [AlertCodable]?
+    let flags:     FlagsCodable?
+}
+
+extension DarkSkyForecastCodable: CustomStringConvertible {
+    var description: String {
+        return String("\(latitude), \(longitude) (\(timezone))")
+    }
+}

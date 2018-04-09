@@ -11,5 +11,5 @@ import Foundation
 struct DataBlockCodable: Codable {
     let icon: String?
     let summary: String?
-    let data: [DataPointCodable]?
+    let data: [DataPointCodable]
 }
