@@ -71,11 +71,15 @@ struct DataPointCodableViewModel {
     }
 
     public var temperature: String {
-        if let temperature = dataPoint?.apparentTemperature {
-            return "\(Int(round(temperature)))\(temperatureSymbol(units: units))"
-        } else {
-            return ""
-        }
+        return formatted(temperature: dataPoint?.apparentTemperature)
+    }
+
+    public var temperatureHigh: String {
+        return formatted(temperature: dataPoint?.apparentTemperatureHigh)
+    }
+
+    public var temperatureLow: String {
+        return formatted(temperature: dataPoint?.apparentTemperatureLow)
     }
 
     public var timeToNextSunRiseOrSet: String {
@@ -109,6 +113,13 @@ struct DataPointCodableViewModel {
     }
 
     // MARK: - Private functions
+
+    private func formatted(temperature: Double?) -> String {
+        guard let temperature = temperature else {
+            return ""
+        }
+        return "\(Int(round(temperature)))\(temperatureSymbol(units: units))"
+    }
 
     private func temperatureSymbol(units: String) -> String {
         switch units {
