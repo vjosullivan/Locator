@@ -24,16 +24,13 @@ class SolarViewModel: SolarViewRepresentable {
     var moonPhaseIcon: String
     var moonPhaseText: String
 
-    private let clock: Clock
+    init(with forecast: DarkSkyForecast, today: DataPointCodableViewModel) {
 
-    init(with forecast: DarkSkyForecast, clock: Clock) {
-        self.clock = clock
-
-        sunriseTimeAtLocation = forecast.today?.sunriseTime?.asHMZ(timeZone: forecast.timeZone) ?? "No sunrise"
-        sunsetTimeAtLocation  = forecast.today?.sunsetTime?.asHMZ(timeZone: forecast.timeZone) ?? "No sunset"
+        sunriseTimeAtLocation = today.sunrise
+        sunsetTimeAtLocation  = today.sunset
         if TimeZone.current.identifier != forecast.timeZone {
-            sunriseTimeAtDevice = forecast.today?.sunriseTime?.asHMZ(timeZone: TimeZone.current.identifier) ?? ""
-            sunsetTimeAtDevice  = forecast.today?.sunsetTime?.asHMZ(timeZone: TimeZone.current.identifier) ?? ""
+            sunriseTimeAtDevice = today.sunriseDeviceTimezone
+            sunsetTimeAtDevice  = today.sunsetDeviceTimezone
         } else {
             sunriseTimeAtDevice = ""
             sunsetTimeAtDevice  = ""
@@ -44,11 +41,11 @@ class SolarViewModel: SolarViewRepresentable {
         sunsetIcon  = (sunsetTimeAtLocation.isEmpty || forecast.today?.sunsetTime == nil)
             ? Weather.stars.symbol : Weather.sunset.symbol
 
-        sunHasRisenToday = clock.currentDateTime.isAfter(forecast.today?.sunriseTime ?? Date.distantFuture)
-        sunHasSetToday   = clock.currentDateTime.isAfter(forecast.today?.sunsetTime ?? Date.distantFuture)
+        sunHasRisenToday = SystemClock().currentDateTime.isAfter(forecast.today?.sunriseTime ?? Date.distantFuture)
+        sunHasSetToday   = SystemClock().currentDateTime.isAfter(forecast.today?.sunsetTime ?? Date.distantFuture)
 
         timeToSunRiseOrSet = SolarViewModel.nextSunrise(
-            now: clock.currentDateTime, sunrise: forecast.today?.sunriseTime, sunset: forecast.today?.sunsetTime)
+            now: SystemClock().currentDateTime, sunrise: forecast.today?.sunriseTime, sunset: forecast.today?.sunsetTime)
 
         if let moonPhase = forecast.today?.moonPhase {
             moonPhaseIcon = DarkMoon.symbol(from: moonPhase)

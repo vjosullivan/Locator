@@ -10,33 +10,19 @@ import Foundation
 
 class FrontViewPresenter {
 
-    private let forecast: DarkSkyForecast
-    private let clock: Clock
+    private let current: DataPointCodableViewModel
     private var view: FrontView?
 
-    init(forecast: DarkSkyForecast, clock: Clock) {
-        self.forecast = forecast
-        self.clock = clock
+    init(currentWeather current: DataPointCodableViewModel) {
+        self.current = current
     }
 
     public func viewCreated(view: FrontView) {
+        view.setSettingsButton(title: "Settings")
+        view.setSolarButton(title: "Daylight")
+        view.setDetailsButton(title: "Details")
+        view.setLocationButton(title: "Location")
+        view.updateWeatherText(temperature: current.temperature, weather: current.summary.uppercased())
         self.view = view
-
-        self.view?.setSettingsButton(title: "Settings")
-        self.view?.setSolarButton(title: "Daylight")
-        self.view?.setDetailsButton(title: "Details")
-        self.view?.setLocationButton(title: "Location")
-
-        updateCurrentWeather()
-    }
-
-    private func updateCurrentWeather() {
-        var temperatureText = ""
-        if let temperature = forecast.current?.temperature {
-            temperatureText  = "\(Int(round(temperature.value)))\(temperature.unit.symbol)"
-        }
-        let weatherText = forecast.current?.summary?.uppercased() ?? ""
-
-        view?.updateWeatherText(temperature: temperatureText, weather: weatherText)
     }
 }

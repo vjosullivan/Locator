@@ -45,10 +45,10 @@ class SettingsViewController: UIViewController {
         setOption1(option1Settings)
     }
 
-    func update(forecast: DarkSkyForecast, backgroundColor: UIColor, cornerRadius: CGFloat) {
+    func update(units: String, backgroundColor: UIColor, cornerRadius: CGFloat) {
         let foregroundColor = backgroundColor.darker
 
-        AppSettings.store(key: "units", value: forecast.unitsCode)
+        AppSettings.store(key: "units", value: units)
 
         returnButton.setTitleColor(foregroundColor, for: .normal)
         let textColor = backgroundColor.darker

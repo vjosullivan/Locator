@@ -13,7 +13,6 @@ class MainViewController: UIViewController {
 
     // MARK: - Local constants and variables.
 
-    let radianConvertion = CGFloat.pi / 180.0
     private let cornerRadius: CGFloat = MainViewController.deviceIsIPhoneX ? 42 : 12
 
     @IBOutlet weak var rainIntensity: GraphView!
@@ -143,8 +142,9 @@ class MainViewController: UIViewController {
         activityIndicator.startAnimating()
         //locationLabel.text = "·"
         darkSky.fetchForecast(
-            completionHandler: { darkSkyForecast in
-                self.updateForcast(using: darkSkyForecast, for: place)},
+            completionHandler: { (darkSkyForecast, darkSkyForecastCodable) in
+                let forecastViewModel = DarkSkyForecastViewModel(darkSkyForecastModel: darkSkyForecastCodable)
+                self.updateForcast(using: darkSkyForecast, forecast: forecastViewModel, for: place)},
             errorHandler: { errorText in
                 let alertController = UIAlertController(
                     title: "No Weather Today",
@@ -161,7 +161,7 @@ class MainViewController: UIViewController {
         )
     }
 
-    private func updateForcast(using forecast: DarkSkyForecast, for place: Place) {
+    private func updateForcast(using forecastXXXXX: DarkSkyForecast, forecast: DarkSkyForecastViewModel, for place: Place) {
         DispatchQueue.main.async {
             let displayOption1: DisplayOption1
             switch AppSettings.retrieve(key: "option1", defaultValue: "wind") {
@@ -172,45 +172,45 @@ class MainViewController: UIViewController {
             }
             let pageColor = UIColor.randomPastel()
             self.locationLabel.backgroundColor = pageColor
-            self.updateCurrentWeather(with: forecast, for: place, in: pageColor)
-            self.frontVC?.configure(presenter: FrontViewPresenter(forecast: forecast, clock: SystemClock()),
+            self.updateCurrentWeather(with: forecast.current, for: place, in: pageColor)
+            self.frontVC?.configure(presenter: FrontViewPresenter(currentWeather: forecast.current),
                                     backgroundColor: pageColor,
                                     cornerRadius: self.cornerRadius,
                                     container: self)
-            //self.frontVC?.updateData(forecast: darkSkyForecast)
-            self.settingsVC?.update(forecast: forecast,
+            self.settingsVC?.update(units: forecast.units,
                                     backgroundColor: pageColor,
                                     cornerRadius: self.cornerRadius)
             self.solarVC?.backgroundColor = pageColor
             self.solarVC?.cornerRadius    = self.cornerRadius
-            self.solarVC?.viewModel       = SolarViewModel(with: forecast, clock: SystemClock())
-            self.detailsVC?.configure(presenter: DetailsPresenter(forecast: forecast, clock: SystemClock()),
+            self.solarVC?.viewModel       = SolarViewModel(with: forecastXXXXX, today: forecast.today)
+            self.detailsVC?.configure(presenter: DetailsPresenter(forecast: forecastXXXXX, clock: SystemClock()),
                                       backgroundColor: pageColor,
                                       cornerRadius: self.cornerRadius)
-            self.hourVC?.update(forecast: forecast,
+            self.hourVC?.update(forecast: forecastXXXXX,
                                 backgroundColor: pageColor,
                                 cornerRadius: self.cornerRadius)
-            self.dayVC?.update(forecast: forecast,
+            self.dayVC?.update(forecast: forecastXXXXX,
                                backgroundColor: pageColor,
                                cornerRadius: self.cornerRadius, container: self, displayOption1: displayOption1)
-            self.weekVC?.update(forecast: forecast,
+            self.weekVC?.update(forecast: forecastXXXXX,
                                 backgroundColor: pageColor,
                                 cornerRadius: self.cornerRadius, displayOption1: displayOption1)
-            self.creditsVC?.update(forecast: forecast,
+            self.creditsVC?.update(forecast: forecastXXXXX,
                                    backgroundColor: pageColor,
                                    cornerRadius: self.cornerRadius)
-            self.alertsVC?.update(forecast: forecast,
+            self.alertsVC?.update(forecast: forecastXXXXX,
                                   backgroundColor: pageColor,
                                   cornerRadius: self.cornerRadius)
         }
     }
 
-    private func updateCurrentWeather(with forecast: DarkSkyForecast, for place: Place, in color: UIColor) {
+    private func updateCurrentWeather(with current: DataPointCodableViewModel, for place: Place, in color: UIColor) {
         locationLabel.text = place.region != "" ? place.region : place.name
-        let weather = Weather.representedBy(darkSkyIcon: forecast.current?.icon ?? "")
-        currentWeatherSymbol.text = weather.symbol
+        currentWeatherSymbol.text = current.weatherSymbol
         currentWeatherBackground.backgroundColor = color
-        let darkWeatherColor = (weather.color != UIColor.yellow) ? weather.color.darker(by: 0.33) : weather.color
+        // Darken the weather icon (unless it's yellow/sunshine).
+        let iconColor = current.weatherSymbolColor
+        let darkWeatherColor = (iconColor != UIColor.yellow) ? iconColor.darker(by: 0.33) : iconColor
         currentWeatherSymbol.textColor = darkWeatherColor
 
         addImageToBackground(backgroundColor: color.darker)

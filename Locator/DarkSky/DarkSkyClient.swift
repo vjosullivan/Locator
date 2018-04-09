@@ -47,7 +47,10 @@ struct DarkSkyClient {
         task.resume()
     }
 
-    func fetchForecast(completionHandler: @escaping (DarkSkyForecast) -> Void, errorHandler: @escaping (String) -> Void) {
+    func fetchForecast(
+        completionHandler: @escaping (DarkSkyForecast, DarkSkyForecastCodable) -> Void,
+        errorHandler: @escaping (String) -> Void) {
+
         fetchData {(data, _, error) in
             guard let data = data else {
                 if let error = error {
@@ -56,14 +59,21 @@ struct DarkSkyClient {
                 return
             }
             do {
+                print("A")
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .secondsSince1970
+                let forecastCodable = try decoder.decode(DarkSkyForecastCodable.self, from: data)
+                print("B")
                 if let json = try JSONSerialization.jsonObject(
                     with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String: AnyObject] {
+                    print("\(json)")
                     if let forecast = DarkSkyForecast(dictionary: json) {
-                        completionHandler(forecast)
+                        completionHandler(forecast, forecastCodable)
                     } else {
                         errorHandler("Unable to create a forecast from the weather data.")
                     }
                 }
+                print("Z")
             } catch {
                 errorHandler("Unable to read the weather data.")
             }

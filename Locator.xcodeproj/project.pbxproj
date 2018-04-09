@@ -89,6 +89,14 @@
 		F1DB07971FF680840032FF6D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1DB07961FF680830032FF6D /* CoreData.framework */; };
 		F1E08CC71E8BD48E003561FF /* RaindropLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E08CC61E8BD48E003561FF /* RaindropLabel.swift */; };
 		F1E08CC91E8D019E003561FF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E08CC81E8D019E003561FF /* Alert.swift */; };
+		F1E9C3E42078B2B30075CBA0 /* DarkSkyForecastCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E9C3E32078B2B30075CBA0 /* DarkSkyForecastCodable.swift */; };
+		F1E9C3E62078BD720075CBA0 /* DataPointCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E9C3E52078BD720075CBA0 /* DataPointCodable.swift */; };
+		F1E9C3E820794E530075CBA0 /* DataBlockCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E9C3E720794E530075CBA0 /* DataBlockCodable.swift */; };
+		F1E9C3EC207957A00075CBA0 /* AlertCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E9C3EB207957A00075CBA0 /* AlertCodable.swift */; };
+		F1E9C3EE207A11FC0075CBA0 /* FlagsCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E9C3ED207A11FC0075CBA0 /* FlagsCodable.swift */; };
+		F1E9C3F0207A20E40075CBA0 /* DarkSkyForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E9C3EF207A20E40075CBA0 /* DarkSkyForecastViewModel.swift */; };
+		F1E9C3F2207A42F60075CBA0 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E9C3F1207A42F60075CBA0 /* ViewState.swift */; };
+		F1E9C3F4207A45E60075CBA0 /* DataPointCodableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E9C3F3207A45E60075CBA0 /* DataPointCodableViewModel.swift */; };
 		F1FDE9031F9BA93300D88975 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FDE9021F9BA93300D88975 /* Clock.swift */; };
 		F1FDE9051F9BA96900D88975 /* SystemClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FDE9041F9BA96900D88975 /* SystemClock.swift */; };
 		F1FDE9071F9BAAE100D88975 /* MockClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FDE9061F9BAAE100D88975 /* MockClock.swift */; };
@@ -192,6 +200,14 @@
 		F1DB07961FF680830032FF6D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		F1E08CC61E8BD48E003561FF /* RaindropLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaindropLabel.swift; sourceTree = "<group>"; };
 		F1E08CC81E8D019E003561FF /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		F1E9C3E32078B2B30075CBA0 /* DarkSkyForecastCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkSkyForecastCodable.swift; sourceTree = "<group>"; };
+		F1E9C3E52078BD720075CBA0 /* DataPointCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPointCodable.swift; sourceTree = "<group>"; };
+		F1E9C3E720794E530075CBA0 /* DataBlockCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBlockCodable.swift; sourceTree = "<group>"; };
+		F1E9C3EB207957A00075CBA0 /* AlertCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCodable.swift; sourceTree = "<group>"; };
+		F1E9C3ED207A11FC0075CBA0 /* FlagsCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagsCodable.swift; sourceTree = "<group>"; };
+		F1E9C3EF207A20E40075CBA0 /* DarkSkyForecastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkSkyForecastViewModel.swift; sourceTree = "<group>"; };
+		F1E9C3F1207A42F60075CBA0 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
+		F1E9C3F3207A45E60075CBA0 /* DataPointCodableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPointCodableViewModel.swift; sourceTree = "<group>"; };
 		F1FDE9021F9BA93300D88975 /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 		F1FDE9041F9BA96900D88975 /* SystemClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemClock.swift; sourceTree = "<group>"; };
 		F1FDE9061F9BAAE100D88975 /* MockClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockClock.swift; sourceTree = "<group>"; };
@@ -411,13 +427,20 @@
 			children = (
 				F16673431E0296AB0087C5D7 /* DarkSkyClient.swift */,
 				F16673451E0297E20087C5D7 /* DarkSkyForecast.swift */,
+				F1E9C3E32078B2B30075CBA0 /* DarkSkyForecastCodable.swift */,
+				F1E9C3EF207A20E40075CBA0 /* DarkSkyForecastViewModel.swift */,
 				F16673491E0297F80087C5D7 /* DarkSkyUnits.swift */,
 				F166734D1E0298150087C5D7 /* DataPoint.swift */,
+				F1E9C3E52078BD720075CBA0 /* DataPointCodable.swift */,
+				F1E9C3F3207A45E60075CBA0 /* DataPointCodableViewModel.swift */,
+				F1E9C3E720794E530075CBA0 /* DataBlockCodable.swift */,
 				F166734E1E0298150087C5D7 /* DataPointInit.swift */,
 				F166734B1E02980C0087C5D7 /* DetailedForecast.swift */,
 				348914741E39DC3300509CA3 /* RainIntensity.swift */,
 				F1E08CC81E8D019E003561FF /* Alert.swift */,
+				F1E9C3EB207957A00075CBA0 /* AlertCodable.swift */,
 				F1884AD91E8E28CB00EA6290 /* Alerts.swift */,
+				F1E9C3ED207A11FC0075CBA0 /* FlagsCodable.swift */,
 			);
 			path = DarkSky;
 			sourceTree = "<group>";
@@ -468,6 +491,7 @@
 				3422C05C1E1BF79E00006EB3 /* DarkMoon.swift */,
 				F1D60DD21E27E39000E7059C /* Weather.swift */,
 				34DF48E61E292ADB00AC4E16 /* AppSettings.swift */,
+				F1E9C3F1207A42F60075CBA0 /* ViewState.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -672,6 +696,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1E9C3F0207A20E40075CBA0 /* DarkSkyForecastViewModel.swift in Sources */,
 				F14E8C4D1E96139B00C050CC /* UIColor_pastel.swift in Sources */,
 				3403E8711E8E7A35003F7026 /* AlertsHandler.swift in Sources */,
 				34DF48E71E292ADB00AC4E16 /* AppSettings.swift in Sources */,
@@ -689,14 +714,17 @@
 				348BC3431DD1AF3900638D66 /* LocationFinderViewController.swift in Sources */,
 				34A540B01E35F73000FD7C6E /* WeekViewController.swift in Sources */,
 				F1D5D2951DD70DED00D9DC1F /* LocationListViewController.swift in Sources */,
+				F1E9C3F2207A42F60075CBA0 /* ViewState.swift in Sources */,
 				F166734A1E0297F80087C5D7 /* DarkSkyUnits.swift in Sources */,
 				F17C199A1EAF16A800DEC23D /* FrontView.swift in Sources */,
 				F1884ADA1E8E28CB00EA6290 /* Alerts.swift in Sources */,
+				F1E9C3EE207A11FC0075CBA0 /* FlagsCodable.swift in Sources */,
 				F16673441E0296AB0087C5D7 /* DarkSkyClient.swift in Sources */,
 				34BB1CF21E2E6DE400595C91 /* FrontViewController.swift in Sources */,
 				34AC7E1E1E1E8AFB00BF33E0 /* String_extension.swift in Sources */,
 				348BC3411DD1AF3900638D66 /* AppDelegate.swift in Sources */,
 				F176BBBD1F9B36A600E78E1C /* SolarViewRespresentable.swift in Sources */,
+				F1E9C3F4207A45E60075CBA0 /* DataPointCodableViewModel.swift in Sources */,
 				34A540AE1E35F70100FD7C6E /* DayViewController.swift in Sources */,
 				348914751E39DC3300509CA3 /* RainIntensity.swift in Sources */,
 				F11F081B1E88527500231BEF /* WeatherHandler.swift in Sources */,
@@ -707,6 +735,7 @@
 				F1E08CC71E8BD48E003561FF /* RaindropLabel.swift in Sources */,
 				34F5A5001E23D6A600E66AC1 /* Font_extension.swift in Sources */,
 				340FBA091E1A8B1600E2FAD4 /* SettingsViewController.swift in Sources */,
+				F1E9C3EC207957A00075CBA0 /* AlertCodable.swift in Sources */,
 				F16673501E0298150087C5D7 /* DataPointInit.swift in Sources */,
 				F11F081D1E8856AF00231BEF /* WeatherTableViewCell.swift in Sources */,
 				3403E86F1E8E7439003F7026 /* Int_extension.swift in Sources */,
@@ -721,11 +750,14 @@
 				34F5A4FE1E239E2000E66AC1 /* TimeZone_extension.swift in Sources */,
 				348148731E15C1AD00079056 /* SolarViewController.swift in Sources */,
 				F1B662431E866FB20095F16A /* AlertsViewController.swift in Sources */,
+				F1E9C3E42078B2B30075CBA0 /* DarkSkyForecastCodable.swift in Sources */,
+				F1E9C3E820794E530075CBA0 /* DataBlockCodable.swift in Sources */,
 				3453E2CC1E10730A004D5F46 /* UIColor_extension.swift in Sources */,
 				F166734F1E0298150087C5D7 /* DataPoint.swift in Sources */,
 				F172E53F1DD705A100DDFB8E /* MainViewController.swift in Sources */,
 				F1E08CC91E8D019E003561FF /* Alert.swift in Sources */,
 				3422C05B1E1BD01000006EB3 /* Date_extension.swift in Sources */,
+				F1E9C3E62078BD720075CBA0 /* DataPointCodable.swift in Sources */,
 				F1FDE9051F9BA96900D88975 /* SystemClock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
